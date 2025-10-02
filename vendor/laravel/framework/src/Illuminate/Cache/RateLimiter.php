@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存速率限制类
+ * 缓存，缓存速率限制类
  */
 
 namespace Illuminate\Cache;

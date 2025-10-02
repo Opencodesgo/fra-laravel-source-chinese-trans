@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，没有等待中迁移
+ * 数据库，事件，没有等待中迁移
  */
 
 namespace Illuminate\Database\Events;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 可序列化的闭包
+ * 队列，可序列化的闭包
  */
 
 namespace Illuminate\Queue;

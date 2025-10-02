@@ -1,6 +1,6 @@
 <?php
 /**
- * 验证控制器
+ * App，Http，验证控制器
  */
 
 namespace App\Http\Controllers\Auth;
@@ -19,6 +19,8 @@ class VerificationController extends Controller
     | This controller is responsible for handling email verification for any
     | user that recently registered with the application. Emails may also
     | be re-sent if the user didn't receive the original email message.
+	| 这个控制器负责处理最近注册了应用的任何电子邮件的验证用户。
+	| 电子邮件也可能被重发，如果用户没有收到原始的电子邮件消息。
     |
     */
 
@@ -26,6 +28,7 @@ class VerificationController extends Controller
 
     /**
      * Where to redirect users after verification.
+	 * 在验证后重定向用户
      *
      * @var string
      */

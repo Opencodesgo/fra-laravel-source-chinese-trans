@@ -1,6 +1,6 @@
 <?php
 /**
- * 创建应用
+ * 测试，创建应用
  */
 
 namespace Tests;

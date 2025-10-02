@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent JSON编码异常
+ * 数据库，Eloquent，JSON编码异常
  */
 
 namespace Illuminate\Database\Eloquent;

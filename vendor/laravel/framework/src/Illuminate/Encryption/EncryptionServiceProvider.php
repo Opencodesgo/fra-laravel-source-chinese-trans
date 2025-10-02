@@ -1,6 +1,6 @@
 <?php
 /**
- * 加密服务提供者
+ * 加密，加密服务提供者
  */
 
 namespace Illuminate\Encryption;

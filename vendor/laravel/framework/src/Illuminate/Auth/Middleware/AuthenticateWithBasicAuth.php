@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，使用基本认证进行身份验证
+ * 授权，使用基本认证进行身份验证
  */
 
 namespace Illuminate\Auth\Middleware;

@@ -12,6 +12,7 @@ return [
     | Here you may specify which of the database connections below you wish
     | to use as your default connection for all database work. Of course
     | you may use many connections at once using the Database library.
+	| 在这里,您可以指定您所希望的数据库连接哪一个。
     |
     */
 
@@ -25,6 +26,7 @@ return [
     | Here are each of the database connections setup for your application.
     | Of course, examples of configuring each database platform that is
     | supported by Laravel is shown below to make development simple.
+	| 这里是您的应用程序的每个数据库连接设置。
     |
     |
     | All database work in Laravel is done through the PHP PDO facilities
@@ -101,6 +103,7 @@ return [
     | This table keeps track of all the migrations that have already run for
     | your application. Using this information, we can determine which of
     | the migrations on disk haven't actually been run in the database.
+	| 这张表记录了已经运行的所有迁移。
     |
     */
 

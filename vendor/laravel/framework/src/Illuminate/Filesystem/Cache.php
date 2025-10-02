@@ -1,6 +1,6 @@
 <?php
 /**
- * 文件系统Cache
+ * 文件系统，缓存Cache
  */
 
 namespace Illuminate\Filesystem;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，连接，数据库连接
+ * 队列，连接器，数据库连接
  */
 
 namespace Illuminate\Queue\Connectors;

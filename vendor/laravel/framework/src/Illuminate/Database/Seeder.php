@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库播种抽象类
+ * 数据库，播种抽象类
  */
 
 namespace Illuminate\Database;

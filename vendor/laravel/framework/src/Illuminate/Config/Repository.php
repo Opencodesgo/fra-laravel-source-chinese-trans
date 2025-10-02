@@ -1,6 +1,6 @@
 <?php
 /**
- * 配置资源库
+ * 配置，资源库
  */
 
 namespace Illuminate\Config;

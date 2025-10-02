@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，密码重置
+ * 授权，事件，密码重置
  */
 
 namespace Illuminate\Auth\Events;

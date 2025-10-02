@@ -28,7 +28,7 @@ class ApcWrapper
 
     /**
      * Get an item from the cache.
-	 * 得到一个项目从缓存中
+	 * 得到缓存项目
      *
      * @param  string  $key
      * @return mixed
@@ -40,7 +40,7 @@ class ApcWrapper
 
     /**
      * Store an item in the cache.
-	 * 缓存一个项目至缓存中
+	 * 存储一个缓存项目
      *
      * @param  string  $key
      * @param  mixed  $value

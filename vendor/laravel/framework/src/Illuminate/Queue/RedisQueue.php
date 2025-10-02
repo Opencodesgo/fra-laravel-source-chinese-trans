@@ -1,6 +1,6 @@
 <?php
 /**
- * Redis队列
+ * 队列，Redis队列
  */
 
 namespace Illuminate\Queue;

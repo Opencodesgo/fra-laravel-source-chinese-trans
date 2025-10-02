@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库检测并发错误
+ * 数据库，检测并发错误
  */
 
 namespace Illuminate\Database;

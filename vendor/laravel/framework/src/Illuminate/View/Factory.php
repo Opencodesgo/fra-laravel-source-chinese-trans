@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图工厂
+ * 视图，工厂
  */
 
 namespace Illuminate\View;

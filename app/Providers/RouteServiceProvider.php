@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
 {
     /**
      * This namespace is applied to your controller routes.
-	 * 命名空间
+	 * 这个名称空间应用于你的控制器路由
      *
      * In addition, it is set as the URL generator's root namespace.
      *
@@ -22,7 +22,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * The path to the "home" route for your application.
-	 * 路由目录
+	 * 应用的"home"路径
      *
      * @var string
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，确保邮件是经过验证的
+ * 授权，确保邮件是经过验证的
  */
 
 namespace Illuminate\Auth\Middleware;

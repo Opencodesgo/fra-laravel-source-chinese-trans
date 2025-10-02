@@ -1,6 +1,6 @@
 <?php
 /**
- * 分页抽象类
+ * 分页，抽象类
  */
 
 namespace Illuminate\Pagination;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，作业抽象类
+ * 队列，任务，任务抽象类
  */
 
 namespace Illuminate\Queue\Jobs;

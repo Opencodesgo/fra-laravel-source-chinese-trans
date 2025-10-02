@@ -1,6 +1,6 @@
 <?php
 /**
- * 容器绑定方法
+ * 容器，绑定方法
  */
 
 namespace Illuminate\Container;

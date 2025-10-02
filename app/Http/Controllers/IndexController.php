@@ -1,6 +1,6 @@
 <?php
 /**
- * Index控制器，自己加可以删除！
+ * App，Http，Index控制器，自己加可以删除！
  */
 
 namespace App\Http\Controllers;

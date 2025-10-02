@@ -1,6 +1,6 @@
 <?php
 /**
- * 事件呼叫队列监听者
+ * 事件，呼叫队列监听者
  */
 
 namespace Illuminate\Events;

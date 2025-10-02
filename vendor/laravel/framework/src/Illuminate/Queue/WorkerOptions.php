@@ -1,6 +1,6 @@
 <?php
 /**
- * 执行者选项
+ * 队列，执行者选项
  */
 
 namespace Illuminate\Queue;

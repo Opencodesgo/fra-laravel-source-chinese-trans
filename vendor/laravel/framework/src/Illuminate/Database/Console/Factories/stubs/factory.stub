@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，存根文件
+ * 数据库，控制台，需要修改注释
  */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */

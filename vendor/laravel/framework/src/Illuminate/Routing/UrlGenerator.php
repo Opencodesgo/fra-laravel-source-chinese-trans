@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由URL生成器
+ * 路由，URL生成器
  */
 
 namespace Illuminate\Routing;

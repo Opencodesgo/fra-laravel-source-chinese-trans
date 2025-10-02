@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，Redis作业
+ * 队列，任务，Redis作业
  */
 
 namespace Illuminate\Queue\Jobs;

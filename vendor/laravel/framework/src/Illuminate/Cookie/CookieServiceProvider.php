@@ -1,6 +1,6 @@
 <?php
 /**
- * COOKIE服务提供者
+ * COOKIE，服务提供者
  */
 
 namespace Illuminate\Cookie;

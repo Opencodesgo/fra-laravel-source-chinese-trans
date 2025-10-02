@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，准备语句
+ * 数据库，事件，准备语句
  */
 
 namespace Illuminate\Database\Events;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份验证异常
+ * 授权，身份验证异常
  */
 
 namespace Illuminate\Auth;

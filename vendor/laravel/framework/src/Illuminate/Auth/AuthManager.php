@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份验证管理器
+ * 授权，身份验证管理器
  */
 
 namespace Illuminate\Auth;

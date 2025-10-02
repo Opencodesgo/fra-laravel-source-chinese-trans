@@ -1,6 +1,6 @@
 <?php
 /**
- * COOKIEJAR压缩
+ * COOKIE，CookieJar
  */
 
 namespace Illuminate\Cookie;

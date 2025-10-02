@@ -1,6 +1,6 @@
 <?php
 /**
- * 调取队列闭包
+ * 队列，调取队列闭包
  */
 
 namespace Illuminate\Queue;

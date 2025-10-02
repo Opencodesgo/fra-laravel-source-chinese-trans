@@ -12,6 +12,7 @@ return [
     | This option controls the default session "driver" that will be used on
     | requests. By default, we will use the lightweight native driver but
     | you may specify any of the other wonderful drivers provided here.
+	| 此选项控制将使用的默认会话"驱动程序"
     |
     | Supported: "file", "cookie", "database", "apc",
     |            "memcached", "redis", "dynamodb", "array"
@@ -28,6 +29,7 @@ return [
     | Here you may specify the number of minutes that you wish the session
     | to be allowed to remain idle before it expires. If you want them
     | to immediately expire on the browser closing, set that option.
+    | 您可以在这里指定您希望会议的分钟数。
     |
     */
 
@@ -144,7 +146,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Domain
+    | Session Cookie Domain     会话Cookie域
     |--------------------------------------------------------------------------
     |
     | Here you may change the domain of the cookie used to identify a session
@@ -157,7 +159,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTPS Only Cookies
+    | HTTPS Only Cookies    HTTPS仅Cookie
     |--------------------------------------------------------------------------
     |
     | By setting this option to true, session cookies will only be sent back
@@ -170,7 +172,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTP Access Only
+    | HTTP Access Only      仅HTTP访问
     |--------------------------------------------------------------------------
     |
     | Setting this value to true will prevent JavaScript from accessing the
@@ -183,12 +185,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Same-Site Cookies
+    | Same-Site Cookies     同样站点Cookie
     |--------------------------------------------------------------------------
     |
     | This option determines how your cookies behave when cross-site requests
     | take place, and can be used to mitigate CSRF attacks. By default, we
     | do not enable this as other CSRF protection services are in place.
+    | 此选项决定您的cookie在跨站点请求时的行为。
     |
     | Supported: "lax", "strict", "none"
     |

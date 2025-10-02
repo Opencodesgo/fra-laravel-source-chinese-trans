@@ -1,6 +1,6 @@
 <?php
 /**
- * 重调用器
+ * 授权，重调用器
  */
 
 namespace Illuminate\Auth;

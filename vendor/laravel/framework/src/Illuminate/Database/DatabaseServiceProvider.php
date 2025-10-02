@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库服务提供者
+ * 数据库，数据库服务提供者
  */
 
 namespace Illuminate\Database;
@@ -18,7 +18,7 @@ class DatabaseServiceProvider extends ServiceProvider
 {
     /**
      * The array of resolved Faker instances.
-	 * 已解析实例
+	 * 已解析Faker实例数组
      *
      * @var array
      */
@@ -56,7 +56,7 @@ class DatabaseServiceProvider extends ServiceProvider
 
     /**
      * Register the primary database bindings.
-	 * 注册主要数据库绑定
+	 * 注册主数据库绑定
      *
      * @return void
      */

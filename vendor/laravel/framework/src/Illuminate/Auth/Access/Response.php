@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，响应
+ * 授权，响应
  */
 
 namespace Illuminate\Auth\Access;

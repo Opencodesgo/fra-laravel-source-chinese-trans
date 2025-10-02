@@ -1,6 +1,6 @@
 <?php
 /**
- * App，Http，真实代理
+ * App，Http，中间件，真实代理
  */
 
 namespace App\Http\Middleware;

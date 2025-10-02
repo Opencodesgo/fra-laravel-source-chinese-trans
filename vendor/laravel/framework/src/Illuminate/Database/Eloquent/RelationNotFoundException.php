@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent关联未找到异常
+ * 数据库，Eloquent, 关联未找到异常
  */
 
 namespace Illuminate\Database\Eloquent;

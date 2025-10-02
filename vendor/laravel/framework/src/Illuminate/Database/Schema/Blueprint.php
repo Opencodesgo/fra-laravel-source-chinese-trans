@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，蓝图
+ * 数据库，结构，蓝图
  */
 
 namespace Illuminate\Database\Schema;
@@ -1561,7 +1561,7 @@ class Blueprint
 
     /**
      * Get the columns on the blueprint that should be added.
-	 * 得到蓝图上的列应该被添加的
+	 * 得到蓝图上应该被添加的列
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition[]
      */
@@ -1574,7 +1574,7 @@ class Blueprint
 
     /**
      * Get the columns on the blueprint that should be changed.
-	 * 得到蓝图上的列应该被改变的
+	 * 得到蓝图上应该被改变的列
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition[]
      */

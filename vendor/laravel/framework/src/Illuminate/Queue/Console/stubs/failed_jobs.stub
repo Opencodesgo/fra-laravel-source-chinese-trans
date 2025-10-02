@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，需要改注释
+ * 队列，需要自己修改注释
  */
 
 use Illuminate\Database\Migrations\Migration;

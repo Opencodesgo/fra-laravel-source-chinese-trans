@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，查询执行
+ * 数据库，事件，查询执行
  */
 
 namespace Illuminate\Database\Events;

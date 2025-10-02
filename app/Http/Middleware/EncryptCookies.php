@@ -11,7 +11,7 @@ class EncryptCookies extends Middleware
 {
     /**
      * The names of the cookies that should not be encrypted.
-     * 不应该加密的cookie名称
+     * 不应该被加密的cookie名称
      *
      * @var array
      */

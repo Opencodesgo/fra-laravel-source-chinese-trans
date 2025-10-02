@@ -1,6 +1,6 @@
 <?php
 /**
- * Eloquent用户提供者
+ * 授权，Eloquent用户提供者
  */
 
 namespace Illuminate\Auth;

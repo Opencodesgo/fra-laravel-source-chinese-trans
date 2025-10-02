@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列管理，队列核心类
+ * 队列，队列管理，队列核心类，接收从门面过来的方法
  */
 
 namespace Illuminate\Queue;
@@ -25,7 +25,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * The array of resolved queue connections.
-	 * 已解析队列连接数组
+	 * 已解析队列连接的数组
      *
      * @var array
      */
@@ -41,7 +41,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Create a new queue manager instance.
-	 * 创建新的队列管理实例
+	 * 创建新的队列管理器实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -53,7 +53,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the before job event.
-	 * 注册一个事件侦听器为before作业事件
+	 * 为before作业事件注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -65,7 +65,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the after job event.
-	 * 注册一个事件侦听器为after作业事件
+	 * 为after job事件注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -77,7 +77,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the exception occurred job event.
-	 * 注册事件侦听器为异常发生的作业事件
+	 * 为异常发生的作业事件注册事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -89,7 +89,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the daemon queue loop.
-	 * 注册一个事件侦听器为守护进程队列循环
+	 * 为守护进程队列循环注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -101,7 +101,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the failed job event.
-	 * 注册一个事件侦听器为失败的作业事件
+	 * 为失败的作业事件注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -113,7 +113,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the daemon queue stopping.
-	 * 注册一个事件侦听器为守护进程队列停止
+	 * 为守护进程队列停止注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void

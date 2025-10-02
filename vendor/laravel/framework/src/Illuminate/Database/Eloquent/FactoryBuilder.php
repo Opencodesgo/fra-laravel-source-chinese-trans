@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent工厂生成器
+ * 数据库，Eloquent，工厂生成器
  */
 
 namespace Illuminate\Database\Eloquent;

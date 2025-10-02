@@ -1,6 +1,6 @@
 <?php
 /**
- * 请求保护
+ * 授权，请求守卫
  */
 
 namespace Illuminate\Auth;

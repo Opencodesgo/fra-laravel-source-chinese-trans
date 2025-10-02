@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent工厂
+ * 数据库，Eloquent，工厂
  */
 
 namespace Illuminate\Database\Eloquent;
@@ -80,7 +80,7 @@ class Factory implements ArrayAccess
 
     /**
      * Define a class with a given short-name.
-	 * 定义一个类用给定的短名称
+	 * 用一个给定的短名定义一个类
      *
      * @param  string  $class
      * @param  string  $name
@@ -94,7 +94,7 @@ class Factory implements ArrayAccess
 
     /**
      * Define a class with a given set of attributes.
-	 * 定义一个类用一组给定的属性
+	 * 定义一个具有给定属性集的类
      *
      * @param  string  $class
      * @param  callable  $attributes
@@ -110,7 +110,7 @@ class Factory implements ArrayAccess
 
     /**
      * Define a state with a given set of attributes.
-	 * 用一组给定的属性定义一个状态
+	 * 定义一个状态用给定的属性
      *
      * @param  string  $class
      * @param  string  $state

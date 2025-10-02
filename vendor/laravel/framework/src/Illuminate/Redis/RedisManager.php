@@ -1,6 +1,6 @@
 <?php
 /**
- * Redis管理，核心类
+ * Redis，Redis管理，核心类
  */
 
 namespace Illuminate\Redis;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Session存在感知接口
+ * Session，Session存在感知接口
  */
 
 namespace Illuminate\Session;

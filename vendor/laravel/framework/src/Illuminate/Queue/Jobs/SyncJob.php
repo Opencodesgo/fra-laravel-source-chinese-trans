@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，Sync作业
+ * 队列，任务，Sync作业
  */
 
 namespace Illuminate\Queue\Jobs;

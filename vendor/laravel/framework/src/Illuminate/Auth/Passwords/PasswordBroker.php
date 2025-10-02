@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，密码代理
+ * 授权，密码代理
  */
 
 namespace Illuminate\Auth\Passwords;

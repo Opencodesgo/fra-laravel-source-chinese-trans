@@ -1,6 +1,6 @@
 <?php
 /**
- * 控制台解析
+ * 控制台，解析
  */
 
 namespace Illuminate\Console;

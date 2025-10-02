@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存Memcached连接
+ * 缓存，缓存Memcached连接
  */
 
 namespace Illuminate\Cache;

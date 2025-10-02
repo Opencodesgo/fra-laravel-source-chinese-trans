@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，执行命令
+ * 队列，控制台，执行命令
  */
 
 namespace Illuminate\Queue\Console;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，连接事件抽象类
+ * 数据库，事件，连接事件抽象类
  */
 
 namespace Illuminate\Database\Events;

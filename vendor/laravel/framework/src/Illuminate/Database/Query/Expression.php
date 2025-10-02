@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，查询表达式
+ * 数据库，查询，表达式
  */
 
 namespace Illuminate\Database\Query;

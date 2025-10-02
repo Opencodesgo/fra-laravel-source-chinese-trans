@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，验证电子邮件
+ * 授权，验证电子邮件
  */
 
 namespace Illuminate\Auth\Notifications;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，迁移创建根文件
+ * 数据库，迁移，需要修改注释
  */
 
 use Illuminate\Database\Migrations\Migration;

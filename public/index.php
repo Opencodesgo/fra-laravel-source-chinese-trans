@@ -23,7 +23,9 @@ define('LARAVEL_START', microtime(true));
 | our application. We just need to utilize it! We'll simply require it
 | into the script here so that we don't have to worry about manual
 | loading any of our classes later on. It feels great to relax.
-| 自动加载 vendor 目录
+| Composer为我们的应用提供了一个方便的、自动生成的类装入器。我们只需要利用它!｜
+| 我们只需要引入它进脚本，以便我们不用担心手工引导。
+| 自动加载vendor目录。
 |
 */
 

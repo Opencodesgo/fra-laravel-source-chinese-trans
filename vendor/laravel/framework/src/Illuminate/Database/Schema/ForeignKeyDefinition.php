@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，结构外键定义，待完善类
+ * 数据库，结构，外键定义，待完善类
  */
 
 namespace Illuminate\Database\Schema;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库迁移服务提供者
+ * 数据库，迁移服务提供者
  */
 
 namespace Illuminate\Database;

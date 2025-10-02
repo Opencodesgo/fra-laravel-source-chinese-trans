@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由排序中间件
+ * 路由，排序中间件
  */
 
 namespace Illuminate\Routing;

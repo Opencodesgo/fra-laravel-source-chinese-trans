@@ -14,6 +14,7 @@ class Kernel extends HttpKernel
 	 * 应用全局Http中间件堆栈
      *
      * These middleware are run during every request to your application.
+     * 这些中间件在对应用程序的每次请求期间运行
      *
      * @var array
      */

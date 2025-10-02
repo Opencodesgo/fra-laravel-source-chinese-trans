@@ -1,6 +1,6 @@
 <?php
 /**
- * 存在验证接口
+ * 验证，存在验证接口
  */
 
 namespace Illuminate\Validation;

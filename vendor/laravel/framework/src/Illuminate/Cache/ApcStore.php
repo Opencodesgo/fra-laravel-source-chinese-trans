@@ -1,6 +1,6 @@
 <?php
 /**
- * Apc缓存，Alternatice PHP Cache，可选PHP缓存
+ * 缓存，Apc存储，Alternatice PHP Cache，可选PHP缓存
  */
 
 namespace Illuminate\Cache;

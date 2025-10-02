@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存，清除命令
+ * 缓存，控制台，清除命令
  */
 
 namespace Illuminate\Cache\Console;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库状态验证
+ * 验证，数据库状态验证
  */
 
 namespace Illuminate\Validation;

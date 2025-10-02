@@ -1,6 +1,6 @@
 <?php
 /**
- * 管道Hub路由
+ * 管道，Hub
  */
 
 namespace Illuminate\Pipeline;

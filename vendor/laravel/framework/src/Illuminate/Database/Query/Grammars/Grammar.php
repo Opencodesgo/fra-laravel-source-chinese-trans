@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，查询语法
+ * 数据库，查询，语法
  */
 
 namespace Illuminate\Database\Query\Grammars;

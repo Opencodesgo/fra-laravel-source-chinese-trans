@@ -1,6 +1,6 @@
 <?php
 /**
- * 文件Session处理
+ * Session，文件Session处理
  */
 
 namespace Illuminate\Session;

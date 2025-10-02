@@ -1,6 +1,6 @@
 <?php
 /**
- * 守卫助手
+ * 授权，守卫助手
  */
 
 namespace Illuminate\Auth;

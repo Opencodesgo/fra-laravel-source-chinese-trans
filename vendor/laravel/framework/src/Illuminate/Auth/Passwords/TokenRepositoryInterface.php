@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，访问令牌库接口
+ * 授权，访问令牌库接口
  */
 
 namespace Illuminate\Auth\Passwords;

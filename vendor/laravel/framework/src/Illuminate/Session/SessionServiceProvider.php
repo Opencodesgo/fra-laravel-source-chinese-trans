@@ -1,6 +1,6 @@
 <?php
 /**
- * Session服务提供者类
+ * Session，Session服务提供者类
  */
 
 namespace Illuminate\Session;

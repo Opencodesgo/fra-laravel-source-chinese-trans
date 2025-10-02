@@ -1,6 +1,6 @@
 <?php
 /**
- * 广播服务提供者
+ * 广播，广播服务提供者
  */
 
 namespace Illuminate\Broadcasting;

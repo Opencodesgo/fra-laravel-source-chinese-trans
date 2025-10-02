@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，Beanstalkd任务
+ * 队列，任务，Beanstalkd任务
  */
 
 namespace Illuminate\Queue\Jobs;

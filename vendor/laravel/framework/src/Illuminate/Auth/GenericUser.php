@@ -1,6 +1,6 @@
 <?php
 /**
- * 普通用户
+ * 授权，普通用户
  */
 
 namespace Illuminate\Auth;

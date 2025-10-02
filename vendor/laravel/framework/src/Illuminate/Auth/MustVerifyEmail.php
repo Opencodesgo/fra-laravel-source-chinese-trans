@@ -1,6 +1,6 @@
 <?php
 /**
- * 必须验证电子邮件
+ * 授权，必须验证电子邮件
  */
 
 namespace Illuminate\Auth;
