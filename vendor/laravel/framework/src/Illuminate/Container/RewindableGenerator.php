@@ -1,6 +1,6 @@
 <?php
 /**
- * 容器可回放生成器
+ * 容器，可回放生成器
  */
 
 namespace Illuminate\Container;

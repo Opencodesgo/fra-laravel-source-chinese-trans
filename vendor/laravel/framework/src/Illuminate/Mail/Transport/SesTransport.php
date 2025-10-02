@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件，Amazon SES传输
+ * 邮件，传输，Amazon SES传输
  */
 
 namespace Illuminate\Mail\Transport;

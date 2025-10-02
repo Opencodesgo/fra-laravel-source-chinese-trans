@@ -1,6 +1,6 @@
 <?php
 /**
- * 总线队列
+ * 总线，总线队列
  */
 
 namespace Illuminate\Bus;

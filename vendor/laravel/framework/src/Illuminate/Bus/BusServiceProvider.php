@@ -1,6 +1,6 @@
 <?php
 /**
- * 总线服务提供者
+ * 总线，总线服务提供者
  */
 
 namespace Illuminate\Bus;
@@ -38,7 +38,7 @@ class BusServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Get the services provided by the provider.
-	 * 得到提供的服务通过提供者
+	 * 得到提供者提供的服务
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由注册器
+ * 路由，路由注册器
  */
 
 namespace Illuminate\Routing;

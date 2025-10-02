@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列Lua脚本
+ * 队列，队列Lua脚本
  */
 
 namespace Illuminate\Queue;

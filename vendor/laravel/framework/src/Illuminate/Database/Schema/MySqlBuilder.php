@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，MySql构建者
+ * 数据库，结构，MySql构建者
  */
 
 namespace Illuminate\Database\Schema;
@@ -43,7 +43,7 @@ class MySqlBuilder extends Builder
 
     /**
      * Drop all tables from the database.
-	 * 删除所有表从数据库
+	 * 从数据库删除所有表
      *
      * @return void
      */
@@ -72,7 +72,7 @@ class MySqlBuilder extends Builder
 
     /**
      * Drop all views from the database.
-	 * 删除所有视图从数据库
+	 * 从数据库删除所有视图
      *
      * @return void
      */
@@ -97,7 +97,7 @@ class MySqlBuilder extends Builder
 
     /**
      * Get all of the table names for the database.
-	 * 得到所有表名为数据库
+	 * 得到数据库中所有表名
      *
      * @return array
      */
@@ -110,7 +110,7 @@ class MySqlBuilder extends Builder
 
     /**
      * Get all of the view names for the database.
-	 * 得到所有视图名为数据库
+	 * 得到数据库中所有视图名
      *
      * @return array
      */

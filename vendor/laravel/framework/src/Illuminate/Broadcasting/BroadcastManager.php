@@ -1,6 +1,6 @@
 <?php
 /**
- * 广播管理，核心类
+ * 广播，广播管理，核心类
  */
 
 namespace Illuminate\Broadcasting;

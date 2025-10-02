@@ -1,6 +1,6 @@
 <?php
 /**
- * 空队列
+ * 队列，空队列
  */
 
 namespace Illuminate\Queue;

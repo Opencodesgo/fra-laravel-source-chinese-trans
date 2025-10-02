@@ -1,6 +1,6 @@
 <?php
 /**
- * Session存储
+ * Session，存储
  */
 
 namespace Illuminate\Session;

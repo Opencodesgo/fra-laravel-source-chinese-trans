@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent高阶生成器代理
+ * 数据库，Eloquent，高阶生成器代理
  */
 
 namespace Illuminate\Database\Eloquent;

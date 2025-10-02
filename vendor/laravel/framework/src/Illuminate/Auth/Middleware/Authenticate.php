@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，验证
+ * 授权，验证
  */
 
 namespace Illuminate\Auth\Middleware;
@@ -13,7 +13,7 @@ class Authenticate
 {
     /**
      * The authentication factory instance.
-	 * 身份验证工厂实例
+	 * 认证工厂实例
      *
      * @var \Illuminate\Contracts\Auth\Factory
      */

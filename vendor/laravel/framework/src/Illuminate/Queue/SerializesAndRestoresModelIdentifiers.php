@@ -1,6 +1,6 @@
 <?php
 /**
- * 序列化和恢复模型标识符
+ * 队列，序列化和恢复模型标识符
  */
 
 namespace Illuminate\Queue;

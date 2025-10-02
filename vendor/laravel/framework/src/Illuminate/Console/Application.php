@@ -1,6 +1,6 @@
 <?php
 /**
- * 控制台应用
+ * 控制台，应用
  */
 
 namespace Illuminate\Console;

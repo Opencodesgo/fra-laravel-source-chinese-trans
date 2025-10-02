@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由动作
+ * 路由，路由动作
  */
 
 namespace Illuminate\Routing;
@@ -15,7 +15,7 @@ class RouteAction
 {
     /**
      * Parse the given action into an array.
-	 * 解析给定的动作
+	 * 解析给定的动作为一个数据
      *
      * @param  string  $uri
      * @param  mixed  $action

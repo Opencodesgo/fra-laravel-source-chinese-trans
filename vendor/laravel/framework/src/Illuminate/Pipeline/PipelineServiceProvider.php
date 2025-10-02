@@ -1,6 +1,6 @@
 <?php
 /**
- * 管道服务提供者
+ * 管道，管道服务提供者
  */
 
 namespace Illuminate\Pipeline;

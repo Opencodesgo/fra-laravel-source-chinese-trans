@@ -1,6 +1,6 @@
 <?php
 /**
- * 管道Hub路由
+ * 管道，Hub
  */
 
 namespace Illuminate\Pipeline;
@@ -29,7 +29,7 @@ class Hub implements HubContract
 
     /**
      * Create a new Hub instance.
-	 * 创建新的hub这实例
+	 * 创建新的hub实例
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
      * @return void

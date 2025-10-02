@@ -20,7 +20,7 @@ $app = new Illuminate\Foundation\Application(
 
 /*
 |--------------------------------------------------------------------------
-| Bind Important Interfaces
+| Bind Important Interfaces 	绑定重要接口
 |--------------------------------------------------------------------------
 |
 | Next, we need to bind some important interfaces into the container so
@@ -50,14 +50,14 @@ $app->singleton(
 
 /*
 |--------------------------------------------------------------------------
-| Return The Application
-| 返回应用 
+| Return The Application 	返回应用 
 |--------------------------------------------------------------------------
 |
 | This script returns the application instance. The instance is given to
 | the calling script so we can separate the building of the instances
 | from the actual running of the application and sending responses.
-| 返回应用实例
+| 这个脚本返回应用实例。
+| 这个实例被调用脚本以便我们可以将实例的构建分开。
 |
 */
 

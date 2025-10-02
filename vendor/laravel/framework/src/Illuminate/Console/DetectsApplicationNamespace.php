@@ -1,6 +1,6 @@
 <?php
 /**
- * 控制台检测命名空间
+ * 控制台，检测命名空间
  */
 
 namespace Illuminate\Console;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 序列化模型
+ * 队列，序列化模型
  */
 
 namespace Illuminate\Queue;

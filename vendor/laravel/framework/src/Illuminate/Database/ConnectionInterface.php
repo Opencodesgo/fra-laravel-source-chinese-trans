@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库连接接口
+ * 数据库，连接接口
  */
 
 namespace Illuminate\Database;
@@ -11,7 +11,7 @@ interface ConnectionInterface
 {
     /**
      * Begin a fluent query against a database table.
-	 * 开始数据表的一个流畅查询
+	 * 开始对数据库表进行流畅的查询，执行
      *
      * @param  \Closure|\Illuminate\Database\Query\Builder|string  $table
      * @param  string|null  $as

@@ -1,6 +1,6 @@
 <?php
 /**
- * 事件调度
+ * 事件，事件调度
  */
 
 namespace Illuminate\Events;

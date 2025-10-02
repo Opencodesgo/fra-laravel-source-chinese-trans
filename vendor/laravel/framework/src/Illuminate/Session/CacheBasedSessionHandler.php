@@ -1,6 +1,6 @@
 <?php
 /**
- * 基于缓存的会话处理程序
+ * Session，基于缓存的会话处理程序
  */
 
 namespace Illuminate\Session;

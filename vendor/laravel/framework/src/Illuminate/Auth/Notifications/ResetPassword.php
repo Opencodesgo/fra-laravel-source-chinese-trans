@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，重置密码
+ * 授权，重置密码
  */
 
 namespace Illuminate\Auth\Notifications;

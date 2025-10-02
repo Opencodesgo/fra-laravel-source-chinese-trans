@@ -1,6 +1,6 @@
 <?php
 /**
- * 控制台可确定特性
+ * 控制台，可确定特性
  */
 
 namespace Illuminate\Console;

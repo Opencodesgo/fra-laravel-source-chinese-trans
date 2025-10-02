@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由URL生成器
+ * 路由，URL生成器
  */
 
 namespace Illuminate\Routing;
@@ -39,7 +39,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The asset root URL.
-	 * 资产根URL
+	 * 资源根URL
      *
      * @var string
      */

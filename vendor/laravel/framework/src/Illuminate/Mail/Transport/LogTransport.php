@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件，日志传输
+ * 邮件，传输，日志传输
  */
 
 namespace Illuminate\Mail\Transport;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 事件空调度
+ * 事件，事件空调度
  */
 
 namespace Illuminate\Events;

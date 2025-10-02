@@ -1,6 +1,6 @@
 <?php
 /**
- * Amazon SQS 队列
+ * 队列，Amazon SQS 队列
  */
 
 namespace Illuminate\Queue;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，再启动命令
+ * 队列，控制台，重启动命令
  */
 
 namespace Illuminate\Queue\Console;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 验证工厂
+ * 验证，工厂
  */
 
 namespace Illuminate\Validation;

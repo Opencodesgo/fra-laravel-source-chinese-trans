@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存检索多密钥
+ * 缓存，缓存检索多密钥
  */
 
 namespace Illuminate\Cache;

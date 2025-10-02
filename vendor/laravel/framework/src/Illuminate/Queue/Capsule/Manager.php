@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，压缩管理
+ * 队列，压缩，管理器
  */
 
 namespace Illuminate\Queue\Capsule;
@@ -28,7 +28,7 @@ class Manager
 
     /**
      * Create a new queue capsule manager.
-	 * 创建新的队列压缩管理
+	 * 创建新的队列压缩管理器
      *
      * @param  \Illuminate\Container\Container|null  $container
      * @return void

@@ -1,6 +1,6 @@
 <?php
 /**
- * 验证规则
+ * 验证，规则
  */
 
 namespace Illuminate\Validation;

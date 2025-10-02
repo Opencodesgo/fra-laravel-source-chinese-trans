@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent范围接口
+ * 数据库，Eloquent, 范围接口
  */
 
 namespace Illuminate\Database\Eloquent;

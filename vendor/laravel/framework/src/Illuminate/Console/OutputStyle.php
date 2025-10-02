@@ -1,6 +1,6 @@
 <?php
 /**
- * 控制台输出样式
+ * 控制台，输出样式
  */
 
 namespace Illuminate\Console;

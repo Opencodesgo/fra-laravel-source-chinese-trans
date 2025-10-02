@@ -1,6 +1,6 @@
 <?php
 /**
- * 翻译信息选择类
+ * 翻译，信息选择类
  */
 
 namespace Illuminate\Translation;

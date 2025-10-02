@@ -1,4 +1,7 @@
 <?php
+/**
+ * 测试，创建应用
+ */
 
 namespace Tests;
 

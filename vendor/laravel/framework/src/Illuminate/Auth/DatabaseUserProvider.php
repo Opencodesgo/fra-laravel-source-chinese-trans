@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库用户提供者
+ * 授权，数据库用户提供者
  */
 
 namespace Illuminate\Auth;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件可邮寄的
+ * 邮件，可邮寄的
  */
 
 namespace Illuminate\Mail;

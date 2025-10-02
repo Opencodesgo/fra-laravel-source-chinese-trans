@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由中间件名称解析
+ * 路由，路由中间件名称解析
  */
 
 namespace Illuminate\Routing;
@@ -54,7 +54,7 @@ class MiddlewareNameResolver
 
     /**
      * Parse the middleware group and format it for usage.
-	 * 解析中间件组并对其进行格式化以供使用
+	 * 解析中间件组并格式化它的使用
      *
      * @param  string  $name
      * @param  array  $map

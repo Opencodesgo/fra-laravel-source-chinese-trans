@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库管理器，与db门面对应
+ * 数据库，据库管理器，接收从db门面传递过来的方法
  */
 
 namespace Illuminate\Database;

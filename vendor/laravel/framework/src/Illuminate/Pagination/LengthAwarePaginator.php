@@ -1,6 +1,6 @@
 <?php
 /**
- * 长度感知分页器
+ * 分页，长度感知分页器
  */
 
 namespace Illuminate\Pagination;

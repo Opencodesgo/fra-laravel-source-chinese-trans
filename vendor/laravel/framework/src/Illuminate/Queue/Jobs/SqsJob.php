@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，Amazon SQS作业
+ * 队列，任务，Amazon SQS作业
  */
 
 namespace Illuminate\Queue\Jobs;

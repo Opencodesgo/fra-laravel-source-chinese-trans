@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，结构建立者
+ * 数据库，结构，构建者，各具体数据库的基础类
  */
 
 namespace Illuminate\Database\Schema;
@@ -185,7 +185,7 @@ class Builder
 
     /**
      * Drop a table from the schema.
-	 * 删除一个表从模式中
+	 * 从模式中删除一个表
      *
      * @param  string  $table
      * @return void
@@ -199,7 +199,7 @@ class Builder
 
     /**
      * Drop a table from the schema if it exists.
-	 * 删除一个表从模式中如果表存在
+	 * 从模式中删除一个表如果表存在
      *
      * @param  string  $table
      * @return void
@@ -213,7 +213,7 @@ class Builder
 
     /**
      * Drop all tables from the database.
-	 * 删除所有表从数据库中
+	 * 删除数据库中有表
      *
      * @return void
      *
@@ -226,7 +226,7 @@ class Builder
 
     /**
      * Drop all views from the database.
-	 * 删除所有视图从数据库中
+	 * 删除数据库中有视图
      *
      * @return void
      *
@@ -239,7 +239,7 @@ class Builder
 
     /**
      * Drop all types from the database.
-	 * 删除所有类型从数据库中
+	 * 删除数据库中有类型
      *
      * @return void
      *
@@ -252,7 +252,7 @@ class Builder
 
     /**
      * Get all of the table names for the database.
-	 * 得到所有表名从数据库中
+	 * 得到数据库中有表名
      *
      * @return void
      *

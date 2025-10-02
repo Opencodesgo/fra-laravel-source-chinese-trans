@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件服务提供者
+ * 邮件，邮件服务提供者
  */
 
 namespace Illuminate\Mail;

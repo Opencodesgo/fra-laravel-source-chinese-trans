@@ -2,4 +2,4 @@ Laravel Version: 6.20.44
 PHP Version: 7.2
 Start Date: 2022-05-14
 Date: 2019-09-04
-Version2: v1.0
+Version2: v1.0.0

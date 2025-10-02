@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，控制台工厂制造指令
+ * 数据库，控制台, 工厂制造指令
  */
 
 namespace Illuminate\Database\Console\Factories;

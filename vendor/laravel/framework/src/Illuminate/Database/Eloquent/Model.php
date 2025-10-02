@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent模型抽象类，定义Eloquent模型的基本结构和方法
+ * 数据库，Eloquent，模型抽象类，定义Eloquent模型的基本结构和方法
  */
 
 namespace Illuminate\Database\Eloquent;

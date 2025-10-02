@@ -6,12 +6,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Database Connection Name
+    | Default Database Connection Name  默认数据库连接名
     |--------------------------------------------------------------------------
     |
     | Here you may specify which of the database connections below you wish
     | to use as your default connection for all database work. Of course
     | you may use many connections at once using the Database library.
+	| 在这里,您可以指定您所希望的数据库连接哪一个。
     |
     */
 
@@ -19,12 +20,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Database Connections
+    | Database Connections      数据库连接
     |--------------------------------------------------------------------------
     |
     | Here are each of the database connections setup for your application.
     | Of course, examples of configuring each database platform that is
     | supported by Laravel is shown below to make development simple.
+	| 这里是您的应用程序的每个数据库连接设置。
     |
     |
     | All database work in Laravel is done through the PHP PDO facilities
@@ -95,12 +97,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Migration Repository Table
+    | Migration Repository Table    迁移存储库表
     |--------------------------------------------------------------------------
     |
     | This table keeps track of all the migrations that have already run for
     | your application. Using this information, we can determine which of
     | the migrations on disk haven't actually been run in the database.
+	| 这张表记录了已经运行的所有迁移。
     |
     */
 
@@ -108,7 +111,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Redis Databases
+    | Redis Databases       Redis数据库
     |--------------------------------------------------------------------------
     |
     | Redis is an open source, fast, and advanced key-value store that also

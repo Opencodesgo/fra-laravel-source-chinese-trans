@@ -4,12 +4,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Broadcaster
+    | Default Broadcaster   默认广播
     |--------------------------------------------------------------------------
     |
     | This option controls the default broadcaster that will be used by the
     | framework when an event needs to be broadcast. You may set this to
     | any of the connections defined in the "connections" array below.
+	| 该选项控制将被使用的默认广播机。
     |
     | Supported: "pusher", "redis", "log", "null"
     |
@@ -19,12 +20,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Broadcast Connections
+    | Broadcast Connections     广播连接
     |--------------------------------------------------------------------------
     |
     | Here you may define all of the broadcast connections that will be used
     | to broadcast events to other systems or over websockets. Samples of
     | each available type of connection are provided inside this array.
+	| 在这里，您可以定义所有将要使用的广播连接。
     |
     */
 

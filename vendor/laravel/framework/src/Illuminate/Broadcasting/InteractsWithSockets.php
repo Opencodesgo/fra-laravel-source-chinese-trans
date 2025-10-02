@@ -1,6 +1,6 @@
 <?php
 /**
- * 广播套接字交互特征
+ * 广播，广播套接字交互特征
  */
 
 namespace Illuminate\Broadcasting;

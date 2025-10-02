@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存数据锁定
+ * 缓存，缓存阵列锁定
  */
 
 namespace Illuminate\Cache;

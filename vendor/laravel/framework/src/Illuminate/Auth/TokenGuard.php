@@ -1,6 +1,6 @@
 <?php
 /**
- * 令牌守卫
+ * 授权，令牌守卫
  */
 
 namespace Illuminate\Auth;

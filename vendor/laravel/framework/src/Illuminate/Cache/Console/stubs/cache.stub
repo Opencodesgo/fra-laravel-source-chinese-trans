@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存，存根文件
+ * 缓存，需要自己修改注释
  */
 
 use Illuminate\Database\Migrations\Migration;

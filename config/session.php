@@ -6,12 +6,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Session Driver
+    | Default Session driver    Session驱动服务
     |--------------------------------------------------------------------------
     |
     | This option controls the default session "driver" that will be used on
     | requests. By default, we will use the lightweight native driver but
     | you may specify any of the other wonderful drivers provided here.
+	| 此选项控制将使用的默认会话"驱动程序"
     |
     | Supported: "file", "cookie", "database", "apc",
     |            "memcached", "redis", "dynamodb", "array"
@@ -22,12 +23,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Lifetime
+    | Session Lifetime  Session过期时间
     |--------------------------------------------------------------------------
     |
     | Here you may specify the number of minutes that you wish the session
     | to be allowed to remain idle before it expires. If you want them
     | to immediately expire on the browser closing, set that option.
+    | 您可以在这里指定您希望会议的分钟数。
     |
     */
 
@@ -37,7 +39,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Encryption
+    | Session Encryption    Session加密
     |--------------------------------------------------------------------------
     |
     | This option allows you to easily specify that all of your session data
@@ -50,7 +52,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session File Location
+    | Session File Location     Session文件本地
     |--------------------------------------------------------------------------
     |
     | When using the native session driver, we need a location where session
@@ -63,7 +65,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Connection
+    | Session Database Connection   Session数据库连接
     |--------------------------------------------------------------------------
     |
     | When using the "database" or "redis" session drivers, you may specify a
@@ -76,7 +78,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Database Table
+    | Session Database Table    Session数据库表
     |--------------------------------------------------------------------------
     |
     | When using the "database" session driver, you may specify the table we
@@ -89,7 +91,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cache Store
+    | Session Cache Store       Session缓存存储
     |--------------------------------------------------------------------------
     |
     | When using the "apc", "memcached", or "dynamodb" session drivers you may
@@ -102,7 +104,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Sweeping Lottery
+    | Session Sweeping Lottery  Session清扫
     |--------------------------------------------------------------------------
     |
     | Some session drivers must manually sweep their storage location to get
@@ -115,7 +117,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Name
+    | Session Cookie Name   Session会话Cookie名
     |--------------------------------------------------------------------------
     |
     | Here you may change the name of the cookie used to identify a session
@@ -131,7 +133,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Path
+    | Session Cookie Path   Session会话Cookie路径
     |--------------------------------------------------------------------------
     |
     | The session cookie path determines the path for which the cookie will
@@ -144,7 +146,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Session Cookie Domain
+    | Session Cookie Domain     会话Cookie域
     |--------------------------------------------------------------------------
     |
     | Here you may change the domain of the cookie used to identify a session
@@ -157,7 +159,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTPS Only Cookies
+    | HTTPS Only Cookies    HTTPS仅Cookie
     |--------------------------------------------------------------------------
     |
     | By setting this option to true, session cookies will only be sent back
@@ -170,7 +172,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | HTTP Access Only
+    | HTTP Access Only      仅HTTP访问
     |--------------------------------------------------------------------------
     |
     | Setting this value to true will prevent JavaScript from accessing the
@@ -183,12 +185,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Same-Site Cookies
+    | Same-Site Cookies     同样站点Cookie
     |--------------------------------------------------------------------------
     |
     | This option determines how your cookies behave when cross-site requests
     | take place, and can be used to mitigate CSRF attacks. By default, we
     | do not enable this as other CSRF protection services are in place.
+    | 此选项决定您的cookie在跨站点请求时的行为。
     |
     | Supported: "lax", "strict", "none"
     |

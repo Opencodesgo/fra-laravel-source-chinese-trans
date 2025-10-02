@@ -1,6 +1,6 @@
 <?php
 /**
- * Sync队列
+ * 队列，Sync队列
  */
 
 namespace Illuminate\Queue;

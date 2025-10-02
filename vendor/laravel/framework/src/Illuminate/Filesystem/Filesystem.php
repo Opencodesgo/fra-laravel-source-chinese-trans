@@ -1,6 +1,6 @@
 <?php
 /**
- * 文件系统
+ * 文件系统，文件系统
  */
 
 namespace Illuminate\Filesystem;

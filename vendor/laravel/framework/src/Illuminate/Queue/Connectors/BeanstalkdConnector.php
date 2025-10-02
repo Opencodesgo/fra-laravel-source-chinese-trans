@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，Beanstalkd连接器类
+ * 队列，连接器，Beanstalkd连接器类
  */
 
 namespace Illuminate\Queue\Connectors;

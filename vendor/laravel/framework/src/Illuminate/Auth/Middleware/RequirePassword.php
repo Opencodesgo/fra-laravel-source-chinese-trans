@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，需要密码
+ * 授权，需要密码
  */
 
 namespace Illuminate\Auth\Middleware;

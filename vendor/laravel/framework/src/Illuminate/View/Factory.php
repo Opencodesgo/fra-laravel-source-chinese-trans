@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图工厂
+ * 视图，工厂
  */
 
 namespace Illuminate\View;
@@ -59,7 +59,7 @@ class Factory implements FactoryContract
 
     /**
      * Data that should be available to all templates.
-	 * 应该对所有模板可用的数据
+	 * 所有模板都可用的数据
      *
      * @var array
      */

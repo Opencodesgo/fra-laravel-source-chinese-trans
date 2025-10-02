@@ -1,6 +1,6 @@
 <?php
 /**
- * 广播事件
+ * 广播，广播事件
  */
 
 namespace Illuminate\Broadcasting;

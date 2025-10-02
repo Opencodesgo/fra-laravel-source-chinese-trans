@@ -1,6 +1,6 @@
 <?php
 /**
- * 会话守卫
+ * 授权，会话守卫
  */
 
 namespace Illuminate\Auth;
@@ -33,7 +33,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The name of the Guard. Typically "session".
-	 * 守卫的名字
+	 * 守卫的名字，通知是session
      *
      * Corresponds to guard name in authentication configuration.
      *

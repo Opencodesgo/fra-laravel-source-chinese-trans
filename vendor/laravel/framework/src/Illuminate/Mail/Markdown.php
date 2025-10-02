@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件编辑器
+ * 邮件，Narkdiwb编辑器
  */
 
 namespace Illuminate\Mail;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 队列，作业抽象类
+ * 队列，任务，任务抽象类
  */
 
 namespace Illuminate\Queue\Jobs;
@@ -103,7 +103,7 @@ abstract class Job
 
     /**
      * Delete the job from the queue.
-	 * 删除作业从队列
+	 * 从队列中删除作业
      *
      * @return void
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，Eloquent队列实体解析器
+ * 数据库，Eloquent, 队列实体解析器
  */
 
 namespace Illuminate\Database\Eloquent;

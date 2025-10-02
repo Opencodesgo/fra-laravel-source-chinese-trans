@@ -1,6 +1,6 @@
 <?php
 /**
- * 发送邮件队列
+ * 邮件，发送邮件队列
  */
 
 namespace Illuminate\Mail;

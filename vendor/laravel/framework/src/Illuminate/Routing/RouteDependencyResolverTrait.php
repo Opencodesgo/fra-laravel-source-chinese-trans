@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由依赖解析特性
+ * 路由，路由依赖解析特性
  */
 
 namespace Illuminate\Routing;

@@ -1,6 +1,6 @@
 <?php
 /**
- * 总线调度
+ * 总线，总线调度
  */
 
 namespace Illuminate\Bus;

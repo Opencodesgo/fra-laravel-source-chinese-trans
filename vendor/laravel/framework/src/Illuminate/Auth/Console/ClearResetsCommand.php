@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，控制台清除命令
+ * 授权，控制台，清除复位命令
  */
 
 namespace Illuminate\Auth\Console;

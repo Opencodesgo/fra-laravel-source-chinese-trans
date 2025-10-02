@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库连接，负责执行SQL查询，与db门面对应
+ * 数据库，连接，负责执行SQL查询，真正执行从db门面传递过来的方法
  */
 
 namespace Illuminate\Database;
@@ -41,7 +41,7 @@ class Connection implements ConnectionInterface
 
     /**
      * The active PDO connection used for reads.
-	 * 读PDO连接
+	 * 用于读取的活动PDO连接
      *
      * @var \PDO|\Closure
      */
@@ -49,7 +49,7 @@ class Connection implements ConnectionInterface
 
     /**
      * The name of the connected database.
-	 * 数据库已连接
+	 * 连接数据库的名称
      *
      * @var string
      */
@@ -57,7 +57,7 @@ class Connection implements ConnectionInterface
 
     /**
      * The table prefix for the connection.
-	 * 表前缀
+	 * 连接的表前缀
      *
      * @var string
      */
@@ -73,7 +73,7 @@ class Connection implements ConnectionInterface
 
     /**
      * The reconnector instance for the connection.
-	 * 重连接接口
+	 * 重连接器实例
      *
      * @var callable
      */
@@ -113,7 +113,7 @@ class Connection implements ConnectionInterface
 
     /**
      * The default fetch mode of the connection.
-	 * 默认fetch模式
+	 * 连接的默认获取模式
      *
      * @var int
      */
@@ -121,7 +121,7 @@ class Connection implements ConnectionInterface
 
     /**
      * The number of active transactions.
-	 * 活动数
+	 * 活动事务数量
      *
      * @var int
      */
@@ -193,7 +193,7 @@ class Connection implements ConnectionInterface
         // name we are connected to since it is needed when some reflective
         // type commands are run such as checking whether a table exists.
 		// 首先我们行设置默认属性。
-		// 我们将跟踪DB是因为一些反思运行类型命令的需要，例如检查表是否存。
+		// 我们将跟踪DB是因为一些反思运行类型命令的需要，例如检查表是否存在。
         $this->database = $database;
 
         $this->tablePrefix = $tablePrefix;

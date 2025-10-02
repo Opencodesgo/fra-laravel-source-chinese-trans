@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件消息
+ * 邮件，邮件消息
  */
 
 namespace Illuminate\Mail;

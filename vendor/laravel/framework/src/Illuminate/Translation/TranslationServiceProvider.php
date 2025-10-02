@@ -1,6 +1,6 @@
 <?php
 /**
- * 翻译服务提供商
+ * 翻译，翻译服务提供商
  */
 
 namespace Illuminate\Translation;

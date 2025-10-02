@@ -1,6 +1,6 @@
 <?php
 /**
- * 分页服务提供者
+ * 分页，分页服务提供者
  */
 
 namespace Illuminate\Pagination;

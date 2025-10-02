@@ -1,6 +1,6 @@
 <?php
 /**
- * 邮件，数组传输
+ * 邮件，传输，数组传输
  */
 
 namespace Illuminate\Mail\Transport;

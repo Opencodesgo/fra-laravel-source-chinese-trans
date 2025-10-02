@@ -1,6 +1,6 @@
 <?php
 /**
- * 身份，退出
+ * 授权，事件，注销
  */
 
 namespace Illuminate\Auth\Events;

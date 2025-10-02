@@ -1,6 +1,6 @@
 <?php
 /**
- * 等待中邮件
+ * 邮件中，等待中邮件
  */
 
 namespace Illuminate\Mail;

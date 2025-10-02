@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由重定向
+ * 路由，路由重定向
  */
 
 namespace Illuminate\Routing;

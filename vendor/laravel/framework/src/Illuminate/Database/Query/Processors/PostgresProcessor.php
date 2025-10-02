@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，postgres进程
+ * 数据库，查询，postgres进程
  */
 
 namespace Illuminate\Database\Query\Processors;

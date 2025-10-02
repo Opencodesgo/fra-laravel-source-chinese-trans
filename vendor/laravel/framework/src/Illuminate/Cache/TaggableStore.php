@@ -1,6 +1,6 @@
 <?php
 /**
- * 缓存可标记存储
+ * 缓存，缓存可标记存储
  */
 
 namespace Illuminate\Cache;
