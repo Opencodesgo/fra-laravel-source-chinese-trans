@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，门面抽象类
- */
 
 namespace Illuminate\Support\Facades;
 
@@ -14,7 +11,6 @@ abstract class Facade
 {
     /**
      * The application instance being facaded.
-	 * 应用实例正在facade的
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -22,7 +18,6 @@ abstract class Facade
 
     /**
      * The resolved object instances.
-	 * 已解析的对象实例
      *
      * @var array
      */
@@ -30,7 +25,6 @@ abstract class Facade
 
     /**
      * Run a Closure when the facade has been resolved.
-	 * 运行一个闭包当门面被解决时
      *
      * @param  \Closure  $callback
      * @return void
@@ -50,7 +44,6 @@ abstract class Facade
 
     /**
      * Convert the facade into a Mockery spy.
-	 * 转换门面为间谍
      *
      * @return \Mockery\MockInterface
      */
@@ -67,7 +60,6 @@ abstract class Facade
 
     /**
      * Initiate a partial mock on the facade.
-	 * 初始化部分模拟在facade上
      *
      * @return \Mockery\MockInterface
      */
@@ -84,7 +76,6 @@ abstract class Facade
 
     /**
      * Initiate a mock expectation on the facade.
-	 * 初始化一个模拟期望在facade上
      *
      * @return \Mockery\Expectation
      */
@@ -101,7 +92,6 @@ abstract class Facade
 
     /**
      * Create a fresh mock instance for the given class.
-	 * 创建一个新的模拟实例为给定的类
      *
      * @return \Mockery\MockInterface
      */
@@ -116,7 +106,6 @@ abstract class Facade
 
     /**
      * Create a fresh mock instance for the given class.
-	 * 创建一个新的模拟实例为给定的类
      *
      * @return \Mockery\MockInterface
      */
@@ -129,7 +118,6 @@ abstract class Facade
 
     /**
      * Determines whether a mock is set as the instance of the facade.
-	 * 确定是否将模拟设置为facade的实例
      *
      * @return bool
      */
@@ -143,7 +131,6 @@ abstract class Facade
 
     /**
      * Get the mockable class for the bound instance.
-	 * 得到绑定实例的可模拟类
      *
      * @return string|null
      */
@@ -156,7 +143,6 @@ abstract class Facade
 
     /**
      * Hotswap the underlying instance behind the facade.
-	 * 热换facade后面的底层实例
      *
      * @param  mixed  $instance
      * @return void
@@ -172,7 +158,6 @@ abstract class Facade
 
     /**
      * Get the root object behind the facade.
-	 * 得到facade后面的根对象
      *
      * @return mixed
      */
@@ -183,7 +168,6 @@ abstract class Facade
 
     /**
      * Get the registered name of the component.
-	 * 得到组件的注册名称
      *
      * @return string
      *
@@ -196,7 +180,6 @@ abstract class Facade
 
     /**
      * Resolve the facade root instance from the container.
-	 * 解析facade根实例从容器中
      *
      * @param  object|string  $name
      * @return mixed
@@ -218,7 +201,6 @@ abstract class Facade
 
     /**
      * Clear a resolved facade instance.
-	 * 清除已解析的facade实例
      *
      * @param  string  $name
      * @return void
@@ -230,7 +212,6 @@ abstract class Facade
 
     /**
      * Clear all of the resolved instances.
-	 * 清除所有已解析的实例
      *
      * @return void
      */
@@ -241,7 +222,6 @@ abstract class Facade
 
     /**
      * Get the application instance behind the facade.
-	 * 得到facade后面的应用程序实例
      *
      * @return \Illuminate\Contracts\Foundation\Application
      */
@@ -252,7 +232,6 @@ abstract class Facade
 
     /**
      * Set the application instance.
-	 * 设置应用实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -264,7 +243,6 @@ abstract class Facade
 
     /**
      * Handle dynamic, static calls to the object.
-	 * 处理动态调取方法
      *
      * @param  string  $method
      * @param  array  $args

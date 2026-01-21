@@ -1,7 +1,4 @@
 <?php
-/**
- * 契约，广播接口
- */
 
 namespace Illuminate\Contracts\Broadcasting;
 
@@ -9,7 +6,6 @@ interface Broadcaster
 {
     /**
      * Authenticate the incoming request for a given channel.
-	 * 对传入的渠道请求进行身份验证
      *
      * @param  \Illuminate\Http\Request  $request
      * @return mixed
@@ -18,7 +14,6 @@ interface Broadcaster
 
     /**
      * Return the valid authentication response.
-	 * 返回有效的身份验证响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  mixed  $result
@@ -28,7 +23,6 @@ interface Broadcaster
 
     /**
      * Broadcast the given event.
-	 * 广播指定事件
      *
      * @param  array  $channels
      * @param  string  $event

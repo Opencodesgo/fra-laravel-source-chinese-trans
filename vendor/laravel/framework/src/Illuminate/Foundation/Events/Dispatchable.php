@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础事件，调度
- */
 
 namespace Illuminate\Foundation\Events;
 
@@ -9,7 +6,6 @@ trait Dispatchable
 {
     /**
      * Dispatch the event with the given arguments.
-	 * 调度事件使用给定的参数
      *
      * @return void
      */
@@ -19,8 +15,33 @@ trait Dispatchable
     }
 
     /**
+     * Dispatch the event with the given arguments if the given truth test passes.
+     *
+     * @param  bool  $boolean
+     * @return void
+     */
+    public static function dispatchIf($boolean, ...$arguments)
+    {
+        if ($boolean) {
+            return event(new static(...$arguments));
+        }
+    }
+
+    /**
+     * Dispatch the event with the given arguments unless the given truth test passes.
+     *
+     * @param  bool  $boolean
+     * @return void
+     */
+    public static function dispatchUnless($boolean, ...$arguments)
+    {
+        if (! $boolean) {
+            return event(new static(...$arguments));
+        }
+    }
+
+    /**
      * Broadcast the event with the given arguments.
-	 * 广播事件使用给定参数
      *
      * @return \Illuminate\Broadcasting\PendingBroadcast
      */

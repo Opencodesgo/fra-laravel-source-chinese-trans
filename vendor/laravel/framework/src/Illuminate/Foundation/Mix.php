@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，混合
- */
 
 namespace Illuminate\Foundation;
 
@@ -13,7 +10,6 @@ class Mix
 {
     /**
      * Get the path to a versioned Mix file.
-	 * 得到版本的混合文件路径
      *
      * @param  string  $path
      * @param  string  $manifestDirectory

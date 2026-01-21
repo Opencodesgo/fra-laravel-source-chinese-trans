@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，调用转发
- */
 
 namespace Illuminate\Support\Traits;
 
@@ -12,7 +9,6 @@ trait ForwardsCalls
 {
     /**
      * Forward a method call to the given object.
-	 * 转发一个方法调用给给定对象
      *
      * @param  mixed  $object
      * @param  string  $method
@@ -43,7 +39,6 @@ trait ForwardsCalls
 
     /**
      * Throw a bad method call exception for the given method.
-	 * 抛出一个坏的方法调用异常对给定的方法
      *
      * @param  string  $method
      * @return void

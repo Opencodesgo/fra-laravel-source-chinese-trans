@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，异常排除命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -12,7 +9,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -20,7 +16,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -28,7 +23,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 类的类型被生成的
      *
      * @var string
      */
@@ -36,7 +30,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的存根文件
      *
      * @return string
      */
@@ -55,7 +48,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 
     /**
      * Determine if the class already exists.
-	 * 确定类是否存在
      *
      * @param  string  $rawName
      * @return bool
@@ -67,7 +59,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
-	 * 得到类的默认命名空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -79,7 +70,6 @@ class ExceptionMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
-	 * 得到控制台命令选项
      *
      * @return array
      */

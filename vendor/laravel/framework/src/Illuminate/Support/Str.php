@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，字符串
- */
 
 namespace Illuminate\Support;
 
@@ -10,6 +7,7 @@ use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
 use Ramsey\Uuid\Generator\CombGenerator;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidFactory;
+use voku\helper\ASCII;
 
 class Str
 {
@@ -17,7 +15,6 @@ class Str
 
     /**
      * The cache of snake-cased words.
-	 * 缓存蛇形单词
      *
      * @var array
      */
@@ -25,7 +22,6 @@ class Str
 
     /**
      * The cache of camel-cased words.
-	 * 缓存驼峰单词
      *
      * @var array
      */
@@ -33,7 +29,6 @@ class Str
 
     /**
      * The cache of studly-cased words.
-	 * 隐藏的刻意区分大小写的单词
      *
      * @var array
      */
@@ -41,15 +36,24 @@ class Str
 
     /**
      * The callback that should be used to generate UUIDs.
-	 * 应该用于生成uid的回调
      *
      * @var callable
      */
     protected static $uuidFactory;
 
     /**
+     * Get a new stringable object from the given string.
+     *
+     * @param  string  $string
+     * @return \Illuminate\Support\Stringable
+     */
+    public static function of($string)
+    {
+        return new Stringable($string);
+    }
+
+    /**
      * Return the remainder of a string after the first occurrence of a given value.
-	 * 返回给定值第一次出现后字符串的剩余部分
      *
      * @param  string  $subject
      * @param  string  $search
@@ -62,7 +66,6 @@ class Str
 
     /**
      * Return the remainder of a string after the last occurrence of a given value.
-	 * 返回给定值最后一次出现后字符串的剩余部分
      *
      * @param  string  $subject
      * @param  string  $search
@@ -85,7 +88,6 @@ class Str
 
     /**
      * Transliterate a UTF-8 value to ASCII.
-	 * 直译UTF-8值为ASCII
      *
      * @param  string  $value
      * @param  string  $language
@@ -93,22 +95,11 @@ class Str
      */
     public static function ascii($value, $language = 'en')
     {
-        $languageSpecific = static::languageSpecificCharsArray($language);
-
-        if (! is_null($languageSpecific)) {
-            $value = str_replace($languageSpecific[0], $languageSpecific[1], $value);
-        }
-
-        foreach (static::charsArray() as $key => $val) {
-            $value = str_replace($val, $key, $value);
-        }
-
-        return preg_replace('/[^\x20-\x7E]/u', '', $value);
+        return ASCII::to_ascii((string) $value, $language);
     }
 
     /**
      * Get the portion of a string before the first occurrence of a given value.
-	 * 得到字符串第一次出现给定值之前的部分
      *
      * @param  string  $subject
      * @param  string  $search
@@ -121,7 +112,6 @@ class Str
 
     /**
      * Get the portion of a string before the last occurrence of a given value.
-	 * 得到字符串最后一次出现给定值之前的部分
      *
      * @param  string  $subject
      * @param  string  $search
@@ -143,8 +133,24 @@ class Str
     }
 
     /**
+     * Get the portion of a string between two given values.
+     *
+     * @param  string  $subject
+     * @param  string  $from
+     * @param  string  $to
+     * @return string
+     */
+    public static function between($subject, $from, $to)
+    {
+        if ($from === '' || $to === '') {
+            return $subject;
+        }
+
+        return static::beforeLast(static::after($subject, $from), $to);
+    }
+
+    /**
      * Convert a value to camel case.
-	 * 转换值为驼峰形式
      *
      * @param  string  $value
      * @return string
@@ -160,7 +166,6 @@ class Str
 
     /**
      * Determine if a given string contains a given substring.
-	 * 确定给定字符串是否包含给定子字符串
      *
      * @param  string  $haystack
      * @param  string|string[]  $needles
@@ -179,7 +184,6 @@ class Str
 
     /**
      * Determine if a given string contains all array values.
-	 * 确定给定字符串是否包含所有数组值
      *
      * @param  string  $haystack
      * @param  string[]  $needles
@@ -198,7 +202,6 @@ class Str
 
     /**
      * Determine if a given string ends with a given substring.
-	 * 确定给定字符串是否以给定子字符串结束
      *
      * @param  string  $haystack
      * @param  string|string[]  $needles
@@ -207,7 +210,7 @@ class Str
     public static function endsWith($haystack, $needles)
     {
         foreach ((array) $needles as $needle) {
-            if (substr($haystack, -strlen($needle)) === (string) $needle) {
+            if ($needle !== '' && substr($haystack, -strlen($needle)) === (string) $needle) {
                 return true;
             }
         }
@@ -217,7 +220,6 @@ class Str
 
     /**
      * Cap a string with a single instance of a given value.
-	 * 用给定值的单个实例给字符串盖上盖子
      *
      * @param  string  $value
      * @param  string  $cap
@@ -232,7 +234,6 @@ class Str
 
     /**
      * Determine if a given string matches a given pattern.
-	 * 确定给定字符串是否与给定模式匹配
      *
      * @param  string|array  $pattern
      * @param  string  $value
@@ -250,8 +251,6 @@ class Str
             // If the given value is an exact match we can of course return true right
             // from the beginning. Otherwise, we will translate asterisks and do an
             // actual pattern match against the two strings to see if they match.
-			// 如果给定的值完全匹配，我们当然可以从一开始就返回true。
-			// 否则，我们将翻译星号，并对这两个字符串进行实际的模式匹配，看看它们是否匹配。
             if ($pattern == $value) {
                 return true;
             }
@@ -261,8 +260,6 @@ class Str
             // Asterisks are translated into zero-or-more regular expression wildcards
             // to make it convenient to check if the strings starts with the given
             // pattern such as "library/*", making any string check convenient.
-			// 星号被转换为零个或多个正则表达式通配符，以方便检查字符串是否以给定的模式开头，
-			// 如"library/*"，从而方便任何字符串检查。
             $pattern = str_replace('\*', '.*', $pattern);
 
             if (preg_match('#^'.$pattern.'\z#u', $value) === 1) {
@@ -274,8 +271,18 @@ class Str
     }
 
     /**
+     * Determine if a given string is 7 bit ASCII.
+     *
+     * @param  string  $value
+     * @return bool
+     */
+    public static function isAscii($value)
+    {
+        return ASCII::is_ascii((string) $value);
+    }
+
+    /**
      * Determine if a given string is a valid UUID.
-	 * 确定给定字符串是否是有效的UUID
      *
      * @param  string  $value
      * @return bool
@@ -291,7 +298,6 @@ class Str
 
     /**
      * Convert a string to kebab case.
-	 * 转换字符串为kebab case
      *
      * @param  string  $value
      * @return string
@@ -303,7 +309,6 @@ class Str
 
     /**
      * Return the length of the given string.
-	 * 返回给定字符串长度
      *
      * @param  string  $value
      * @param  string|null  $encoding
@@ -320,7 +325,6 @@ class Str
 
     /**
      * Limit the number of characters in a string.
-	 * 限制字符串中的字符数
      *
      * @param  string  $value
      * @param  int  $limit
@@ -338,7 +342,6 @@ class Str
 
     /**
      * Convert the given string to lower-case.
-	 * 转换给定字符串为小写
      *
      * @param  string  $value
      * @return string
@@ -350,7 +353,6 @@ class Str
 
     /**
      * Limit the number of words in a string.
-	 * 限制字符串中的单词数
      *
      * @param  string  $value
      * @param  int  $words
@@ -369,8 +371,46 @@ class Str
     }
 
     /**
+     * Pad both sides of a string with another.
+     *
+     * @param  string  $value
+     * @param  int  $length
+     * @param  string  $pad
+     * @return string
+     */
+    public static function padBoth($value, $length, $pad = ' ')
+    {
+        return str_pad($value, $length, $pad, STR_PAD_BOTH);
+    }
+
+    /**
+     * Pad the left side of a string with another.
+     *
+     * @param  string  $value
+     * @param  int  $length
+     * @param  string  $pad
+     * @return string
+     */
+    public static function padLeft($value, $length, $pad = ' ')
+    {
+        return str_pad($value, $length, $pad, STR_PAD_LEFT);
+    }
+
+    /**
+     * Pad the right side of a string with another.
+     *
+     * @param  string  $value
+     * @param  int  $length
+     * @param  string  $pad
+     * @return string
+     */
+    public static function padRight($value, $length, $pad = ' ')
+    {
+        return str_pad($value, $length, $pad, STR_PAD_RIGHT);
+    }
+
+    /**
      * Parse a Class[@]method style callback into class and method.
-	 * 解析类[@]方法风格回调到类和方法
      *
      * @param  string  $callback
      * @param  string|null  $default
@@ -383,7 +423,6 @@ class Str
 
     /**
      * Get the plural form of an English word.
-	 * 了解英语单词的复数形式
      *
      * @param  string  $value
      * @param  int  $count
@@ -396,7 +435,6 @@ class Str
 
     /**
      * Pluralize the last word of an English, studly caps case string.
-	 * 将英语的最后一个单词复数化，注意大小写字符串的大小写。
      *
      * @param  string  $value
      * @param  int  $count
@@ -413,7 +451,6 @@ class Str
 
     /**
      * Generate a more truly "random" alpha-numeric string.
-	 * 生成一个更真正"随机"的字母数字字符串
      *
      * @param  int  $length
      * @return string
@@ -435,7 +472,6 @@ class Str
 
     /**
      * Replace a given value in the string sequentially with an array.
-	 * 替换字符串中的给定值依次为数组
      *
      * @param  string  $search
      * @param  array<int|string, string>  $replace
@@ -457,7 +493,6 @@ class Str
 
     /**
      * Replace the first occurrence of a given value in the string.
-	 * 替换字符串中第一次出现的给定值
      *
      * @param  string  $search
      * @param  string  $replace
@@ -481,7 +516,6 @@ class Str
 
     /**
      * Replace the last occurrence of a given value in the string.
-	 * 替换字符串中最后出现的给定值
      *
      * @param  string  $search
      * @param  string  $replace
@@ -505,7 +539,6 @@ class Str
 
     /**
      * Begin a string with a single instance of a given value.
-	 * 开始字符串以给定值的单个实例
      *
      * @param  string  $value
      * @param  string  $prefix
@@ -520,7 +553,6 @@ class Str
 
     /**
      * Convert the given string to upper-case.
-	 * 转换给定字符串为大写
      *
      * @param  string  $value
      * @return string
@@ -532,7 +564,6 @@ class Str
 
     /**
      * Convert the given string to title case.
-	 * 转换给定的字符串为标题大小写
      *
      * @param  string  $value
      * @return string
@@ -544,7 +575,6 @@ class Str
 
     /**
      * Get the singular form of an English word.
-	 * 得到英语单词的单数形式
      *
      * @param  string  $value
      * @return string
@@ -556,7 +586,6 @@ class Str
 
     /**
      * Generate a URL friendly "slug" from a given string.
-	 * 从给定的字符串生成一个URL友好的"slug"
      *
      * @param  string  $title
      * @param  string  $separator
@@ -586,7 +615,6 @@ class Str
 
     /**
      * Convert a string to snake case.
-	 * 转换字符串为蛇形
      *
      * @param  string  $value
      * @param  string  $delimiter
@@ -611,7 +639,6 @@ class Str
 
     /**
      * Determine if a given string starts with a given substring.
-	 * 确定给定字符串是否以给定子字符串开头
      *
      * @param  string  $haystack
      * @param  string|string[]  $needles
@@ -620,7 +647,7 @@ class Str
     public static function startsWith($haystack, $needles)
     {
         foreach ((array) $needles as $needle) {
-            if ($needle !== '' && substr($haystack, 0, strlen($needle)) === (string) $needle) {
+            if ((string) $needle !== '' && strncmp($haystack, $needle, strlen($needle)) === 0) {
                 return true;
             }
         }
@@ -630,7 +657,6 @@ class Str
 
     /**
      * Convert a value to studly caps case.
-	 * 将值转换为大写大小写
      *
      * @param  string  $value
      * @return string
@@ -650,7 +676,6 @@ class Str
 
     /**
      * Returns the portion of string specified by the start and length parameters.
-	 * 返回由start和length参数指定的字符串部分
      *
      * @param  string  $string
      * @param  int  $start
@@ -663,8 +688,25 @@ class Str
     }
 
     /**
+     * Returns the number of substring occurrences.
+     *
+     * @param  string  $haystack
+     * @param  string  $needle
+     * @param  int  $offset
+     * @param  int|null  $length
+     * @return int
+     */
+    public static function substrCount($haystack, $needle, $offset = 0, $length = null)
+    {
+        if (! is_null($length)) {
+            return substr_count($haystack, $needle, $offset, $length);
+        } else {
+            return substr_count($haystack, $needle, $offset);
+        }
+    }
+
+    /**
      * Make a string's first character uppercase.
-	 * 使字符串的第一个字符大写
      *
      * @param  string  $string
      * @return string
@@ -676,7 +718,6 @@ class Str
 
     /**
      * Generate a UUID (version 4).
-	 * 生成UUID(版本4)
      *
      * @return \Ramsey\Uuid\UuidInterface
      */
@@ -689,7 +730,6 @@ class Str
 
     /**
      * Generate a time-ordered UUID (version 4).
-	 * 生成一个按时间排序的UUID(版本4)
      *
      * @return \Ramsey\Uuid\UuidInterface
      */
@@ -715,9 +755,8 @@ class Str
 
     /**
      * Set the callable that will be used to generate UUIDs.
-	 * 设置将用于生成uid的可调用对象
      *
-     * @param  callable  $factory
+     * @param  callable|null  $factory
      * @return void
      */
     public static function createUuidsUsing(callable $factory = null)
@@ -727,192 +766,11 @@ class Str
 
     /**
      * Indicate that UUIDs should be created normally and not using a custom factory.
-	 * 指示应该正常创建uid，而不是使用自定义工厂。
      *
      * @return void
      */
     public static function createUuidsNormally()
     {
         static::$uuidFactory = null;
-    }
-
-    /**
-     * Returns the replacements for the ascii method.
-	 * 返回ascii方法的替换项
-     *
-     * Note: Adapted from Stringy\Stringy.
-     *
-     * @see https://github.com/danielstjules/Stringy/blob/3.1.0/LICENSE.txt
-     *
-     * @return array
-     */
-    protected static function charsArray()
-    {
-        static $charsArray;
-
-        if (isset($charsArray)) {
-            return $charsArray;
-        }
-
-        return $charsArray = [
-            '0'    => ['°', '₀', '۰', '０'],
-            '1'    => ['¹', '₁', '۱', '１'],
-            '2'    => ['²', '₂', '۲', '２'],
-            '3'    => ['³', '₃', '۳', '３'],
-            '4'    => ['⁴', '₄', '۴', '٤', '４'],
-            '5'    => ['⁵', '₅', '۵', '٥', '５'],
-            '6'    => ['⁶', '₆', '۶', '٦', '６'],
-            '7'    => ['⁷', '₇', '۷', '７'],
-            '8'    => ['⁸', '₈', '۸', '８'],
-            '9'    => ['⁹', '₉', '۹', '９'],
-            'a'    => ['à', 'á', 'ả', 'ã', 'ạ', 'ă', 'ắ', 'ằ', 'ẳ', 'ẵ', 'ặ', 'â', 'ấ', 'ầ', 'ẩ', 'ẫ', 'ậ', 'ā', 'ą', 'å', 'α', 'ά', 'ἀ', 'ἁ', 'ἂ', 'ἃ', 'ἄ', 'ἅ', 'ἆ', 'ἇ', 'ᾀ', 'ᾁ', 'ᾂ', 'ᾃ', 'ᾄ', 'ᾅ', 'ᾆ', 'ᾇ', 'ὰ', 'ά', 'ᾰ', 'ᾱ', 'ᾲ', 'ᾳ', 'ᾴ', 'ᾶ', 'ᾷ', 'а', 'أ', 'အ', 'ာ', 'ါ', 'ǻ', 'ǎ', 'ª', 'ა', 'अ', 'ا', 'ａ', 'ä', 'א'],
-            'b'    => ['б', 'β', 'ب', 'ဗ', 'ბ', 'ｂ', 'ב'],
-            'c'    => ['ç', 'ć', 'č', 'ĉ', 'ċ', 'ｃ'],
-            'd'    => ['ď', 'ð', 'đ', 'ƌ', 'ȡ', 'ɖ', 'ɗ', 'ᵭ', 'ᶁ', 'ᶑ', 'д', 'δ', 'د', 'ض', 'ဍ', 'ဒ', 'დ', 'ｄ', 'ד'],
-            'e'    => ['é', 'è', 'ẻ', 'ẽ', 'ẹ', 'ê', 'ế', 'ề', 'ể', 'ễ', 'ệ', 'ë', 'ē', 'ę', 'ě', 'ĕ', 'ė', 'ε', 'έ', 'ἐ', 'ἑ', 'ἒ', 'ἓ', 'ἔ', 'ἕ', 'ὲ', 'έ', 'е', 'ё', 'э', 'є', 'ə', 'ဧ', 'ေ', 'ဲ', 'ე', 'ए', 'إ', 'ئ', 'ｅ'],
-            'f'    => ['ф', 'φ', 'ف', 'ƒ', 'ფ', 'ｆ', 'פ', 'ף'],
-            'g'    => ['ĝ', 'ğ', 'ġ', 'ģ', 'г', 'ґ', 'γ', 'ဂ', 'გ', 'گ', 'ｇ', 'ג'],
-            'h'    => ['ĥ', 'ħ', 'η', 'ή', 'ح', 'ه', 'ဟ', 'ှ', 'ჰ', 'ｈ', 'ה'],
-            'i'    => ['í', 'ì', 'ỉ', 'ĩ', 'ị', 'î', 'ï', 'ī', 'ĭ', 'į', 'ı', 'ι', 'ί', 'ϊ', 'ΐ', 'ἰ', 'ἱ', 'ἲ', 'ἳ', 'ἴ', 'ἵ', 'ἶ', 'ἷ', 'ὶ', 'ί', 'ῐ', 'ῑ', 'ῒ', 'ΐ', 'ῖ', 'ῗ', 'і', 'ї', 'и', 'ဣ', 'ိ', 'ီ', 'ည်', 'ǐ', 'ი', 'इ', 'ی', 'ｉ', 'י'],
-            'j'    => ['ĵ', 'ј', 'Ј', 'ჯ', 'ج', 'ｊ'],
-            'k'    => ['ķ', 'ĸ', 'к', 'κ', 'Ķ', 'ق', 'ك', 'က', 'კ', 'ქ', 'ک', 'ｋ', 'ק'],
-            'l'    => ['ł', 'ľ', 'ĺ', 'ļ', 'ŀ', 'л', 'λ', 'ل', 'လ', 'ლ', 'ｌ', 'ל'],
-            'm'    => ['м', 'μ', 'م', 'မ', 'მ', 'ｍ', 'מ', 'ם'],
-            'n'    => ['ñ', 'ń', 'ň', 'ņ', 'ŉ', 'ŋ', 'ν', 'н', 'ن', 'န', 'ნ', 'ｎ', 'נ'],
-            'o'    => ['ó', 'ò', 'ỏ', 'õ', 'ọ', 'ô', 'ố', 'ồ', 'ổ', 'ỗ', 'ộ', 'ơ', 'ớ', 'ờ', 'ở', 'ỡ', 'ợ', 'ø', 'ō', 'ő', 'ŏ', 'ο', 'ὀ', 'ὁ', 'ὂ', 'ὃ', 'ὄ', 'ὅ', 'ὸ', 'ό', 'о', 'و', 'ို', 'ǒ', 'ǿ', 'º', 'ო', 'ओ', 'ｏ', 'ö'],
-            'p'    => ['п', 'π', 'ပ', 'პ', 'پ', 'ｐ', 'פ', 'ף'],
-            'q'    => ['ყ', 'ｑ'],
-            'r'    => ['ŕ', 'ř', 'ŗ', 'р', 'ρ', 'ر', 'რ', 'ｒ', 'ר'],
-            's'    => ['ś', 'š', 'ş', 'с', 'σ', 'ș', 'ς', 'س', 'ص', 'စ', 'ſ', 'ს', 'ｓ', 'ס'],
-            't'    => ['ť', 'ţ', 'т', 'τ', 'ț', 'ت', 'ط', 'ဋ', 'တ', 'ŧ', 'თ', 'ტ', 'ｔ', 'ת'],
-            'u'    => ['ú', 'ù', 'ủ', 'ũ', 'ụ', 'ư', 'ứ', 'ừ', 'ử', 'ữ', 'ự', 'û', 'ū', 'ů', 'ű', 'ŭ', 'ų', 'µ', 'у', 'ဉ', 'ု', 'ူ', 'ǔ', 'ǖ', 'ǘ', 'ǚ', 'ǜ', 'უ', 'उ', 'ｕ', 'ў', 'ü'],
-            'v'    => ['в', 'ვ', 'ϐ', 'ｖ', 'ו'],
-            'w'    => ['ŵ', 'ω', 'ώ', 'ဝ', 'ွ', 'ｗ'],
-            'x'    => ['χ', 'ξ', 'ｘ'],
-            'y'    => ['ý', 'ỳ', 'ỷ', 'ỹ', 'ỵ', 'ÿ', 'ŷ', 'й', 'ы', 'υ', 'ϋ', 'ύ', 'ΰ', 'ي', 'ယ', 'ｙ'],
-            'z'    => ['ź', 'ž', 'ż', 'з', 'ζ', 'ز', 'ဇ', 'ზ', 'ｚ', 'ז'],
-            'aa'   => ['ع', 'आ', 'آ'],
-            'ae'   => ['æ', 'ǽ'],
-            'ai'   => ['ऐ'],
-            'ch'   => ['ч', 'ჩ', 'ჭ', 'چ'],
-            'dj'   => ['ђ', 'đ'],
-            'dz'   => ['џ', 'ძ', 'דז'],
-            'ei'   => ['ऍ'],
-            'gh'   => ['غ', 'ღ'],
-            'ii'   => ['ई'],
-            'ij'   => ['ĳ'],
-            'kh'   => ['х', 'خ', 'ხ'],
-            'lj'   => ['љ'],
-            'nj'   => ['њ'],
-            'oe'   => ['ö', 'œ', 'ؤ'],
-            'oi'   => ['ऑ'],
-            'oii'  => ['ऒ'],
-            'ps'   => ['ψ'],
-            'sh'   => ['ш', 'შ', 'ش', 'ש'],
-            'shch' => ['щ'],
-            'ss'   => ['ß'],
-            'sx'   => ['ŝ'],
-            'th'   => ['þ', 'ϑ', 'θ', 'ث', 'ذ', 'ظ'],
-            'ts'   => ['ц', 'ც', 'წ'],
-            'ue'   => ['ü'],
-            'uu'   => ['ऊ'],
-            'ya'   => ['я'],
-            'yu'   => ['ю'],
-            'zh'   => ['ж', 'ჟ', 'ژ'],
-            '(c)'  => ['©'],
-            'A'    => ['Á', 'À', 'Ả', 'Ã', 'Ạ', 'Ă', 'Ắ', 'Ằ', 'Ẳ', 'Ẵ', 'Ặ', 'Â', 'Ấ', 'Ầ', 'Ẩ', 'Ẫ', 'Ậ', 'Å', 'Ā', 'Ą', 'Α', 'Ά', 'Ἀ', 'Ἁ', 'Ἂ', 'Ἃ', 'Ἄ', 'Ἅ', 'Ἆ', 'Ἇ', 'ᾈ', 'ᾉ', 'ᾊ', 'ᾋ', 'ᾌ', 'ᾍ', 'ᾎ', 'ᾏ', 'Ᾰ', 'Ᾱ', 'Ὰ', 'Ά', 'ᾼ', 'А', 'Ǻ', 'Ǎ', 'Ａ', 'Ä'],
-            'B'    => ['Б', 'Β', 'ब', 'Ｂ'],
-            'C'    => ['Ç', 'Ć', 'Č', 'Ĉ', 'Ċ', 'Ｃ'],
-            'D'    => ['Ď', 'Ð', 'Đ', 'Ɖ', 'Ɗ', 'Ƌ', 'ᴅ', 'ᴆ', 'Д', 'Δ', 'Ｄ'],
-            'E'    => ['É', 'È', 'Ẻ', 'Ẽ', 'Ẹ', 'Ê', 'Ế', 'Ề', 'Ể', 'Ễ', 'Ệ', 'Ë', 'Ē', 'Ę', 'Ě', 'Ĕ', 'Ė', 'Ε', 'Έ', 'Ἐ', 'Ἑ', 'Ἒ', 'Ἓ', 'Ἔ', 'Ἕ', 'Έ', 'Ὲ', 'Е', 'Ё', 'Э', 'Є', 'Ə', 'Ｅ'],
-            'F'    => ['Ф', 'Φ', 'Ｆ'],
-            'G'    => ['Ğ', 'Ġ', 'Ģ', 'Г', 'Ґ', 'Γ', 'Ｇ'],
-            'H'    => ['Η', 'Ή', 'Ħ', 'Ｈ'],
-            'I'    => ['Í', 'Ì', 'Ỉ', 'Ĩ', 'Ị', 'Î', 'Ï', 'Ī', 'Ĭ', 'Į', 'İ', 'Ι', 'Ί', 'Ϊ', 'Ἰ', 'Ἱ', 'Ἳ', 'Ἴ', 'Ἵ', 'Ἶ', 'Ἷ', 'Ῐ', 'Ῑ', 'Ὶ', 'Ί', 'И', 'І', 'Ї', 'Ǐ', 'ϒ', 'Ｉ'],
-            'J'    => ['Ｊ'],
-            'K'    => ['К', 'Κ', 'Ｋ'],
-            'L'    => ['Ĺ', 'Ł', 'Л', 'Λ', 'Ļ', 'Ľ', 'Ŀ', 'ल', 'Ｌ'],
-            'M'    => ['М', 'Μ', 'Ｍ'],
-            'N'    => ['Ń', 'Ñ', 'Ň', 'Ņ', 'Ŋ', 'Н', 'Ν', 'Ｎ'],
-            'O'    => ['Ó', 'Ò', 'Ỏ', 'Õ', 'Ọ', 'Ô', 'Ố', 'Ồ', 'Ổ', 'Ỗ', 'Ộ', 'Ơ', 'Ớ', 'Ờ', 'Ở', 'Ỡ', 'Ợ', 'Ø', 'Ō', 'Ő', 'Ŏ', 'Ο', 'Ό', 'Ὀ', 'Ὁ', 'Ὂ', 'Ὃ', 'Ὄ', 'Ὅ', 'Ὸ', 'Ό', 'О', 'Ө', 'Ǒ', 'Ǿ', 'Ｏ', 'Ö'],
-            'P'    => ['П', 'Π', 'Ｐ'],
-            'Q'    => ['Ｑ'],
-            'R'    => ['Ř', 'Ŕ', 'Р', 'Ρ', 'Ŗ', 'Ｒ'],
-            'S'    => ['Ş', 'Ŝ', 'Ș', 'Š', 'Ś', 'С', 'Σ', 'Ｓ'],
-            'T'    => ['Ť', 'Ţ', 'Ŧ', 'Ț', 'Т', 'Τ', 'Ｔ'],
-            'U'    => ['Ú', 'Ù', 'Ủ', 'Ũ', 'Ụ', 'Ư', 'Ứ', 'Ừ', 'Ử', 'Ữ', 'Ự', 'Û', 'Ū', 'Ů', 'Ű', 'Ŭ', 'Ų', 'У', 'Ǔ', 'Ǖ', 'Ǘ', 'Ǚ', 'Ǜ', 'Ｕ', 'Ў', 'Ü'],
-            'V'    => ['В', 'Ｖ'],
-            'W'    => ['Ω', 'Ώ', 'Ŵ', 'Ｗ'],
-            'X'    => ['Χ', 'Ξ', 'Ｘ'],
-            'Y'    => ['Ý', 'Ỳ', 'Ỷ', 'Ỹ', 'Ỵ', 'Ÿ', 'Ῠ', 'Ῡ', 'Ὺ', 'Ύ', 'Ы', 'Й', 'Υ', 'Ϋ', 'Ŷ', 'Ｙ'],
-            'Z'    => ['Ź', 'Ž', 'Ż', 'З', 'Ζ', 'Ｚ'],
-            'AE'   => ['Æ', 'Ǽ'],
-            'Ch'   => ['Ч'],
-            'Dj'   => ['Ђ'],
-            'Dz'   => ['Џ'],
-            'Gx'   => ['Ĝ'],
-            'Hx'   => ['Ĥ'],
-            'Ij'   => ['Ĳ'],
-            'Jx'   => ['Ĵ'],
-            'Kh'   => ['Х'],
-            'Lj'   => ['Љ'],
-            'Nj'   => ['Њ'],
-            'Oe'   => ['Œ'],
-            'Ps'   => ['Ψ'],
-            'Sh'   => ['Ш', 'ש'],
-            'Shch' => ['Щ'],
-            'Ss'   => ['ẞ'],
-            'Th'   => ['Þ', 'Θ', 'ת'],
-            'Ts'   => ['Ц'],
-            'Ya'   => ['Я', 'יא'],
-            'Yu'   => ['Ю', 'יו'],
-            'Zh'   => ['Ж'],
-            ' '    => ["\xC2\xA0", "\xE2\x80\x80", "\xE2\x80\x81", "\xE2\x80\x82", "\xE2\x80\x83", "\xE2\x80\x84", "\xE2\x80\x85", "\xE2\x80\x86", "\xE2\x80\x87", "\xE2\x80\x88", "\xE2\x80\x89", "\xE2\x80\x8A", "\xE2\x80\xAF", "\xE2\x81\x9F", "\xE3\x80\x80", "\xEF\xBE\xA0"],
-        ];
-    }
-
-    /**
-     * Returns the language specific replacements for the ascii method.
-	 * 返回ascii方法的特定于语言的替换
-     *
-     * Note: Adapted from Stringy\Stringy.
-     *
-     * @see https://github.com/danielstjules/Stringy/blob/3.1.0/LICENSE.txt
-     *
-     * @param  string  $language
-     * @return array|null
-     */
-    protected static function languageSpecificCharsArray($language)
-    {
-        static $languageSpecific;
-
-        if (! isset($languageSpecific)) {
-            $languageSpecific = [
-                'bg' => [
-                    ['х', 'Х', 'щ', 'Щ', 'ъ', 'Ъ', 'ь', 'Ь'],
-                    ['h', 'H', 'sht', 'SHT', 'a', 'А', 'y', 'Y'],
-                ],
-                'da' => [
-                    ['æ', 'ø', 'å', 'Æ', 'Ø', 'Å'],
-                    ['ae', 'oe', 'aa', 'Ae', 'Oe', 'Aa'],
-                ],
-                'de' => [
-                    ['ä',  'ö',  'ü',  'Ä',  'Ö',  'Ü'],
-                    ['ae', 'oe', 'ue', 'AE', 'OE', 'UE'],
-                ],
-                'he' => [
-                    ['א', 'ב', 'ג', 'ד', 'ה', 'ו'],
-                    ['ז', 'ח', 'ט', 'י', 'כ', 'ל'],
-                    ['מ', 'נ', 'ס', 'ע', 'פ', 'צ'],
-                    ['ק', 'ר', 'ש', 'ת', 'ן', 'ץ', 'ך', 'ם', 'ף'],
-                ],
-                'ro' => [
-                    ['ă', 'â', 'î', 'ș', 'ț', 'Ă', 'Â', 'Î', 'Ș', 'Ț'],
-                    ['a', 'a', 'i', 's', 't', 'A', 'A', 'I', 'S', 'T'],
-                ],
-            ];
-        }
-
-        return $languageSpecific[$language] ?? null;
     }
 }

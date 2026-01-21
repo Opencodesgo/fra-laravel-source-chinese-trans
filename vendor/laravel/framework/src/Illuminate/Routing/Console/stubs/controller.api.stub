@@ -1,18 +1,14 @@
 <?php
-/**
- * 路由，自己改注释
- */
 
-namespace DummyNamespace;
+namespace {{ namespace }};
 
-use DummyRootNamespaceHttp\Controllers\Controller;
+use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DummyClass extends Controller
+class {{ class }} extends Controller
 {
     /**
      * Display a listing of the resource.
-	 * 显示资源列表
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,7 +19,6 @@ class DummyClass extends Controller
 
     /**
      * Store a newly created resource in storage.
-	 * 存储新创建的资源至存储里
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -35,7 +30,6 @@ class DummyClass extends Controller
 
     /**
      * Display the specified resource.
-	 * 显示指定资源
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -47,7 +41,6 @@ class DummyClass extends Controller
 
     /**
      * Update the specified resource in storage.
-	 * 更新指定资源至存储
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -60,7 +53,6 @@ class DummyClass extends Controller
 
     /**
      * Remove the specified resource from storage.
-	 * 移除指定资源从存储中
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

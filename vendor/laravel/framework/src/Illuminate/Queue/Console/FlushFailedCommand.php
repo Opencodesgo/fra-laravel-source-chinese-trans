@@ -1,7 +1,4 @@
 <?php
-/**
- * 队列，控制台，刷新失败命令
- */
 
 namespace Illuminate\Queue\Console;
 
@@ -11,7 +8,6 @@ class FlushFailedCommand extends Command
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class FlushFailedCommand extends Command
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -27,7 +22,6 @@ class FlushFailedCommand extends Command
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
      * @return void
      */

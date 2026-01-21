@@ -1,7 +1,4 @@
 <?php
-/**
- * 路由，无效签名异常
- */
 
 namespace Illuminate\Routing\Exceptions;
 
@@ -11,7 +8,6 @@ class InvalidSignatureException extends HttpException
 {
     /**
      * Create a new exception instance.
-	 * 创建新的异常实例
      *
      * @return void
      */

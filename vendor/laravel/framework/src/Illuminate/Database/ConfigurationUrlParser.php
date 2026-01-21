@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，配置URL解析，待完善类
+ * 数据库，配置URL解析
  */
 
 namespace Illuminate\Database;

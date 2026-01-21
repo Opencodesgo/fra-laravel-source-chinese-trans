@@ -1,7 +1,4 @@
 <?php
-/**
- * 路由，中间件验证签名
- */
 
 namespace Illuminate\Routing\Middleware;
 
@@ -12,7 +9,6 @@ class ValidateSignature
 {
     /**
      * Handle an incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

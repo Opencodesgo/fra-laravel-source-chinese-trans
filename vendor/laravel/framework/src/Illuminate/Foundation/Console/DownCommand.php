@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，下达命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -15,7 +12,6 @@ class DownCommand extends Command
 
     /**
      * The console command signature.
-	 * 控制台命令签名
      *
      * @var string
      */
@@ -25,7 +21,6 @@ class DownCommand extends Command
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -33,7 +28,6 @@ class DownCommand extends Command
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
      * @return int
      */
@@ -62,7 +56,6 @@ class DownCommand extends Command
 
     /**
      * Get the payload to be placed in the "down" file.
-	 * 得到取要放置在"down"文件中的有效负载
      *
      * @return array
      */
@@ -78,7 +71,6 @@ class DownCommand extends Command
 
     /**
      * Get the number of seconds the client should wait before retrying their request.
-	 * 得到客户端在重试请求之前应该等待的秒数
      *
      * @return int|null
      */

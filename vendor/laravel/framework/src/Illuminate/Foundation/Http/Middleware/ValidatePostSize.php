@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，Http中间件，验证提交大小
- */
 
 namespace Illuminate\Foundation\Http\Middleware;
 
@@ -12,7 +9,6 @@ class ValidatePostSize
 {
     /**
      * Handle an incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -33,7 +29,6 @@ class ValidatePostSize
 
     /**
      * Determine the server 'post_max_size' as bytes.
-	 * 确定提交最大值
      *
      * @return int
      */

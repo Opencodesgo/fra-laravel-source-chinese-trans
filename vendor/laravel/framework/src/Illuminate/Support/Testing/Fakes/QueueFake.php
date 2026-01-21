@@ -1,20 +1,20 @@
 <?php
-/**
- * 支持，队列伪造
- */
 
 namespace Illuminate\Support\Testing\Fakes;
 
 use BadMethodCallException;
+use Closure;
 use Illuminate\Contracts\Queue\Queue;
 use Illuminate\Queue\QueueManager;
+use Illuminate\Support\Traits\ReflectsClosures;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class QueueFake extends QueueManager implements Queue
 {
+    use ReflectsClosures;
+
     /**
      * All of the jobs that have been pushed.
-	 * 所有的工作都被推迟了
      *
      * @var array
      */
@@ -22,14 +22,17 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Assert if a job was pushed based on a truth-test callback.
-	 * 断言作业是否基于真值测试回调被推送
      *
-     * @param  string  $job
+     * @param  string|\Closure  $job
      * @param  callable|int|null  $callback
      * @return void
      */
     public function assertPushed($job, $callback = null)
     {
+        if ($job instanceof Closure) {
+            [$job, $callback] = [$this->firstClosureParameterType($job), $job];
+        }
+
         if (is_numeric($callback)) {
             return $this->assertPushedTimes($job, $callback);
         }
@@ -42,7 +45,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Assert if a job was pushed a number of times.
-	 * 判断一个作业是否被推送了多次
      *
      * @param  string  $job
      * @param  int  $times
@@ -50,23 +52,28 @@ class QueueFake extends QueueManager implements Queue
      */
     protected function assertPushedTimes($job, $times = 1)
     {
-        PHPUnit::assertTrue(
-            ($count = $this->pushed($job)->count()) === $times,
+        $count = $this->pushed($job)->count();
+
+        PHPUnit::assertSame(
+            $times, $count,
             "The expected [{$job}] job was pushed {$count} times instead of {$times} times."
         );
     }
 
     /**
      * Assert if a job was pushed based on a truth-test callback.
-	 * 断言作业是否基于真值测试回调被推送
      *
      * @param  string  $queue
-     * @param  string  $job
+     * @param  string|\Closure  $job
      * @param  callable|null  $callback
      * @return void
      */
     public function assertPushedOn($queue, $job, $callback = null)
     {
+        if ($job instanceof Closure) {
+            [$job, $callback] = [$this->firstClosureParameterType($job), $job];
+        }
+
         return $this->assertPushed($job, function ($job, $pushedQueue) use ($callback, $queue) {
             if ($pushedQueue !== $queue) {
                 return false;
@@ -78,7 +85,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Assert if a job was pushed with chained jobs based on a truth-test callback.
-	 * 判断一个作业是否被基于真值测试回调的链式作业推送
      *
      * @param  string  $job
      * @param  array  $expectedChain
@@ -104,7 +110,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Assert if a job was pushed with an empty chain based on a truth-test callback.
-	 * 判断是否使用基于真值测试回调的空链推送作业
      *
      * @param  string  $job
      * @param  callable|null  $callback
@@ -122,7 +127,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Assert if a job was pushed with chained jobs based on a truth-test callback.
-	 * 判断一个作业是否被基于真值测试回调的链式作业推送
      *
      * @param  string  $job
      * @param  array  $expectedChain
@@ -145,7 +149,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Assert if a job was pushed with chained jobs based on a truth-test callback.
-	 * 判断一个作业是否被基于真值测试回调的链式作业推送
      *
      * @param  string  $job
      * @param  array  $expectedChain
@@ -169,7 +172,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Determine if the given chain is entirely composed of objects.
-	 * 确定给定链是否完全由对象组成
      *
      * @param  array  $chain
      * @return bool
@@ -183,23 +185,25 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Determine if a job was pushed based on a truth-test callback.
-	 * 根据true-test回调确定作业是否被推送
      *
-     * @param  string  $job
+     * @param  string|\Closure  $job
      * @param  callable|null  $callback
      * @return void
      */
     public function assertNotPushed($job, $callback = null)
     {
-        PHPUnit::assertTrue(
-            $this->pushed($job, $callback)->count() === 0,
+        if ($job instanceof Closure) {
+            [$job, $callback] = [$this->firstClosureParameterType($job), $job];
+        }
+
+        PHPUnit::assertCount(
+            0, $this->pushed($job, $callback),
             "The unexpected [{$job}] job was pushed."
         );
     }
 
     /**
      * Assert that no jobs were pushed.
-	 * 断言没有工作被推送
      *
      * @return void
      */
@@ -210,7 +214,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Get all of the jobs matching a truth-test callback.
-	 * 得到所有符合真实测试回调的工作
      *
      * @param  string  $job
      * @param  callable|null  $callback
@@ -233,7 +236,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Determine if there are any stored jobs for a given class.
-	 * 确定给定类是否有任何存储的作业
      *
      * @param  string  $job
      * @return bool
@@ -245,7 +247,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Resolve a queue connection instance.
-	 * 解析队列连接实例
      *
      * @param  mixed  $value
      * @return \Illuminate\Contracts\Queue\Queue
@@ -257,7 +258,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Get the size of the queue.
-	 * 得到队列的大小
      *
      * @param  string|null  $queue
      * @return int
@@ -271,7 +271,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Push a new job onto the queue.
-	 * 将新作业推送到队列中
      *
      * @param  string  $job
      * @param  mixed  $data
@@ -288,7 +287,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Push a raw payload onto the queue.
-	 * 将原始有效负载推入队列
      *
      * @param  string  $payload
      * @param  string|null  $queue
@@ -302,7 +300,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Push a new job onto the queue after a delay.
-	 * 在延迟后将新作业推入队列
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string  $job
@@ -317,7 +314,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Push a new job onto the queue.
-	 * 将新作业推送到队列中
      *
      * @param  string  $queue
      * @param  string  $job
@@ -331,7 +327,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Push a new job onto the queue after a delay.
-	 * 在延迟后将新作业推入队列
      *
      * @param  string  $queue
      * @param  \DateTimeInterface|\DateInterval|int  $delay
@@ -346,7 +341,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Pop the next job off of the queue.
-	 * 将下一个作业从队列中弹出
      *
      * @param  string|null  $queue
      * @return \Illuminate\Contracts\Queue\Job|null
@@ -358,7 +352,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Push an array of jobs onto the queue.
-	 * 将一组作业推入队列
      *
      * @param  array  $jobs
      * @param  mixed  $data
@@ -374,7 +367,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Get the jobs that have been pushed.
-	 * 争取那些被推迟的工作
      *
      * @return array
      */
@@ -385,7 +377,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Get the connection name for the queue.
-	 * 得到队列的连接名称
      *
      * @return string
      */
@@ -396,7 +387,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Set the connection name for the queue.
-	 * 设置队列的连接名称
      *
      * @param  string  $name
      * @return $this
@@ -408,7 +398,6 @@ class QueueFake extends QueueManager implements Queue
 
     /**
      * Override the QueueManager to prevent circular dependency.
-	 * 覆盖QueueManager以防止循环依赖
      *
      * @param  string  $method
      * @param  array  $parameters

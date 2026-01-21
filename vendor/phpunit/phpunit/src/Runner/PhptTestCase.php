@@ -19,7 +19,6 @@ use function dirname;
 use function explode;
 use function extension_loaded;
 use function file;
-use function file_exists;
 use function file_get_contents;
 use function file_put_contents;
 use function is_array;
@@ -45,23 +44,28 @@ use function var_export;
 use function version_compare;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\AssertionFailedError;
+use PHPUnit\Framework\ExecutionOrderDependency;
 use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\IncompleteTestError;
 use PHPUnit\Framework\PHPTAssertionFailedError;
+use PHPUnit\Framework\Reorderable;
 use PHPUnit\Framework\SelfDescribing;
 use PHPUnit\Framework\SkippedTestError;
 use PHPUnit\Framework\SyntheticSkippedError;
 use PHPUnit\Framework\Test;
 use PHPUnit\Framework\TestResult;
 use PHPUnit\Util\PHP\AbstractPhpProcess;
+use SebastianBergmann\CodeCoverage\InvalidArgumentException;
+use SebastianBergmann\CodeCoverage\RawCodeCoverageData;
+use SebastianBergmann\CodeCoverage\UnintentionallyCoveredCodeException;
+use SebastianBergmann\Template\Template;
 use SebastianBergmann\Timer\Timer;
-use Text_Template;
 use Throwable;
 
 /**
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final class PhptTestCase implements SelfDescribing, Test
+final class PhptTestCase implements Reorderable, SelfDescribing, Test
 {
     /**
      * @var string
@@ -83,14 +87,14 @@ final class PhptTestCase implements SelfDescribing, Test
      *
      * @throws Exception
      */
-    public function __construct(string $filename, AbstractPhpProcess $phpUtil = null)
+    public function __construct(string $filename, ?AbstractPhpProcess $phpUtil = null)
     {
         if (!is_file($filename)) {
             throw new Exception(
                 sprintf(
                     'File "%s" does not exist.',
-                    $filename
-                )
+                    $filename,
+                ),
             );
         }
 
@@ -109,15 +113,12 @@ final class PhptTestCase implements SelfDescribing, Test
     /**
      * Runs a test and collects its result in a TestResult instance.
      *
-     * @throws \SebastianBergmann\CodeCoverage\CoveredCodeNotExecutedException
-     * @throws \SebastianBergmann\CodeCoverage\InvalidArgumentException
-     * @throws \SebastianBergmann\CodeCoverage\MissingCoversAnnotationException
-     * @throws \SebastianBergmann\CodeCoverage\RuntimeException
-     * @throws \SebastianBergmann\CodeCoverage\UnintentionallyCoveredCodeException
      * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
      * @throws Exception
+     * @throws InvalidArgumentException
+     * @throws UnintentionallyCoveredCodeException
      */
-    public function run(TestResult $result = null): TestResult
+    public function run(?TestResult $result = null): TestResult
     {
         if ($result === null) {
             $result = new TestResult;
@@ -173,17 +174,31 @@ final class PhptTestCase implements SelfDescribing, Test
         }
 
         if ($result->getCollectCodeCoverageInformation()) {
-            $this->renderForCoverage($code);
+            $codeCoverageCacheDirectory = null;
+            $pathCoverage               = false;
+
+            $codeCoverage = $result->getCodeCoverage();
+
+            if ($codeCoverage) {
+                if ($codeCoverage->cachesStaticAnalysis()) {
+                    $codeCoverageCacheDirectory = $codeCoverage->cacheDirectory();
+                }
+
+                $pathCoverage = $codeCoverage->collectsBranchAndPathCoverage();
+            }
+
+            $this->renderForCoverage($code, $pathCoverage, $codeCoverageCacheDirectory);
         }
 
-        Timer::start();
+        $timer = new Timer;
+        $timer->start();
 
         $jobResult    = $this->phpUtil->runJob($code, $this->stringifyIni($settings));
-        $time         = Timer::stop();
+        $time         = $timer->stop()->asSeconds();
         $this->output = $jobResult['stdout'] ?? '';
 
-        if ($result->getCollectCodeCoverageInformation() && ($coverage = $this->cleanupForCoverage())) {
-            $result->getCodeCoverage()->append($coverage, $this, true, [], [], true);
+        if (isset($codeCoverage) && ($coverage = $this->cleanupForCoverage())) {
+            $codeCoverage->append($coverage, $this, true, [], []);
         }
 
         try {
@@ -210,7 +225,7 @@ final class PhptTestCase implements SelfDescribing, Test
                     $trace[0]['file'],
                     $trace[0]['line'],
                     $trace,
-                    $comparisonFailure ? $diff : ''
+                    $comparisonFailure ? $diff : '',
                 );
             }
 
@@ -266,12 +281,33 @@ final class PhptTestCase implements SelfDescribing, Test
         return !empty($this->output);
     }
 
+    public function sortId(): string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @return list<ExecutionOrderDependency>
+     */
+    public function provides(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return list<ExecutionOrderDependency>
+     */
+    public function requires(): array
+    {
+        return [];
+    }
+
     /**
      * Parse --INI-- section key value pairs and return as array.
      *
-     * @param array|string
+     * @param array|string $content
      */
-    private function parseIniSection($content, $ini = []): array
+    private function parseIniSection($content, array $ini = []): array
     {
         if (is_string($content)) {
             $content = explode("\n", trim($content));
@@ -309,7 +345,7 @@ final class PhptTestCase implements SelfDescribing, Test
         foreach (explode("\n", trim($content)) as $e) {
             $e = explode('=', trim($e), 2);
 
-            if (!empty($e[0]) && isset($e[1])) {
+            if ($e[0] !== '' && isset($e[1])) {
                 $env[$e[0]] = $e[1];
             }
         }
@@ -327,7 +363,7 @@ final class PhptTestCase implements SelfDescribing, Test
         $assertions = [
             'EXPECT'      => 'assertEquals',
             'EXPECTF'     => 'assertStringMatchesFormat',
-            'EXPECTREGEX' => 'assertRegExp',
+            'EXPECTREGEX' => 'assertMatchesRegularExpression',
         ];
 
         $actual = preg_replace('/\r\n/', "\n", trim($output));
@@ -337,7 +373,7 @@ final class PhptTestCase implements SelfDescribing, Test
                 $sectionContent = preg_replace('/\r\n/', "\n", trim($sections[$sectionName]));
                 $expected       = $sectionName === 'EXPECTREGEX' ? "/{$sectionContent}/" : $sectionContent;
 
-                if ($expected === null) {
+                if ($expected === '') {
                     throw new Exception('No PHPT expectation found');
                 }
 
@@ -374,7 +410,7 @@ final class PhptTestCase implements SelfDescribing, Test
             $result->addFailure(
                 $this,
                 new SyntheticSkippedError($message, 0, $trace[0]['file'], $trace[0]['line'], $trace),
-                0
+                0,
             );
             $result->endTest($this, 0);
 
@@ -455,7 +491,7 @@ final class PhptTestCase implements SelfDescribing, Test
         foreach ($unsupportedSections as $section) {
             if (isset($sections[$section])) {
                 throw new Exception(
-                    "PHPUnit does not support PHPT {$section} sections"
+                    "PHPUnit does not support PHPT {$section} sections",
                 );
             }
         }
@@ -486,8 +522,8 @@ final class PhptTestCase implements SelfDescribing, Test
                         sprintf(
                             'Could not load --%s-- %s for PHPT file',
                             $section . '_EXTERNAL',
-                            $testDirectory . $externalFilename
-                        )
+                            $testDirectory . $externalFilename,
+                        ),
                     );
                 }
 
@@ -545,7 +581,7 @@ final class PhptTestCase implements SelfDescribing, Test
                 "'" . dirname($this->filename) . "'",
                 "'" . $this->filename . "'",
             ],
-            $code
+            $code,
         );
     }
 
@@ -560,12 +596,12 @@ final class PhptTestCase implements SelfDescribing, Test
         ];
     }
 
-    private function renderForCoverage(string &$job): void
+    private function renderForCoverage(string &$job, bool $pathCoverage, ?string $codeCoverageCacheDirectory): void
     {
         $files = $this->getCoverageFiles();
 
-        $template = new Text_Template(
-            __DIR__ . '/../Util/PHP/Template/PhptTestCase.tpl'
+        $template = new Template(
+            __DIR__ . '/../Util/PHP/Template/PhptTestCase.tpl',
         );
 
         $composerAutoload = '\'\'';
@@ -585,37 +621,46 @@ final class PhptTestCase implements SelfDescribing, Test
         if (!empty($GLOBALS['__PHPUNIT_BOOTSTRAP'])) {
             $globals = '$GLOBALS[\'__PHPUNIT_BOOTSTRAP\'] = ' . var_export(
                 $GLOBALS['__PHPUNIT_BOOTSTRAP'],
-                true
+                true,
             ) . ";\n";
+        }
+
+        if ($codeCoverageCacheDirectory === null) {
+            $codeCoverageCacheDirectory = 'null';
+        } else {
+            $codeCoverageCacheDirectory = "'" . $codeCoverageCacheDirectory . "'";
         }
 
         $template->setVar(
             [
-                'composerAutoload' => $composerAutoload,
-                'phar'             => $phar,
-                'globals'          => $globals,
-                'job'              => $files['job'],
-                'coverageFile'     => $files['coverage'],
-            ]
+                'composerAutoload'           => $composerAutoload,
+                'phar'                       => $phar,
+                'globals'                    => $globals,
+                'job'                        => $files['job'],
+                'coverageFile'               => $files['coverage'],
+                'driverMethod'               => $pathCoverage ? 'forLineAndPathCoverage' : 'forLineCoverage',
+                'codeCoverageCacheDirectory' => $codeCoverageCacheDirectory,
+            ],
         );
 
         file_put_contents($files['job'], $job);
+
         $job = $template->render();
     }
 
-    private function cleanupForCoverage(): array
+    private function cleanupForCoverage(): RawCodeCoverageData
     {
-        $coverage = [];
+        $coverage = RawCodeCoverageData::fromXdebugWithoutPathCoverage([]);
         $files    = $this->getCoverageFiles();
 
-        if (file_exists($files['coverage'])) {
+        if (is_file($files['coverage'])) {
             $buffer = @file_get_contents($files['coverage']);
 
             if ($buffer !== false) {
                 $coverage = @unserialize($buffer);
 
                 if ($coverage === false) {
-                    $coverage = [];
+                    $coverage = RawCodeCoverageData::fromXdebugWithoutPathCoverage([]);
                 }
             }
         }
@@ -715,6 +760,8 @@ final class PhptTestCase implements SelfDescribing, Test
                 'EXPECTREGEX',
             ];
         }
+
+        $sectionOffset = null;
 
         foreach ($search as $section) {
             if (!isset($sections[$section])) {

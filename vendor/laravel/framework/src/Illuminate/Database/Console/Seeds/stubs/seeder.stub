@@ -1,11 +1,8 @@
 <?php
-/**
- * 数据库，存根文件
- */
 
 use Illuminate\Database\Seeder;
 
-class DummyClass extends Seeder
+class {{ class }} extends Seeder
 {
     /**
      * Run the database seeds.

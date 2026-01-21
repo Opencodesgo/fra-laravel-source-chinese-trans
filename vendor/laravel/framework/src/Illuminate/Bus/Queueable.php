@@ -1,17 +1,16 @@
 <?php
-/**
- * 总线，总线队列
- */
 
 namespace Illuminate\Bus;
 
+use Closure;
+use Illuminate\Queue\CallQueuedClosure;
 use Illuminate\Support\Arr;
+use RuntimeException;
 
 trait Queueable
 {
     /**
      * The name of the connection the job should be sent to.
-	 * 连接名称应该将作业发送到的
      *
      * @var string|null
      */
@@ -19,7 +18,6 @@ trait Queueable
 
     /**
      * The name of the queue the job should be sent to.
-	 * 队列名应该将作业发送到队列
      *
      * @var string|null
      */
@@ -27,7 +25,6 @@ trait Queueable
 
     /**
      * The name of the connection the chain should be sent to.
-	 * 连接名应该将链发送到连接
      *
      * @var string|null
      */
@@ -35,7 +32,6 @@ trait Queueable
 
     /**
      * The name of the queue the chain should be sent to.
-	 * 队列名应该将链发送到队列
      *
      * @var string|null
      */
@@ -43,7 +39,6 @@ trait Queueable
 
     /**
      * The number of seconds before the job should be made available.
-	 * 在作业可用之前的秒数
      *
      * @var \DateTimeInterface|\DateInterval|int|null
      */
@@ -51,13 +46,13 @@ trait Queueable
 
     /**
      * The middleware the job should be dispatched through.
-	 * 中间件作业应该通过分派的
+     *
+     * @var array
      */
     public $middleware = [];
 
     /**
      * The jobs that should run if this job is successful.
-	 * 应该运行的作业如果此作业成功的
      *
      * @var array
      */
@@ -65,7 +60,6 @@ trait Queueable
 
     /**
      * Set the desired connection for the job.
-	 * 设置所需的连接为任务
      *
      * @param  string|null  $connection
      * @return $this
@@ -79,7 +73,6 @@ trait Queueable
 
     /**
      * Set the desired queue for the job.
-	 * 设置作业所需的队列
      *
      * @param  string|null  $queue
      * @return $this
@@ -93,7 +86,6 @@ trait Queueable
 
     /**
      * Set the desired connection for the chain.
-	 * 设置链所需的连接
      *
      * @param  string|null  $connection
      * @return $this
@@ -108,7 +100,6 @@ trait Queueable
 
     /**
      * Set the desired queue for the chain.
-	 * 设置链所需的队列
      *
      * @param  string|null  $queue
      * @return $this
@@ -123,7 +114,6 @@ trait Queueable
 
     /**
      * Set the desired delay for the job.
-	 * 设置作业所需的延迟
      *
      * @param  \DateTimeInterface|\DateInterval|int|null  $delay
      * @return $this
@@ -136,19 +126,7 @@ trait Queueable
     }
 
     /**
-     * Get the middleware the job should be dispatched through.
-	 * 得到作业应该被分派的中间件
-     *
-     * @return array
-     */
-    public function middleware()
-    {
-        return [];
-    }
-
-    /**
      * Specify the middleware the job should be dispatched through.
-	 * 指定应该通过哪个中间件分派作业
      *
      * @param  array|object  $middleware
      * @return $this
@@ -162,7 +140,6 @@ trait Queueable
 
     /**
      * Set the jobs that should run if this job is successful.
-	 * 设置作业成功时应该运行的作业
      *
      * @param  array  $chain
      * @return $this
@@ -170,15 +147,35 @@ trait Queueable
     public function chain($chain)
     {
         $this->chained = collect($chain)->map(function ($job) {
-            return serialize($job);
+            return $this->serializeJob($job);
         })->all();
 
         return $this;
     }
 
     /**
+     * Serialize a job for queuing.
+     *
+     * @param  mixed  $job
+     * @return string
+     */
+    protected function serializeJob($job)
+    {
+        if ($job instanceof Closure) {
+            if (! class_exists(CallQueuedClosure::class)) {
+                throw new RuntimeException(
+                    'To enable support for closure jobs, please install the illuminate/queue package.'
+                );
+            }
+
+            $job = CallQueuedClosure::create($job);
+        }
+
+        return serialize($job);
+    }
+
+    /**
      * Dispatch the next job on the chain.
-	 * 执行链条上的下一任务
      *
      * @return void
      */

@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，虚拟类根文件
- */
 
 namespace DummyNamespace;
 

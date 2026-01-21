@@ -1,7 +1,4 @@
 <?php
-/**
- * 队列，执行者选项
- */
 
 namespace Illuminate\Queue;
 
@@ -9,7 +6,6 @@ class WorkerOptions
 {
     /**
      * The number of seconds before a released job will be available.
-	 * 一个即将释放的作业的秒数
      *
      * @var int
      */
@@ -17,7 +13,6 @@ class WorkerOptions
 
     /**
      * The maximum amount of RAM the worker may consume.
-	 * 最大RAM量执行者可能消耗的
      *
      * @var int
      */
@@ -25,7 +20,6 @@ class WorkerOptions
 
     /**
      * The maximum number of seconds a child worker may run.
-	 * 最大秒数子线程可以运行的
      *
      * @var int
      */
@@ -33,7 +27,6 @@ class WorkerOptions
 
     /**
      * The number of seconds to wait in between polling the queue.
-	 * 最大秒数在轮询队列之间等待
      *
      * @var int
      */
@@ -41,7 +34,6 @@ class WorkerOptions
 
     /**
      * The maximum amount of times a job may be attempted.
-	 * 最大次数可以尝试作业的
      *
      * @var int
      */
@@ -49,7 +41,6 @@ class WorkerOptions
 
     /**
      * Indicates if the worker should run in maintenance mode.
-	 * 指明执行者是否应在维护模式下运行
      *
      * @var bool
      */
@@ -57,7 +48,6 @@ class WorkerOptions
 
     /**
      * Indicates if the worker should stop when queue is empty.
-	 * 指明执行者是否应该停止当队列为空时
      *
      * @var bool
      */
@@ -65,7 +55,6 @@ class WorkerOptions
 
     /**
      * Create a new worker options instance.
-	 * 创建新的执行者选项实例
      *
      * @param  int  $delay
      * @param  int  $memory

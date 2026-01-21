@@ -1,7 +1,4 @@
 <?php
-/**
- * 总线，总线调度
- */
 
 namespace Illuminate\Bus;
 
@@ -17,7 +14,6 @@ class Dispatcher implements QueueingDispatcher
 {
     /**
      * The container implementation.
-	 * 容器实现
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -25,7 +21,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * The pipeline instance for the bus.
-	 * 总线的管道实例
      *
      * @var \Illuminate\Pipeline\Pipeline
      */
@@ -33,7 +28,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * The pipes to send commands through before dispatching.
-	 * 管道发送命令在调度之前
      *
      * @var array
      */
@@ -41,7 +35,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * The command to handler mapping for non-self-handling events.
-	 * 处理命令非自处理事件
      *
      * @var array
      */
@@ -49,7 +42,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * The queue resolver callback.
-	 * 队列解析器回调
      *
      * @var \Closure|null
      */
@@ -57,7 +49,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Create a new command dispatcher instance.
-	 * 创建新的命令调度实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @param  \Closure|null  $queueResolver
@@ -72,7 +63,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Dispatch a command to its appropriate handler.
-	 * 分派命令给相应的处理程序
      *
      * @param  mixed  $command
      * @return mixed
@@ -88,7 +78,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Dispatch a command to its appropriate handler in the current process.
-	 * 分派命令给当前进程中相应的处理程序
      *
      * @param  mixed  $command
      * @param  mixed  $handler
@@ -111,7 +100,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Determine if the given command has a handler.
-	 * 判断命令是否有处理程序
      *
      * @param  mixed  $command
      * @return bool
@@ -123,7 +111,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Retrieve the handler for a command.
-	 * 检索命令的处理程序
      *
      * @param  mixed  $command
      * @return bool|mixed
@@ -139,7 +126,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Determine if the given command should be queued.
-	 * 确定是否应该对给定的命令进行排队
      *
      * @param  mixed  $command
      * @return bool
@@ -151,7 +137,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Dispatch a command to its appropriate handler behind a queue.
-	 * 分派命令给队列后面相应的处理程序
      *
      * @param  mixed  $command
      * @return mixed
@@ -175,7 +160,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Push the command onto the given queue instance.
-	 * 推入命令至给定的队列实例
      *
      * @param  \Illuminate\Contracts\Queue\Queue  $queue
      * @param  mixed  $command
@@ -200,7 +184,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Dispatch a command to its appropriate handler after the current process.
-	 * 分派命令给当前进程之后的处理程序
      *
      * @param  mixed  $command
      * @param  mixed  $handler
@@ -215,7 +198,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Set the pipes through which commands should be piped before dispatching.
-	 * 设置命令应该通过的管道在调度之前
      *
      * @param  array  $pipes
      * @return $this
@@ -229,7 +211,6 @@ class Dispatcher implements QueueingDispatcher
 
     /**
      * Map a command to a handler.
-	 * 映射命令到处理程序
      *
      * @param  array  $map
      * @return $this

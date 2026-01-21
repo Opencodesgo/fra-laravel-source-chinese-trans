@@ -1,7 +1,4 @@
 <?php
-/**
- * 验证，闭包验证规则
- */
 
 namespace Illuminate\Validation;
 
@@ -11,7 +8,6 @@ class ClosureValidationRule implements RuleContract
 {
     /**
      * The callback that validates the attribute.
-	 * 回调验证属性
      *
      * @var \Closure
      */
@@ -19,7 +15,6 @@ class ClosureValidationRule implements RuleContract
 
     /**
      * Indicates if the validation callback failed.
-	 * 确认是否验证回调失败
      *
      * @var bool
      */
@@ -27,7 +22,6 @@ class ClosureValidationRule implements RuleContract
 
     /**
      * The validation error message.
-	 * 验证错误信息
      *
      * @var string|null
      */
@@ -35,7 +29,6 @@ class ClosureValidationRule implements RuleContract
 
     /**
      * Create a new Closure based validation rule.
-	 * 创建新的闭包基于验证规则
      *
      * @param  \Closure  $callback
      * @return void
@@ -47,7 +40,6 @@ class ClosureValidationRule implements RuleContract
 
     /**
      * Determine if the validation rule passes.
-	 * 确定是否验证规则通过
      *
      * @param  string  $attribute
      * @param  mixed  $value
@@ -68,7 +60,6 @@ class ClosureValidationRule implements RuleContract
 
     /**
      * Get the validation error message.
-	 * 得到验证错误信息
      *
      * @return string
      */

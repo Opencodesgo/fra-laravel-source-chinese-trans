@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，视图寻找接口
+ * 视图，视图查找器接口
  */
 
 namespace Illuminate\View;
@@ -9,7 +9,7 @@ interface ViewFinderInterface
 {
     /**
      * Hint path delimiter value.
-	 * 提示路径分配符值
+	 * 提示路径分隔符值
      *
      * @var string
      */
@@ -17,7 +17,7 @@ interface ViewFinderInterface
 
     /**
      * Get the fully qualified location of the view.
-	 * 得到视图的完全限定位置
+	 * 获取视图的完全限定位置
      *
      * @param  string  $view
      * @return string
@@ -45,7 +45,7 @@ interface ViewFinderInterface
 
     /**
      * Prepend a namespace hint to the finder.
-	 * 添加一个名称空间提示至查找器
+	 * 向查找器添加一个名称空间提示
      *
      * @param  string  $namespace
      * @param  string|array  $hints
@@ -65,7 +65,7 @@ interface ViewFinderInterface
 
     /**
      * Add a valid view extension to the finder.
-	 * 添加有效的视图扩展至查找器
+	 * 向发现器添加有效的视图扩展
      *
      * @param  string  $extension
      * @return void
@@ -74,7 +74,7 @@ interface ViewFinderInterface
 
     /**
      * Flush the cache of located views.
-	 * 刷新本地缓存视图
+	 * 刷新已定位视图的缓存
      *
      * @return void
      */

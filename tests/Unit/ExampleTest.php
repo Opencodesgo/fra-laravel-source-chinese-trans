@@ -1,6 +1,6 @@
 <?php
 /**
- * 测试，测试用例
+ * 测试，用例测试
  */
 
 namespace Tests\Unit;
@@ -11,7 +11,7 @@ class ExampleTest extends TestCase
 {
     /**
      * A basic test example.
-	 * 一个基本的测试用例
+	 * 一个基本的用例测试
      *
      * @return void
      */

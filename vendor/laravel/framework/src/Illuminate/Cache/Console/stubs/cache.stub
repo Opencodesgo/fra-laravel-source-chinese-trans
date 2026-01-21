@@ -1,7 +1,4 @@
 <?php
-/**
- * 缓存，需要自己修改注释
- */
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -11,7 +8,6 @@ class CreateCacheTable extends Migration
 {
     /**
      * Run the migrations.
-	 * 数据库迁移
      *
      * @return void
      */
@@ -26,7 +22,6 @@ class CreateCacheTable extends Migration
 
     /**
      * Reverse the migrations.
-	 * 逆转迁移
      *
      * @return void
      */

@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，队列命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -16,7 +13,6 @@ class QueuedCommand implements ShouldQueue
 
     /**
      * The data to pass to the Artisan command.
-	 * 传递给Artisan命令的数据
      *
      * @var array
      */
@@ -24,7 +20,6 @@ class QueuedCommand implements ShouldQueue
 
     /**
      * Create a new job instance.
-	 * 创建新的作业实例
      *
      * @param  array  $data
      * @return void
@@ -36,7 +31,6 @@ class QueuedCommand implements ShouldQueue
 
     /**
      * Handle the job.
-	 * 处理作业
      *
      * @param  \Illuminate\Contracts\Console\Kernel  $kernel
      * @return void

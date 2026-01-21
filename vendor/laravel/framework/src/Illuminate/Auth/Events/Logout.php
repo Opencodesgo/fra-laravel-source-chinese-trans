@@ -1,7 +1,4 @@
 <?php
-/**
- * 授权，事件，注销
- */
 
 namespace Illuminate\Auth\Events;
 
@@ -13,7 +10,6 @@ class Logout
 
     /**
      * The authentication guard name.
-	 * 认证守卫名称
      *
      * @var string
      */
@@ -21,7 +17,6 @@ class Logout
 
     /**
      * The authenticated user.
-	 * 通过身份验证的用户
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable
      */
@@ -29,7 +24,6 @@ class Logout
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  string  $guard
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user

@@ -1,7 +1,4 @@
 <?php
-/**
- * 分页，抽象类
- */
 
 namespace Illuminate\Pagination;
 
@@ -21,7 +18,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * All of the items being paginated.
-	 * 所有被分页项
      *
      * @var \Illuminate\Support\Collection
      */
@@ -29,7 +25,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The number of items to be shown per page.
-	 * 每页显示数
      *
      * @var int
      */
@@ -37,7 +32,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The current page being "viewed".
-	 * 当前页
      *
      * @var int
      */
@@ -45,7 +39,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The base path to assign to all URLs.
-	 * 分配给所有url的基本路径
      *
      * @var string
      */
@@ -53,7 +46,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The query parameters to add to all URLs.
-	 * 要添加到所有url的查询参数
      *
      * @var array
      */
@@ -61,7 +53,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The URL fragment to add to all URLs.
-	 * 要添加到所有URL的URL片段
      *
      * @var string|null
      */
@@ -69,7 +60,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The query string variable used to store the page.
-	 * 用于存储页面的查询字符串变量
      *
      * @var string
      */
@@ -77,7 +67,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The number of links to display on each side of current page link.
-	 * 要在当前页面链接的每一边显示的链接数
      *
      * @var int
      */
@@ -85,7 +74,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The paginator options.
-	 * 分页器选项
      *
      * @var array
      */
@@ -93,7 +81,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The current path resolver callback.
-	 * 当前路径解析器回调
      *
      * @var \Closure
      */
@@ -101,15 +88,20 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The current page resolver callback.
-	 * 当前页面解析器回调
      *
      * @var \Closure
      */
     protected static $currentPageResolver;
 
     /**
+     * The query string resolver callback.
+     *
+     * @var \Closure
+     */
+    protected static $queryStringResolver;
+
+    /**
      * The view factory resolver callback.
-	 * 视图工厂解析器回调
      *
      * @var \Closure
      */
@@ -117,7 +109,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The default pagination view.
-	 * 默认分页视图
      *
      * @var string
      */
@@ -125,7 +116,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * The default "simple" pagination view.
-	 * 默认的"简单"分页视图
      *
      * @var string
      */
@@ -133,7 +123,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Determine if the given value is a valid page number.
-	 * 确定给定的值是否是有效的页码
      *
      * @param  int  $page
      * @return bool
@@ -145,7 +134,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the URL for the previous page.
-	 * 获取前一页的URL
      *
      * @return string|null
      */
@@ -158,7 +146,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Create a range of pagination URLs.
-	 * 创建一系列分页URL
      *
      * @param  int  $start
      * @param  int  $end
@@ -173,7 +160,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the URL for a given page number.
-	 * 得到给定页码的URL
      *
      * @param  int  $page
      * @return string
@@ -187,8 +173,6 @@ abstract class AbstractPaginator implements Htmlable
         // If we have any extra query string key / value pairs that need to be added
         // onto the URL, we will put them in query string form and then attach it
         // to the URL. This allows for extra information like sortings storage.
-		// 如果我们有任何额外的查询字符串键/值对需要添加到URL上，我们会将它们以查询字符串的形式放置，
-		// 然后将其附加到URL上。这允许存储排序等额外信息。
         $parameters = [$this->pageName => $page];
 
         if (count($this->query) > 0) {
@@ -203,7 +187,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get / set the URL fragment to be appended to URLs.
-	 * 得到或设置要附加到URL的URL片段
      *
      * @param  string|null  $fragment
      * @return $this|string|null
@@ -221,7 +204,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Add a set of query string values to the paginator.
-	 * 添加一组查询字符串值至分页器
      *
      * @param  array|string|null  $key
      * @param  string|null  $value
@@ -242,7 +224,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Add an array of query string values.
-	 * 添加查询字符串值数组
      *
      * @param  array  $keys
      * @return $this
@@ -257,8 +238,21 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
+     * Add all current query string values to the paginator.
+     *
+     * @return $this
+     */
+    public function withQueryString()
+    {
+        if (isset(static::$queryStringResolver)) {
+            return $this->appends(call_user_func(static::$queryStringResolver));
+        }
+
+        return $this;
+    }
+
+    /**
      * Add a query string value to the paginator.
-	 * 添加查询字符串值至分页器
      *
      * @param  string  $key
      * @param  string  $value
@@ -275,7 +269,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Build the full fragment portion of a URL.
-	 * 构建URL的完整片段部分
      *
      * @return string
      */
@@ -286,7 +279,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Load a set of relationships onto the mixed relationship collection.
-	 * 加载一组关系到混合关系集合中
      *
      * @param  string  $relation
      * @param  array  $relations
@@ -300,8 +292,21 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
+     * Load a set of relationship counts onto the mixed relationship collection.
+     *
+     * @param  string  $relation
+     * @param  array  $relations
+     * @return $this
+     */
+    public function loadMorphCount($relation, $relations)
+    {
+        $this->getCollection()->loadMorphCount($relation, $relations);
+
+        return $this;
+    }
+
+    /**
      * Get the slice of items being paginated.
-	 * 得到正在分页的项的切片
      *
      * @return array
      */
@@ -312,7 +317,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the number of the first item in the slice.
-	 * 得到切片中第一项的编号
      *
      * @return int
      */
@@ -323,7 +327,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the number of the last item in the slice.
-	 * 得到切片中最后一项的编号
      *
      * @return int
      */
@@ -334,7 +337,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the number of items shown per page.
-	 * 得到每页显示的项目数
      *
      * @return int
      */
@@ -345,7 +347,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Determine if there are enough items to split into multiple pages.
-	 * 确定是否有足够的项目可以拆分为多个页面
      *
      * @return bool
      */
@@ -356,7 +357,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Determine if the paginator is on the first page.
-	 * 确定分页器是否在第一页上
      *
      * @return bool
      */
@@ -367,7 +367,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the current page.
-	 * 得到当前页
      *
      * @return int
      */
@@ -378,7 +377,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the query string variable used to store the page.
-	 * 得到用于存储该页的查询字符串变量
      *
      * @return string
      */
@@ -389,7 +387,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the query string variable used to store the page.
-	 * 设置用于存储页面的查询字符串变量
      *
      * @param  string  $name
      * @return $this
@@ -403,7 +400,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the base path to assign to all URLs.
-	 * 设置分配给所有URL的基本路径
      *
      * @param  string  $path
      * @return $this
@@ -415,7 +411,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the base path to assign to all URLs.
-	 * 设置分配给所有URL的基本路径
      *
      * @param  string  $path
      * @return $this
@@ -429,7 +424,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the number of links to display on each side of current page link.
-	 * 设置要在当前页面链接的每一边显示的链接数
      *
      * @param  int  $count
      * @return $this
@@ -443,7 +437,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the base path for paginator generated URLs.
-	 * 得到分页器生成的url的基本路径
      *
      * @return string|null
      */
@@ -454,7 +447,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Resolve the current request path or return the default value.
-	 * 解析当前请求路径或返回默认值
      *
      * @param  string  $default
      * @return string
@@ -470,7 +462,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the current request path resolver callback.
-	 * 设置当前请求路径解析器回调
      *
      * @param  \Closure  $resolver
      * @return void
@@ -482,7 +473,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Resolve the current page or return the default value.
-	 * 解析当前页面或返回默认值
      *
      * @param  string  $pageName
      * @param  int  $default
@@ -499,7 +489,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the current page resolver callback.
-	 * 设置当前页面解析器回调
      *
      * @param  \Closure  $resolver
      * @return void
@@ -510,8 +499,18 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
+     * Set with query string resolver callback.
+     *
+     * @param  \Closure  $resolver
+     * @return void
+     */
+    public static function queryStringResolver(Closure $resolver)
+    {
+        static::$queryStringResolver = $resolver;
+    }
+
+    /**
      * Get an instance of the view factory from the resolver.
-	 * 得到视图工厂的实例从解析器
      *
      * @return \Illuminate\Contracts\View\Factory
      */
@@ -522,7 +521,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the view factory resolver callback.
-	 * 设置视图工厂解析器回调
      *
      * @param  \Closure  $resolver
      * @return void
@@ -534,7 +532,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the default pagination view.
-	 * 设置默认分页器视图
      *
      * @param  string  $view
      * @return void
@@ -546,7 +543,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the default "simple" pagination view.
-	 * 设置默认的"simple"分页视图
      *
      * @param  string  $view
      * @return void
@@ -557,8 +553,18 @@ abstract class AbstractPaginator implements Htmlable
     }
 
     /**
+     * Indicate that Tailwind styling should be used for generated links.
+     *
+     * @return void
+     */
+    public static function useTailwind()
+    {
+        static::defaultView('pagination::tailwind');
+        static::defaultSimpleView('pagination::simple-tailwind');
+    }
+
+    /**
      * Indicate that Bootstrap 3 styling should be used for generated links.
-	 * 指明生成的链接应该使用Bootstrap 3样式
      *
      * @return void
      */
@@ -570,7 +576,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get an iterator for the items.
-	 * 得到项的迭代器
      *
      * @return \ArrayIterator
      */
@@ -581,7 +586,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Determine if the list of items is empty.
-	 * 确定项目列表是否为空
      *
      * @return bool
      */
@@ -592,7 +596,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Determine if the list of items is not empty.
-	 * 确定项目列表是否不为空
      *
      * @return bool
      */
@@ -603,7 +606,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the number of items for the current page.
-	 * 得到当前页面的项数
      *
      * @return int
      */
@@ -614,7 +616,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the paginator's underlying collection.
-	 * 得到分页器的底层集合
      *
      * @return \Illuminate\Support\Collection
      */
@@ -625,7 +626,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the paginator's underlying collection.
-	 * 设置分页器的底层集合
      *
      * @param  \Illuminate\Support\Collection  $collection
      * @return $this
@@ -639,7 +639,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the paginator options.
-	 * 得到分页器的选项
      *
      * @return array
      */
@@ -650,7 +649,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Determine if the given item exists.
-	 * 确定给定项是否存在
      *
      * @param  mixed  $key
      * @return bool
@@ -662,7 +660,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Get the item at the given offset.
-	 * 得到给定偏移量处的项
      *
      * @param  mixed  $key
      * @return mixed
@@ -674,7 +671,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Set the item at the given offset.
-	 * 设置项在给定的偏移量处
      *
      * @param  mixed  $key
      * @param  mixed  $value
@@ -687,7 +683,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Unset the item at the given key.
-	 * 取消给定键处的项设置
      *
      * @param  mixed  $key
      * @return void
@@ -699,7 +694,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Render the contents of the paginator to HTML.
-	 * 呈现分页器的内容为HTML
      *
      * @return string
      */
@@ -710,7 +704,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Make dynamic calls into the collection.
-	 * 对集合进行动态调用
      *
      * @param  string  $method
      * @param  array  $parameters
@@ -723,7 +716,6 @@ abstract class AbstractPaginator implements Htmlable
 
     /**
      * Render the contents of the paginator when casting to string.
-	 * 呈现分页器的内容在转换为字符串时
      *
      * @return string
      */

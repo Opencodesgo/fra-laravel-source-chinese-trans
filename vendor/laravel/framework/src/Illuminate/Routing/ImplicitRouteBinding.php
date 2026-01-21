@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由，路由隐式路由绑定
+ * Illuminate，路由，隐式路由绑定
  */
 
 namespace Illuminate\Routing;
@@ -14,7 +14,6 @@ class ImplicitRouteBinding
 {
     /**
      * Resolve the implicit route bindings for the given route.
-	 * 解析给定路由的隐式路由绑定
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \Illuminate\Routing\Route  $route
@@ -39,7 +38,15 @@ class ImplicitRouteBinding
 
             $instance = $container->make(Reflector::getParameterClassName($parameter));
 
-            if (! $model = $instance->resolveRouteBinding($parameterValue)) {
+            $parent = $route->parentOfParameter($parameterName);
+
+            if ($parent instanceof UrlRoutable && in_array($parameterName, array_keys($route->bindingFields()))) {
+                if (! $model = $parent->resolveChildRouteBinding(
+                    $parameterName, $parameterValue, $route->bindingFieldFor($parameterName)
+                )) {
+                    throw (new ModelNotFoundException)->setModel(get_class($instance), [$parameterValue]);
+                }
+            } elseif (! $model = $instance->resolveRouteBinding($parameterValue, $route->bindingFieldFor($parameterName))) {
                 throw (new ModelNotFoundException)->setModel(get_class($instance), [$parameterValue]);
             }
 
@@ -49,7 +56,6 @@ class ImplicitRouteBinding
 
     /**
      * Return the parameter name if it exists in the given parameters.
-	 * 返回参数名如果给定参数存在
      *
      * @param  string  $name
      * @param  array  $parameters

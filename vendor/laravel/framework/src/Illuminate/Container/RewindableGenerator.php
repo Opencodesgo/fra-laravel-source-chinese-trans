@@ -1,7 +1,4 @@
 <?php
-/**
- * 容器，可回放生成器
- */
 
 namespace Illuminate\Container;
 
@@ -12,7 +9,6 @@ class RewindableGenerator implements Countable, IteratorAggregate
 {
     /**
      * The generator callback.
-	 * 生成回调
      *
      * @var callable
      */
@@ -20,7 +16,6 @@ class RewindableGenerator implements Countable, IteratorAggregate
 
     /**
      * The number of tagged services.
-	 * 目标服务数
      *
      * @var callable|int
      */
@@ -28,7 +23,6 @@ class RewindableGenerator implements Countable, IteratorAggregate
 
     /**
      * Create a new generator instance.
-	 * 创建新的生成器实例
      *
      * @param  callable  $generator
      * @param  callable|int  $count
@@ -42,7 +36,6 @@ class RewindableGenerator implements Countable, IteratorAggregate
 
     /**
      * Get an iterator from the generator.
-	 * 得到迭代器从生成器
      *
      * @return mixed
      */
@@ -53,7 +46,6 @@ class RewindableGenerator implements Countable, IteratorAggregate
 
     /**
      * Get the total number of tagged services.
-	 * 得到标记服务的总数
      *
      * @return int
      */

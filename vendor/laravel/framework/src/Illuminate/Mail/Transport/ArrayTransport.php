@@ -1,7 +1,4 @@
 <?php
-/**
- * 邮件，传输，数组传输
- */
 
 namespace Illuminate\Mail\Transport;
 
@@ -12,7 +9,6 @@ class ArrayTransport extends Transport
 {
     /**
      * The collection of Swift Messages.
-	 * Swift消息的集合
      *
      * @var \Illuminate\Support\Collection
      */
@@ -20,7 +16,6 @@ class ArrayTransport extends Transport
 
     /**
      * Create a new array transport instance.
-	 * 创建新的数据传输实例
      *
      * @return void
      */
@@ -43,7 +38,6 @@ class ArrayTransport extends Transport
 
     /**
      * Retrieve the collection of messages.
-	 * 检索信息合集
      *
      * @return \Illuminate\Support\Collection
      */
@@ -54,7 +48,6 @@ class ArrayTransport extends Transport
 
     /**
      * Clear all of the messages from the local collection.
-	 * 清除所有消息从本地集合
      *
      * @return \Illuminate\Support\Collection
      */

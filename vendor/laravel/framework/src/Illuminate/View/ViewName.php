@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，视图名称
+ * 视图，视图名
  */
 
 namespace Illuminate\View;
@@ -8,8 +8,8 @@ namespace Illuminate\View;
 class ViewName
 {
     /**
-     * Normalize the given event name.
-	 * 规范化给定的事件名称
+     * Normalize the given view name.
+	 * 规范给定视图名称
      *
      * @param  string  $name
      * @return string

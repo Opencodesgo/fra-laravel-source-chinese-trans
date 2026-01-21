@@ -1,7 +1,4 @@
 <?php
-/**
- * Http，真实主机
- */
 
 namespace Illuminate\Http\Middleware;
 
@@ -12,7 +9,6 @@ abstract class TrustHosts
 {
     /**
      * The application instance.
-	 * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -20,7 +16,6 @@ abstract class TrustHosts
 
     /**
      * Create a new middleware instance.
-	 * 创建新的中间件实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -32,7 +27,6 @@ abstract class TrustHosts
 
     /**
      * Get the host patterns that should be trusted.
-	 * 得到应该被信任的主机模式
      *
      * @return array
      */
@@ -40,7 +34,6 @@ abstract class TrustHosts
 
     /**
      * Handle the incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  callable  $next
@@ -57,7 +50,6 @@ abstract class TrustHosts
 
     /**
      * Determine if the application should specify trusted hosts.
-	 * 确定应用程序是否应该指定受信任的主机
      *
      * @return bool
      */
@@ -69,7 +61,6 @@ abstract class TrustHosts
 
     /**
      * Get a regular expression matching the application URL and all of its subdomains.
-	 * 得到匹配应用程序URL及其所有子域的正则表达式
      *
      * @return string|null
      */

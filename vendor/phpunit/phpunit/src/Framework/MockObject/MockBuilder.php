@@ -11,13 +11,15 @@ namespace PHPUnit\Framework\MockObject;
 
 use function array_diff;
 use function array_merge;
-use function sprintf;
+use PHPUnit\Framework\Exception;
+use PHPUnit\Framework\InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use ReflectionClass;
-use ReflectionException;
 
 /**
  * @psalm-template MockedType
+ *
+ * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  */
 final class MockBuilder
 {
@@ -111,7 +113,16 @@ final class MockBuilder
     /**
      * Creates a mock object using a fluent interface.
      *
+     * @throws ClassAlreadyExistsException
+     * @throws ClassIsFinalException
+     * @throws ClassIsReadonlyException
+     * @throws DuplicateMethodException
+     * @throws InvalidArgumentException
+     * @throws InvalidMethodNameException
+     * @throws OriginalConstructorInvocationRequiredException
+     * @throws ReflectionException
      * @throws RuntimeException
+     * @throws UnknownTypeException
      *
      * @psalm-return MockObject&MockedType
      */
@@ -129,7 +140,7 @@ final class MockBuilder
             $this->callOriginalMethods,
             $this->proxyTarget,
             $this->allowMockingUnknownTypes,
-            $this->returnValueGeneration
+            $this->returnValueGeneration,
         );
 
         $this->testCase->registerMockObject($object);
@@ -140,10 +151,11 @@ final class MockBuilder
     /**
      * Creates a mock object for an abstract class using a fluent interface.
      *
-     * @throws \PHPUnit\Framework\Exception
-     * @throws RuntimeException
-     *
      * @psalm-return MockObject&MockedType
+     *
+     * @throws Exception
+     * @throws ReflectionException
+     * @throws RuntimeException
      */
     public function getMockForAbstractClass(): MockObject
     {
@@ -155,7 +167,7 @@ final class MockBuilder
             $this->originalClone,
             $this->autoload,
             $this->methods,
-            $this->cloneArguments
+            $this->cloneArguments,
         );
 
         $this->testCase->registerMockObject($object);
@@ -166,10 +178,11 @@ final class MockBuilder
     /**
      * Creates a mock object for a trait using a fluent interface.
      *
-     * @throws \PHPUnit\Framework\Exception
-     * @throws RuntimeException
-     *
      * @psalm-return MockObject&MockedType
+     *
+     * @throws Exception
+     * @throws ReflectionException
+     * @throws RuntimeException
      */
     public function getMockForTrait(): MockObject
     {
@@ -181,7 +194,7 @@ final class MockBuilder
             $this->originalClone,
             $this->autoload,
             $this->methods,
-            $this->cloneArguments
+            $this->cloneArguments,
         );
 
         $this->testCase->registerMockObject($object);
@@ -212,7 +225,8 @@ final class MockBuilder
      *
      * @param string[] $methods
      *
-     * @throws RuntimeException
+     * @throws CannotUseOnlyMethodsException
+     * @throws ReflectionException
      *
      * @return $this
      */
@@ -227,24 +241,18 @@ final class MockBuilder
         try {
             $reflector = new ReflectionClass($this->type);
             // @codeCoverageIgnoreStart
-        } catch (ReflectionException $e) {
-            throw new RuntimeException(
+        } catch (\ReflectionException $e) {
+            throw new ReflectionException(
                 $e->getMessage(),
-                (int) $e->getCode(),
-                $e
+                $e->getCode(),
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd
 
         foreach ($methods as $method) {
             if (!$reflector->hasMethod($method)) {
-                throw new RuntimeException(
-                    sprintf(
-                        'Trying to set mock method "%s" with onlyMethods, but it does not exist in class "%s". Use addMethods() for methods that don\'t exist in the class.',
-                        $method,
-                        $this->type
-                    )
-                );
+                throw new CannotUseOnlyMethodsException($this->type, $method);
             }
         }
 
@@ -258,6 +266,8 @@ final class MockBuilder
      *
      * @param string[] $methods
      *
+     * @throws CannotUseAddMethodsException
+     * @throws ReflectionException
      * @throws RuntimeException
      *
      * @return $this
@@ -273,24 +283,18 @@ final class MockBuilder
         try {
             $reflector = new ReflectionClass($this->type);
             // @codeCoverageIgnoreStart
-        } catch (ReflectionException $e) {
-            throw new RuntimeException(
+        } catch (\ReflectionException $e) {
+            throw new ReflectionException(
                 $e->getMessage(),
-                (int) $e->getCode(),
-                $e
+                $e->getCode(),
+                $e,
             );
         }
         // @codeCoverageIgnoreEnd
 
         foreach ($methods as $method) {
             if ($reflector->hasMethod($method)) {
-                throw new RuntimeException(
-                    sprintf(
-                        'Trying to set mock method "%s" with addMethods(), but it exists in class "%s". Use onlyMethods() for methods that exist in the class.',
-                        $method,
-                        $this->type
-                    )
-                );
+                throw new CannotUseAddMethodsException($this->type, $method);
             }
         }
 
@@ -301,14 +305,18 @@ final class MockBuilder
 
     /**
      * Specifies the subset of methods to not mock. Default is to mock all of them.
+     *
+     * @deprecated https://github.com/sebastianbergmann/phpunit/pull/3687
+     *
+     * @throws ReflectionException
      */
     public function setMethodsExcept(array $methods = []): self
     {
         return $this->setMethods(
             array_diff(
                 $this->generator->getClassMethods($this->type),
-                $methods
-            )
+                $methods,
+            ),
         );
     }
 

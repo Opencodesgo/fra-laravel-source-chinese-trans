@@ -1,7 +1,4 @@
 <?php
-/**
- * Http，文件
- */
 
 namespace Illuminate\Http\Testing;
 
@@ -11,7 +8,6 @@ class File extends UploadedFile
 {
     /**
      * The name of the file.
-	 * 文件名
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class File extends UploadedFile
 
     /**
      * The temporary file resource.
-	 * 临时文件资源
      *
      * @var resource
      */
@@ -27,7 +22,6 @@ class File extends UploadedFile
 
     /**
      * The "size" to report.
-	 * 要报告的大小 
      *
      * @var int
      */
@@ -35,7 +29,6 @@ class File extends UploadedFile
 
     /**
      * The MIME type to report.
-	 * 要报告的MIME类型
      *
      * @var string|null
      */
@@ -43,7 +36,6 @@ class File extends UploadedFile
 
     /**
      * Create a new file instance.
-	 * 创建新的文件实例
      *
      * @param  string  $name
      * @param  resource  $tempFile
@@ -62,7 +54,6 @@ class File extends UploadedFile
 
     /**
      * Create a new fake file.
-	 * 创建新的伪装文件
      *
      * @param  string  $name
      * @param  string|int  $kilobytes
@@ -75,7 +66,6 @@ class File extends UploadedFile
 
     /**
      * Create a new fake file with content.
-	 * 创建新的伪装文件使用内容
      *
      * @param  string  $name
      * @param  string  $content
@@ -88,7 +78,6 @@ class File extends UploadedFile
 
     /**
      * Create a new fake image.
-	 * 创建新的伪装图片
      *
      * @param  string  $name
      * @param  int  $width
@@ -102,7 +91,6 @@ class File extends UploadedFile
 
     /**
      * Set the "size" of the file in kilobytes.
-	 * 设置文件的"大小"，单位为千字节。
      *
      * @param  int  $kilobytes
      * @return $this
@@ -116,7 +104,6 @@ class File extends UploadedFile
 
     /**
      * Get the size of the file.
-	 * 得到文件大小 
      *
      * @return int
      */
@@ -127,7 +114,6 @@ class File extends UploadedFile
 
     /**
      * Set the "MIME type" for the file.
-	 * 设置文件的"MIME类型"
      *
      * @param  string  $mimeType
      * @return $this
@@ -141,7 +127,6 @@ class File extends UploadedFile
 
     /**
      * Get the MIME type of the file.
-	 * 得到文件的MIME类型
      *
      * @return string
      */
@@ -152,7 +137,6 @@ class File extends UploadedFile
 
     /**
      * Get the path to the temporary file.
-	 * 得到临时文件的路径
      *
      * @return string
      */

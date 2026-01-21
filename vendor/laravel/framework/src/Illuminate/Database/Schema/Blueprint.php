@@ -1,13 +1,11 @@
 <?php
-/**
- * 数据库，结构，蓝图
- */
 
 namespace Illuminate\Database\Schema;
 
 use BadMethodCallException;
 use Closure;
 use Illuminate\Database\Connection;
+use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Schema\Grammars\Grammar;
 use Illuminate\Database\SQLiteConnection;
 use Illuminate\Support\Fluent;
@@ -19,7 +17,6 @@ class Blueprint
 
     /**
      * The table the blueprint describes.
-	 * 蓝图描述表
      *
      * @var string
      */
@@ -27,7 +24,6 @@ class Blueprint
 
     /**
      * The prefix of the table.
-	 * 表前缀
      *
      * @var string
      */
@@ -35,7 +31,6 @@ class Blueprint
 
     /**
      * The columns that should be added to the table.
-	 * 应该添加到表中的列
      *
      * @var \Illuminate\Database\Schema\ColumnDefinition[]
      */
@@ -43,7 +38,6 @@ class Blueprint
 
     /**
      * The commands that should be run for the table.
-	 * 应该为表运行的命令
      *
      * @var \Illuminate\Support\Fluent[]
      */
@@ -51,7 +45,6 @@ class Blueprint
 
     /**
      * The storage engine that should be used for the table.
-	 * 应该用于表的存储引擎
      *
      * @var string
      */
@@ -59,19 +52,20 @@ class Blueprint
 
     /**
      * The default character set that should be used for the table.
-	 * 应用于表的默认字符集
+     *
+     * @var string
      */
     public $charset;
 
     /**
      * The collation that should be used for the table.
-	 * 应用于表的排序规则
+     *
+     * @var string
      */
     public $collation;
 
     /**
      * Whether to make the table temporary.
-	 * 是否将表临时化
      *
      * @var bool
      */
@@ -79,7 +73,6 @@ class Blueprint
 
     /**
      * Create a new schema blueprint.
-	 * 创建新模式蓝图
      *
      * @param  string  $table
      * @param  \Closure|null  $callback
@@ -98,7 +91,6 @@ class Blueprint
 
     /**
      * Execute the blueprint against the database.
-	 * 执行蓝图针对数据库
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
@@ -113,7 +105,6 @@ class Blueprint
 
     /**
      * Get the raw SQL statements for the blueprint.
-	 * 得到蓝图的原始SQL语句
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
@@ -128,8 +119,6 @@ class Blueprint
         // Each type of command has a corresponding compiler function on the schema
         // grammar which is used to build the necessary SQL statements to build
         // the blueprint element, so we'll just call that compilers function.
-		// 每种类型的命令在模式语法上都有一个相应的编译器函数，
-		// 用于构建构建蓝图元素所需的SQL语句，因此我们只需调用该编译器函数。
         $this->ensureCommandsAreValid($connection);
 
         foreach ($this->commands as $command) {
@@ -147,7 +136,6 @@ class Blueprint
 
     /**
      * Ensure the commands on the blueprint are valid for the connection type.
-	 * 确保蓝图上的命令对连接类型有效
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @return void
@@ -173,7 +161,6 @@ class Blueprint
 
     /**
      * Get all of the commands matching the given names.
-	 * 得到与给定名称匹配的所有命令
      *
      * @param  array  $names
      * @return \Illuminate\Support\Collection
@@ -187,7 +174,6 @@ class Blueprint
 
     /**
      * Add the commands that are implied by the blueprint's state.
-	 * 添加蓝图状态所暗示的命令
      *
      * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
      * @return void
@@ -209,7 +195,6 @@ class Blueprint
 
     /**
      * Add the index commands fluently specified on columns.
-	 * 添加列上指定的索引命令
      *
      * @return void
      */
@@ -220,8 +205,6 @@ class Blueprint
                 // If the index has been specified on the given column, but is simply equal
                 // to "true" (boolean), no name has been specified for this index so the
                 // index method can be called without a name and it will generate one.
-				// 如果在给定的列上指定了索引，但仅等于"true"（布尔值），则没有为此索引指定名称，
-				// 因此可以在没有名称的情况下调用索引方法，它将生成一个名称。
                 if ($column->{$index} === true) {
                     $this->{$index}($column->name);
                     $column->{$index} = false;
@@ -232,8 +215,6 @@ class Blueprint
                 // If the index has been specified on the given column, and it has a string
                 // value, we'll go ahead and call the index method and pass the name for
                 // the index since the developer specified the explicit name for this.
-				// 如果在给定的列上指定了索引，并且它有一个字符串值，
-				// 我们将继续调用索引方法并传递索引的名称，因为开发人员为此指定了显式名称。
                 elseif (isset($column->{$index})) {
                     $this->{$index}($column->name, $column->{$index});
                     $column->{$index} = false;
@@ -246,7 +227,6 @@ class Blueprint
 
     /**
      * Add the fluent commands specified on any columns.
-	 * 添加任意列上指定的fluent命令
      *
      * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
      * @return void
@@ -272,7 +252,6 @@ class Blueprint
 
     /**
      * Determine if the blueprint has a create command.
-	 * 确定蓝图是否有create命令
      *
      * @return bool
      */
@@ -285,7 +264,6 @@ class Blueprint
 
     /**
      * Indicate that the table needs to be created.
-	 * 指明需要创建表
      *
      * @return \Illuminate\Support\Fluent
      */
@@ -296,7 +274,6 @@ class Blueprint
 
     /**
      * Indicate that the table needs to be temporary.
-	 * 表明该表需要是临时的
      *
      * @return void
      */
@@ -307,7 +284,6 @@ class Blueprint
 
     /**
      * Indicate that the table should be dropped.
-	 * 指明应该删除表
      *
      * @return \Illuminate\Support\Fluent
      */
@@ -318,7 +294,6 @@ class Blueprint
 
     /**
      * Indicate that the table should be dropped if it exists.
-	 * 指明应该删除它如果表存在。
      *
      * @return \Illuminate\Support\Fluent
      */
@@ -329,7 +304,6 @@ class Blueprint
 
     /**
      * Indicate that the given columns should be dropped.
-	 * 指明应该删除给定的列
      *
      * @param  array|mixed  $columns
      * @return \Illuminate\Support\Fluent
@@ -343,7 +317,6 @@ class Blueprint
 
     /**
      * Indicate that the given columns should be renamed.
-	 * 指明应该重命名给定的列
      *
      * @param  string  $from
      * @param  string  $to
@@ -356,7 +329,6 @@ class Blueprint
 
     /**
      * Indicate that the given primary key should be dropped.
-	 * 指明应该删除给定的主键
      *
      * @param  string|array|null  $index
      * @return \Illuminate\Support\Fluent
@@ -368,7 +340,6 @@ class Blueprint
 
     /**
      * Indicate that the given unique key should be dropped.
-	 * 指明应该删除给定的唯一键
      *
      * @param  string|array  $index
      * @return \Illuminate\Support\Fluent
@@ -380,7 +351,6 @@ class Blueprint
 
     /**
      * Indicate that the given index should be dropped.
-	 * 指明应该删除给定的索引
      *
      * @param  string|array  $index
      * @return \Illuminate\Support\Fluent
@@ -392,7 +362,6 @@ class Blueprint
 
     /**
      * Indicate that the given spatial index should be dropped.
-	 * 指明应该删除给定的空间索引
      *
      * @param  string|array  $index
      * @return \Illuminate\Support\Fluent
@@ -404,7 +373,6 @@ class Blueprint
 
     /**
      * Indicate that the given foreign key should be dropped.
-	 * 指明应该删除给定的外键
      *
      * @param  string|array  $index
      * @return \Illuminate\Support\Fluent
@@ -416,7 +384,6 @@ class Blueprint
 
     /**
      * Indicate that the given indexes should be renamed.
-	 * 指明应该重命名给定的索引
      *
      * @param  string  $from
      * @param  string  $to
@@ -429,7 +396,6 @@ class Blueprint
 
     /**
      * Indicate that the timestamp columns should be dropped.
-	 * 指明应该删除时间戳列
      *
      * @return void
      */
@@ -440,7 +406,6 @@ class Blueprint
 
     /**
      * Indicate that the timestamp columns should be dropped.
-	 * 指明应该删除时间戳列
      *
      * @return void
      */
@@ -451,7 +416,6 @@ class Blueprint
 
     /**
      * Indicate that the soft delete column should be dropped.
-	 * 指明应删除软删除列
      *
      * @param  string  $column
      * @return void
@@ -463,7 +427,6 @@ class Blueprint
 
     /**
      * Indicate that the soft delete column should be dropped.
-	 * 指明应删除软删除列
      *
      * @param  string  $column
      * @return void
@@ -475,7 +438,6 @@ class Blueprint
 
     /**
      * Indicate that the remember token column should be dropped.
-	 * 指明应该删除记忆令牌列
      *
      * @return void
      */
@@ -486,7 +448,6 @@ class Blueprint
 
     /**
      * Indicate that the polymorphic columns should be dropped.
-	 * 指明应该删除多态列
      *
      * @param  string  $name
      * @param  string|null  $indexName
@@ -501,7 +462,6 @@ class Blueprint
 
     /**
      * Rename the table to a given name.
-	 * 重命名表为给定的名称
      *
      * @param  string  $to
      * @return \Illuminate\Support\Fluent
@@ -513,7 +473,6 @@ class Blueprint
 
     /**
      * Specify the primary key(s) for the table.
-	 * 指定表的主键
      *
      * @param  string|array  $columns
      * @param  string|null  $name
@@ -527,7 +486,6 @@ class Blueprint
 
     /**
      * Specify a unique index for the table.
-	 * 指定唯一索引为表
      *
      * @param  string|array  $columns
      * @param  string|null  $name
@@ -541,7 +499,6 @@ class Blueprint
 
     /**
      * Specify an index for the table.
-	 * 指定表索引
      *
      * @param  string|array  $columns
      * @param  string|null  $name
@@ -555,7 +512,6 @@ class Blueprint
 
     /**
      * Specify a spatial index for the table.
-	 * 为表指定空间索引
      *
      * @param  string|array  $columns
      * @param  string|null  $name
@@ -567,21 +523,48 @@ class Blueprint
     }
 
     /**
+     * Specify a raw index for the table.
+     *
+     * @param  string  $expression
+     * @param  string  $name
+     * @return \Illuminate\Support\Fluent
+     */
+    public function rawIndex($expression, $name)
+    {
+        return $this->index([new Expression($expression)], $name);
+    }
+
+    /**
      * Specify a foreign key for the table.
-	 * 为表指定一个外键
      *
      * @param  string|array  $columns
      * @param  string|null  $name
-     * @return \Illuminate\Support\Fluent|\Illuminate\Database\Schema\ForeignKeyDefinition
+     * @return \Illuminate\Database\Schema\ForeignKeyDefinition
      */
     public function foreign($columns, $name = null)
     {
-        return $this->indexCommand('foreign', $columns, $name);
+        $command = new ForeignKeyDefinition(
+            $this->indexCommand('foreign', $columns, $name)->getAttributes()
+        );
+
+        $this->commands[count($this->commands) - 1] = $command;
+
+        return $command;
+    }
+
+    /**
+     * Create a new auto-incrementing big integer (8-byte) column on the table.
+     *
+     * @param  string  $column
+     * @return \Illuminate\Database\Schema\ColumnDefinition
+     */
+    public function id($column = 'id')
+    {
+        return $this->bigIncrements($column);
     }
 
     /**
      * Create a new auto-incrementing integer (4-byte) column on the table.
-	 * 创建一个新的自动递增的整数(4字节)列在表上
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -593,7 +576,6 @@ class Blueprint
 
     /**
      * Create a new auto-incrementing integer (4-byte) column on the table.
-	 * 创建一个新的自动递增的整数(4字节)列在表上
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -605,7 +587,6 @@ class Blueprint
 
     /**
      * Create a new auto-incrementing tiny integer (1-byte) column on the table.
-	 * 在表上创建一个新的自动递增的小整数(1字节)列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -617,7 +598,6 @@ class Blueprint
 
     /**
      * Create a new auto-incrementing small integer (2-byte) column on the table.
-	 * 在表上创建一个新的自动递增的小整数(2字节)列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -629,7 +609,6 @@ class Blueprint
 
     /**
      * Create a new auto-incrementing medium integer (3-byte) column on the table.
-	 * 在表上创建一个新的自动递增的中等整数(3字节)列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -641,7 +620,6 @@ class Blueprint
 
     /**
      * Create a new auto-incrementing big integer (8-byte) column on the table.
-	 * 在表上创建一个新的自动递增的大整数(8字节)列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -653,7 +631,6 @@ class Blueprint
 
     /**
      * Create a new char column on the table.
-	 * 在表上创建一个新的字符列
      *
      * @param  string  $column
      * @param  int|null  $length
@@ -668,7 +645,6 @@ class Blueprint
 
     /**
      * Create a new string column on the table.
-	 * 在表上创建一个新的字符串列
      *
      * @param  string  $column
      * @param  int|null  $length
@@ -683,7 +659,6 @@ class Blueprint
 
     /**
      * Create a new text column on the table.
-	 * 在表上创建一个新的文本列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -695,7 +670,6 @@ class Blueprint
 
     /**
      * Create a new medium text column on the table.
-	 * 在表上创建一个新的中等文本列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -707,7 +681,6 @@ class Blueprint
 
     /**
      * Create a new long text column on the table.
-	 * 在表上创建一个新的中等文本列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -719,8 +692,6 @@ class Blueprint
 
     /**
      * Create a new integer (4-byte) column on the table.
-	 * 在表上创建一个新的整数(4字节)列
-	 * 
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -734,7 +705,6 @@ class Blueprint
 
     /**
      * Create a new tiny integer (1-byte) column on the table.
-	 * 在表上创建一个新的小整数(1字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -748,7 +718,6 @@ class Blueprint
 
     /**
      * Create a new small integer (2-byte) column on the table.
-	 * 在表上创建一个新的小整数(2字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -762,7 +731,6 @@ class Blueprint
 
     /**
      * Create a new medium integer (3-byte) column on the table.
-	 * 在表上创建一个新的中等整数(3字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -776,7 +744,6 @@ class Blueprint
 
     /**
      * Create a new big integer (8-byte) column on the table.
-	 * 在表上创建一个新的大整数(8字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -790,7 +757,6 @@ class Blueprint
 
     /**
      * Create a new unsigned integer (4-byte) column on the table.
-	 * 在表上创建一个新的无符号整数(4字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -803,7 +769,6 @@ class Blueprint
 
     /**
      * Create a new unsigned tiny integer (1-byte) column on the table.
-	 * 在表上创建一个新的无符号小整数(1字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -816,7 +781,6 @@ class Blueprint
 
     /**
      * Create a new unsigned small integer (2-byte) column on the table.
-	 * 在表上创建一个新的无符号小整数(2字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -829,7 +793,6 @@ class Blueprint
 
     /**
      * Create a new unsigned medium integer (3-byte) column on the table.
-	 * 在表上创建一个新的无符号中整数(3字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -842,7 +805,6 @@ class Blueprint
 
     /**
      * Create a new unsigned big integer (8-byte) column on the table.
-	 * 在表上创建一个新的无符号大整数(8字节)列
      *
      * @param  string  $column
      * @param  bool  $autoIncrement
@@ -854,56 +816,93 @@ class Blueprint
     }
 
     /**
+     * Create a new unsigned big integer (8-byte) column on the table.
+     *
+     * @param  string  $column
+     * @return \Illuminate\Database\Schema\ForeignIdColumnDefinition
+     */
+    public function foreignId($column)
+    {
+        $this->columns[] = $column = new ForeignIdColumnDefinition($this, [
+            'type' => 'bigInteger',
+            'name' => $column,
+            'autoIncrement' => false,
+            'unsigned' => true,
+        ]);
+
+        return $column;
+    }
+
+    /**
      * Create a new float column on the table.
-	 * 在表上创建一个新的浮动列
      *
      * @param  string  $column
      * @param  int  $total
      * @param  int  $places
+     * @param  bool  $unsigned
      * @return \Illuminate\Database\Schema\ColumnDefinition
      */
-    public function float($column, $total = 8, $places = 2)
+    public function float($column, $total = 8, $places = 2, $unsigned = false)
     {
-        return $this->addColumn('float', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => false,
-        ]);
+        return $this->addColumn('float', $column, compact('total', 'places', 'unsigned'));
     }
 
     /**
      * Create a new double column on the table.
-	 * 在表上创建一个新的双列
      *
      * @param  string  $column
      * @param  int|null  $total
      * @param  int|null  $places
+     * @param  bool  $unsigned
      * @return \Illuminate\Database\Schema\ColumnDefinition
      */
-    public function double($column, $total = null, $places = null)
+    public function double($column, $total = null, $places = null, $unsigned = false)
     {
-        return $this->addColumn('double', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => false,
-        ]);
+        return $this->addColumn('double', $column, compact('total', 'places', 'unsigned'));
     }
 
     /**
      * Create a new decimal column on the table.
-	 * 在表上创建一个新的十进制列
+     *
+     * @param  string  $column
+     * @param  int  $total
+     * @param  int  $places
+     * @param  bool  $unsigned
+     * @return \Illuminate\Database\Schema\ColumnDefinition
+     */
+    public function decimal($column, $total = 8, $places = 2, $unsigned = false)
+    {
+        return $this->addColumn('decimal', $column, compact('total', 'places', 'unsigned'));
+    }
+
+    /**
+     * Create a new unsigned float column on the table.
      *
      * @param  string  $column
      * @param  int  $total
      * @param  int  $places
      * @return \Illuminate\Database\Schema\ColumnDefinition
      */
-    public function decimal($column, $total = 8, $places = 2)
+    public function unsignedFloat($column, $total = 8, $places = 2)
     {
-        return $this->addColumn('decimal', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => false,
-        ]);
+        return $this->float($column, $total, $places, true);
+    }
+
+    /**
+     * Create a new unsigned double column on the table.
+     *
+     * @param  string  $column
+     * @param  int  $total
+     * @param  int  $places
+     * @return \Illuminate\Database\Schema\ColumnDefinition
+     */
+    public function unsignedDouble($column, $total = null, $places = null)
+    {
+        return $this->double($column, $total, $places, true);
     }
 
     /**
      * Create a new unsigned decimal column on the table.
-	 * 在表上创建一个新的无符号十进制列
      *
      * @param  string  $column
      * @param  int  $total
@@ -912,14 +911,11 @@ class Blueprint
      */
     public function unsignedDecimal($column, $total = 8, $places = 2)
     {
-        return $this->addColumn('decimal', $column, [
-            'total' => $total, 'places' => $places, 'unsigned' => true,
-        ]);
+        return $this->decimal($column, $total, $places, true);
     }
 
     /**
      * Create a new boolean column on the table.
-	 * 在表上创建一个新的布尔列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -931,7 +927,6 @@ class Blueprint
 
     /**
      * Create a new enum column on the table.
-	 * 在表上创建一个新的枚举列
      *
      * @param  string  $column
      * @param  array  $allowed
@@ -944,7 +939,6 @@ class Blueprint
 
     /**
      * Create a new set column on the table.
-	 * 在表上创建一个新的set列
      *
      * @param  string  $column
      * @param  array  $allowed
@@ -957,7 +951,6 @@ class Blueprint
 
     /**
      * Create a new json column on the table.
-	 * 在表上创建一个新的json列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -969,7 +962,6 @@ class Blueprint
 
     /**
      * Create a new jsonb column on the table.
-	 * 在表上创建一个新的jsonb列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -981,7 +973,6 @@ class Blueprint
 
     /**
      * Create a new date column on the table.
-	 * 在表上创建一个新的日期列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -993,7 +984,6 @@ class Blueprint
 
     /**
      * Create a new date-time column on the table.
-	 * 在表上创建一个新的日期-时间列
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1006,7 +996,6 @@ class Blueprint
 
     /**
      * Create a new date-time column (with time zone) on the table.
-	 * 在表上创建一个新的日期-时间列(带时区)
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1019,7 +1008,6 @@ class Blueprint
 
     /**
      * Create a new time column on the table.
-	 * 在表上创建一个新的时间列
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1032,7 +1020,6 @@ class Blueprint
 
     /**
      * Create a new time column (with time zone) on the table.
-	 * 在表上创建一个新的时间列(带时区)
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1045,7 +1032,6 @@ class Blueprint
 
     /**
      * Create a new timestamp column on the table.
-	 * 在表上创建一个新的时间戳列
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1058,7 +1044,6 @@ class Blueprint
 
     /**
      * Create a new timestamp (with time zone) column on the table.
-	 * 表上创建一个新的时间戳(带时区)列
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1071,7 +1056,6 @@ class Blueprint
 
     /**
      * Add nullable creation and update timestamps to the table.
-	 * 向表中添加可空的创建和更新时间戳
      *
      * @param  int  $precision
      * @return void
@@ -1085,7 +1069,6 @@ class Blueprint
 
     /**
      * Add nullable creation and update timestamps to the table.
-	 * 向表中添加可空的创建和更新时间戳
      *
      * Alias for self::timestamps().
      *
@@ -1099,7 +1082,6 @@ class Blueprint
 
     /**
      * Add creation and update timestampTz columns to the table.
-	 * 向表中添加创建和更新timestampTz列
      *
      * @param  int  $precision
      * @return void
@@ -1113,7 +1095,6 @@ class Blueprint
 
     /**
      * Add a "deleted at" timestamp for the table.
-	 * 为表添加一个"deleted at"时间戳
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1126,7 +1107,6 @@ class Blueprint
 
     /**
      * Add a "deleted at" timestampTz for the table.
-	 * 为表添加一个"deleted at"时间戳tz
      *
      * @param  string  $column
      * @param  int  $precision
@@ -1139,7 +1119,6 @@ class Blueprint
 
     /**
      * Create a new year column on the table.
-	 * 在表上创建新的year列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1151,7 +1130,6 @@ class Blueprint
 
     /**
      * Create a new binary column on the table.
-	 * 在表上创建新的二进制列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1163,7 +1141,6 @@ class Blueprint
 
     /**
      * Create a new uuid column on the table.
-	 * 在表上创建新的uuid列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1174,8 +1151,21 @@ class Blueprint
     }
 
     /**
+     * Create a new UUID column on the table with a foreign key constraint.
+     *
+     * @param  string  $column
+     * @return \Illuminate\Database\Schema\ForeignIdColumnDefinition
+     */
+    public function foreignUuid($column)
+    {
+        return $this->columns[] = new ForeignIdColumnDefinition($this, [
+            'type' => 'uuid',
+            'name' => $column,
+        ]);
+    }
+
+    /**
      * Create a new IP address column on the table.
-	 * 在表上创建新的IP地址列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1187,7 +1177,6 @@ class Blueprint
 
     /**
      * Create a new MAC address column on the table.
-	 * 在表上创建一个新的MAC地址列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1199,7 +1188,6 @@ class Blueprint
 
     /**
      * Create a new geometry column on the table.
-	 * 在表上创建新的几何列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1211,7 +1199,6 @@ class Blueprint
 
     /**
      * Create a new point column on the table.
-	 * 在表上创建新的点列
      *
      * @param  string  $column
      * @param  int|null  $srid
@@ -1224,7 +1211,6 @@ class Blueprint
 
     /**
      * Create a new linestring column on the table.
-	 * 在表上创建新的linestring列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1236,7 +1222,6 @@ class Blueprint
 
     /**
      * Create a new polygon column on the table.
-	 * 在表上创建新的多边形列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1248,7 +1233,6 @@ class Blueprint
 
     /**
      * Create a new geometrycollection column on the table.
-	 * 在表上创建新的geometrycollection列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1260,7 +1244,6 @@ class Blueprint
 
     /**
      * Create a new multipoint column on the table.
-	 * 在表上创建新的多点列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1272,7 +1255,6 @@ class Blueprint
 
     /**
      * Create a new multilinestring column on the table.
-	 * 在表上创建新的multilinestring列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1284,7 +1266,6 @@ class Blueprint
 
     /**
      * Create a new multipolygon column on the table.
-	 * 在表上创建新的多多边形列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1296,7 +1277,6 @@ class Blueprint
 
     /**
      * Create a new multipolygon column on the table.
-	 * 在表上创建新的多多边形列
      *
      * @param  string  $column
      * @return \Illuminate\Database\Schema\ColumnDefinition
@@ -1308,7 +1288,6 @@ class Blueprint
 
     /**
      * Create a new generated, computed column on the table.
-	 * 在表上创建新生成的计算列
      *
      * @param  string  $column
      * @param  string  $expression
@@ -1321,7 +1300,6 @@ class Blueprint
 
     /**
      * Add the proper columns for a polymorphic table.
-	 * 为多态表添加适当的列
      *
      * @param  string  $name
      * @param  string|null  $indexName
@@ -1338,7 +1316,6 @@ class Blueprint
 
     /**
      * Add nullable columns for a polymorphic table.
-	 * 为多态表添加可空列
      *
      * @param  string  $name
      * @param  string|null  $indexName
@@ -1355,7 +1332,6 @@ class Blueprint
 
     /**
      * Add the proper columns for a polymorphic table using UUIDs.
-	 * 为使用uid的多态表添加适当的列
      *
      * @param  string  $name
      * @param  string|null  $indexName
@@ -1372,7 +1348,6 @@ class Blueprint
 
     /**
      * Add nullable columns for a polymorphic table using UUIDs.
-	 * 为使用uid的多态表添加可空列
      *
      * @param  string  $name
      * @param  string|null  $indexName
@@ -1389,7 +1364,6 @@ class Blueprint
 
     /**
      * Adds the `remember_token` column to the table.
-	 * 将'memor_token'列添加到表中
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition
      */
@@ -1400,7 +1374,6 @@ class Blueprint
 
     /**
      * Add a new index command to the blueprint.
-	 * 添加新的索引命令至蓝图
      *
      * @param  string  $type
      * @param  string|array  $columns
@@ -1415,8 +1388,6 @@ class Blueprint
         // If no name was specified for this index, we will create one using a basic
         // convention of the table name, followed by the columns, followed by an
         // index type, such as primary or index, which makes the index unique.
-		// 如果没有为此索引指定名称，我们将使用表名、列和索引类型（如主索引或索引）
-		// 的基本约定创建一个索引，使索引唯一。
         $index = $index ?: $this->createIndexName($type, $columns);
 
         return $this->addCommand(
@@ -1426,7 +1397,6 @@ class Blueprint
 
     /**
      * Create a new drop index command on the blueprint.
-	 * 创建新的删除索引命令在蓝图上
      *
      * @param  string  $command
      * @param  string  $type
@@ -1440,8 +1410,6 @@ class Blueprint
         // If the given "index" is actually an array of columns, the developer means
         // to drop an index merely by specifying the columns involved without the
         // conventional name, so we will build the index name from the columns.
-		// 如果给定的“索引”实际上是一个列数组，开发人员意味着只需指定所涉及的列而不指定常规名称即可删除索引，
-		// 因此我们将根据列构建索引名称。
         if (is_array($index)) {
             $index = $this->createIndexName($type, $columns = $index);
         }
@@ -1451,7 +1419,6 @@ class Blueprint
 
     /**
      * Create a default index name for the table.
-	 * 创建默认索引名为表
      *
      * @param  string  $type
      * @param  array  $columns
@@ -1466,7 +1433,6 @@ class Blueprint
 
     /**
      * Add a new column to the blueprint.
-	 * 添加一个新列至蓝图
      *
      * @param  string  $type
      * @param  string  $name
@@ -1484,7 +1450,6 @@ class Blueprint
 
     /**
      * Remove a column from the schema blueprint.
-	 * 删除列从架构蓝图中
      *
      * @param  string  $name
      * @return $this
@@ -1500,7 +1465,6 @@ class Blueprint
 
     /**
      * Add a new command to the blueprint.
-	 * 添加列于蓝图中
      *
      * @param  string  $name
      * @param  array  $parameters
@@ -1515,7 +1479,6 @@ class Blueprint
 
     /**
      * Create a new Fluent command.
-	 * 创建新的Fluent命令
      *
      * @param  string  $name
      * @param  array  $parameters
@@ -1528,7 +1491,6 @@ class Blueprint
 
     /**
      * Get the table the blueprint describes.
-	 * 得到蓝图描述的表
      *
      * @return string
      */
@@ -1539,7 +1501,6 @@ class Blueprint
 
     /**
      * Get the columns on the blueprint.
-	 * 得到蓝图上的列
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition[]
      */
@@ -1550,7 +1511,6 @@ class Blueprint
 
     /**
      * Get the commands on the blueprint.
-	 * 得到蓝图上的命令
      *
      * @return \Illuminate\Support\Fluent[]
      */
@@ -1561,7 +1521,6 @@ class Blueprint
 
     /**
      * Get the columns on the blueprint that should be added.
-	 * 得到蓝图上应该被添加的列
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition[]
      */
@@ -1574,7 +1533,6 @@ class Blueprint
 
     /**
      * Get the columns on the blueprint that should be changed.
-	 * 得到蓝图上应该被改变的列
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition[]
      */

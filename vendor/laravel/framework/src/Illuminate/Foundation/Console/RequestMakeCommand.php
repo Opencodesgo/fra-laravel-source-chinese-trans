@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，请求生成命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -11,7 +8,6 @@ class RequestMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class RequestMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -27,7 +22,6 @@ class RequestMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成类的类型
      *
      * @var string
      */
@@ -35,18 +29,29 @@ class RequestMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的原始文件
      *
      * @return string
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/request.stub';
+        return $this->resolveStubPath('/stubs/request.stub');
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param  string  $stub
+     * @return string
+     */
+    protected function resolveStubPath($stub)
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+                        ? $customPath
+                        : __DIR__.$stub;
     }
 
     /**
      * Get the default namespace for the class.
-	 * 得到类的命名空间
      *
      * @param  string  $rootNamespace
      * @return string

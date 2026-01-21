@@ -1,7 +1,4 @@
 <?php
-/**
- * 授权，监听，发送电子邮件验证通知
- */
 
 namespace Illuminate\Auth\Listeners;
 
@@ -12,7 +9,6 @@ class SendEmailVerificationNotification
 {
     /**
      * Handle the event.
-	 * 处理事件
      *
      * @param  \Illuminate\Auth\Events\Registered  $event
      * @return void

@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，查询，postgres进程
- */
 
 namespace Illuminate\Database\Query\Processors;
 
@@ -11,7 +8,6 @@ class PostgresProcessor extends Processor
 {
     /**
      * Process an "insert get ID" query.
-	 * 处理"insert get ID"查询
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $sql
@@ -36,7 +32,6 @@ class PostgresProcessor extends Processor
 
     /**
      * Process the results of a column listing query.
-	 * 处理列清单查询的结果
      *
      * @param  array  $results
      * @return array

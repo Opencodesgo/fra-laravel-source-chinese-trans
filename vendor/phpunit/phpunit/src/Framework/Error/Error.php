@@ -11,9 +11,12 @@ namespace PHPUnit\Framework\Error;
 
 use PHPUnit\Framework\Exception;
 
+/**
+ * @internal
+ */
 class Error extends Exception
 {
-    public function __construct(string $message, int $code, string $file, int $line, \Exception $previous = null)
+    public function __construct(string $message, int $code, string $file, int $line, ?\Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
 

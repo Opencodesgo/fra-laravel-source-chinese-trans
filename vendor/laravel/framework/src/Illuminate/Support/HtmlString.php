@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，html字符串
- */
 
 namespace Illuminate\Support;
 
@@ -11,7 +8,6 @@ class HtmlString implements Htmlable
 {
     /**
      * The HTML string.
-	 * HTML字符串
      *
      * @var string
      */
@@ -19,19 +15,17 @@ class HtmlString implements Htmlable
 
     /**
      * Create a new HTML string instance.
-	 * 创建新的HTMl字符串实例
      *
      * @param  string  $html
      * @return void
      */
-    public function __construct($html)
+    public function __construct($html = '')
     {
         $this->html = $html;
     }
 
     /**
      * Get the HTML string.
-	 * 得到HTML字符串
      *
      * @return string
      */
@@ -41,8 +35,17 @@ class HtmlString implements Htmlable
     }
 
     /**
+     * Determine if the given HTML string is empty.
+     *
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return $this->html === '';
+    }
+
+    /**
      * Get the HTML string.
-	 * 得到HTML字符串
      *
      * @return string
      */

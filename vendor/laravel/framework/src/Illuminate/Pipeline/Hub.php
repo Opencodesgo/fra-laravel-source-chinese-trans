@@ -1,6 +1,6 @@
 <?php
 /**
- * 管道，Hub
+ * Illuminate，管道，中心
  */
 
 namespace Illuminate\Pipeline;
@@ -13,7 +13,6 @@ class Hub implements HubContract
 {
     /**
      * The container implementation.
-	 * 容器实现
      *
      * @var \Illuminate\Contracts\Container\Container|null
      */
@@ -21,7 +20,6 @@ class Hub implements HubContract
 
     /**
      * All of the available pipelines.
-	 * 所有可用管道
      *
      * @var array
      */
@@ -29,7 +27,6 @@ class Hub implements HubContract
 
     /**
      * Create a new Hub instance.
-	 * 创建新的hub实例
      *
      * @param  \Illuminate\Contracts\Container\Container|null  $container
      * @return void
@@ -41,7 +38,6 @@ class Hub implements HubContract
 
     /**
      * Define the default named pipeline.
-	 * 定义默认的命名管道
      *
      * @param  \Closure  $callback
      * @return void
@@ -53,7 +49,6 @@ class Hub implements HubContract
 
     /**
      * Define a new named pipeline.
-	 * 定义新的命名管道
      *
      * @param  string  $name
      * @param  \Closure  $callback
@@ -66,7 +61,6 @@ class Hub implements HubContract
 
     /**
      * Send an object through one of the available pipelines.
-	 * 发送对象通过一个可用的管道
      *
      * @param  mixed  $object
      * @param  string|null  $pipeline

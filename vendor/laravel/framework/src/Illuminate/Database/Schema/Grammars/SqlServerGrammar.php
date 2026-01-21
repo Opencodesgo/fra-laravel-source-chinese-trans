@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，SqlServer语法
- */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -12,7 +9,6 @@ class SqlServerGrammar extends Grammar
 {
     /**
      * If this Grammar supports schema changes wrapped in a transaction.
-	 * 如果此语法支持封装在事务中的模式更改
      *
      * @var bool
      */
@@ -20,7 +16,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * The possible column modifiers.
-	 * 可能的列修饰符
      *
      * @var array
      */
@@ -28,26 +23,23 @@ class SqlServerGrammar extends Grammar
 
     /**
      * The columns available as serials.
-	 * 作为序列可用的列
      *
      * @var array
      */
     protected $serials = ['tinyInteger', 'smallInteger', 'mediumInteger', 'integer', 'bigInteger'];
 
     /**
-     * Compile the query to determine if a table or view exists.
-	 * 编译查询以确定是否存在表或视图
+     * Compile the query to determine if a table exists.
      *
      * @return string
      */
     public function compileTableExists()
     {
-        return "select * from sysobjects where type in ('U', 'V') and name = ?";
+        return "select * from sysobjects where type = 'U' and name = ?";
     }
 
     /**
      * Compile the query to determine the list of columns.
-	 * 编译查询以确定列列表
      *
      * @param  string  $table
      * @return string
@@ -56,12 +48,11 @@ class SqlServerGrammar extends Grammar
     {
         return "select col.name from sys.columns as col
                 join sys.objects as obj on col.object_id = obj.object_id
-                where obj.type in ('U', 'V') and obj.name = '$table'";
+                where obj.type = 'U' and obj.object_id = object_id('$table')";
     }
 
     /**
      * Compile a create table command.
-	 * 编译一个create table命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -76,7 +67,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a column addition table command.
-	 * 编译列添加表命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -92,7 +82,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a primary key command.
-	 * 编译主键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -109,7 +98,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a unique key command.
-	 * 编译唯一键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -126,7 +114,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a plain index key command.
-	 * 编译一个普通索引键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -143,7 +130,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a spatial index key command.
-	 * 编译一个空间索引键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -160,7 +146,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop table command.
-	 * 编译删除表命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -173,7 +158,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop table (if exists) command.
-	 * 编译删除表命令(是否存在)
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -189,7 +173,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the SQL needed to drop all tables.
-	 * 编译删除所有表所需的SQL
      *
      * @return string
      */
@@ -200,7 +183,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop column command.
-	 * 编译删除列命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -217,7 +199,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop default constraint command.
-	 * 编译删除默认约束命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -231,7 +212,7 @@ class SqlServerGrammar extends Grammar
 
         $sql = "DECLARE @sql NVARCHAR(MAX) = '';";
         $sql .= "SELECT @sql += 'ALTER TABLE [dbo].[{$tableName}] DROP CONSTRAINT ' + OBJECT_NAME([default_object_id]) + ';' ";
-        $sql .= 'FROM sys.columns ';
+        $sql .= 'FROM SYS.COLUMNS ';
         $sql .= "WHERE [object_id] = OBJECT_ID('[dbo].[{$tableName}]') AND [name] in ({$columns}) AND [default_object_id] <> 0;";
         $sql .= 'EXEC(@sql)';
 
@@ -240,7 +221,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop primary key command.
-	 * 编译删除主键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -255,7 +235,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop unique key command.
-	 * 编译删除唯一键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -270,7 +249,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop index command.
-	 * 编译删除索引命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -285,7 +263,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop spatial index command.
-	 * 编译删除空间索引命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -298,7 +275,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a drop foreign key command.
-	 * 编译删除外键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -313,7 +289,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a rename table command.
-	 * 编译重命名表命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -328,7 +303,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a rename index command.
-	 * 编译重命名索引命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -344,7 +318,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the command to enable foreign key constraints.
-	 * 编译命令以启用外键约束
      *
      * @return string
      */
@@ -355,7 +328,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the command to disable foreign key constraints.
-	 * 编译命令以禁用外键约束
      *
      * @return string
      */
@@ -366,7 +338,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the command to drop all foreign keys.
-	 * 编译命令以删除所有外键
      *
      * @return string
      */
@@ -383,7 +354,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the command to drop all views.
-	 * 编译命令以删除所有视图
      *
      * @return string
      */
@@ -398,7 +368,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a char type.
-	 * 创建列定义为char类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -410,7 +379,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a string type.
-	 * 创建列定义为字符串类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -422,7 +390,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a text type.
-	 * 创建列定义为文本类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -434,7 +401,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a medium text type.
-	 * 创建列定义为中等文本类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -446,7 +412,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a long text type.
-	 * 创建列定义为长文本类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -458,7 +423,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for an integer type.
-	 * 创建列定义为整数类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -470,7 +434,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a big integer type.
-	 * 创建列定义为大整数类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -482,7 +445,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a medium integer type.
-	 * 创建列定义为中等整数类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -494,7 +456,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a tiny integer type.
-	 * 创建列定义为一个小整数类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -506,7 +467,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a small integer type.
-	 * 创建列定义为小整数类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -518,7 +478,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a float type.
-	 * 创建列定义为float类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -530,7 +489,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a double type.
-	 * 创建双类型的列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -542,7 +500,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a decimal type.
-	 * 创建列定义为十进制类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -554,7 +511,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a boolean type.
-	 * 创建列定义为布尔类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -566,7 +522,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for an enumeration type.
-	 * 创建列定义为列举类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -582,7 +537,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a json type.
-	 * 创建列定义为JSON类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -594,7 +548,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a jsonb type.
-	 * 创建列定义为JSONB类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -606,7 +559,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a date type.
-	 * 创建列定义为日期类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -618,7 +570,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a date-time type.
-	 * 创建列定义为日期时间类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -630,7 +581,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a date-time (with time zone) type.
-	 * 创建列定义为日期-时间(带时区)类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -642,7 +592,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a time type.
-	 * 创建列定义为时间类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -654,7 +603,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a time (with time zone) type.
-	 * 创建列定义为时间(带时区)类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -666,7 +614,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a timestamp type.
-	 * 创建列定义为时间戳类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -680,7 +627,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a timestamp (with time zone) type.
-	 * 创建列定义为时间戳(带时区)类型
      *
      * @link https://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-ver15
      *
@@ -696,7 +642,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a year type.
-	 * 创建列定义为年类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -708,7 +653,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a binary type.
-	 * 创建列定义为二进制类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -720,7 +664,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a uuid type.
-	 * 创建列定义为UUID类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -732,7 +675,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for an IP address type.
-	 * 创建列定义为IP地址类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -744,7 +686,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a MAC address type.
-	 * 创建列定义为MAC地址类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -756,7 +697,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial Geometry type.
-	 * 创建列定义为空间几何类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -768,7 +708,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial Point type.
-	 * 创建列定义为空间点类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -780,7 +719,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial LineString type.
-	 * 创建列定义为空间LineString类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -792,7 +730,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial Polygon type.
-	 * 创建列定义为空间多边形类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -804,7 +741,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial GeometryCollection type.
-	 * 创建列定义为空间GeometryCollection类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -816,7 +752,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial MultiPoint type.
-	 * 创建列定义为空间多点类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -828,7 +763,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial MultiLineString type.
-	 * 创建列定义为空间MultiLineString类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -840,7 +774,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial MultiPolygon type.
-	 * 创建列定义为空间MultiPolygon类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -852,7 +785,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create the column definition for a generated, computed column type.
-	 * 创建列定义为生成的、计算的列类型
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string|null
@@ -864,7 +796,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Get the SQL for a collation column modifier.
-	 * 得到排序列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -879,7 +810,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Get the SQL for a nullable column modifier.
-	 * 得到可空列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -894,7 +824,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Get the SQL for a default column modifier.
-	 * 得到默认列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -909,7 +838,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Get the SQL for an auto-increment column modifier.
-	 * 得到用于自动增量列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -924,7 +852,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Get the SQL for a generated stored column modifier.
-	 * 得到生成的存储列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -939,7 +866,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap a table in keyword identifiers.
-	 * 包装表用关键字标识符
      *
      * @param  \Illuminate\Database\Query\Expression|string  $table
      * @return string
@@ -955,7 +881,6 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Quote the given string literal.
-	 * 引用给定的字符串字面值
      *
      * @param  string|array  $value
      * @return string

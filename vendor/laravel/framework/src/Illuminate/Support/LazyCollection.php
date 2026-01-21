@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，惰性收集
- */
 
 namespace Illuminate\Support;
 
@@ -18,7 +15,6 @@ class LazyCollection implements Enumerable
 
     /**
      * The source from which to generate items.
-	 * 要从中生成项的资源
      *
      * @var callable|static
      */
@@ -26,7 +22,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Create a new lazy collection instance.
-	 * 创建新的惰性集合实例
      *
      * @param  mixed  $source
      * @return void
@@ -44,7 +39,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Create a new instance with no items.
-	 * 创建一个没有项目的新实例
      *
      * @return static
      */
@@ -55,10 +49,9 @@ class LazyCollection implements Enumerable
 
     /**
      * Create a new instance by invoking the callback a given amount of times.
-	 * 创建一个新实例通过调用给定次数的回调
      *
      * @param  int  $number
-     * @param  callable  $callback
+     * @param  callable|null  $callback
      * @return static
      */
     public static function times($number, callable $callback = null)
@@ -78,7 +71,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Create an enumerable with the given range.
-	 * 创建一个可枚举对象用给定的范围
      *
      * @param  int  $from
      * @param  int  $to
@@ -95,7 +87,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get all items in the enumerable.
-	 * 得到枚举中的所有项
      *
      * @return array
      */
@@ -110,7 +101,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Eager load all items into a new lazy collection backed by an array.
-	 * 将所有项加载到由数组支持的新惰性集合中
      *
      * @return static
      */
@@ -121,7 +111,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Cache values as they're enumerated.
-	 * 在枚举值时缓存它们
      *
      * @return static
      */
@@ -160,7 +149,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the average value of a given key.
-	 * 得到给定键的平均值
      *
      * @param  callable|string|null  $callback
      * @return mixed
@@ -172,7 +160,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the median of a given key.
-	 * 求给定键的中值
      *
      * @param  string|array|null  $key
      * @return mixed
@@ -184,7 +171,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the mode of a given key.
-	 * 得到给定键的模式
      *
      * @param  string|array|null  $key
      * @return array|null
@@ -196,7 +182,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Collapse the collection of items into a single array.
-	 * 折叠项目集合成单个数组
      *
      * @return static
      */
@@ -215,7 +200,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Determine if an item exists in the enumerable.
-	 * 确定枚举中是否存在项
      *
      * @param  mixed  $key
      * @param  mixed  $operator
@@ -247,7 +231,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Cross join the given iterables, returning all possible permutations.
-	 * 交叉连接给定的可迭代对象，返回所有可能的排列。
      *
      * @param  array  ...$arrays
      * @return static
@@ -258,8 +241,36 @@ class LazyCollection implements Enumerable
     }
 
     /**
+     * Count the number of items in the collection by a field or using a callback.
+     *
+     * @param  callable|string  $countBy
+     * @return static
+     */
+    public function countBy($countBy = null)
+    {
+        $countBy = is_null($countBy)
+            ? $this->identity()
+            : $this->valueRetriever($countBy);
+
+        return new static(function () use ($countBy) {
+            $counts = [];
+
+            foreach ($this as $key => $value) {
+                $group = $countBy($value, $key);
+
+                if (empty($counts[$group])) {
+                    $counts[$group] = 0;
+                }
+
+                $counts[$group]++;
+            }
+
+            yield from $counts;
+        });
+    }
+
+    /**
      * Get the items that are not present in the given items.
-	 * 得到在给定项中不存在的项
      *
      * @param  mixed  $items
      * @return static
@@ -271,7 +282,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the items that are not present in the given items, using the callback.
-	 * 得到给定项中不存在的项使用回调
      *
      * @param  mixed  $items
      * @param  callable  $callback
@@ -284,7 +294,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the items whose keys and values are not present in the given items.
-	 * 得到其键和值未出现在给定项中的项
      *
      * @param  mixed  $items
      * @return static
@@ -296,7 +305,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the items whose keys and values are not present in the given items, using the callback.
-	 * 得到其键和值未出现在给定项中的项，使用回调。
      *
      * @param  mixed  $items
      * @param  callable  $callback
@@ -309,7 +317,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the items whose keys are not present in the given items.
-	 * 得到键不存在于给定项中的项
      *
      * @param  mixed  $items
      * @return static
@@ -321,7 +328,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the items whose keys are not present in the given items, using the callback.
-	 * 得到键不在给定项中的项，使用回调。
      *
      * @param  mixed  $items
      * @param  callable  $callback
@@ -334,7 +340,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Retrieve duplicate items.
-	 * 检索重复项
      *
      * @param  callable|null  $callback
      * @param  bool  $strict
@@ -347,7 +352,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Retrieve duplicate items using strict comparison.
-	 * 检索重复项使用严格比较
      *
      * @param  callable|null  $callback
      * @return static
@@ -359,7 +363,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get all items except for those with the specified keys.
-	 * 得到除具有指定键的项之外的所有项
      *
      * @param  mixed  $keys
      * @return static
@@ -371,7 +374,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Run a filter over each of the items.
-	 * 运行一个过滤器对每个项目
      *
      * @param  callable|null  $callback
      * @return static
@@ -395,7 +397,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the first item from the enumerable passing the given truth test.
-	 * 得到第一项从通过给定真值测试的枚举中
      *
      * @param  callable|null  $callback
      * @param  mixed  $default
@@ -424,7 +425,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get a flattened list of the items in the collection.
-	 * 得到集合中项目的扁平列表
      *
      * @param  int  $depth
      * @return static
@@ -448,7 +448,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Flip the items in the collection.
-	 * 翻转集合中的项目
      *
      * @return static
      */
@@ -463,7 +462,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get an item by key.
-	 * 按键获取项目
      *
      * @param  mixed  $key
      * @param  mixed  $default
@@ -486,7 +484,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Group an associative array by a field or using a callback.
-	 * 对关联数组进行分组按字段或使用回调
      *
      * @param  array|callable|string  $groupBy
      * @param  bool  $preserveKeys
@@ -499,7 +496,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Key an associative array by a field or using a callback.
-	 * 为关联数组设置键通过字段或使用回调
      *
      * @param  callable|string  $keyBy
      * @return static
@@ -523,7 +519,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Determine if an item exists in the collection by key.
-	 * 确定集合中是否存在项根据键
      *
      * @param  mixed  $key
      * @return bool
@@ -544,10 +539,9 @@ class LazyCollection implements Enumerable
 
     /**
      * Concatenate values of a given key as a string.
-	 * 将给定键的值连接为字符串
      *
      * @param  string  $value
-     * @param  string  $glue
+     * @param  string|null  $glue
      * @return string
      */
     public function implode($value, $glue = null)
@@ -557,7 +551,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Intersect the collection with the given items.
-	 * 相交集合与给定的项目
      *
      * @param  mixed  $items
      * @return static
@@ -569,7 +562,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Intersect the collection with the given items by key.
-	 * 相交集合与给定的项目通过键
      *
      * @param  mixed  $items
      * @return static
@@ -581,7 +573,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Determine if the items is empty or not.
-	 * 确定项是否为空
      *
      * @return bool
      */
@@ -592,7 +583,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Join all items from the collection using a string. The final items can use a separate glue string.
-	 * 使用字符串连接集合中的所有项。最后的项目可以使用一个单独的胶水线。
      *
      * @param  string  $glue
      * @param  string  $finalGlue
@@ -605,7 +595,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the keys of the collection items.
-	 * 得到收集项目的键
      *
      * @return static
      */
@@ -620,7 +609,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the last item from the collection.
-	 * 得到最后一项从集合中
      *
      * @param  callable|null  $callback
      * @param  mixed  $default
@@ -641,7 +629,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the values of a given key.
-	 * 得到给定键的值
      *
      * @param  string|array  $value
      * @param  string|null  $key
@@ -672,7 +659,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Run a map over each of the items.
-	 * 运行一张地图在每个项目上
      *
      * @param  callable  $callback
      * @return static
@@ -688,7 +674,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Run a dictionary map over the items.
-	 * 运行字典映射在条目上
      *
      * The callback should return an associative array with a single key/value pair.
      *
@@ -702,7 +687,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Run an associative map over each of the items.
-	 * 运行一个关联映射在每个项目上
      *
      * The callback should return an associative array with a single key/value pair.
      *
@@ -720,7 +704,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Merge the collection with the given items.
-	 * 合并集合与给定的项
      *
      * @param  mixed  $items
      * @return static
@@ -732,7 +715,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Recursively merge the collection with the given items.
-	 * 递归地合并集合与给定项
      *
      * @param  mixed  $items
      * @return static
@@ -744,7 +726,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Create a collection by using this collection for keys and another for its values.
-	 * 创建一个集合，将这个集合用于键，另一个用于它的值。
      *
      * @param  mixed  $values
      * @return static
@@ -776,7 +757,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Union the collection with the given items.
-	 * 联合集合与给定项
      *
      * @param  mixed  $items
      * @return static
@@ -788,7 +768,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Create a new collection consisting of every n-th element.
-	 * 创建一个包含每n个元素的新集合
      *
      * @param  int  $step
      * @param  int  $offset
@@ -811,7 +790,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the items with the specified keys.
-	 * 得到具有指定键的项
      *
      * @param  mixed  $keys
      * @return static
@@ -847,7 +825,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Push all of the given items onto the collection.
-	 * 推入所有给定的项至集合
      *
      * @param  iterable  $source
      * @return static
@@ -862,7 +839,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get one or a specified number of items randomly from the collection.
-	 * 得到一个或指定数量的项随机从集合中
      *
      * @param  int|null  $number
      * @return static|mixed
@@ -878,7 +854,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Reduce the collection to a single value.
-	 * 减少集合为单个值
      *
      * @param  callable  $callback
      * @param  mixed  $initial
@@ -897,7 +872,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Replace the collection items with the given items.
-	 * 替换集合项用给定的项
      *
      * @param  mixed  $items
      * @return static
@@ -925,7 +899,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Recursively replace the collection items with the given items.
-	 * 递归地替换集合项为给定项
      *
      * @param  mixed  $items
      * @return static
@@ -937,7 +910,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Reverse items order.
-	 * 颠倒项目顺序
      *
      * @return static
      */
@@ -948,7 +920,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Search the collection for a given value and return the corresponding key if successful.
-	 * 在集合中搜索给定的值，如果成功则返回相应的键。
      *
      * @param  mixed  $value
      * @param  bool  $strict
@@ -973,9 +944,8 @@ class LazyCollection implements Enumerable
 
     /**
      * Shuffle the items in the collection.
-	 * 对集合中的项进行洗牌
      *
-     * @param  int  $seed
+     * @param  int|null  $seed
      * @return static
      */
     public function shuffle($seed = null)
@@ -985,7 +955,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Skip the first {$count} items.
-	 * 跳过第一个{$count}项
      *
      * @param  int  $count
      * @return static
@@ -1008,11 +977,48 @@ class LazyCollection implements Enumerable
     }
 
     /**
+     * Skip items in the collection until the given condition is met.
+     *
+     * @param  mixed  $value
+     * @return static
+     */
+    public function skipUntil($value)
+    {
+        $callback = $this->useAsCallable($value) ? $value : $this->equality($value);
+
+        return $this->skipWhile($this->negate($callback));
+    }
+
+    /**
+     * Skip items in the collection while the given condition is met.
+     *
+     * @param  mixed  $value
+     * @return static
+     */
+    public function skipWhile($value)
+    {
+        $callback = $this->useAsCallable($value) ? $value : $this->equality($value);
+
+        return new static(function () use ($callback) {
+            $iterator = $this->getIterator();
+
+            while ($iterator->valid() && $callback($iterator->current(), $iterator->key())) {
+                $iterator->next();
+            }
+
+            while ($iterator->valid()) {
+                yield $iterator->key() => $iterator->current();
+
+                $iterator->next();
+            }
+        });
+    }
+
+    /**
      * Get a slice of items from the enumerable.
-	 * 得到项目的切片从可枚举对象中
      *
      * @param  int  $offset
-     * @param  int  $length
+     * @param  int|null  $length
      * @return static
      */
     public function slice($offset, $length = null)
@@ -1028,7 +1034,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Split a collection into a certain number of groups.
-	 * 将一个集合分成一定数量的组
      *
      * @param  int  $numberOfGroups
      * @return static
@@ -1040,7 +1045,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Chunk the collection into chunks of the given size.
-	 * 将集合分成给定大小的块
      *
      * @param  int  $size
      * @return static
@@ -1080,19 +1084,28 @@ class LazyCollection implements Enumerable
 
     /**
      * Sort through each item with a callback.
-	 * 排序每个项目使用回调
      *
-     * @param  callable|null  $callback
+     * @param  callable|null|int  $callback
      * @return static
      */
-    public function sort(callable $callback = null)
+    public function sort($callback = null)
     {
         return $this->passthru('sort', func_get_args());
     }
 
     /**
+     * Sort items in descending order.
+     *
+     * @param  int  $options
+     * @return static
+     */
+    public function sortDesc($options = SORT_REGULAR)
+    {
+        return $this->passthru('sortDesc', func_get_args());
+    }
+
+    /**
      * Sort the collection using the given callback.
-	 * 排序集合使用给定回调
      *
      * @param  callable|string  $callback
      * @param  int  $options
@@ -1106,7 +1119,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Sort the collection in descending order using the given callback.
-	 * 按降序对集合进行排序使用给定的回调
      *
      * @param  callable|string  $callback
      * @param  int  $options
@@ -1119,7 +1131,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Sort the collection keys.
-	 * 对集合键排序
      *
      * @param  int  $options
      * @param  bool  $descending
@@ -1132,7 +1143,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Sort the collection keys in descending order.
-	 * 降序排序集合键进行
      *
      * @param  int  $options
      * @return static
@@ -1144,7 +1154,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Take the first or last {$limit} items.
-	 * 取第一个或最后一个{$limit}项
      *
      * @param  int  $limit
      * @return static
@@ -1173,8 +1182,41 @@ class LazyCollection implements Enumerable
     }
 
     /**
+     * Take items in the collection until the given condition is met.
+     *
+     * @param  mixed  $value
+     * @return static
+     */
+    public function takeUntil($value)
+    {
+        $callback = $this->useAsCallable($value) ? $value : $this->equality($value);
+
+        return new static(function () use ($callback) {
+            foreach ($this as $key => $item) {
+                if ($callback($item, $key)) {
+                    break;
+                }
+
+                yield $key => $item;
+            }
+        });
+    }
+
+    /**
+     * Take items in the collection while the given condition is met.
+     *
+     * @param  mixed  $value
+     * @return static
+     */
+    public function takeWhile($value)
+    {
+        $callback = $this->useAsCallable($value) ? $value : $this->equality($value);
+
+        return $this->takeUntil($this->negate($callback));
+    }
+
+    /**
      * Pass each item in the collection to the given callback, lazily.
-	 * 惰性地将集合中的每个项传递给给定的回调函数
      *
      * @param  callable  $callback
      * @return static
@@ -1192,7 +1234,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Reset the keys on the underlying array.
-	 * 重置基础数组上的键
      *
      * @return static
      */
@@ -1207,7 +1248,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Zip the collection together with one or more arrays.
-	 * 将集合与一个或多个数组压缩在一起
      *
      * e.g. new LazyCollection([1, 2, 3])->zip([4, 5, 6]);
      *      => [[1, 4], [2, 5], [3, 6]]
@@ -1234,7 +1274,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Pad collection to the specified length with a value.
-	 * 使用值将集合垫到指定的长度
      *
      * @param  int  $size
      * @param  mixed  $value
@@ -1263,7 +1302,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Get the values iterator.
-	 * 得到值迭代器
      *
      * @return \Traversable
      */
@@ -1274,7 +1312,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Count the number of items in the collection.
-	 * 计算集合中的项数
      *
      * @return int
      */
@@ -1289,7 +1326,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Make an iterator from the given source.
-	 * 创建一个迭代器从给定的源代码
      *
      * @param  mixed  $source
      * @return \Traversable
@@ -1309,7 +1345,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Explode the "value" and "key" arguments passed to "pluck".
-	 * 爆炸传递给"pluck"的"value"和"key"参数
      *
      * @param  string|array  $value
      * @param  string|array|null  $key
@@ -1326,7 +1361,6 @@ class LazyCollection implements Enumerable
 
     /**
      * Pass this lazy collection through a method on the collection class.
-	 * 通过集合类上的方法传递此惰性集合
      *
      * @param  string  $method
      * @param  array  $params

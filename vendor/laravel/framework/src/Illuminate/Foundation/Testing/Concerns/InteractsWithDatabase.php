@@ -1,22 +1,19 @@
 <?php
-/**
- * 基础，与数据库交互
- */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Foundation\Testing\Constraints\HasInDatabase;
-use Illuminate\Foundation\Testing\Constraints\SoftDeletedInDatabase;
 use Illuminate\Support\Arr;
+use Illuminate\Testing\Constraints\CountInDatabase;
+use Illuminate\Testing\Constraints\HasInDatabase;
+use Illuminate\Testing\Constraints\SoftDeletedInDatabase;
 use PHPUnit\Framework\Constraint\LogicalNot as ReverseConstraint;
 
 trait InteractsWithDatabase
 {
     /**
      * Assert that a given where condition exists in the database.
-	 * 断言给定的where条件存在于数据库中
      *
      * @param  string  $table
      * @param  array  $data
@@ -34,7 +31,6 @@ trait InteractsWithDatabase
 
     /**
      * Assert that a given where condition does not exist in the database.
-	 * 断言给定的where条件在数据库中不存在
      *
      * @param  string  $table
      * @param  array  $data
@@ -53,8 +49,24 @@ trait InteractsWithDatabase
     }
 
     /**
+     * Assert the count of table entries.
+     *
+     * @param  string  $table
+     * @param  int  $count
+     * @param  string|null  $connection
+     * @return $this
+     */
+    protected function assertDatabaseCount($table, int $count, $connection = null)
+    {
+        $this->assertThat(
+            $table, new CountInDatabase($this->getConnection($connection), $count)
+        );
+
+        return $this;
+    }
+
+    /**
      * Assert the given record has been deleted.
-	 * 断言给定的记录已被删除
      *
      * @param  \Illuminate\Database\Eloquent\Model|string  $table
      * @param  array  $data
@@ -74,7 +86,6 @@ trait InteractsWithDatabase
 
     /**
      * Assert the given record has been "soft deleted".
-	 * 断言给定的记录已被"软删除"
      *
      * @param  \Illuminate\Database\Eloquent\Model|string  $table
      * @param  array  $data
@@ -97,7 +108,6 @@ trait InteractsWithDatabase
 
     /**
      * Determine if the argument is a soft deletable model.
-	 * 确定参数是否是软可删除模型
      *
      * @param  mixed  $model
      * @return bool
@@ -110,7 +120,6 @@ trait InteractsWithDatabase
 
     /**
      * Get the database connection.
-	 * 得到数据库连接
      *
      * @param  string|null  $connection
      * @return \Illuminate\Database\Connection
@@ -126,7 +135,6 @@ trait InteractsWithDatabase
 
     /**
      * Seed a given database connection.
-	 * 为给定的数据库连接播种
      *
      * @param  array|string  $class
      * @return $this

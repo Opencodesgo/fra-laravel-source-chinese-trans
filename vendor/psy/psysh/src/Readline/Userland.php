@@ -3,7 +3,7 @@
 /*
  * This file is part of Psy Shell.
  *
- * (c) 2012-2022 Justin Hileman
+ * (c) 2012-2023 Justin Hileman
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -25,22 +25,17 @@ use Psy\Readline\Hoa\Ustring as HoaUstring;
  */
 class Userland implements Readline
 {
-    /** @var HoaReadline */
-    private $hoaReadline;
+    private HoaReadline $hoaReadline;
+    private ?string $lastPrompt = null;
+    private HoaConsoleTput $tput;
+    private HoaConsoleInput $input;
+    private HoaConsoleOutput $output;
 
-    /** @var string|null */
-    private $lastPrompt;
-
-    private $tput;
-    private $input;
-    private $output;
-
-    /**
-     * @return bool
-     */
     public static function isSupported(): bool
     {
-        return HoaUstring::checkMbString();
+        static::bootstrapHoa();
+
+        return HoaUstring::checkMbString() && HoaConsoleTput::isSupported();
     }
 
     /**
@@ -56,7 +51,7 @@ class Userland implements Readline
      */
     public function __construct($historyFile = null, $historySize = 0, $eraseDups = false)
     {
-        static::bootstrapHoa();
+        static::bootstrapHoa(true);
 
         $this->hoaReadline = new HoaReadline();
         $this->hoaReadline->addMapping('\C-l', function () {
@@ -78,11 +73,16 @@ class Userland implements Readline
     /**
      * Bootstrap some things that Hoa used to do itself.
      */
-    public static function bootstrapHoa()
+    public static function bootstrapHoa(bool $withTerminalResize = false)
     {
-        \class_exists('Psy\Readline\Hoa\ProtocolWrapper'); // A side effect registers hoa:// stream wrapper
-        \class_exists('Psy\Readline\Hoa\Stream');          // A side effect registers hoa://Library/Stream
-        \class_exists('Psy\Readline\Hoa\ConsoleWindow');   // A side effect binds terminal resize
+        // A side effect registers hoa:// stream wrapper
+        \class_exists('Psy\Readline\Hoa\ProtocolWrapper');
+
+        // A side effect registers hoa://Library/Stream
+        \class_exists('Psy\Readline\Hoa\Stream');
+
+        // A side effect binds terminal resize
+        $withTerminalResize && \class_exists('Psy\Readline\Hoa\ConsoleWindow');
     }
 
     /**
@@ -134,7 +134,7 @@ class Userland implements Readline
      *
      * @return string
      */
-    public function readline(string $prompt = null)
+    public function readline(?string $prompt = null)
     {
         $this->lastPrompt = $prompt;
 

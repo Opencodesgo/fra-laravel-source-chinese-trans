@@ -1,7 +1,4 @@
 <?php
-/**
- * 队列，任务，数据库作业
- */
 
 namespace Illuminate\Queue\Jobs;
 
@@ -13,7 +10,6 @@ class DatabaseJob extends Job implements JobContract
 {
     /**
      * The database queue instance.
-	 * 数据库队列实例
      *
      * @var \Illuminate\Queue\DatabaseQueue
      */
@@ -21,7 +17,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * The database job payload.
-	 * 数据库作业负载
      *
      * @var \stdClass
      */
@@ -29,7 +24,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * Create a new job instance.
-	 * 创建新的作业实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \Illuminate\Queue\DatabaseQueue  $database
@@ -49,7 +43,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * Release the job back into the queue.
-	 * 释放作业返回队列
      *
      * @param  int  $delay
      * @return mixed
@@ -65,7 +58,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * Delete the job from the queue.
-	 * 删除作业从队列
      *
      * @return void
      */
@@ -78,7 +70,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * Get the number of times the job has been attempted.
-	 * 得到该任务被尝试的次数
      *
      * @return int
      */
@@ -89,7 +80,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
-	 * 得到作业标识符
      *
      * @return string
      */
@@ -100,7 +90,6 @@ class DatabaseJob extends Job implements JobContract
 
     /**
      * Get the raw body string for the job.
-	 * 得到作业的原始主体字符串
      *
      * @return string
      */

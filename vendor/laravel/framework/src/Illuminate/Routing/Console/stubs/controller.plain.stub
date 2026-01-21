@@ -1,14 +1,11 @@
 <?php
-/**
- * 路由，自己改注释
- */
 
-namespace DummyNamespace;
+namespace {{ namespace }};
 
-use DummyRootNamespaceHttp\Controllers\Controller;
+use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DummyClass extends Controller
+class {{ class }} extends Controller
 {
     //
 }

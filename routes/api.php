@@ -1,9 +1,10 @@
 <?php
 /**
- * 路由，api
+ * api路由
  */
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +14,8 @@ use Illuminate\Http\Request;
 | Here is where you can register API routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | is assigned the "api" middleware group. Enjoy building your API!
-| 这里你能注册你的应用API跻由。
-| 这些路由被RouteServiceProvider加载使用分组，它包含api中间件组。
+| 你能在这里为你的应用注册API路由。
+| 这些路由被RouteServiceProvider加载成一个组，它被分配"api"中件间组。
 | 享受构建你的API！
 |
 */

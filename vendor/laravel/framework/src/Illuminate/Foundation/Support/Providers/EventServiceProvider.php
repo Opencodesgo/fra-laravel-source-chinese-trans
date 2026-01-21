@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，事件服务提供者
- */
 
 namespace Illuminate\Foundation\Support\Providers;
 
@@ -13,7 +10,6 @@ class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event handler mappings for the application.
-	 * 事件处理映射
      *
      * @var array
      */
@@ -21,7 +17,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * The subscriber classes to register.
-	 * 要注册的订阅者类
      *
      * @var array
      */
@@ -29,7 +24,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Register the application's event listeners.
-	 * 注册应用事件
      *
      * @return void
      */
@@ -50,7 +44,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Get the events and handlers.
-	 * 得到事件和处理程序
      *
      * @return array
      */
@@ -61,7 +54,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Get the discovered events and listeners for the application.
-	 * 得到已发现的应用程序事件和侦听器
      *
      * @return array
      */
@@ -81,7 +73,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Get the discovered events for the application.
-	 * 得到已发现的应用程序事件
      *
      * @return array
      */
@@ -94,7 +85,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Determine if events and listeners should be automatically discovered.
-	 * 确定是否应该自动发现事件和侦听器
      *
      * @return bool
      */
@@ -105,7 +95,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Discover the events and listeners for the application.
-	 * 发现应用程序的事件和侦听器
      *
      * @return array
      */
@@ -125,7 +114,6 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Get the listener directories that should be used to discover events.
-	 * 得到应该用于发现事件的侦听器目录
      *
      * @return array
      */

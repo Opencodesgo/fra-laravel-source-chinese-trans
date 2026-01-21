@@ -1,17 +1,13 @@
 <?php
-/**
- * 路由，自己改注释
- */
 
-namespace DummyNamespace;
+namespace {{ namespace }};
 
 use Closure;
 
-class DummyClass
+class {{ class }}
 {
     /**
      * Handle an incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

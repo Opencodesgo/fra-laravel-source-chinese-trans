@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，引擎解析器
+ * 视图，引擎，引擎解析器
  */
 
 namespace Illuminate\View\Engines;
@@ -45,7 +45,7 @@ class EngineResolver
 
     /**
      * Resolve an engine instance by name.
-	 * 解析引擎实例按名称
+	 * 按名称解析引擎实例
      *
      * @param  string  $engine
      * @return \Illuminate\Contracts\View\Engine

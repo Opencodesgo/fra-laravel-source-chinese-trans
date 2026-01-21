@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由，路由签名参数
+ * Illuminate，路由，路由签名参数
  */
 
 namespace Illuminate\Routing;
@@ -14,7 +14,6 @@ class RouteSignatureParameters
 {
     /**
      * Extract the route action's signature parameters.
-	 * 提取路由动作的签名参数
      *
      * @param  array  $action
      * @param  string|null  $subClass
@@ -33,7 +32,6 @@ class RouteSignatureParameters
 
     /**
      * Get the parameters for the given class / method by string.
-	 * 得到给定类/方法的参数通过字符串
      *
      * @param  string  $uses
      * @return array

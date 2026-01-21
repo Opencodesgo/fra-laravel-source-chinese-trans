@@ -1,19 +1,22 @@
 <?php
 /**
- * 支持，服务提供者抽象类
+ * 支持，服务提供者
  */
 
 namespace Illuminate\Support;
 
 use Illuminate\Console\Application as Artisan;
+use Illuminate\Contracts\Foundation\CachesConfiguration;
+use Illuminate\Contracts\Foundation\CachesRoutes;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Database\Eloquent\Factory as ModelFactory;
+use Illuminate\View\Compilers\BladeCompiler;
 
 abstract class ServiceProvider
 {
     /**
      * The application instance.
-	 * app应用实例
+	 * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -21,7 +24,7 @@ abstract class ServiceProvider
 
     /**
      * The paths that should be published.
-	 * 将要被发布的路径
+	 * 应该发布的路径
      *
      * @var array
      */
@@ -29,7 +32,6 @@ abstract class ServiceProvider
 
     /**
      * The paths that should be published by group.
-	 * 将要被发布的路径分组
      *
      * @var array
      */
@@ -37,7 +39,7 @@ abstract class ServiceProvider
 
     /**
      * Create a new service provider instance.
-	 * 创建新的服务提供者接口
+	 * 创建新的服务提供者实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -49,7 +51,6 @@ abstract class ServiceProvider
 
     /**
      * Register any application services.
-	 * 注册任何应用服务
      *
      * @return void
      */
@@ -60,7 +61,6 @@ abstract class ServiceProvider
 
     /**
      * Merge the given configuration with the existing configuration.
-	 * 合并给定的配置与现有配置
      *
      * @param  string  $path
      * @param  string  $key
@@ -68,30 +68,31 @@ abstract class ServiceProvider
      */
     protected function mergeConfigFrom($path, $key)
     {
-        if (! $this->app->configurationIsCached()) {
-            $this->app['config']->set($key, array_merge(
-                require $path, $this->app['config']->get($key, [])
+        if (! ($this->app instanceof CachesConfiguration && $this->app->configurationIsCached())) {
+            $config = $this->app->make('config');
+
+            $config->set($key, array_merge(
+                require $path, $config->get($key, [])
             ));
         }
     }
 
     /**
      * Load the given routes file if routes are not already cached.
-	 * 加载给定的路由文件，如果路由尚未缓存
      *
      * @param  string  $path
      * @return void
      */
     protected function loadRoutesFrom($path)
     {
-        if (! $this->app->routesAreCached()) {
+        if (! ($this->app instanceof CachesRoutes && $this->app->routesAreCached())) {
             require $path;
         }
     }
 
     /**
      * Register a view file namespace.
-	 * 加载视图文件命名空间
+	 * 注册视图文件命名空间
      *
      * @param  string|array  $path
      * @param  string  $namespace
@@ -114,8 +115,23 @@ abstract class ServiceProvider
     }
 
     /**
+     * Register the given view components with a custom prefix.
+     *
+     * @param  string  $prefix
+     * @param  array  $components
+     * @return void
+     */
+    protected function loadViewComponentsAs($prefix, array $components)
+    {
+        $this->callAfterResolving(BladeCompiler::class, function ($blade) use ($prefix, $components) {
+            foreach ($components as $alias => $component) {
+                $blade->component($component, is_string($alias) ? $alias : null, $prefix);
+            }
+        });
+    }
+
+    /**
      * Register a translation file namespace.
-	 * 注册一个翻译文件命名空间
      *
      * @param  string  $path
      * @param  string  $namespace
@@ -130,7 +146,6 @@ abstract class ServiceProvider
 
     /**
      * Register a JSON translation file path.
-	 * 注册一个JSON翻译文件路径
      *
      * @param  string  $path
      * @return void
@@ -144,7 +159,6 @@ abstract class ServiceProvider
 
     /**
      * Register database migration paths.
-	 * 注册数据库迁移路径
      *
      * @param  array|string  $paths
      * @return void
@@ -160,7 +174,6 @@ abstract class ServiceProvider
 
     /**
      * Register Eloquent model factory paths.
-	 * 注册Eloquent模型工厂路径
      *
      * @param  array|string  $paths
      * @return void
@@ -176,7 +189,6 @@ abstract class ServiceProvider
 
     /**
      * Setup an after resolving listener, or fire immediately if already resolved.
-	 * 设置一个解析后的监听器，立即触发如果已经解析。
      *
      * @param  string  $name
      * @param  callable  $callback
@@ -193,7 +205,6 @@ abstract class ServiceProvider
 
     /**
      * Register paths to be published by the publish command.
-	 * 注册要发布的路径使用publish命令
      *
      * @param  array  $paths
      * @param  mixed  $groups
@@ -212,7 +223,6 @@ abstract class ServiceProvider
 
     /**
      * Ensure the publish array for the service provider is initialized.
-	 * 确保初始化了服务提供者的发布数组
      *
      * @param  string  $class
      * @return void
@@ -226,7 +236,6 @@ abstract class ServiceProvider
 
     /**
      * Add a publish group / tag to the service provider.
-	 * 添加服务提供者至发布组/标记
      *
      * @param  string  $group
      * @param  array  $paths
@@ -245,7 +254,6 @@ abstract class ServiceProvider
 
     /**
      * Get the paths to publish.
-	 * 得到发布路径
      *
      * @param  string|null  $provider
      * @param  string|null  $group
@@ -264,7 +272,6 @@ abstract class ServiceProvider
 
     /**
      * Get the paths for the provider or group (or both).
-	 * 得到提供程序或组(或两者)的路径
      *
      * @param  string|null  $provider
      * @param  string|null  $group
@@ -285,7 +292,6 @@ abstract class ServiceProvider
 
     /**
      * Get the paths for the provider and group.
-	 * 得到提供者和组的路径
      *
      * @param  string  $provider
      * @param  string  $group
@@ -302,7 +308,6 @@ abstract class ServiceProvider
 
     /**
      * Get the service providers available for publishing.
-	 * 得到可用于发布的服务提供者
      *
      * @return array
      */
@@ -313,7 +318,6 @@ abstract class ServiceProvider
 
     /**
      * Get the groups available for publishing.
-	 * 得到可用于发布的组
      *
      * @return array
      */
@@ -324,7 +328,6 @@ abstract class ServiceProvider
 
     /**
      * Register the package's custom Artisan commands.
-	 * 注册包的自定义Artisan命令
      *
      * @param  array|mixed  $commands
      * @return void
@@ -340,7 +343,6 @@ abstract class ServiceProvider
 
     /**
      * Get the services provided by the provider.
-	 * 得到提供的服务通过提供者
      *
      * @return array
      */
@@ -351,7 +353,6 @@ abstract class ServiceProvider
 
     /**
      * Get the events that trigger this service provider to register.
-	 * 得到触发此服务提供者注册的事件
      *
      * @return array
      */
@@ -362,7 +363,7 @@ abstract class ServiceProvider
 
     /**
      * Determine if the provider is deferred.
-	 * 确定是否延迟提供者
+	 * 确定提供者是否延迟
      *
      * @return bool
      */

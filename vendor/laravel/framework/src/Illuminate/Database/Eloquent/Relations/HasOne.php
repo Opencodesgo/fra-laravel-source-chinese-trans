@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，Eloquent只有一个
- */
 
 namespace Illuminate\Database\Eloquent\Relations;
 
@@ -15,7 +12,6 @@ class HasOne extends HasOneOrMany
 
     /**
      * Get the results of the relationship.
-	 * 得到关系的结果
      *
      * @return mixed
      */
@@ -30,7 +26,7 @@ class HasOne extends HasOneOrMany
 
     /**
      * Initialize the relation on a set of models.
-     * 初始化一组模型上的关系
+     *
      * @param  array  $models
      * @param  string  $relation
      * @return array
@@ -46,7 +42,6 @@ class HasOne extends HasOneOrMany
 
     /**
      * Match the eagerly loaded results to their parents.
-	 * 将急切加载的结果与他们的父母匹配
      *
      * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
@@ -60,7 +55,6 @@ class HasOne extends HasOneOrMany
 
     /**
      * Make a new related instance for the given model.
-	 * 为给定模型创建一个新的相关实例
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parent
      * @return \Illuminate\Database\Eloquent\Model

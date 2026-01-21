@@ -1,18 +1,18 @@
 <?php
 /**
- * App，异常，处理者
+ * App，异常，处理器
  */
 
 namespace App\Exceptions;
 
-use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
     /**
      * A list of the exception types that are not reported.
-	 * 没有报告的异常类型列表
+	 * 未报告的异常类型列表
      *
      * @var array
      */
@@ -22,7 +22,7 @@ class Handler extends ExceptionHandler
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
-	 * 一个从未出现过验证异常的输入列表
+	 * 不会为验证异常而闪现的输入列表
      *
      * @var array
      */
@@ -35,27 +35,27 @@ class Handler extends ExceptionHandler
      * Report or log an exception.
 	 * 报告或记录一个异常
      *
-     * @param  \Exception  $exception
+     * @param  \Throwable  $exception
      * @return void
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    public function report(Exception $exception)
+    public function report(Throwable $exception)
     {
         parent::report($exception);
     }
 
     /**
      * Render an exception into an HTTP response.
-	 * 呈现异常到HTTP响应中
+	 * 呈现异常于HTTP响应中
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Throwable  $exception
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    public function render($request, Exception $exception)
+    public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
     }

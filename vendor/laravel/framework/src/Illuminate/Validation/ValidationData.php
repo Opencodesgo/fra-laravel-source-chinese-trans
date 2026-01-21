@@ -1,7 +1,4 @@
 <?php
-/**
- * 验证，验证数据
- */
 
 namespace Illuminate\Validation;
 
@@ -12,7 +9,6 @@ class ValidationData
 {
     /**
      * Initialize and gather data for given attribute.
-	 * 初始化并收集给定属性的数据
      *
      * @param  string  $attribute
      * @param  array  $masterData
@@ -29,7 +25,6 @@ class ValidationData
 
     /**
      * Gather a copy of the attribute data filled with any missing attributes.
-	 * 收集属性数据的副本，其中填充任何缺失的属性。
      *
      * @param  string  $attribute
      * @param  array  $masterData
@@ -50,7 +45,6 @@ class ValidationData
 
     /**
      * Get all of the exact attribute values for a given wildcard attribute.
-	 * 得到给定通配符属性的所有确切属性值
      *
      * @param  array  $masterData
      * @param  array  $data
@@ -82,7 +76,6 @@ class ValidationData
 
     /**
      * Extract data based on the given dot-notated path.
-	 * 提取数据根据给定的点标记路径
      *
      * Used to extract a sub-section of the data for faster iteration.
      *
@@ -105,7 +98,6 @@ class ValidationData
 
     /**
      * Get the explicit part of the attribute name.
-	 * 得到属性名称的显式部分
      *
      * E.g. 'foo.bar.*.baz' -> 'foo.bar'
      *

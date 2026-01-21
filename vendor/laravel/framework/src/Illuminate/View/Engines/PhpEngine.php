@@ -1,20 +1,18 @@
 <?php
 /**
- * 视图，PHP引擎
+ * 视图，引擎，PHP引擎
  */
 
 namespace Illuminate\View\Engines;
 
-use Exception;
 use Illuminate\Contracts\View\Engine;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
 use Throwable;
 
 class PhpEngine implements Engine
 {
     /**
      * Get the evaluated contents of the view.
-	 * 得到视图的求值内容
+	 * 获取视图的评估内容
      *
      * @param  string  $path
      * @param  array  $data
@@ -27,7 +25,7 @@ class PhpEngine implements Engine
 
     /**
      * Get the evaluated contents of the view at the given path.
-	 * 得到给定路径上的视图的求值内容
+	 * 获取给定路径上的视图的求值内容
      *
      * @param  string  $__path
      * @param  array  $__data
@@ -44,14 +42,11 @@ class PhpEngine implements Engine
         // We'll evaluate the contents of the view inside a try/catch block so we can
         // flush out any stray output that might get out before an error occurs or
         // an exception is thrown. This prevents any partial views from leaking.
-		// 我们将在try/catch块中评估视图的内容，以便在发生错误或抛出异常之前清除可能出现的任何杂散输出。
-		// 这可以防止任何局部视图泄漏。
+		// 我们将在try/catch块中计算视图的内容，以便我们可以清除任何杂散输出。
         try {
             include $__path;
-        } catch (Exception $e) {
-            $this->handleViewException($e, $obLevel);
         } catch (Throwable $e) {
-            $this->handleViewException(new FatalThrowableError($e), $obLevel);
+            $this->handleViewException($e, $obLevel);
         }
 
         return ltrim(ob_get_clean());
@@ -61,13 +56,13 @@ class PhpEngine implements Engine
      * Handle a view exception.
 	 * 处理视图异常
      *
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @param  int  $obLevel
      * @return void
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    protected function handleViewException(Exception $e, $obLevel)
+    protected function handleViewException(Throwable $e, $obLevel)
     {
         while (ob_get_level() > $obLevel) {
             ob_end_clean();

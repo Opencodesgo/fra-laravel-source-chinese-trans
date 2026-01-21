@@ -1,7 +1,4 @@
 <?php
-/**
- * 通知，数据库通知
- */
 
 namespace Illuminate\Notifications;
 
@@ -11,7 +8,6 @@ class DatabaseNotification extends Model
 {
     /**
      * The "type" of the primary key ID.
-	 * 主键ID的"类型"
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class DatabaseNotification extends Model
 
     /**
      * Indicates if the IDs are auto-incrementing.
-	 * 指明id是否自动递增
      *
      * @var bool
      */
@@ -27,7 +22,6 @@ class DatabaseNotification extends Model
 
     /**
      * The table associated with the model.
-	 * 与模型相关联的表
      *
      * @var string
      */
@@ -35,7 +29,6 @@ class DatabaseNotification extends Model
 
     /**
      * The guarded attributes on the model.
-	 * 模型上受保护的属性
      *
      * @var array
      */
@@ -43,7 +36,6 @@ class DatabaseNotification extends Model
 
     /**
      * The attributes that should be cast to native types.
-	 * 应该转换为本机类型的属性
      *
      * @var array
      */
@@ -54,7 +46,6 @@ class DatabaseNotification extends Model
 
     /**
      * Get the notifiable entity that the notification belongs to.
-	 * 得到通知所属的可通知实体
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
@@ -65,7 +56,6 @@ class DatabaseNotification extends Model
 
     /**
      * Mark the notification as read.
-	 * 标记通知为已读
      *
      * @return void
      */
@@ -78,7 +68,6 @@ class DatabaseNotification extends Model
 
     /**
      * Mark the notification as unread.
-	 * 标记通知为未读
      *
      * @return void
      */
@@ -91,7 +80,6 @@ class DatabaseNotification extends Model
 
     /**
      * Determine if a notification has been read.
-	 * 确定是否通知已读取
      *
      * @return bool
      */
@@ -102,7 +90,6 @@ class DatabaseNotification extends Model
 
     /**
      * Determine if a notification has not been read.
-	 * 确定是否通知未读取
      *
      * @return bool
      */
@@ -113,7 +100,6 @@ class DatabaseNotification extends Model
 
     /**
      * Create a new database notification collection instance.
-	 * 创建新的数据库通知集合实例
      *
      * @param  array  $models
      * @return \Illuminate\Notifications\DatabaseNotificationCollection

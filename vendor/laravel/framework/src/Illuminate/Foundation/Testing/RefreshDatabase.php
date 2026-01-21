@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，刷新数据库
- */
 
 namespace Illuminate\Foundation\Testing;
 
@@ -11,7 +8,6 @@ trait RefreshDatabase
 {
     /**
      * Define hooks to migrate the database before and after each test.
-	 * 定义钩子，以便在每次测试之前和之后迁移数据库
      *
      * @return void
      */
@@ -24,7 +20,6 @@ trait RefreshDatabase
 
     /**
      * Determine if an in-memory database is being used.
-	 * 确定是否正在使用内存中的数据库
      *
      * @return bool
      */
@@ -37,30 +32,35 @@ trait RefreshDatabase
 
     /**
      * Refresh the in-memory database.
-	 * 刷新内存中的数据库
      *
      * @return void
      */
     protected function refreshInMemoryDatabase()
     {
-        $this->artisan('migrate');
+        $this->artisan('migrate', $this->migrateUsing());
 
         $this->app[Kernel::class]->setArtisan(null);
     }
 
     /**
+     * The parameters that should be used when running "migrate".
+     *
+     * @return array
+     */
+    protected function migrateUsing()
+    {
+        return [];
+    }
+
+    /**
      * Refresh a conventional test database.
-	 * 刷新常规测试数据库
      *
      * @return void
      */
     protected function refreshTestDatabase()
     {
         if (! RefreshDatabaseState::$migrated) {
-            $this->artisan('migrate:fresh', [
-                '--drop-views' => $this->shouldDropViews(),
-                '--drop-types' => $this->shouldDropTypes(),
-            ]);
+            $this->artisan('migrate:fresh', $this->migrateFreshUsing());
 
             $this->app[Kernel::class]->setArtisan(null);
 
@@ -71,8 +71,20 @@ trait RefreshDatabase
     }
 
     /**
+     * The parameters that should be used when running "migrate:fresh".
+     *
+     * @return array
+     */
+    protected function migrateFreshUsing()
+    {
+        return [
+            '--drop-views' => $this->shouldDropViews(),
+            '--drop-types' => $this->shouldDropTypes(),
+        ];
+    }
+
+    /**
      * Begin a database transaction on the testing database.
-	 * 开始一个数据库事务在测试数据库上
      *
      * @return void
      */
@@ -104,7 +116,6 @@ trait RefreshDatabase
 
     /**
      * The database connections that should have transactions.
-	 * 应该具有事务的数据库连接
      *
      * @return array
      */
@@ -116,7 +127,6 @@ trait RefreshDatabase
 
     /**
      * Determine if views should be dropped when refreshing the database.
-	 * 确定在刷新数据库时是否应该删除视图
      *
      * @return bool
      */
@@ -128,7 +138,6 @@ trait RefreshDatabase
 
     /**
      * Determine if types should be dropped when refreshing the database.
-	 * 确定在刷新数据库时是否应该删除类型
      *
      * @return bool
      */

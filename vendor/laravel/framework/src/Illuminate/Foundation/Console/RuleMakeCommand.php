@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，规则生成命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -11,7 +8,6 @@ class RuleMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class RuleMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -27,7 +22,6 @@ class RuleMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成器类的类型
      *
      * @var string
      */
@@ -35,18 +29,20 @@ class RuleMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的存根文件
      *
      * @return string
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/rule.stub';
+        $relativePath = '/stubs/rule.stub';
+
+        return file_exists($customPath = $this->laravel->basePath(trim($relativePath, '/')))
+            ? $customPath
+            : __DIR__.$relativePath;
     }
 
     /**
      * Get the default namespace for the class.
-	 * 得到类的默认命名空间
      *
      * @param  string  $rootNamespace
      * @return string

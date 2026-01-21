@@ -1,7 +1,4 @@
 <?php
-/**
- * 控制台，计划表
- */
 
 namespace Illuminate\Console\Scheduling;
 
@@ -24,7 +21,6 @@ class Schedule
 
     /**
      * All of the events on the schedule.
-	 * 所有事件在计划表
      *
      * @var \Illuminate\Console\Scheduling\Event[]
      */
@@ -32,7 +28,6 @@ class Schedule
 
     /**
      * The event mutex implementation.
-	 * 事件互斥锁的实现
      *
      * @var \Illuminate\Console\Scheduling\EventMutex
      */
@@ -40,7 +35,6 @@ class Schedule
 
     /**
      * The scheduling mutex implementation.
-	 * 调度互斥的实现
      *
      * @var \Illuminate\Console\Scheduling\SchedulingMutex
      */
@@ -48,7 +42,6 @@ class Schedule
 
     /**
      * The timezone the date should be evaluated on.
-	 * 时区应该对日期进行评估
      *
      * @var \DateTimeZone|string
      */
@@ -56,7 +49,6 @@ class Schedule
 
     /**
      * The job dispatcher implementation.
-	 * 作业调度器实现
      *
      * @var \Illuminate\Contracts\Bus\Dispatcher
      */
@@ -64,7 +56,6 @@ class Schedule
 
     /**
      * Create a new schedule instance.
-	 * 创建新的计划实例
      *
      * @param  \DateTimeZone|string|null  $timezone
      * @return void
@@ -92,7 +83,6 @@ class Schedule
 
     /**
      * Add a new callback event to the schedule.
-	 * 添加新的回调事件到计划
      *
      * @param  string|callable  $callback
      * @param  array  $parameters
@@ -109,7 +99,6 @@ class Schedule
 
     /**
      * Add a new Artisan command event to the schedule.
-	 * 添加一个新的Artisan命令事件到计划
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -128,7 +117,6 @@ class Schedule
 
     /**
      * Add a new job callback event to the schedule.
-	 * 添加一个新的作业回调事件到计划
      *
      * @param  object|string  $job
      * @param  string|null  $queue
@@ -150,7 +138,6 @@ class Schedule
 
     /**
      * Dispatch the given job to the queue.
-	 * 分派给定的作业到队列
      *
      * @param  object  $job
      * @param  string|null  $queue
@@ -176,7 +163,6 @@ class Schedule
 
     /**
      * Dispatch the given job right now.
-	 * 调度给定的任务立即
      *
      * @param  object  $job
      * @return void
@@ -188,7 +174,6 @@ class Schedule
 
     /**
      * Add a new command event to the schedule.
-	 * 添加一个新的命令事件到计划
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -207,7 +192,6 @@ class Schedule
 
     /**
      * Compile parameters for a command.
-	 * 编译命令的参数
      *
      * @param  array  $parameters
      * @return string
@@ -229,7 +213,6 @@ class Schedule
 
     /**
      * Compile array input for a command.
-	 * 编译命令的数组输入
      *
      * @param  string|int  $key
      * @param  array  $value
@@ -256,7 +239,6 @@ class Schedule
 
     /**
      * Determine if the server is allowed to run this event.
-	 * 确定是否允许服务器运行此事件
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
@@ -269,7 +251,6 @@ class Schedule
 
     /**
      * Get all of the events on the schedule that are due.
-	 * 把所有要做的事情都写在日程表上
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return \Illuminate\Support\Collection
@@ -281,7 +262,6 @@ class Schedule
 
     /**
      * Get all of the events on the schedule.
-	 * 得到所有事件在计划
      *
      * @return \Illuminate\Console\Scheduling\Event[]
      */
@@ -292,18 +272,17 @@ class Schedule
 
     /**
      * Specify the cache store that should be used to store mutexes.
-	 * 指定应该用于存储互斥锁的缓存存储
      *
      * @param  string  $store
      * @return $this
      */
     public function useCache($store)
     {
-        if ($this->eventMutex instanceof CacheEventMutex) {
+        if ($this->eventMutex instanceof CacheAware) {
             $this->eventMutex->useStore($store);
         }
 
-        if ($this->schedulingMutex instanceof CacheSchedulingMutex) {
+        if ($this->schedulingMutex instanceof CacheAware) {
             $this->schedulingMutex->useStore($store);
         }
 
@@ -312,7 +291,6 @@ class Schedule
 
     /**
      * Get the job dispatcher, if available.
-	 * 获取作业调度器，如果可用
      *
      * @return \Illuminate\Contracts\Bus\Dispatcher
      */

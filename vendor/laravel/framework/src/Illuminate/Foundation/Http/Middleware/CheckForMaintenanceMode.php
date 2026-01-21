@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础Http，中间件，检查维护模式
- */
 
 namespace Illuminate\Foundation\Http\Middleware;
 
@@ -14,7 +11,6 @@ class CheckForMaintenanceMode
 {
     /**
      * The application implementation.
-	 * 应用实现
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -22,7 +18,6 @@ class CheckForMaintenanceMode
 
     /**
      * The URIs that should be accessible while maintenance mode is enabled.
-	 * 在启用维护模式时应该可以访问的URI
      *
      * @var array
      */
@@ -30,7 +25,6 @@ class CheckForMaintenanceMode
 
     /**
      * Create a new middleware instance.
-	 * 创建新的中间件实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -42,7 +36,6 @@ class CheckForMaintenanceMode
 
     /**
      * Handle an incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -72,7 +65,6 @@ class CheckForMaintenanceMode
 
     /**
      * Determine if the request has a URI that should be accessible in maintenance mode.
-	 * 确定请求是否具有在维护模式下可访问的URI
      *
      * @param  \Illuminate\Http\Request  $request
      * @return bool

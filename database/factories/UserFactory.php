@@ -1,4 +1,7 @@
 <?php
+/**
+ * 数据库，使用工厂模式
+ */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
@@ -14,8 +17,6 @@ use Illuminate\Support\Str;
 | This directory should contain each of the model factory definitions for
 | your application. Factories provide a convenient way to generate new
 | model instances for testing / seeding your application's database.
-| 这个目录包含应用包含的每个模型工厂定义。
-| 工厂提供了一个方便的生成新的测试/播种应用程序的数据库模型实例。
 |
 */
 

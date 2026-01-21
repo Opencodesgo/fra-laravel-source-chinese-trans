@@ -5,16 +5,13 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader 		注册自动加载程序
+| Register The Auto Loader
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader
 | for our application. We just need to utilize it! We'll require it
 | into the script here so that we do not have to worry about the
 | loading of any our classes "manually". Feels great to relax.
-| Composer为我们的应用提供了一个方便、自动生成的类装入器。
-| 我们只需要利用它! 我们需要引入它至脚本中以至我们不必担心"手动"加载任何我们的类。
-| 感觉很好放松。
 |
 */
 
@@ -24,13 +21,12 @@ $app = require_once __DIR__.'/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
-| Run The Artisan Application 	运行Artisan应用程序
+| Run The Artisan Application
 |--------------------------------------------------------------------------
 |
 | When we run the console application, the current CLI command will be
 | executed in this console and the response sent back to a terminal
 | or another output device for the developers. Here goes nothing!
-| 当我们运行控制台应用，当前CLI命令将被控制台执行，并返回到终端。
 |
 */
 
@@ -43,14 +39,12 @@ $status = $kernel->handle(
 
 /*
 |--------------------------------------------------------------------------
-| Shutdown The Application 		关闭应用程序
+| Shutdown The Application
 |--------------------------------------------------------------------------
 |
 | Once Artisan has finished running, we will fire off the shutdown events
 | so that any final work may be done by the application before we shut
 | down the process. This is the last thing to happen to the request.
-| 一旦工具完成运行，我们将关闭事件，以便在我们关闭之前，任何最终的工作都可以通过应用程序来完成。
-| 这是请求的最后一件事。
 |
 */
 

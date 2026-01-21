@@ -1,7 +1,4 @@
 <?php
-/**
- * 授权，验证电子邮件
- */
 
 namespace Illuminate\Auth\Notifications;
 
@@ -16,7 +13,6 @@ class VerifyEmail extends Notification
 {
     /**
      * The callback that should be used to build the mail message.
-	 * 应该用于构建邮件消息的回调
      *
      * @var \Closure|null
      */
@@ -24,7 +20,6 @@ class VerifyEmail extends Notification
 
     /**
      * Get the notification's channels.
-	 * 得到通知的通道
      *
      * @param  mixed  $notifiable
      * @return array|string
@@ -36,7 +31,6 @@ class VerifyEmail extends Notification
 
     /**
      * Build the mail representation of the notification.
-	 * 构建通知的邮件表示形式
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -58,7 +52,6 @@ class VerifyEmail extends Notification
 
     /**
      * Get the verification URL for the given notifiable.
-	 * 得到给定通知对象的验证URL
      *
      * @param  mixed  $notifiable
      * @return string
@@ -77,7 +70,6 @@ class VerifyEmail extends Notification
 
     /**
      * Set a callback that should be used when building the notification mail message.
-	 * 设置在构建通知邮件消息时应使用的回调
      *
      * @param  \Closure  $callback
      * @return void

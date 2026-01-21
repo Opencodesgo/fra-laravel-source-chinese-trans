@@ -25,7 +25,7 @@ Zepto(function($) {
    * highlight the current line
    */
   var renderCurrentCodeblock = function(id) {
-    Prism.highlightAll();
+    Prism.highlightAllUnder(document.querySelector('.frame-code-container .frame-code.active'));
     highlightCurrentLine();
   }
 
@@ -153,9 +153,6 @@ Zepto(function($) {
     }
   });
 
-  // Render late enough for highlightCurrentLine to be ready
-  renderCurrentCodeblock();
-
   // Avoid to quit the page with some protocol (e.g. IntelliJ Platform REST API)
   $ajaxEditors.on('click', function(e){
     e.preventDefault();
@@ -185,4 +182,31 @@ Zepto(function($) {
     e.preventDefault();
     setActiveFramesTab($(this));
   });
+
+    // Open editor from code block rows number
+  $(document).delegate('.line-numbers-rows > span', 'click', function(e) {
+    var linkTag = $(this).closest('.frame-code').find('.editor-link');
+    if (!linkTag) return;
+    var editorUrl = linkTag.attr('href');
+    var requiresAjax = linkTag.data('ajax');
+
+    var lineOffset = $(this).closest('[data-line-offset]').data('line-offset');
+    var lineNumber = lineOffset + $(this).index();
+
+    var realLine = $(this).closest('[data-line]').data('line');
+    if (!realLine) return;
+    var fileUrl = editorUrl.replace(
+      new RegExp('([:=])' + realLine),
+      '$1' + lineNumber
+    );
+
+    if (requiresAjax) {
+      $.get(fileUrl);
+    } else {
+      $('<a>').attr('href', fileUrl).trigger('click');
+    }
+  });
+
+  // Render late enough for highlightCurrentLine to be ready
+  renderCurrentCodeblock();
 });

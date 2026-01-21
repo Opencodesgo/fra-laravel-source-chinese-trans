@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，构建查询类
- */
 
 namespace Illuminate\Database\Concerns;
 
@@ -13,7 +10,6 @@ trait BuildsQueries
 {
     /**
      * Chunk the results of the query.
-	 * 将查询的结果分块
      *
      * @param  int  $count
      * @param  callable  $callback
@@ -29,9 +25,6 @@ trait BuildsQueries
             // We'll execute the query for the given page and get the results. If there are
             // no results we can just break and return from here. When there are results
             // we will call the callback with the current chunk of these results here.
-			// 如果将对给定页面执行查询并获取结果。
-			// 如果没有结果我们可以从这里休息并返回。
-			// 当有结果时，我们将在此处使用这些结果的当前块调用回调。
             $results = $this->forPage($page, $count)->get();
 
             $countResults = $results->count();
@@ -43,9 +36,6 @@ trait BuildsQueries
             // On each chunk result set, we will pass them to the callback and then let the
             // developer take care of everything within the callback, which allows us to
             // keep the memory low for spinning through large result sets for working.
-			// 在每个块结果集上，我们将把它们传递给回调函数，
-			// 然后让开发人员负责回调中的所有事务，这使我们能够保持低内存，
-			// 以便快速浏览大型结果集进行工作。
             if ($callback($results, $page) === false) {
                 return false;
             }
@@ -60,7 +50,6 @@ trait BuildsQueries
 
     /**
      * Execute a callback over each item while chunking.
-	 * 在分块时对每个项执行回调
      *
      * @param  callable  $callback
      * @param  int  $count
@@ -79,7 +68,6 @@ trait BuildsQueries
 
     /**
      * Chunk the results of a query by comparing IDs.
-	 * 通过比较id对查询结果进行分组
      *
      * @param  int  $count
      * @param  callable  $callback
@@ -101,9 +89,6 @@ trait BuildsQueries
             // We'll execute the query for the given page and get the results. If there are
             // no results we can just break and return from here. When there are results
             // we will call the callback with the current chunk of these results here.
-			// 如果将对给定页面执行查询并获取结果。
-			// 如果没有结果我们可以从这里休息并返回。
-			// 当有结果时，我们将在此处使用这些结果的当前块调用回调。
             $results = $clone->forPageAfterId($count, $lastId, $column)->get();
 
             $countResults = $results->count();
@@ -115,9 +100,6 @@ trait BuildsQueries
             // On each chunk result set, we will pass them to the callback and then let the
             // developer take care of everything within the callback, which allows us to
             // keep the memory low for spinning through large result sets for working.
-			// 在每个块结果集上，我们将把它们传递给回调函数，
-			// 然后让开发人员负责回调中的所有事务，这使我们能够保持低内存，
-			// 以便快速浏览大型结果集进行工作。
             if ($callback($results) === false) {
                 return false;
             }
@@ -131,8 +113,7 @@ trait BuildsQueries
     }
 
     /**
-     * Execute a callback over each item while chunking by id.
-	 * 在按ID分块时对每个项执行回调
+     * Execute a callback over each item while chunking by ID.
      *
      * @param  callable  $callback
      * @param  int  $count
@@ -153,7 +134,6 @@ trait BuildsQueries
 
     /**
      * Execute the query and get the first result.
-	 * 执行查询并得到第一个结果
      *
      * @param  array|string  $columns
      * @return \Illuminate\Database\Eloquent\Model|object|static|null
@@ -165,7 +145,6 @@ trait BuildsQueries
 
     /**
      * Apply the callback's query changes if the given "value" is true.
-	 * 应用回调的查询更改，如果给定的"value"为真。
      *
      * @param  mixed  $value
      * @param  callable  $callback
@@ -185,7 +164,6 @@ trait BuildsQueries
 
     /**
      * Pass the query to a given callback.
-	 * 传递查询给给定的回调
      *
      * @param  callable  $callback
      * @return $this
@@ -197,7 +175,6 @@ trait BuildsQueries
 
     /**
      * Apply the callback's query changes if the given "value" is false.
-	 * 应用回调的查询更改，如果给定的“value”为false。
      *
      * @param  mixed  $value
      * @param  callable  $callback
@@ -217,7 +194,6 @@ trait BuildsQueries
 
     /**
      * Create a new length-aware paginator instance.
-	 * 创建新的长度感知分页器实例
      *
      * @param  \Illuminate\Support\Collection  $items
      * @param  int  $total
@@ -235,7 +211,6 @@ trait BuildsQueries
 
     /**
      * Create a new simple paginator instance.
-	 * 创建一个新的简单分页器实例
      *
      * @param  \Illuminate\Support\Collection  $items
      * @param  int  $perPage

@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译Echo
+ * 视图，编译器，编译显示
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -14,7 +14,7 @@ trait CompilesEchos
      * @param  string  $value
      * @return string
      */
-    protected function compileEchos($value)
+    public function compileEchos($value)
     {
         foreach ($this->getEchoMethods() as $method) {
             $value = $this->$method($value);
@@ -25,7 +25,6 @@ trait CompilesEchos
 
     /**
      * Get the echo methods in the proper order for compilation.
-	 * 得到echo方法以进行编译以适当的顺序
      *
      * @return array
      */
@@ -40,7 +39,6 @@ trait CompilesEchos
 
     /**
      * Compile the "raw" echo statements.
-	 * 编译"原始"echo语句
      *
      * @param  string  $value
      * @return string
@@ -60,7 +58,6 @@ trait CompilesEchos
 
     /**
      * Compile the "regular" echo statements.
-	 * 编译"常规"echo语句
      *
      * @param  string  $value
      * @return string
@@ -82,7 +79,7 @@ trait CompilesEchos
 
     /**
      * Compile the escaped echo statements.
-	 * 编译转义的echo语
+	 * 编译转义的echo语句
      *
      * @param  string  $value
      * @return string

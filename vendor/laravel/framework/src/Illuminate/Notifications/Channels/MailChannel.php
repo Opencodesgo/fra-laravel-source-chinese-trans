@@ -1,12 +1,9 @@
 <?php
-/**
- * 通知，邮件通道
- */
 
 namespace Illuminate\Notifications\Channels;
 
+use Illuminate\Contracts\Mail\Factory as MailFactory;
 use Illuminate\Contracts\Mail\Mailable;
-use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Markdown;
 use Illuminate\Notifications\Notification;
@@ -17,15 +14,13 @@ class MailChannel
 {
     /**
      * The mailer implementation.
-	 * 邮件实现
      *
-     * @var \Illuminate\Contracts\Mail\Mailer
+     * @var \Illuminate\Contracts\Mail\Factory
      */
     protected $mailer;
 
     /**
      * The markdown implementation.
-	 * 编辑器实现
      *
      * @var \Illuminate\Mail\Markdown
      */
@@ -33,13 +28,12 @@ class MailChannel
 
     /**
      * Create a new mail channel instance.
-	 * 创建新的邮件通道实例
      *
-     * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
+     * @param  \Illuminate\Contracts\Mail\Factory  $mailer
      * @param  \Illuminate\Mail\Markdown  $markdown
      * @return void
      */
-    public function __construct(Mailer $mailer, Markdown $markdown)
+    public function __construct(MailFactory $mailer, Markdown $markdown)
     {
         $this->mailer = $mailer;
         $this->markdown = $markdown;
@@ -47,7 +41,6 @@ class MailChannel
 
     /**
      * Send the given notification.
-	 * 发送给定通知
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -66,7 +59,7 @@ class MailChannel
             return $message->send($this->mailer);
         }
 
-        $this->mailer->send(
+        $this->mailer->mailer($message->mailer ?? null)->send(
             $this->buildView($message),
             array_merge($message->data(), $this->additionalMessageData($notification)),
             $this->messageBuilder($notifiable, $notification, $message)
@@ -75,7 +68,6 @@ class MailChannel
 
     /**
      * Get the mailer Closure for the message.
-	 * 得到消息的邮件封包
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -91,7 +83,6 @@ class MailChannel
 
     /**
      * Build the notification's view.
-	 * 构建通知视图
      *
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message
      * @return string|array
@@ -114,7 +105,6 @@ class MailChannel
 
     /**
      * Get additional meta-data to pass along with the view data.
-	 * 得到与视图数据一起传递的附加元数据
      *
      * @param  \Illuminate\Notifications\Notification  $notification
      * @return array
@@ -125,14 +115,14 @@ class MailChannel
             '__laravel_notification_id' => $notification->id,
             '__laravel_notification' => get_class($notification),
             '__laravel_notification_queued' => in_array(
-                ShouldQueue::class, class_implements($notification)
+                ShouldQueue::class,
+                class_implements($notification)
             ),
         ];
     }
 
     /**
      * Build the mail message.
-	 * 构建邮件消息
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  mixed  $notifiable
@@ -159,7 +149,6 @@ class MailChannel
 
     /**
      * Address the mail message.
-	 * 邮件消息的地址
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  mixed  $notifiable
@@ -188,7 +177,6 @@ class MailChannel
 
     /**
      * Add the "from" and "reply to" addresses to the message.
-	 * 在邮件中添加"发件人"和"回复"地址
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message
@@ -209,7 +197,6 @@ class MailChannel
 
     /**
      * Get the recipients of the given message.
-	 * 得到给定消息的收件人
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -231,7 +218,6 @@ class MailChannel
 
     /**
      * Add the attachments to the message.
-	 * 向邮件添加附件
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message
@@ -250,7 +236,6 @@ class MailChannel
 
     /**
      * Run the callbacks for the message.
-	 * 运行信息的回调
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message

@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，模拟应用程序服务
- */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -15,7 +12,6 @@ trait MocksApplicationServices
 {
     /**
      * All of the fired events.
-	 * 所有被触发的事件
      *
      * @var array
      */
@@ -23,7 +19,6 @@ trait MocksApplicationServices
 
     /**
      * All of the fired model events.
-	 * 所有被触发的模型事件
      *
      * @var array
      */
@@ -31,7 +26,6 @@ trait MocksApplicationServices
 
     /**
      * All of the dispatched jobs.
-	 * 所有被分派工作
      *
      * @var array
      */
@@ -39,7 +33,6 @@ trait MocksApplicationServices
 
     /**
      * All of the dispatched notifications.
-	 * 所有被分派通知
      *
      * @var array
      */
@@ -47,7 +40,6 @@ trait MocksApplicationServices
 
     /**
      * Specify a list of events that should be fired for the given operation.
-	 * 指定应该为给定操作触发的事件列表
      *
      * These events will be mocked, so that handlers will not actually be executed.
      *
@@ -76,7 +68,6 @@ trait MocksApplicationServices
 
     /**
      * Specify a list of events that should not be fired for the given operation.
-	 * 指定不应为给定操作触发的事件列表
      *
      * These events will be mocked, so that handlers will not actually be executed.
      *
@@ -101,7 +92,6 @@ trait MocksApplicationServices
 
     /**
      * Mock the event dispatcher so all events are silenced and collected.
-	 * 模拟事件调度程序，以便静默和收集所有事件
      *
      * @return $this
      */
@@ -122,7 +112,6 @@ trait MocksApplicationServices
 
     /**
      * Filter the given events against the fired events.
-	 * 根据触发的事件筛选给定的事件
      *
      * @param  array  $events
      * @return array
@@ -134,7 +123,6 @@ trait MocksApplicationServices
 
     /**
      * Specify a list of jobs that should be dispatched for the given operation.
-	 * 指定应该为给定操作分派的作业列表
      *
      * These jobs will be mocked, so that handlers will not actually be executed.
      *
@@ -161,7 +149,6 @@ trait MocksApplicationServices
 
     /**
      * Specify a list of jobs that should not be dispatched for the given operation.
-	 * 指定不应为给定操作分派的作业列表
      *
      * These jobs will be mocked, so that handlers will not actually be executed.
      *
@@ -186,7 +173,6 @@ trait MocksApplicationServices
 
     /**
      * Mock the job dispatcher so all jobs are silenced and collected.
-	 * 模拟作业调度器，使所有作业静默并收集
      *
      * @return $this
      */
@@ -207,7 +193,6 @@ trait MocksApplicationServices
 
     /**
      * Filter the given jobs against the dispatched jobs.
-	 * 筛选给定的作业根据分派的作业
      *
      * @param  array  $jobs
      * @return array
@@ -219,7 +204,6 @@ trait MocksApplicationServices
 
     /**
      * Filter the given classes against an array of dispatched classes.
-	 * 筛选给定的类根据分派的类数组
      *
      * @param  array  $classes
      * @param  array  $dispatched
@@ -234,7 +218,6 @@ trait MocksApplicationServices
 
     /**
      * Check if the given class exists in an array of dispatched classes.
-	 * 检查给定的类是否存在于已分派类的数组中
      *
      * @param  string  $needle
      * @param  array  $haystack
@@ -254,7 +237,6 @@ trait MocksApplicationServices
 
     /**
      * Mock the notification dispatcher so all notifications are silenced.
-	 * 模拟通知调度程序，使所有通知静默。
      *
      * @return $this
      */
@@ -275,7 +257,6 @@ trait MocksApplicationServices
 
     /**
      * Specify a notification that is expected to be dispatched.
-	 * 指定预期要发送的通知
      *
      * @param  mixed  $notifiable
      * @param  string  $notification

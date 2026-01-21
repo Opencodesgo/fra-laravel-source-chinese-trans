@@ -1,6 +1,6 @@
 <?php
 /**
- * Http，响应
+ * Illuminate，Http，响应
  */
 
 namespace Illuminate\Http;
@@ -11,12 +11,33 @@ use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Traits\Macroable;
 use JsonSerializable;
-use Symfony\Component\HttpFoundation\Response as BaseResponse;
+use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
-class Response extends BaseResponse
+class Response extends SymfonyResponse
 {
     use ResponseTrait, Macroable {
         Macroable::__call as macroCall;
+    }
+
+    /**
+     * Create a new HTTP response.
+	 * 创建新的HTTP响应
+     *
+     * @param  mixed  $content
+     * @param  int  $status
+     * @param  array  $headers
+     * @return void
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function __construct($content = '', $status = 200, array $headers = [])
+    {
+        $this->headers = new ResponseHeaderBag($headers);
+
+        $this->setContent($content);		# 在SymfonyResponse里，进行重写
+        $this->setStatusCode($status);		# 在SymfonyResponse里
+        $this->setProtocolVersion('1.0');	# 在SymfonyResponse里
     }
 
     /**
@@ -33,8 +54,7 @@ class Response extends BaseResponse
         // If the content is "JSONable" we will set the appropriate header and convert
         // the content to JSON. This is useful when returning something like models
         // from routes that will be automatically transformed to their JSON form.
-		// 如果内容是"JJSONable"J的，我们将设置适当的标头并将内容转换为JSON。
-		// 当从路由返回类似模型的东西时，这很有用，这些模型将自动转换为JSON格式。
+		// 如果内容是"JSONable"，我们将设置适当的标头并进行转换内容到JSON。
         if ($this->shouldBeJson($content)) {
             $this->header('Content-Type', 'application/json');
 
@@ -44,8 +64,7 @@ class Response extends BaseResponse
         // If this content implements the "Renderable" interface then we will call the
         // render method on the object so we will avoid any "__toString" exceptions
         // that might be thrown and have their errors obscured by PHP's handling.
-		// 如果此内容实现了"Renderable"接口，那么我们将调用对象的render方法，
-		// 这样我们就可以避免任何可能引发的“__toString”异常，并通过PHP的处理来掩盖它们的错误。
+		// 如果这个内容实现了"Renderable"接口，那么我们将调用对象的渲染方法
         elseif ($content instanceof Renderable) {
             $content = $content->render();
         }
@@ -57,7 +76,6 @@ class Response extends BaseResponse
 
     /**
      * Determine if the given content should be turned into JSON.
-	 * 确定是否应该将给定的内容转换为JSON
      *
      * @param  mixed  $content
      * @return bool
@@ -73,7 +91,7 @@ class Response extends BaseResponse
 
     /**
      * Morph the given content into JSON.
-	 * 转换给定内容为JSON
+	 * 将给定的内容转换为JSON
      *
      * @param  mixed  $content
      * @return string

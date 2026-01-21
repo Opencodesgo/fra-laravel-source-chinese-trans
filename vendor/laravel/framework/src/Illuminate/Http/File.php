@@ -1,6 +1,6 @@
 <?php
 /**
- * Http，文件，待完善类
+ * Illuminate，Http，文件
  */
 
 namespace Illuminate\Http;

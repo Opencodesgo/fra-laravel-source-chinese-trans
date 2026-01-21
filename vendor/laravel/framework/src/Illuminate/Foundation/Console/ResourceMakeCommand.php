@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，资源生成命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -13,7 +10,6 @@ class ResourceMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -21,7 +17,6 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成类的类型
      *
      * @var string
      */
@@ -37,7 +31,6 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
      * @return void
      */
@@ -52,20 +45,18 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的存根文件
      *
      * @return string
      */
     protected function getStub()
     {
         return $this->collection()
-                    ? __DIR__.'/stubs/resource-collection.stub'
-                    : __DIR__.'/stubs/resource.stub';
+                    ? $this->resolveStubPath('/stubs/resource-collection.stub')
+                    : $this->resolveStubPath('/stubs/resource.stub');
     }
 
     /**
      * Determine if the command is generating a resource collection.
-	 * 确定该命令是否正在生成资源集合
      *
      * @return bool
      */
@@ -76,8 +67,20 @@ class ResourceMakeCommand extends GeneratorCommand
     }
 
     /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param  string  $stub
+     * @return string
+     */
+    protected function resolveStubPath($stub)
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+                        ? $customPath
+                        : __DIR__.$stub;
+    }
+
+    /**
      * Get the default namespace for the class.
-	 * 得到类的默认命名空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -89,7 +92,6 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
-	 * 得到控制台命令选项
      *
      * @return array
      */

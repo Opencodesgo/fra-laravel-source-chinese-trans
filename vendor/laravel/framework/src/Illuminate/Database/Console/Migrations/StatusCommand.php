@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，迁移状态命令
- */
 
 namespace Illuminate\Database\Console\Migrations;
 
@@ -13,7 +10,6 @@ class StatusCommand extends BaseCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -21,7 +17,6 @@ class StatusCommand extends BaseCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class StatusCommand extends BaseCommand
 
     /**
      * The migrator instance.
-	 * 迁移实例
      *
      * @var \Illuminate\Database\Migrations\Migrator
      */
@@ -37,7 +31,6 @@ class StatusCommand extends BaseCommand
 
     /**
      * Create a new migration rollback command instance.
-	 * 创建新的迁移回滚命令实例
      *
      * @param  \Illuminate\Database\Migrations\Migrator  $migrator
      * @return void
@@ -51,34 +44,32 @@ class StatusCommand extends BaseCommand
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
-     * @return void
+     * @return int|null
      */
     public function handle()
     {
-        $this->migrator->setConnection($this->option('database'));
+        return $this->migrator->usingConnection($this->option('database'), function () {
+            if (! $this->migrator->repositoryExists()) {
+                $this->error('Migration table not found.');
 
-        if (! $this->migrator->repositoryExists()) {
-            $this->error('Migration table not found.');
+                return 1;
+            }
 
-            return 1;
-        }
+            $ran = $this->migrator->getRepository()->getRan();
 
-        $ran = $this->migrator->getRepository()->getRan();
+            $batches = $this->migrator->getRepository()->getMigrationBatches();
 
-        $batches = $this->migrator->getRepository()->getMigrationBatches();
-
-        if (count($migrations = $this->getStatusFor($ran, $batches)) > 0) {
-            $this->table(['Ran?', 'Migration', 'Batch'], $migrations);
-        } else {
-            $this->error('No migrations found');
-        }
+            if (count($migrations = $this->getStatusFor($ran, $batches)) > 0) {
+                $this->table(['Ran?', 'Migration', 'Batch'], $migrations);
+            } else {
+                $this->error('No migrations found');
+            }
+        });
     }
 
     /**
      * Get the status for the given ran migrations.
-	 * 得到运行迁移的状态
      *
      * @param  array  $ran
      * @param  array  $batches
@@ -98,7 +89,6 @@ class StatusCommand extends BaseCommand
 
     /**
      * Get an array of all of the migration files.
-	 * 得到所有迁移文件的数组
      *
      * @return array
      */
@@ -109,7 +99,6 @@ class StatusCommand extends BaseCommand
 
     /**
      * Get the console command options.
-	 * 得到控制台命令选项
      *
      * @return array
      */

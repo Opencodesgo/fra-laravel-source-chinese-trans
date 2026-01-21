@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，Eloquent，集合
- */
 
 namespace Illuminate\Database\Eloquent;
 
@@ -17,7 +14,6 @@ class Collection extends BaseCollection implements QueueableCollection
 {
     /**
      * Find a model in the collection by key.
-	 * 查找集合模型
      *
      * @param  mixed  $key
      * @param  mixed  $default
@@ -48,7 +44,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationships onto the collection.
-	 * 将一组关系加载到集合中
      *
      * @param  array|string  $relations
      * @return $this
@@ -70,7 +65,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationship counts onto the collection.
-	 * 将一组关系计数加载到集合中
      *
      * @param  array|string  $relations
      * @return $this
@@ -85,17 +79,18 @@ class Collection extends BaseCollection implements QueueableCollection
             ->whereKey($this->modelKeys())
             ->select($this->first()->getKeyName())
             ->withCount(...func_get_args())
-            ->get();
+            ->get()
+            ->keyBy($this->first()->getKeyName());
 
         $attributes = Arr::except(
             array_keys($models->first()->getAttributes()),
             $models->first()->getKeyName()
         );
 
-        $models->each(function ($model) use ($attributes) {
-            $this->find($model->getKey())->forceFill(
-                Arr::only($model->getAttributes(), $attributes)
-            )->syncOriginalAttributes($attributes);
+        $this->each(function ($model) use ($models, $attributes) {
+            $extraAttributes = Arr::only($models->get($model->getKey())->getAttributes(), $attributes);
+
+            $model->forceFill($extraAttributes)->syncOriginalAttributes($attributes);
         });
 
         return $this;
@@ -103,7 +98,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationships onto the collection if they are not already eager loaded.
-	 * 如果一组关系尚未被急切加载，则将它们加载到集合上。
      *
      * @param  array|string  $relations
      * @return $this
@@ -143,7 +137,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a relationship path if it is not already eager loaded.
-	 * 加载关系路径(如果它还没有被急切加载)
      *
      * @param  \Illuminate\Database\Eloquent\Collection  $models
      * @param  array  $path
@@ -167,7 +160,7 @@ class Collection extends BaseCollection implements QueueableCollection
             return;
         }
 
-        $models = $models->pluck($name)->whereNotNull();
+        $models = $models->pluck($name);
 
         if ($models->first() instanceof BaseCollection) {
             $models = $models->collapse();
@@ -178,7 +171,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationships onto the mixed relationship collection.
-	 * 将一组关系加载到混合关系集合中
      *
      * @param  string  $relation
      * @param  array  $relations
@@ -199,8 +191,28 @@ class Collection extends BaseCollection implements QueueableCollection
     }
 
     /**
+     * Load a set of relationship counts onto the mixed relationship collection.
+     *
+     * @param  string  $relation
+     * @param  array  $relations
+     * @return $this
+     */
+    public function loadMorphCount($relation, $relations)
+    {
+        $this->pluck($relation)
+            ->filter()
+            ->groupBy(function ($model) {
+                return get_class($model);
+            })
+            ->each(function ($models, $className) use ($relations) {
+                static::make($models)->loadCount($relations[$className] ?? []);
+            });
+
+        return $this;
+    }
+
+    /**
      * Determine if a key exists in the collection.
-	 * 确定一个键是否存在于集合中
      *
      * @param  mixed  $key
      * @param  mixed  $operator
@@ -226,7 +238,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the array of primary keys.
-	 * 得到主键数组
      *
      * @return array
      */
@@ -239,7 +250,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Merge the collection with the given items.
-	 * 合并集合与给定的项
      *
      * @param  \ArrayAccess|array  $items
      * @return static
@@ -257,7 +267,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Run a map over each of the items.
-	 * 运行一张地图在每个项目上
      *
      * @param  callable  $callback
      * @return \Illuminate\Support\Collection|static
@@ -273,7 +282,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Run an associative map over each of the items.
-	 * 运行一个关联映射在每个项目上
      *
      * The callback should return an associative array with a single key / value pair.
      *
@@ -291,7 +299,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Reload a fresh model instance from the database for all the entities.
-	 * 为所有实体从数据库中重新加载一个新的模型实例
      *
      * @param  array|string  $with
      * @return static
@@ -318,7 +325,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Diff the collection with the given items.
-	 * 将集合与给定的项进行比较
      *
      * @param  \ArrayAccess|array  $items
      * @return static
@@ -340,7 +346,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Intersect the collection with the given items.
-	 * 将集合与给定的项目相交
      *
      * @param  \ArrayAccess|array  $items
      * @return static
@@ -366,7 +371,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Return only unique items from the collection.
-	 * 只返回集合中唯一的项
      *
      * @param  string|callable|null  $key
      * @param  bool  $strict
@@ -383,7 +387,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Returns only the models from the collection with the specified keys.
-	 * 仅返回集合中具有指定键的模型
      *
      * @param  mixed  $keys
      * @return static
@@ -401,7 +404,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Returns all models in the collection except the models with specified keys.
-	 * 返回集合中除具有指定键的模型外的所有模型
      *
      * @param  mixed  $keys
      * @return static
@@ -415,19 +417,17 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Make the given, typically visible, attributes hidden across the entire collection.
-	 * 将给定的(通常是可见的)属性隐藏在整个集合中
      *
      * @param  array|string  $attributes
      * @return $this
      */
     public function makeHidden($attributes)
     {
-        return $this->each->addHidden($attributes);
+        return $this->each->makeHidden($attributes);
     }
 
     /**
      * Make the given, typically hidden, attributes visible across the entire collection.
-	 * 使给定的(通常是隐藏的)属性在整个集合中可见
      *
      * @param  array|string  $attributes
      * @return $this
@@ -438,8 +438,18 @@ class Collection extends BaseCollection implements QueueableCollection
     }
 
     /**
+     * Append an attribute across the entire collection.
+     *
+     * @param  array|string  $attributes
+     * @return $this
+     */
+    public function append($attributes)
+    {
+        return $this->each->append($attributes);
+    }
+
+    /**
      * Get a dictionary keyed by primary keys.
-	 * 得到以主键为键的字典
      *
      * @param  \ArrayAccess|array|null  $items
      * @return array
@@ -459,12 +469,10 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * The following methods are intercepted to always return base collections.
-	 * 以下方法以始终返回基集合
      */
 
     /**
      * Get an array with the values of a given key.
-	 * 得到具有给定键值的数组
      *
      * @param  string|array  $value
      * @param  string|null  $key
@@ -477,7 +485,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the keys of the collection items.
-	 * 得到收集项目的钥匙
      *
      * @return \Illuminate\Support\Collection
      */
@@ -488,7 +495,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Zip the collection together with one or more arrays.
-	 * 将集合与一个或多个数组压缩在一起
      *
      * @param  mixed  ...$items
      * @return \Illuminate\Support\Collection
@@ -500,7 +506,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Collapse the collection of items into a single array.
-	 * 将项目集合折叠成单个数组
      *
      * @return \Illuminate\Support\Collection
      */
@@ -511,7 +516,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get a flattened array of the items in the collection.
-	 * 得到集合中项的扁平数组
      *
      * @param  int  $depth
      * @return \Illuminate\Support\Collection
@@ -523,7 +527,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Flip the items in the collection.
-	 * 翻转集合中的项目
      *
      * @return \Illuminate\Support\Collection
      */
@@ -534,7 +537,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Pad collection to the specified length with a value.
-	 * 垫集合至指定的长度使用值
      *
      * @param  int  $size
      * @param  mixed  $value
@@ -547,7 +549,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the comparison function to detect duplicates.
-	 * 得到比较函数以检测重复项
      *
      * @param  bool  $strict
      * @return \Closure
@@ -561,7 +562,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the type of the entities being queued.
-	 * 得到正在排队的实体的类型
      *
      * @return string|null
      *
@@ -586,7 +586,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the identifiers for all of the entities.
-	 * 得到所有实体的标识符
      *
      * @return array
      */
@@ -603,7 +602,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the relationships of the entities being queued.
-	 * 得到正在排队的实体之间的关系
      *
      * @return array
      */
@@ -618,7 +616,7 @@ class Collection extends BaseCollection implements QueueableCollection
         if (count($relations) === 0 || $relations === [[]]) {
             return [];
         } elseif (count($relations) === 1) {
-            return array_values($relations)[0];
+            return reset($relations);
         } else {
             return array_intersect(...$relations);
         }
@@ -626,7 +624,6 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the connection of the entities being queued.
-	 * 得到正在排队的实体连接
      *
      * @return string|null
      *
@@ -647,5 +644,31 @@ class Collection extends BaseCollection implements QueueableCollection
         });
 
         return $connection;
+    }
+
+    /**
+     * Get the Eloquent query builder from the collection.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     *
+     * @throws \LogicException
+     */
+    public function toQuery()
+    {
+        $model = $this->first();
+
+        if (! $model) {
+            throw new LogicException('Unable to create query for empty collection.');
+        }
+
+        $class = get_class($model);
+
+        if ($this->filter(function ($model) use ($class) {
+            return ! $model instanceof $class;
+        })->isNotEmpty()) {
+            throw new LogicException('Unable to create query for collection with mixed types.');
+        }
+
+        return $model->newModelQuery()->whereKey($this->modelKeys());
     }
 }

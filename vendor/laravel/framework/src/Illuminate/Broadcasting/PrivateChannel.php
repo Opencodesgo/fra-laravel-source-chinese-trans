@@ -1,6 +1,6 @@
 <?php
 /**
- * 广播，广播私有信道
+ * Illuminate，广播，私有信道
  */
 
 namespace Illuminate\Broadcasting;
@@ -9,7 +9,6 @@ class PrivateChannel extends Channel
 {
     /**
      * Create a new channel instance.
-	 * 创建新的信道
      *
      * @param  string  $name
      * @return void

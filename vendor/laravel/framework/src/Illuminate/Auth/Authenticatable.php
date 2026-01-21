@@ -1,6 +1,6 @@
 <?php
 /**
- * 授权，可验证身份
+ * Illuminate，认证，可认证的
  */
 
 namespace Illuminate\Auth;
@@ -9,7 +9,6 @@ trait Authenticatable
 {
     /**
      * The column name of the "remember me" token.
-	 * 记住我令牌列名
      *
      * @var string
      */
@@ -17,7 +16,6 @@ trait Authenticatable
 
     /**
      * Get the name of the unique identifier for the user.
-	 * 得到用户的唯一标识符的名称
      *
      * @return string
      */
@@ -28,7 +26,6 @@ trait Authenticatable
 
     /**
      * Get the unique identifier for the user.
-	 * 得到用户的唯一标识符
      *
      * @return mixed
      */
@@ -39,7 +36,6 @@ trait Authenticatable
 
     /**
      * Get the password for the user.
-	 * 得到用户密码
      *
      * @return string
      */
@@ -50,7 +46,6 @@ trait Authenticatable
 
     /**
      * Get the token value for the "remember me" session.
-	 * 得到记住我令牌值
      *
      * @return string|null
      */
@@ -63,7 +58,6 @@ trait Authenticatable
 
     /**
      * Set the token value for the "remember me" session.
-	 * 设置记住我令牌值
      *
      * @param  string  $value
      * @return void
@@ -77,7 +71,6 @@ trait Authenticatable
 
     /**
      * Get the column name for the "remember me" token.
-	 * 得到记得我令牌列名
      *
      * @return string
      */

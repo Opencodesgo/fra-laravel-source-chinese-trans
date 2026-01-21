@@ -1,7 +1,4 @@
 <?php
-/**
- * 通知，动作
- */
 
 namespace Illuminate\Notifications;
 
@@ -9,7 +6,6 @@ class Action
 {
     /**
      * The action text.
-	 * 动作文本
      *
      * @var string
      */
@@ -17,7 +13,6 @@ class Action
 
     /**
      * The action URL.
-	 * 动作URL
      *
      * @var string
      */
@@ -25,7 +20,6 @@ class Action
 
     /**
      * Create a new action instance.
-	 * 创建新的动作实例
      *
      * @param  string  $text
      * @param  string  $url

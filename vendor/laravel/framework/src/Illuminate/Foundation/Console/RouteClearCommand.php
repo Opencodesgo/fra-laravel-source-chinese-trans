@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，路由清除命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -12,7 +9,6 @@ class RouteClearCommand extends Command
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -20,7 +16,6 @@ class RouteClearCommand extends Command
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -28,7 +23,6 @@ class RouteClearCommand extends Command
 
     /**
      * The filesystem instance.
-	 * 文件系统实例
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -36,7 +30,6 @@ class RouteClearCommand extends Command
 
     /**
      * Create a new route clear command instance.
-	 * 创建新的路由清除命令实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @return void
@@ -50,7 +43,6 @@ class RouteClearCommand extends Command
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
      * @return void
      */

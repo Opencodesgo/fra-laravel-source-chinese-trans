@@ -1,23 +1,21 @@
 <?php
-/**
- * 基础，总线等待链
- */
 
 namespace Illuminate\Foundation\Bus;
+
+use Closure;
+use Illuminate\Queue\CallQueuedClosure;
 
 class PendingChain
 {
     /**
      * The class name of the job being dispatched.
-	 * 正被分派的任务类
      *
-     * @var string
+     * @var mixed
      */
-    public $class;
+    public $job;
 
     /**
      * The jobs to be chained.
-	 * 任务链
      *
      * @var array
      */
@@ -25,28 +23,32 @@ class PendingChain
 
     /**
      * Create a new PendingChain instance.
-	 * 创建新的实例
      *
-     * @param  string  $class
+     * @param  mixed  $job
      * @param  array  $chain
      * @return void
      */
-    public function __construct($class, $chain)
+    public function __construct($job, $chain)
     {
-        $this->class = $class;
+        $this->job = $job;
         $this->chain = $chain;
     }
 
     /**
      * Dispatch the job with the given arguments.
-	 * 调度作业使用给定的参数
      *
      * @return \Illuminate\Foundation\Bus\PendingDispatch
      */
     public function dispatch()
     {
-        return (new PendingDispatch(
-            new $this->class(...func_get_args())
-        ))->chain($this->chain);
+        if (is_string($this->job)) {
+            $firstJob = new $this->job(...func_get_args());
+        } elseif ($this->job instanceof Closure) {
+            $firstJob = CallQueuedClosure::create($this->job);
+        } else {
+            $firstJob = $this->job;
+        }
+
+        return (new PendingDispatch($firstJob))->chain($this->chain);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * App，服务提供者，路由服务提供者
+ * App，提供者，路由服务提供者
  */
 
 namespace App\Providers;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
 {
     /**
      * This namespace is applied to your controller routes.
-	 * 这个名称空间应用于你的控制器路由
+	 * 此命名空间应用于控制器路由
      *
      * In addition, it is set as the URL generator's root namespace.
      *
@@ -22,7 +22,6 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * The path to the "home" route for your application.
-	 * 应用的"home"路径
      *
      * @var string
      */
@@ -30,7 +29,6 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
-	 * 定义路由模型绑定
      *
      * @return void
      */
@@ -43,7 +41,6 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define the routes for the application.
-	 * 定义路由为应用程序
      *
      * @return void
      */
@@ -58,7 +55,6 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define the "web" routes for the application.
-	 * 为应用定义web路由
      *
      * These routes all receive session state, CSRF protection, etc.
      *
@@ -67,13 +63,12 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
      * Define the "api" routes for the application.
-	 * 为应用定义api路由
      *
      * These routes are typically stateless.
      *
@@ -82,8 +77,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
     }
 }

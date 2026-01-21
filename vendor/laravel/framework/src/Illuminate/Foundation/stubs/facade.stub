@@ -1,7 +1,4 @@
-<?
-/**
- * 基础，动态类存根文件
- */
+<?php
 
 namespace DummyNamespace;
 

@@ -1,14 +1,11 @@
 <?php
-/**
- * 数据库，控制台，需要修改注释
- */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use Faker\Generator as Faker;
-use NamespacedDummyModel;
+use {{ namespacedModel }};
 
-$factory->define(DummyModel::class, function (Faker $faker) {
+$factory->define({{ model }}::class, function (Faker $faker) {
     return [
         //
     ];

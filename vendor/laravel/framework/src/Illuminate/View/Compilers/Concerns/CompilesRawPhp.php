@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译原始php
+ * 视图，编译器，编译原始PHP
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -9,7 +9,7 @@ trait CompilesRawPhp
 {
     /**
      * Compile the raw PHP statements into valid PHP.
-	 * 编译原始PHP语句成有效的PHP
+	 * 将原始PHP语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -25,7 +25,7 @@ trait CompilesRawPhp
 
     /**
      * Compile the unset statements into valid PHP.
-	 *  编译unset语句成有效的PHP
+	 * 将unset语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string

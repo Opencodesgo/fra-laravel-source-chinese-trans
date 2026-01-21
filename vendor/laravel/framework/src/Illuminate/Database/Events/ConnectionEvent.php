@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，事件，连接事件抽象类
- */
 
 namespace Illuminate\Database\Events;
 
@@ -9,7 +6,6 @@ abstract class ConnectionEvent
 {
     /**
      * The name of the connection.
-	 * 连接名
      *
      * @var string
      */
@@ -17,7 +13,6 @@ abstract class ConnectionEvent
 
     /**
      * The database connection instance.
-	 * 数据库连接实例
      *
      * @var \Illuminate\Database\Connection
      */
@@ -25,7 +20,6 @@ abstract class ConnectionEvent
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @return void

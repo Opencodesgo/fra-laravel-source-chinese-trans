@@ -1,7 +1,4 @@
 <?php
-/**
- * Redis，并发限制器
- */
 
 namespace Illuminate\Redis\Limiters;
 
@@ -13,7 +10,6 @@ class ConcurrencyLimiter
 {
     /**
      * The Redis factory implementation.
-	 * Redis工厂实现
      *
      * @var \Illuminate\Redis\Connections\Connection
      */
@@ -21,7 +17,6 @@ class ConcurrencyLimiter
 
     /**
      * The name of the limiter.
-	 * 限制名称
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class ConcurrencyLimiter
 
     /**
      * The allowed number of concurrent tasks.
-	 * 允许的并发任务数
      *
      * @var int
      */
@@ -37,7 +31,6 @@ class ConcurrencyLimiter
 
     /**
      * The number of seconds a slot should be maintained.
-	 * 应该维护一个槽位的秒数
      *
      * @var int
      */
@@ -45,7 +38,6 @@ class ConcurrencyLimiter
 
     /**
      * Create a new concurrency limiter instance.
-	 * 创建新的并发限制器实例
      *
      * @param  \Illuminate\Redis\Connections\Connection  $redis
      * @param  string  $name
@@ -63,7 +55,6 @@ class ConcurrencyLimiter
 
     /**
      * Attempt to acquire the lock for the given number of seconds.
-	 * 尝试在给定的秒数内获取锁
      *
      * @param  int  $timeout
      * @param  callable|null  $callback
@@ -103,7 +94,6 @@ class ConcurrencyLimiter
 
     /**
      * Attempt to acquire the lock.
-	 * 尝试获取锁
      *
      * @param  string  $id  A unique identifier for this lock
      * @return mixed
@@ -122,7 +112,6 @@ class ConcurrencyLimiter
 
     /**
      * Get the Lua script for acquiring a lock.
-	 * 得到用于获取锁的Lua脚本
      *
      * KEYS    - The keys that represent available slots
      * ARGV[1] - The limiter name
@@ -145,7 +134,6 @@ LUA;
 
     /**
      * Release the lock.
-	 * 释放锁
      *
      * @param  string  $key
      * @param  string  $id
@@ -158,7 +146,6 @@ LUA;
 
     /**
      * Get the Lua script to atomically release a lock.
-	 * 让Lua脚本自动释放锁
      *
      * KEYS[1] - The name of the lock
      * ARGV[1] - The unique identifier for this lock

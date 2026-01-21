@@ -1,7 +1,4 @@
 <?php
-/**
- * 队列，控制台，重试命令
- */
 
 namespace Illuminate\Queue\Console;
 
@@ -12,15 +9,15 @@ class RetryCommand extends Command
 {
     /**
      * The console command signature.
-	 * 控制台命令签名
      *
      * @var string
      */
-    protected $signature = 'queue:retry {id* : The ID of the failed job or "all" to retry all jobs}';
+    protected $signature = 'queue:retry
+                            {id?* : The ID of the failed job or "all" to retry all jobs}
+                            {--range=* : Range of job IDs (numeric) to be retried}';
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -28,7 +25,6 @@ class RetryCommand extends Command
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
      * @return void
      */
@@ -51,7 +47,6 @@ class RetryCommand extends Command
 
     /**
      * Get the job IDs to be retried.
-	 * 得到作业IDs
      *
      * @return array
      */
@@ -60,7 +55,30 @@ class RetryCommand extends Command
         $ids = (array) $this->argument('id');
 
         if (count($ids) === 1 && $ids[0] === 'all') {
-            $ids = Arr::pluck($this->laravel['queue.failer']->all(), 'id');
+            return Arr::pluck($this->laravel['queue.failer']->all(), 'id');
+        }
+
+        if ($ranges = (array) $this->option('range')) {
+            $ids = array_merge($ids, $this->getJobIdsByRanges($ranges));
+        }
+
+        return array_values(array_filter(array_unique($ids)));
+    }
+
+    /**
+     * Get the job IDs ranges, if applicable.
+     *
+     * @param  array  $ranges
+     * @return array
+     */
+    protected function getJobIdsByRanges(array $ranges)
+    {
+        $ids = [];
+
+        foreach ($ranges as $range) {
+            if (preg_match('/^[0-9]+\-[0-9]+$/', $range)) {
+                $ids = array_merge($ids, range(...explode('-', $range)));
+            }
         }
 
         return $ids;
@@ -81,7 +99,6 @@ class RetryCommand extends Command
 
     /**
      * Reset the payload attempts.
-	 * 重置负载尝试
      *
      * Applicable to Redis jobs which store attempts in their payload.
      *

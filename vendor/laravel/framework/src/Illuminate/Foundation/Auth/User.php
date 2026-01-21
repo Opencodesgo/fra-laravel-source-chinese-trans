@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，用户
- */
 
 namespace Illuminate\Foundation\Auth;
 

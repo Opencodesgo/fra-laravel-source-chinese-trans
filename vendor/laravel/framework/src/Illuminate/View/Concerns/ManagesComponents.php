@@ -1,12 +1,14 @@
 <?php
 /**
- * 视图，管理组件
+ * 视图，关注点，管理组件
  */
 
 namespace Illuminate\View\Concerns;
 
+use Closure;
 use Illuminate\Support\Arr;
 use Illuminate\Support\HtmlString;
+use Illuminate\View\View;
 use InvalidArgumentException;
 
 trait ManagesComponents
@@ -47,14 +49,14 @@ trait ManagesComponents
      * Start a component rendering process.
 	 * 启动一个组件呈现过程
      *
-     * @param  string  $name
+     * @param  \Illuminate\View\View|\Closure|string  $view
      * @param  array  $data
      * @return void
      */
-    public function startComponent($name, array $data = [])
+    public function startComponent($view, array $data = [])
     {
         if (ob_start()) {
-            $this->componentStack[] = $name;
+            $this->componentStack[] = $view;
 
             $this->componentData[$this->currentComponent()] = $data;
 
@@ -64,7 +66,7 @@ trait ManagesComponents
 
     /**
      * Get the first view that actually exists from the given list, and start a component.
-	 * 得到实际存在的第一个视图从给定列表中，并启动一个组件。
+	 * 从给定列表中获取实际存在的第一个视图，并启动一个组件。
      *
      * @param  array  $names
      * @param  array  $data
@@ -81,25 +83,34 @@ trait ManagesComponents
 
     /**
      * Render the current component.
-	 * 渲染当前组件
+	 * 呈现当前组件
      *
      * @return string
      */
     public function renderComponent()
     {
-        $name = array_pop($this->componentStack);
+        $view = array_pop($this->componentStack);
 
-        return $this->make($name, $this->componentData($name))->render();
+        $data = $this->componentData();
+
+        if ($view instanceof Closure) {
+            $view = $view($data);
+        }
+
+        if ($view instanceof View) {
+            return $view->with($data)->render();
+        } else {
+            return $this->make($view, $data)->render();
+        }
     }
 
     /**
      * Get the data for the given component.
-	 * 得到给定组件的数据
+	 * 获取给定组件的数据
      *
-     * @param  string  $name
      * @return array
      */
-    protected function componentData($name)
+    protected function componentData()
     {
         return array_merge(
             $this->componentData[count($this->componentStack)],
@@ -149,7 +160,7 @@ trait ManagesComponents
 
     /**
      * Get the index for the current component.
-	 * 得到当前组件的索引
+	 * 得到当前组件索引
      *
      * @return int
      */

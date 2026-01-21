@@ -1,7 +1,4 @@
 <?php
-/**
- * 路由，控制台，中间件生成命令
- */
 
 namespace Illuminate\Routing\Console;
 
@@ -11,7 +8,6 @@ class MiddlewareMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名称
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -27,7 +22,6 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成器类的类型
      *
      * @var string
      */
@@ -35,18 +29,29 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器存根文件
      *
      * @return string
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/middleware.stub';
+        return $this->resolveStubPath('/stubs/middleware.stub');
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param  string  $stub
+     * @return string
+     */
+    protected function resolveStubPath($stub)
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+            ? $customPath
+            : __DIR__.$stub;
     }
 
     /**
      * Get the default namespace for the class.
-	 * 得到默认命名空间
      *
      * @param  string  $rootNamespace
      * @return string

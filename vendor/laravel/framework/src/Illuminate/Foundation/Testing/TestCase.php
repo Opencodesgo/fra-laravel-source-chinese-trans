@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，测试用例
- */
 
 namespace Illuminate\Foundation\Testing;
 
@@ -29,7 +26,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * The Illuminate application instance.
-	 * 点亮应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -37,7 +33,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * The callbacks that should be run after the application is created.
-	 * 创建应用程序后应该运行的回调函数
      *
      * @var array
      */
@@ -45,7 +40,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * The callbacks that should be run before the application is destroyed.
-	 * 在销毁应用程序之前应该运行的回调函数
      *
      * @var array
      */
@@ -53,7 +47,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * The exception thrown while running an application destruction callback.
-	 * 运行应用程序销毁回调时抛出的异常
      *
      * @var \Throwable
      */
@@ -61,7 +54,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Indicates if we have made it through the base setUp function.
-	 * 指明我们是否通过了基本setUp函数
      *
      * @var bool
      */
@@ -69,7 +61,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Creates the application.
-	 * 创建应用 
      *
      * Needs to be implemented by subclasses.
      *
@@ -79,7 +70,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Setup the test environment.
-	 * 设置测试环境
      *
      * @return void
      */
@@ -104,7 +94,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Refresh the application instance.
-	 * 刷新应用实例
      *
      * @return void
      */
@@ -115,7 +104,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Boot the testing helper traits.
-	 * 启动测试助手特征
      *
      * @return array
      */
@@ -152,9 +140,10 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Clean up the testing environment before the next test.
-	 * 清理测试环境在下次测试前
      *
      * @return void
+     *
+     * @throws \Mockery\Exception\InvalidCountException
      */
     protected function tearDown(): void
     {
@@ -210,7 +199,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Register a callback to be run after the application is created.
-	 * 注册一个回调，以便在创建应用程序后运行。
      *
      * @param  callable  $callback
      * @return void
@@ -226,7 +214,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Register a callback to be run before the application is destroyed.
-	 * 注册一个回调，以便在销毁应用程序之前运行。
      *
      * @param  callable  $callback
      * @return void
@@ -238,7 +225,6 @@ abstract class TestCase extends BaseTestCase
 
     /**
      * Execute the application's pre-destruction callbacks.
-	 * 执行应用程序的预销毁回调
      *
      * @return void
      */

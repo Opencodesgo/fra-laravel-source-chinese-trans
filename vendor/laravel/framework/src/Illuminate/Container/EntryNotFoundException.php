@@ -1,7 +1,4 @@
 <?php
-/**
- * 容器，条目未找到异常，待完善类
- */
 
 namespace Illuminate\Container;
 

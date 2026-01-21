@@ -1,53 +1,46 @@
 <?php
-/**
- * 契约，调试异常处理接口
- */
 
 namespace Illuminate\Contracts\Debug;
 
-use Exception;
+use Throwable;
 
 interface ExceptionHandler
 {
     /**
      * Report or log an exception.
-	 * 报告或记录异常
      *
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return void
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    public function report(Exception $e);
+    public function report(Throwable $e);
 
     /**
      * Determine if the exception should be reported.
-	 * 确定是否应该报告异常
      *
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return bool
      */
-    public function shouldReport(Exception $e);
+    public function shouldReport(Throwable $e);
 
     /**
      * Render an exception into an HTTP response.
-	 * 呈现异常至HTTP响应中
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    public function render($request, Exception $e);
+    public function render($request, Throwable $e);
 
     /**
      * Render an exception to the console.
-	 * 呈现异常至控制台
      *
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return void
      */
-    public function renderForConsole($output, Exception $e);
+    public function renderForConsole($output, Throwable $e);
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * App，控制台，Kernel内核
+ * App，控制台，内核
  */
 
 namespace App\Console;
@@ -29,13 +29,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // $schedule->command('inspire')->hourly();
     }
 
     /**
      * Register the commands for the application.
-	 * 为应用程序注册命令
+	 * 注册应用命令
      *
      * @return void
      */

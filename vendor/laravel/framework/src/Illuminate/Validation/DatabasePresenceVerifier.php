@@ -1,7 +1,4 @@
 <?php
-/**
- * 验证，数据库状态验证
- */
 
 namespace Illuminate\Validation;
 
@@ -9,11 +6,10 @@ use Closure;
 use Illuminate\Database\ConnectionResolverInterface;
 use Illuminate\Support\Str;
 
-class DatabasePresenceVerifier implements PresenceVerifierInterface
+class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 {
     /**
      * The database connection instance.
-	 * 数据库连接实例
      *
      * @var \Illuminate\Database\ConnectionResolverInterface
      */
@@ -21,7 +17,6 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * The database connection to use.
-	 * 数据库连接
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * Create a new database presence verifier.
-	 * 创建新的数据库状态验证
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $db
      * @return void
@@ -41,7 +35,6 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * Count the number of objects in a collection having the given value.
-	 * 计算集合中具有给定值的对象的数量
      *
      * @param  string  $collection
      * @param  string  $column
@@ -64,7 +57,6 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * Count the number of objects in a collection with the given values.
-	 * 对集合中具有给定值的对象数量进行计数
      *
      * @param  string  $collection
      * @param  string  $column
@@ -81,7 +73,6 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * Add the given conditions to the query.
-	 * 添加给定的条件查询
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $conditions
@@ -104,7 +95,6 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * Add a "where" clause to the given query.
-	 * 添加where至查询
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $key
@@ -126,19 +116,17 @@ class DatabasePresenceVerifier implements PresenceVerifierInterface
 
     /**
      * Get a query builder for the given table.
-	 * 得到给定表的查询生成器
      *
      * @param  string  $table
      * @return \Illuminate\Database\Query\Builder
      */
-    public function table($table)
+    protected function table($table)
     {
         return $this->db->connection($this->connection)->table($table)->useWritePdo();
     }
 
     /**
      * Set the connection to be used.
-	 * 设置连接
      *
      * @param  string  $connection
      * @return void

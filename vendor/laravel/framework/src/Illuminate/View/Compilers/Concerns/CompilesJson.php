@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译Json
+ * 视图，编译器，编译Json
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -17,7 +17,7 @@ trait CompilesJson
 
     /**
      * Compile the JSON statement into valid PHP.
-	 * 编译JSON语句为有效的PHP
+	 * 将JSON语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string

@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由，路由组
+ * Illuminate，路由，路由组
  */
 
 namespace Illuminate\Routing;
@@ -11,13 +11,13 @@ class RouteGroup
 {
     /**
      * Merge route groups into a new array.
-	 * 合并路由组为新的数组
      *
      * @param  array  $new
      * @param  array  $old
+     * @param  bool  $prependExistingPrefix
      * @return array
      */
-    public static function merge($new, $old)
+    public static function merge($new, $old, $prependExistingPrefix = true)
     {
         if (isset($new['domain'])) {
             unset($old['domain']);
@@ -25,7 +25,7 @@ class RouteGroup
 
         $new = array_merge(static::formatAs($new, $old), [
             'namespace' => static::formatNamespace($new, $old),
-            'prefix' => static::formatPrefix($new, $old),
+            'prefix' => static::formatPrefix($new, $old, $prependExistingPrefix),
             'where' => static::formatWhere($new, $old),
         ]);
 
@@ -36,7 +36,6 @@ class RouteGroup
 
     /**
      * Format the namespace for the new group attributes.
-	 * 格式化名称空间为新组属性
      *
      * @param  array  $new
      * @param  array  $old
@@ -55,22 +54,25 @@ class RouteGroup
 
     /**
      * Format the prefix for the new group attributes.
-	 * 格式化前缀为新组属性
      *
      * @param  array  $new
      * @param  array  $old
+     * @param  bool  $prependExistingPrefix
      * @return string|null
      */
-    protected static function formatPrefix($new, $old)
+    protected static function formatPrefix($new, $old, $prependExistingPrefix = true)
     {
         $old = $old['prefix'] ?? null;
 
-        return isset($new['prefix']) ? trim($old, '/').'/'.trim($new['prefix'], '/') : $old;
+        if ($prependExistingPrefix) {
+            return isset($new['prefix']) ? trim($old, '/').'/'.trim($new['prefix'], '/') : $old;
+        } else {
+            return isset($new['prefix']) ? trim($new['prefix'], '/').'/'.trim($old, '/') : $old;
+        }
     }
 
     /**
      * Format the "wheres" for the new group attributes.
-	 * 格式化wheres为新组属性
      *
      * @param  array  $new
      * @param  array  $old
@@ -86,7 +88,6 @@ class RouteGroup
 
     /**
      * Format the "as" clause of the new group attributes.
-	 * 格式化新组属性的"as"子句
      *
      * @param  array  $new
      * @param  array  $old

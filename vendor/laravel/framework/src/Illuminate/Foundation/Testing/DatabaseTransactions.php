@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，数据库事务
- */
 
 namespace Illuminate\Foundation\Testing;
 
@@ -9,7 +6,6 @@ trait DatabaseTransactions
 {
     /**
      * Handle database transactions on the specified connections.
-	 * 处理指定连接上的数据库事务
      *
      * @return void
      */
@@ -33,7 +29,6 @@ trait DatabaseTransactions
 
     /**
      * The database connections that should have transactions.
-	 * 应该具有事务的数据库连接
      *
      * @return array
      */

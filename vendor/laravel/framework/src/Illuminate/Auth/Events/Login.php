@@ -1,7 +1,4 @@
 <?php
-/**
- * 授权，事件，登录
- */
 
 namespace Illuminate\Auth\Events;
 
@@ -13,7 +10,6 @@ class Login
 
     /**
      * The authentication guard name.
-	 * 认证守卫名称
      *
      * @var string
      */
@@ -21,7 +17,6 @@ class Login
 
     /**
      * The authenticated user.
-	 * 通过身份验证的用户
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable
      */
@@ -29,7 +24,6 @@ class Login
 
     /**
      * Indicates if the user should be "remembered".
-	 * 指明是否需要"记住我"
      *
      * @var bool
      */
@@ -37,7 +31,6 @@ class Login
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  string  $guard
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user

@@ -1,7 +1,4 @@
 <?php
-/**
- * 授权，事件，封锁出
- */
 
 namespace Illuminate\Auth\Events;
 
@@ -11,7 +8,6 @@ class Lockout
 {
     /**
      * The throttled request.
-	 * 节流请求
      *
      * @var \Illuminate\Http\Request
      */
@@ -19,7 +15,6 @@ class Lockout
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void

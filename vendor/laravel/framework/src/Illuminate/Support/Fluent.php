@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，流畅
- */
 
 namespace Illuminate\Support;
 
@@ -14,7 +11,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 {
     /**
      * All of the attributes set on the fluent instance.
-	 * 设置所有属性在流畅实例上
      *
      * @var array
      */
@@ -22,7 +18,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Create a new fluent instance.
-	 * 新建新的流畅实例
      *
      * @param  array|object  $attributes
      * @return void
@@ -36,7 +31,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Get an attribute from the fluent instance.
-	 * 得到属性从流畅实例
      *
      * @param  string  $key
      * @param  mixed  $default
@@ -53,7 +47,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Get the attributes from the fluent instance.
-	 * 得到多个属性从流畅实例
      *
      * @return array
      */
@@ -64,7 +57,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Convert the fluent instance to an array.
-	 * 转换fluent实例为数组
      *
      * @return array
      */
@@ -75,7 +67,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Convert the object into something JSON serializable.
-	 * 转换对象为JSON可序列化的对象
      *
      * @return array
      */
@@ -86,7 +77,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Convert the fluent instance to JSON.
-	 * 转换fluent实例为JSON
      *
      * @param  int  $options
      * @return string
@@ -98,7 +88,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Determine if the given offset exists.
-	 * 确定给定的偏移量是否存在
      *
      * @param  string  $offset
      * @return bool
@@ -110,7 +99,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Get the value for a given offset.
-	 * 得到给定偏移量的值
      *
      * @param  string  $offset
      * @return mixed
@@ -122,7 +110,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Set the value at the given offset.
-	 * 设置给定偏移量的值
      *
      * @param  string  $offset
      * @param  mixed  $value
@@ -135,7 +122,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Unset the value at the given offset.
-	 * 注销给定偏移量的值
      *
      * @param  string  $offset
      * @return void
@@ -147,7 +133,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Handle dynamic calls to the fluent instance to set attributes.
-	 * 处理对fluent实例的动态调用以设置属性
      *
      * @param  string  $method
      * @param  array  $parameters
@@ -162,7 +147,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Dynamically retrieve the value of an attribute.
-	 * 动态检索属性的值
      *
      * @param  string  $key
      * @return mixed
@@ -174,7 +158,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Dynamically set the value of an attribute.
-	 * 动态设置属性值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -187,7 +170,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Dynamically check if an attribute is set.
-	 * 动态检查属性是否设置
      *
      * @param  string  $key
      * @return bool
@@ -199,7 +181,6 @@ class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable
 
     /**
      * Dynamically unset an attribute.
-	 * 动态注册属性
      *
      * @param  string  $key
      * @return void

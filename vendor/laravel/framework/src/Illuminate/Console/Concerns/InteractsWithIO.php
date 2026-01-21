@@ -1,7 +1,4 @@
 <?php
-/**
- * 控制台，与IO交互
- */
 
 namespace Illuminate\Console\Concerns;
 
@@ -19,7 +16,6 @@ trait InteractsWithIO
 {
     /**
      * The input interface implementation.
-	 * 输入接口实现
      *
      * @var \Symfony\Component\Console\Input\InputInterface
      */
@@ -27,7 +23,6 @@ trait InteractsWithIO
 
     /**
      * The output interface implementation.
-	 * 输出接口实现
      *
      * @var \Illuminate\Console\OutputStyle
      */
@@ -35,7 +30,6 @@ trait InteractsWithIO
 
     /**
      * The default verbosity of output commands.
-	 * 输出命令的默认长度
      *
      * @var int
      */
@@ -43,7 +37,6 @@ trait InteractsWithIO
 
     /**
      * The mapping between human readable verbosity levels and Symfony's OutputInterface.
-	 * 人类可读的冗长级别和Symfony的OutputInterface之间的映射
      *
      * @var array
      */
@@ -57,7 +50,6 @@ trait InteractsWithIO
 
     /**
      * Determine if the given argument is present.
-	 * 确定是否给定参数存在
      *
      * @param  string|int  $name
      * @return bool
@@ -69,7 +61,6 @@ trait InteractsWithIO
 
     /**
      * Get the value of a command argument.
-	 * 得到命令参数的值
      *
      * @param  string|null  $key
      * @return string|array|null
@@ -85,7 +76,6 @@ trait InteractsWithIO
 
     /**
      * Get all of the arguments passed to the command.
-	 * 得到传递给命令的所有参数
      *
      * @return array
      */
@@ -96,7 +86,6 @@ trait InteractsWithIO
 
     /**
      * Determine if the given option is present.
-	 * 确定是否给定参数存在
      *
      * @param  string  $name
      * @return bool
@@ -108,7 +97,6 @@ trait InteractsWithIO
 
     /**
      * Get the value of a command option.
-	 * 得到命令选项的值
      *
      * @param  string|null  $key
      * @return string|array|bool|null
@@ -124,7 +112,6 @@ trait InteractsWithIO
 
     /**
      * Get all of the options passed to the command.
-	 * 得到传递给命令的所有选项
      *
      * @return array
      */
@@ -135,7 +122,6 @@ trait InteractsWithIO
 
     /**
      * Confirm a question with the user.
-	 * 确认问题与用户
      *
      * @param  string  $question
      * @param  bool  $default
@@ -148,7 +134,6 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input.
-	 * 提示用户输入
      *
      * @param  string  $question
      * @param  string|null  $default
@@ -161,7 +146,6 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input with auto completion.
-	 * 提示用户输入并自动完成
      *
      * @param  string  $question
      * @param  array|callable  $choices
@@ -175,7 +159,6 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input with auto completion.
-	 * 提示用户输入并自动完成
      *
      * @param  string  $question
      * @param  array|callable  $choices
@@ -195,7 +178,6 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input but hide the answer from the console.
-	 * 提示用户输入，但在控制台中隐藏答案。
      *
      * @param  string  $question
      * @param  bool  $fallback
@@ -212,16 +194,15 @@ trait InteractsWithIO
 
     /**
      * Give the user a single choice from an array of answers.
-	 * 给用户一个选择从一组答案中
      *
      * @param  string  $question
      * @param  array  $choices
      * @param  string|null  $default
      * @param  mixed|null  $attempts
-     * @param  bool|null  $multiple
-     * @return string
+     * @param  bool  $multiple
+     * @return string|array
      */
-    public function choice($question, array $choices, $default = null, $attempts = null, $multiple = null)
+    public function choice($question, array $choices, $default = null, $attempts = null, $multiple = false)
     {
         $question = new ChoiceQuestion($question, $choices, $default);
 
@@ -232,7 +213,6 @@ trait InteractsWithIO
 
     /**
      * Format input to textual table.
-	 * 将输入格式化为文本表
      *
      * @param  array  $headers
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $rows
@@ -259,7 +239,6 @@ trait InteractsWithIO
 
     /**
      * Write a string as information output.
-	 * 写一个字符串作为信息输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -272,7 +251,6 @@ trait InteractsWithIO
 
     /**
      * Write a string as standard output.
-	 * 写一个字符串作为标准输出
      *
      * @param  string  $string
      * @param  string|null  $style
@@ -288,7 +266,6 @@ trait InteractsWithIO
 
     /**
      * Write a string as comment output.
-	 * 写一个字符串作为注释输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -301,7 +278,6 @@ trait InteractsWithIO
 
     /**
      * Write a string as question output.
-	 * 写一个字符串作为问题输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -314,7 +290,6 @@ trait InteractsWithIO
 
     /**
      * Write a string as error output.
-	 * 写一个字符串作为错误输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -327,7 +302,6 @@ trait InteractsWithIO
 
     /**
      * Write a string as warning output.
-	 * 写一个字符串作为警告输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -346,7 +320,6 @@ trait InteractsWithIO
 
     /**
      * Write a string in an alert box.
-	 * 写一个字符串作为提示输出
      *
      * @param  string  $string
      * @return void
@@ -364,7 +337,6 @@ trait InteractsWithIO
 
     /**
      * Set the input interface implementation.
-	 * 设置输入接口实现
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return void
@@ -376,7 +348,6 @@ trait InteractsWithIO
 
     /**
      * Set the output interface implementation.
-	 * 设置输出接口实现
      *
      * @param  \Illuminate\Console\OutputStyle  $output
      * @return void
@@ -388,7 +359,6 @@ trait InteractsWithIO
 
     /**
      * Set the verbosity level.
-	 * 设置冗长级别
      *
      * @param  string|int  $level
      * @return void
@@ -400,7 +370,6 @@ trait InteractsWithIO
 
     /**
      * Get the verbosity level in terms of Symfony's OutputInterface level.
-	 * 得到冗长级别根据Symfony的OutputInterface级别
      *
      * @param  string|int|null  $level
      * @return int
@@ -418,7 +387,6 @@ trait InteractsWithIO
 
     /**
      * Get the output implementation.
-	 * 得到输出实现
      *
      * @return \Illuminate\Console\OutputStyle
      */

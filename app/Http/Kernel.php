@@ -1,6 +1,6 @@
 <?php
 /**
- * App，Http，Kernel内核
+ * App，Http，内核
  */
 
 namespace App\Http;
@@ -11,15 +11,16 @@ class Kernel extends HttpKernel
 {
     /**
      * The application's global HTTP middleware stack.
-	 * 应用全局Http中间件堆栈
+	 * 应用的全局HTTP中间件堆栈
      *
      * These middleware are run during every request to your application.
-     * 这些中间件在对应用程序的每次请求期间运行
      *
      * @var array
      */
     protected $middleware = [
+        // \App\Http\Middleware\TrustHosts::class,
         \App\Http\Middleware\TrustProxies::class,
+        \Fruitcake\Cors\HandleCors::class,
         \App\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
@@ -68,23 +69,5 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-    ];
-
-    /**
-     * The priority-sorted list of middleware.
-	 * 中间件的优先级排序
-     *
-     * This forces non-global middleware to always be in the given order.
-     *
-     * @var array
-     */
-    protected $middlewarePriority = [
-        \Illuminate\Session\Middleware\StartSession::class,
-        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\Authenticate::class,
-        \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        \Illuminate\Session\Middleware\AuthenticateSession::class,
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \Illuminate\Auth\Middleware\Authorize::class,
     ];
 }

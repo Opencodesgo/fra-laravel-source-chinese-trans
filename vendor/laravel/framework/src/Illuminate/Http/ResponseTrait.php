@@ -1,19 +1,18 @@
 <?php
 /**
- * Http，响应特征
+ * Illuminate，Http，响应特性
  */
 
 namespace Illuminate\Http;
 
-use Exception;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Symfony\Component\HttpFoundation\HeaderBag;
+use Throwable;
 
 trait ResponseTrait
 {
     /**
      * The original content of the response.
-	 * 响应原始内容
      *
      * @var mixed
      */
@@ -21,15 +20,13 @@ trait ResponseTrait
 
     /**
      * The exception that triggered the error response (if applicable).
-	 * 触发错误响应的异常(如果适用)
      *
-     * @var \Exception|null
+     * @var \Throwable|null
      */
     public $exception;
 
     /**
      * Get the status code for the response.
-	 * 得到响应状态代码
      *
      * @return int
      */
@@ -40,7 +37,6 @@ trait ResponseTrait
 
     /**
      * Get the content of the response.
-	 * 得到响应内容
      *
      * @return string
      */
@@ -51,7 +47,6 @@ trait ResponseTrait
 
     /**
      * Get the original response content.
-	 * 得到原始响应内容
      *
      * @return mixed
      */
@@ -64,7 +59,6 @@ trait ResponseTrait
 
     /**
      * Set a header on the Response.
-	 * 设置响应头
      *
      * @param  string  $key
      * @param  array|string  $values
@@ -80,7 +74,6 @@ trait ResponseTrait
 
     /**
      * Add an array of headers to the response.
-	 * 添加一个标题数组至响应
      *
      * @param  \Symfony\Component\HttpFoundation\HeaderBag|array  $headers
      * @return $this
@@ -100,7 +93,6 @@ trait ResponseTrait
 
     /**
      * Add a cookie to the response.
-	 * 添加cookie至响应
      *
      * @param  \Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
      * @return $this
@@ -112,7 +104,6 @@ trait ResponseTrait
 
     /**
      * Add a cookie to the response.
-	 * 添加cookie至响应
      *
      * @param  \Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
      * @return $this
@@ -130,7 +121,6 @@ trait ResponseTrait
 
     /**
      * Get the callback of the response.
-	 * 得到响应回调
      *
      * @return string|null
      */
@@ -141,12 +131,11 @@ trait ResponseTrait
 
     /**
      * Set the exception to attach to the response.
-	 * 设置响应异常
      *
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return $this
      */
-    public function withException(Exception $e)
+    public function withException(Throwable $e)
     {
         $this->exception = $e;
 
@@ -155,7 +144,7 @@ trait ResponseTrait
 
     /**
      * Throws the response in a HttpResponseException instance.
-	 * 抛出响应
+	 * 在HttpResponseException实例中抛出响应
      *
      * @return void
      *

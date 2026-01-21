@@ -1,7 +1,4 @@
 <?php
-/**
- * 验证，维度
- */
 
 namespace Illuminate\Validation\Rules;
 
@@ -9,7 +6,6 @@ class Dimensions
 {
     /**
      * The constraints for the dimensions rule.
-	 * 维度的约束规则
      *
      * @var array
      */
@@ -17,7 +13,6 @@ class Dimensions
 
     /**
      * Create a new dimensions rule instance.
-	 * 创建新的维度规则实例
      *
      * @param  array  $constraints
      * @return void
@@ -29,7 +24,6 @@ class Dimensions
 
     /**
      * Set the "width" constraint.
-	 * 设置"宽度"约束
      *
      * @param  int  $value
      * @return $this
@@ -43,7 +37,6 @@ class Dimensions
 
     /**
      * Set the "height" constraint.
-	 * 设置"高度"约束
      *
      * @param  int  $value
      * @return $this
@@ -57,7 +50,6 @@ class Dimensions
 
     /**
      * Set the "min width" constraint.
-	 * 设置"最小宽度"约束
      *
      * @param  int  $value
      * @return $this
@@ -71,7 +63,6 @@ class Dimensions
 
     /**
      * Set the "min height" constraint.
-	 * 设置"最小高度"约束
      *
      * @param  int  $value
      * @return $this
@@ -85,7 +76,6 @@ class Dimensions
 
     /**
      * Set the "max width" constraint.
-	 * 设置"最大宽度"约束
      *
      * @param  int  $value
      * @return $this
@@ -99,7 +89,6 @@ class Dimensions
 
     /**
      * Set the "max height" constraint.
-	 * 设置"最大高度"约束
      *
      * @param  int  $value
      * @return $this
@@ -113,7 +102,6 @@ class Dimensions
 
     /**
      * Set the "ratio" constraint.
-	 * 设置"比率"约束
      *
      * @param  float  $value
      * @return $this
@@ -127,7 +115,6 @@ class Dimensions
 
     /**
      * Convert the rule to a validation string.
-	 * 转换规则为验证字符串
      *
      * @return string
      */

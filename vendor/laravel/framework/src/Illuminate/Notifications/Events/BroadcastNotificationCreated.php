@@ -1,7 +1,4 @@
 <?php
-/**
- * 通知，广播通知创建
- */
 
 namespace Illuminate\Notifications\Events;
 
@@ -16,7 +13,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * The notifiable entity who received the notification.
-	 * 通知实体应收到通知的
      *
      * @var mixed
      */
@@ -24,7 +20,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * The notification instance.
-	 * 通知实例
      *
      * @var \Illuminate\Notifications\Notification
      */
@@ -32,7 +27,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * The notification data.
-	 * 通知数据
      *
      * @var array
      */
@@ -40,7 +34,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -56,7 +49,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * Get the channels the event should broadcast on.
-	 * 得到该事件应该播放的通道
      *
      * @return array
      */
@@ -79,7 +71,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * Get the broadcast channel name for the event.
-	 * 得到事件的广播频道名称
      *
      * @return array|string
      */
@@ -96,7 +87,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * Get the data that should be sent with the broadcasted event.
-	 * 得到应该随广播事件一起发送的数据
      *
      * @return array
      */
@@ -110,7 +100,6 @@ class BroadcastNotificationCreated implements ShouldBroadcast
 
     /**
      * Get the type of the notification being broadcast.
-	 * 得到正在广播的通知的类型
      *
      * @return string
      */

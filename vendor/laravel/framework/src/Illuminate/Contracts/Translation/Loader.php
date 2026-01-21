@@ -1,7 +1,4 @@
 <?php
-/**
- * 契约，翻译加载接口
- */
 
 namespace Illuminate\Contracts\Translation;
 
@@ -9,7 +6,6 @@ interface Loader
 {
     /**
      * Load the messages for the given locale.
-	 * 加载本地语言包
      *
      * @param  string  $locale
      * @param  string  $group
@@ -20,7 +16,6 @@ interface Loader
 
     /**
      * Add a new namespace to the loader.
-	 * 添加新的命名空间
      *
      * @param  string  $namespace
      * @param  string  $hint
@@ -30,7 +25,6 @@ interface Loader
 
     /**
      * Add a new JSON path to the loader.
-	 * 添加新的json路径
      *
      * @param  string  $path
      * @return void
@@ -39,7 +33,6 @@ interface Loader
 
     /**
      * Get an array of all the registered namespaces.
-	 * 得到命名空间
      *
      * @return array
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 授权，守卫助手
+ * Illuminate，认证，守卫助手
  */
 
 namespace Illuminate\Auth;
@@ -10,13 +10,11 @@ use Illuminate\Contracts\Auth\UserProvider;
 
 /**
  * These methods are typically the same across all guards.
- * 这些方法在所有守卫中通常是相同的
  */
 trait GuardHelpers
 {
     /**
      * The currently authenticated user.
-	 * 当前认证的用户
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable
      */
@@ -24,7 +22,6 @@ trait GuardHelpers
 
     /**
      * The user provider implementation.
-	 * 用户提供程序实现
      *
      * @var \Illuminate\Contracts\Auth\UserProvider
      */
@@ -32,7 +29,6 @@ trait GuardHelpers
 
     /**
      * Determine if current user is authenticated. If not, throw an exception.
-	 * 确定当前用户是否经过身份验证。如果不是，则抛出异常。
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable
      *
@@ -49,7 +45,6 @@ trait GuardHelpers
 
     /**
      * Determine if the guard has a user instance.
-	 * 确定守卫是否有用户实例
      *
      * @return bool
      */
@@ -60,7 +55,6 @@ trait GuardHelpers
 
     /**
      * Determine if the current user is authenticated.
-	 * 确定当前用户是否经过身份验证
      *
      * @return bool
      */
@@ -71,7 +65,6 @@ trait GuardHelpers
 
     /**
      * Determine if the current user is a guest.
-	 * 确定当前用户是否是访客
      *
      * @return bool
      */
@@ -82,9 +75,8 @@ trait GuardHelpers
 
     /**
      * Get the ID for the currently authenticated user.
-	 * 得到当前经过身份验证的用户的ID
      *
-     * @return int|null
+     * @return int|string|null
      */
     public function id()
     {
@@ -95,7 +87,6 @@ trait GuardHelpers
 
     /**
      * Set the current user.
-	 * 设置当前用户 
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return $this
@@ -109,7 +100,6 @@ trait GuardHelpers
 
     /**
      * Get the user provider used by the guard.
-	 * 得到守卫使用的用户提供者
      *
      * @return \Illuminate\Contracts\Auth\UserProvider
      */
@@ -120,7 +110,6 @@ trait GuardHelpers
 
     /**
      * Set the user provider used by the guard.
-	 * 设置守卫使用的用户提供者
      *
      * @param  \Illuminate\Contracts\Auth\UserProvider  $provider
      * @return void

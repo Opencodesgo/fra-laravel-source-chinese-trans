@@ -1,7 +1,4 @@
 <?php
-/**
- * 队列，任务，作业名称
- */
 
 namespace Illuminate\Queue\Jobs;
 
@@ -11,7 +8,6 @@ class JobName
 {
     /**
      * Parse the given job name into a class / method array.
-	 * 解析给定的作业名称为类/方法数组
      *
      * @param  string  $job
      * @return array
@@ -23,7 +19,6 @@ class JobName
 
     /**
      * Get the resolved name of the queued job class.
-	 * 得到队列作业类的解析名称
      *
      * @param  string  $name
      * @param  array  $payload

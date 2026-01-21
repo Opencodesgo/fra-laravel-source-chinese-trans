@@ -1,6 +1,6 @@
 <?php
 /**
- * 事件，事件服务提供者
+ * Illuminate，事件，事件服务提供者
  */
 
 namespace Illuminate\Events;
@@ -12,7 +12,6 @@ class EventServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
-	 * 注册服务提供者
      *
      * @return void
      */

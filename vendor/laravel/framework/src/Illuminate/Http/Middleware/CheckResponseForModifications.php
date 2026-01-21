@@ -1,7 +1,4 @@
 <?php
-/**
- * Http，检查修改响应
- */
 
 namespace Illuminate\Http\Middleware;
 
@@ -12,7 +9,6 @@ class CheckResponseForModifications
 {
     /**
      * Handle an incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

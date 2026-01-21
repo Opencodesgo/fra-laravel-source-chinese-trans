@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，查询，语法
- */
 
 namespace Illuminate\Database\Query\Grammars;
 
@@ -16,7 +13,6 @@ class Grammar extends BaseGrammar
 {
     /**
      * The grammar specific operators.
-	 * 语法特定操作符
      *
      * @var array
      */
@@ -24,7 +20,6 @@ class Grammar extends BaseGrammar
 
     /**
      * The components that make up a select clause.
-	 * 组成select子句的组件, 如columsn,wheres等
      *
      * @var array
      */
@@ -44,7 +39,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a select query into SQL.
-	 * 编译select查询语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -58,8 +52,6 @@ class Grammar extends BaseGrammar
         // If the query does not have any columns set, we'll set the columns to the
         // * character to just get all of the columns from the database. Then we
         // can build the query and concatenate all the pieces together as one.
-		// 如果查询没有设置任何列，我们将列设置为*字符，仅从数据库中获取所有列。
-		// 然后我们可以构建查询并将所有部分连接在一起。
         $original = $query->columns;
 
         if (is_null($query->columns)) {
@@ -69,8 +61,6 @@ class Grammar extends BaseGrammar
         // To compile the query, we'll spin through each component of the query and
         // see if that component exists. If it does we'll just call the compiler
         // function for the component which is responsible for making the SQL.
-		// 为了编译查询，我们将遍历查询的每个组件查看是否存在。
-		// 如果是这样我们将调用编译器负责生成SQL的组件函数。
         $sql = trim($this->concatenate(
             $this->compileComponents($query))
         );
@@ -86,7 +76,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the components necessary for a select clause.
-	 * 编译查询语句所需的组件
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return array
@@ -96,12 +85,7 @@ class Grammar extends BaseGrammar
         $sql = [];
 
         foreach ($this->selectComponents as $component) {
-            // To compile the query, we'll spin through each component of the query and
-            // see if that component exists. If it does we'll just call the compiler
-            // function for the component which is responsible for making the SQL.
-			// 为了编译查询，我们将遍历查询的每个组件查看是否存在。
-			// 如果是这样我们将调用编译器负责生成SQL的组件函数。
-            if (isset($query->$component) && ! is_null($query->$component)) {
+            if (isset($query->$component)) {
                 $method = 'compile'.ucfirst($component);
 
                 $sql[$component] = $this->$method($query, $query->$component);
@@ -113,7 +97,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an aggregated select clause.
-	 * 编译聚合选择子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $aggregate
@@ -126,8 +109,6 @@ class Grammar extends BaseGrammar
         // If the query has a "distinct" constraint and we're not asking for all columns
         // we need to prepend "distinct" onto the column name so that the query takes
         // it into account when it performs the aggregating operations on the data.
-		// 如果查询具有"distinct"约束，并且我们没有要求所有列，
-		// 我们需要在列名前添加"distince"，以便查询在对数据执行聚合操作时将其考虑在内。
         if (is_array($query->distinct)) {
             $column = 'distinct '.$this->columnize($query->distinct);
         } elseif ($query->distinct && $column !== '*') {
@@ -139,7 +120,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "select *" portion of the query.
-	 * 编译查询的"select *"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $columns
@@ -150,8 +130,6 @@ class Grammar extends BaseGrammar
         // If the query is actually performing an aggregating select, we will let that
         // compiler handle the building of the select clauses, as it will need some
         // more syntax that is best handled by that function to keep things neat.
-		// 如果查询实际上正在执行聚合选择，我们将让编译器处理选择子句的构建，
-		// 因为它需要更多语法，最好由该函数处理，以保持整洁。
         if (! is_null($query->aggregate)) {
             return;
         }
@@ -167,7 +145,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "from" portion of the query.
-	 * 编译查询的"from"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -180,7 +157,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "join" portions of the query.
-	 * 编译查询的"联接"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $joins
@@ -201,7 +177,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "where" portions of the query.
-	 * 编译查询的"where"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -211,8 +186,6 @@ class Grammar extends BaseGrammar
         // Each type of where clauses has its own compiler function which is responsible
         // for actually creating the where clauses SQL. This helps keep the code nice
         // and maintainable since each clause has a very small method that it uses.
-		// 每种where子句都有自己的编译器函数，负责实际创建where子句SQL。
-		// 这有助于保持代码的美观和可维护性，因为每个子句都有一个非常小的方法。
         if (is_null($query->wheres)) {
             return '';
         }
@@ -220,8 +193,6 @@ class Grammar extends BaseGrammar
         // If we actually have some where clauses, we will strip off the first boolean
         // operator, which is added by the query builders for convenience so we can
         // avoid checking for the first clauses in each of the compilers methods.
-		// 如果我们真的有一些where子句，我们将去掉第一个布尔运算符，
-		// 它是由查询构建器为了方便而添加的，这样我们就可以避免在每个编译器方法中检查第一个子句。
         if (count($sql = $this->compileWheresToArray($query)) > 0) {
             return $this->concatenateWhereClauses($query, $sql);
         }
@@ -231,7 +202,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Get an array of all the where clauses for the query.
-	 * 查询的所有条件子句的数组
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return array
@@ -245,7 +215,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Format the where clause statements into one string.
-	 * 将where子句语句格式化为一个字符串
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $sql
@@ -260,7 +229,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a raw where clause.
-	 * 编译原始条件子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -273,7 +241,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a basic where clause.
-	 * 编译基本条件子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -288,7 +255,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where in" clause.
-	 * 编写"where in"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -305,7 +271,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where not in" clause.
-	 * 编译"where not in"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -322,7 +287,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where not in raw" clause.
-	 * 编译"where not in raw"子句
      *
      * For safety, whereIntegerInRaw ensures this method is only used with integer values.
      *
@@ -341,7 +305,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where in raw" clause.
-	 *编译"where in raw"子句
      *
      * For safety, whereIntegerInRaw ensures this method is only used with integer values.
      *
@@ -360,7 +323,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where null" clause.
-	 * 编译"where null"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -373,7 +335,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where not null" clause.
-	 * 编译"where not null子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -386,7 +347,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "between" where clause.
-	 * 编译"between"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -404,8 +364,25 @@ class Grammar extends BaseGrammar
     }
 
     /**
+     * Compile a "between" where clause.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  array  $where
+     * @return string
+     */
+    protected function whereBetweenColumns(Builder $query, $where)
+    {
+        $between = $where['not'] ? 'not between' : 'between';
+
+        $min = $this->wrap(reset($where['values']));
+
+        $max = $this->wrap(end($where['values']));
+
+        return $this->wrap($where['column']).' '.$between.' '.$min.' and '.$max;
+    }
+
+    /**
      * Compile a "where date" clause.
-	 * 编译"where date"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -418,7 +395,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where time" clause.
-	 * 编译"where time"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -431,7 +407,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where day" clause.
-	 * 编译"where day"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -444,7 +419,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where month" clause.
-	 * 编译"where month"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -457,7 +431,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where year" clause.
-	 * 编译"where year"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -470,7 +443,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a date based where clause.
-	 * 编译基于日期的where子句
      *
      * @param  string  $type
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -486,7 +458,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a where clause comparing two columns..
-	 * 编译一个比较两列的where子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -499,7 +470,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a nested where clause.
-	 * 编译嵌套的where子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -510,9 +480,6 @@ class Grammar extends BaseGrammar
         // Here we will calculate what portion of the string we need to remove. If this
         // is a join clause query, we need to remove the "on" portion of the SQL and
         // if it is a normal query we need to take the leading "where" of queries.
-		// 在这里，我们将计算需要删除字符串的哪一部分。
-		// 如果这是一个连接子句查询，我们需要删除SQL的"on"部分，如果这是正常查询，
-		// 我们则需要取查询的前导"where"。
         $offset = $query instanceof JoinClause ? 3 : 6;
 
         return '('.substr($this->compileWheres($where['query']), $offset).')';
@@ -520,7 +487,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a where condition with a sub-select.
-	 * 编译带有子选择的where条件
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -535,7 +501,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a where exists clause.
-	 * 编译where exists子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -548,7 +513,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a where exists clause.
-	 * 编译where exists子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -561,7 +525,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a where row values condition.
-	 * 编译where行值条件
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -578,7 +541,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where JSON boolean" clause.
-	 * 编译"where JSON boolean"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -597,7 +559,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where JSON contains" clause.
-	 * 编译"where JSON contains"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -614,7 +575,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "JSON contains" statement into SQL.
-	 * 编译"JSON contains"子句至SQL
      *
      * @param  string  $column
      * @param  string  $value
@@ -629,7 +589,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Prepare the binding for a "JSON contains" statement.
-	 * 准备绑定"JSON contains"语句
      *
      * @param  mixed  $binding
      * @return string
@@ -641,7 +600,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "where JSON length" clause.
-	 * 编译"where JSON length"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -656,7 +614,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "JSON length" statement into SQL.
-	 * 编译"JSON length"子句至SQL
      *
      * @param  string  $column
      * @param  string  $operator
@@ -672,7 +629,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "group by" portions of the query.
-	 * 编译查询的"group by"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $groups
@@ -685,8 +641,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "having" portions of the query.
-	 * 编译"having"查询的部分
-	 * 
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $havings
@@ -701,7 +655,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a single having clause.
-	 * 编译单个having子句
      *
      * @param  array  $having
      * @return string
@@ -711,8 +664,6 @@ class Grammar extends BaseGrammar
         // If the having clause is "raw", we can just return the clause straight away
         // without doing any more processing on it. Otherwise, we will compile the
         // clause into SQL based on the components that make it up from builder.
-		// 如果have子句是"原始"的，我们可以直接返回子句，而无需对其进行任何处理。
-		// 否则，我们将根据构建器中组成子句的组件将子句编译成SQL。
         if ($having['type'] === 'Raw') {
             return $having['boolean'].' '.$having['sql'];
         } elseif ($having['type'] === 'between') {
@@ -724,7 +675,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a basic having clause.
-	 * 编译基本having子句
      *
      * @param  array  $having
      * @return string
@@ -740,7 +690,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a "between" having clause.
-	 * 编译between子句
      *
      * @param  array  $having
      * @return string
@@ -760,7 +709,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "order by" portions of the query.
-	 * 编译order by查询部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $orders
@@ -777,7 +725,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the query orders to an array.
-	 * 将查询顺序编译为数组
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $orders
@@ -792,7 +739,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the random statement into SQL.
-	 * 将随机语句编译成SQL
      *
      * @param  string  $seed
      * @return string
@@ -804,7 +750,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "limit" portions of the query.
-	 * 编译查询的"limit"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $limit
@@ -817,7 +762,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "offset" portions of the query.
-	 * 编译查询的"offset"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $offset
@@ -830,7 +774,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the "union" queries attached to the main query.
-	 * 编译附加到主查询的"union"查询
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -860,7 +803,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a single union statement.
-	 * 编译单个union查询
      *
      * @param  array  $union
      * @return string
@@ -874,7 +816,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Wrap a union subquery in parentheses.
-	 * 包装联合子查询在括号中
      *
      * @param  string  $sql
      * @return string
@@ -886,7 +827,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a union aggregate query into SQL.
-	 * 编译联合聚合查询为SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -902,7 +842,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an exists statement into SQL.
-	 * 编译exists语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -916,7 +855,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an insert statement into SQL.
-	 * 编译insert语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -927,8 +865,6 @@ class Grammar extends BaseGrammar
         // Essentially we will force every insert to be treated as a batch insert which
         // simply makes creating the SQL easier for us since we can utilize the same
         // basic routine regardless of an amount of records given to us to insert.
-		// 本质上，我们将强制将每个插入视为批插入，这只会使创建SQL对我们来说更容易，
-		// 因为我们可以使用相同的基本例程，而不管给我们插入的记录数量如何。
         $table = $this->wrapTable($query->from);
 
         if (empty($values)) {
@@ -944,8 +880,6 @@ class Grammar extends BaseGrammar
         // We need to build a list of parameter place-holders of values that are bound
         // to the query. Each insert should have the exact same amount of parameter
         // bindings so we will loop through the record and parameterize them all.
-		// 我们需要构建一个绑定到查询的值的参数占位符列表。
-		// 每个插入都应该有完全相同数量的参数绑定，这样我们就可以遍历记录并将它们全部参数化。
         $parameters = collect($values)->map(function ($record) {
             return '('.$this->parameterize($record).')';
         })->implode(', ');
@@ -955,7 +889,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an insert ignore statement into SQL.
-	 * 编译插入忽略语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -970,7 +903,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an insert and get ID statement into SQL.
-	 * 编译插入和获取ID语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -984,7 +916,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an insert statement using a subquery into SQL.
-	 * 编译插入语句为SQL使用子查询
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $columns
@@ -998,7 +929,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an update statement into SQL.
-	 * 编译update语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -1021,7 +951,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the columns for an update statement.
-	 * 编译更新语句的列
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -1036,7 +965,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an update statement without joins into SQL.
-	  * 编译一个没有连接的update语句到SQL中
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -1051,7 +979,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile an update statement with joins into SQL.
-	 * 编译带有连接的更新语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -1068,7 +995,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Prepare the bindings for an update statement.
-	 * 准备绑定为更新语句
      *
      * @param  array  $bindings
      * @param  array  $values
@@ -1085,7 +1011,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a delete statement into SQL.
-	 * 编译delete语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -1105,7 +1030,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a delete statement without joins into SQL.
-	 * 编译没有连接的delete语句到SQL中
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -1119,7 +1043,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a delete statement with joins into SQL.
-	 * 编译带有连接的删除语句编成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -1137,7 +1060,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Prepare the bindings for a delete statement.
-	 * 为delete语句准备绑定
      *
      * @param  array  $bindings
      * @return array
@@ -1151,7 +1073,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile a truncate table statement into SQL.
-	 * 编译截断表语句成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return array
@@ -1163,7 +1084,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the lock into SQL.
-	 * 将锁编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  bool|string  $value
@@ -1176,7 +1096,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Determine if the grammar supports savepoints.
-	 * 确定语法是否支持保存点
      *
      * @return bool
      */
@@ -1187,7 +1106,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the SQL statement to define a savepoint.
-	 * 编译SQL语句以定义保存点
      *
      * @param  string  $name
      * @return string
@@ -1199,7 +1117,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Compile the SQL statement to execute a savepoint rollback.
-	 * 编译SQL语句以执行保存点回滚
      *
      * @param  string  $name
      * @return string
@@ -1211,7 +1128,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Wrap a value in keyword identifiers.
-	 * 将值包装在关键字标识符中
      *
      * @param  \Illuminate\Database\Query\Expression|string  $value
      * @param  bool  $prefixAlias
@@ -1226,8 +1142,6 @@ class Grammar extends BaseGrammar
         // If the value being wrapped has a column alias we will need to separate out
         // the pieces so we can wrap each of the segments of the expression on its
         // own, and then join these both back together using the "as" connector.
-		// 如果要包装的值有一个列别名，我们需要将这些部分分开，
-		// 这样我们就可以单独包装表达式的每个段，然后使用"as"连接器将它们连接在一起。
         if (stripos($value, ' as ') !== false) {
             return $this->wrapAliasedValue($value, $prefixAlias);
         }
@@ -1235,8 +1149,6 @@ class Grammar extends BaseGrammar
         // If the given value is a JSON selector we will wrap it differently than a
         // traditional value. We will need to split this path and wrap each part
         // wrapped, etc. Otherwise, we will simply wrap the value as a string.
-		// 如果给定的值是JSON选择器，我们将以不同于传统值的方式包装它。
-		// 我们需要分割此路径并将每个部分包装起来，等等。否则，我们只需将值包装成字符串。
         if ($this->isJsonSelector($value)) {
             return $this->wrapJsonSelector($value);
         }
@@ -1246,7 +1158,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Wrap the given JSON selector.
-	 * 包装给定的JSON选择器
      *
      * @param  string  $value
      * @return string
@@ -1260,7 +1171,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Wrap the given JSON selector for boolean values.
-	 * 包装给定的JSON选择器为布尔值
      *
      * @param  string  $value
      * @return string
@@ -1272,7 +1182,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Wrap the given JSON boolean value.
-	 * 包装给定的JSON布尔值
      *
      * @param  string  $value
      * @return string
@@ -1284,7 +1193,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Split the given JSON selector into the field and the optional path and wrap them separately.
-	 * 将给定的JSON选择器拆分到字段和可选路径中，并分别包装它们。
      *
      * @param  string  $column
      * @return array
@@ -1302,7 +1210,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Wrap the given JSON path.
-	 * 包装给定的JSON路径
      *
      * @param  string  $value
      * @param  string  $delimiter
@@ -1317,7 +1224,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Determine if the given string is a JSON selector.
-	 * 确定给定字符串是否是JSON选择器
      *
      * @param  string  $value
      * @return bool
@@ -1329,7 +1235,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Concatenate an array of segments, removing empties.
-	 * 连接一个段数组，删除空段。
      *
      * @param  array  $segments
      * @return string
@@ -1343,7 +1248,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Remove the leading boolean from a statement.
-	 * 删除前导布尔值从语句中
      *
      * @param  string  $value
      * @return string
@@ -1355,7 +1259,6 @@ class Grammar extends BaseGrammar
 
     /**
      * Get the grammar specific operators.
-	 * 得到特定语法操作符
      *
      * @return array
      */

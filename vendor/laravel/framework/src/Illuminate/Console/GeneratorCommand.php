@@ -1,7 +1,4 @@
 <?php
-/**
- * 控制台，命令生成器抽象类
- */
 
 namespace Illuminate\Console;
 
@@ -13,7 +10,6 @@ abstract class GeneratorCommand extends Command
 {
     /**
      * The filesystem instance.
-	 * 文件系统实例
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -21,15 +17,89 @@ abstract class GeneratorCommand extends Command
 
     /**
      * The type of class being generated.
-	 * 生成的类的类型
      *
      * @var string
      */
     protected $type;
 
     /**
+     * Reserved names that cannot be used for generation.
+     *
+     * @var array
+     */
+    protected $reservedNames = [
+        '__halt_compiler',
+        'abstract',
+        'and',
+        'array',
+        'as',
+        'break',
+        'callable',
+        'case',
+        'catch',
+        'class',
+        'clone',
+        'const',
+        'continue',
+        'declare',
+        'default',
+        'die',
+        'do',
+        'echo',
+        'else',
+        'elseif',
+        'empty',
+        'enddeclare',
+        'endfor',
+        'endforeach',
+        'endif',
+        'endswitch',
+        'endwhile',
+        'eval',
+        'exit',
+        'extends',
+        'final',
+        'finally',
+        'fn',
+        'for',
+        'foreach',
+        'function',
+        'global',
+        'goto',
+        'if',
+        'implements',
+        'include',
+        'include_once',
+        'instanceof',
+        'insteadof',
+        'interface',
+        'isset',
+        'list',
+        'namespace',
+        'new',
+        'or',
+        'print',
+        'private',
+        'protected',
+        'public',
+        'require',
+        'require_once',
+        'return',
+        'static',
+        'switch',
+        'throw',
+        'trait',
+        'try',
+        'unset',
+        'use',
+        'var',
+        'while',
+        'xor',
+        'yield',
+    ];
+
+    /**
      * Create a new controller creator command instance.
-	 * 创建新的控制器创建器命令实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @return void
@@ -43,7 +113,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的存根文件
      *
      * @return string
      */
@@ -51,7 +120,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
      * @return bool|null
      *
@@ -59,16 +127,22 @@ abstract class GeneratorCommand extends Command
      */
     public function handle()
     {
+        // First we need to ensure that the given name is not a reserved word within the PHP
+        // language and that the class name will actually be valid. If it is not valid we
+        // can error now and prevent from polluting the filesystem using invalid files.
+        if ($this->isReservedName($this->getNameInput())) {
+            $this->error('The name "'.$this->getNameInput().'" is reserved by PHP.');
+
+            return false;
+        }
+
         $name = $this->qualifyClass($this->getNameInput());
 
         $path = $this->getPath($name);
 
-        // First we will check to see if the class already exists. If it does, we don't want
+        // Next, We will check to see if the class already exists. If it does, we don't want
         // to create the class and overwrite the user's code. So, we will bail out so the
         // code is untouched. Otherwise, we will continue generating this class' files.
-		// 首先，我们将检查类是否已经存在。
-		// 如果是这样，我们不想创建类并覆盖用户的代码。所以，我们会保释代码未被修改。
-		// 否则，我们将继续生成此类文件。
         if ((! $this->hasOption('force') ||
              ! $this->option('force')) &&
              $this->alreadyExists($this->getNameInput())) {
@@ -80,8 +154,6 @@ abstract class GeneratorCommand extends Command
         // Next, we will generate the path to the location where this class' file should get
         // written. Then, we will build the class and make the proper replacements on the
         // stub files so that it gets the correctly formatted namespace and class name.
-		// 接下来，我们将生成该类文件应获取的位置的路径。
-		// 然后，我们将构建类并进行适当的更换存根文件，以便它获得格式正确的命名空间和类名。
         $this->makeDirectory($path);
 
         $this->files->put($path, $this->sortImports($this->buildClass($name)));
@@ -91,7 +163,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Parse the class name and format according to the root namespace.
-	 * 根据根命名空间解析类名和格式
      *
      * @param  string  $name
      * @return string
@@ -115,7 +186,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Get the default namespace for the class.
-	 * 得到默认的命名空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -127,7 +197,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Determine if the class already exists.
-	 * 确定类是否已经存在
      *
      * @param  string  $rawName
      * @return bool
@@ -139,7 +208,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Get the destination class path.
-	 * 得到目标类路径
      *
      * @param  string  $name
      * @return string
@@ -153,7 +221,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Build the directory for the class if necessary.
-	 * 为类构建目录，如有必要。
      *
      * @param  string  $path
      * @return string
@@ -169,7 +236,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Build the class with the given name.
-	 * 构建类用给定的名称
      *
      * @param  string  $name
      * @return string
@@ -185,7 +251,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Replace the namespace for the given stub.
-	 * 替换命名空间为给定存根
      *
      * @param  string  $stub
      * @param  string  $name
@@ -193,18 +258,25 @@ abstract class GeneratorCommand extends Command
      */
     protected function replaceNamespace(&$stub, $name)
     {
-        $stub = str_replace(
+        $searches = [
             ['DummyNamespace', 'DummyRootNamespace', 'NamespacedDummyUserModel'],
-            [$this->getNamespace($name), $this->rootNamespace(), $this->userProviderModel()],
-            $stub
-        );
+            ['{{ namespace }}', '{{ rootNamespace }}', '{{ namespacedUserModel }}'],
+            ['{{namespace}}', '{{rootNamespace}}', '{{namespacedUserModel}}'],
+        ];
+
+        foreach ($searches as $search) {
+            $stub = str_replace(
+                $search,
+                [$this->getNamespace($name), $this->rootNamespace(), $this->userProviderModel()],
+                $stub
+            );
+        }
 
         return $this;
     }
 
     /**
      * Get the full namespace for a given class, without the class name.
-	 * 得到给定类的完整名称空间，不包含类名。
      *
      * @param  string  $name
      * @return string
@@ -216,7 +288,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Replace the class name for the given stub.
-	 * 替换类名为给定的存根
      *
      * @param  string  $stub
      * @param  string  $name
@@ -226,12 +297,11 @@ abstract class GeneratorCommand extends Command
     {
         $class = str_replace($this->getNamespace($name).'\\', '', $name);
 
-        return str_replace('DummyClass', $class, $stub);
+        return str_replace(['DummyClass', '{{ class }}', '{{class}}'], $class, $stub);
     }
 
     /**
      * Alphabetically sorts the imports for the given stub.
-	 * 按字母顺序对给定存根的导入进行排序
      *
      * @param  string  $stub
      * @return string
@@ -251,7 +321,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Get the desired class name from the input.
-	 * 得到所需的类名从输入中
      *
      * @return string
      */
@@ -262,7 +331,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Get the root namespace for the class.
-	 * 得到类的根命名空间
      *
      * @return string
      */
@@ -273,7 +341,6 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Get the model for the default guard's user provider.
-	 * 得到默认保护的用户提供程序的模型
      *
      * @return string|null
      */
@@ -287,8 +354,33 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
+     * Checks whether the given name is reserved.
+     *
+     * @param  string  $name
+     * @return bool
+     */
+    protected function isReservedName($name)
+    {
+        $name = strtolower($name);
+
+        return in_array($name, $this->reservedNames);
+    }
+
+    /**
+     * Get the first view directory path from the application configuration.
+     *
+     * @param  string  $path
+     * @return string
+     */
+    protected function viewPath($path = '')
+    {
+        $views = $this->laravel['config']['view.paths'][0] ?? resource_path('views');
+
+        return $views.($path ? DIRECTORY_SEPARATOR.$path : $path);
+    }
+
+    /**
      * Get the console command arguments.
-	 * 得到控制台命令参数
      *
      * @return array
      */

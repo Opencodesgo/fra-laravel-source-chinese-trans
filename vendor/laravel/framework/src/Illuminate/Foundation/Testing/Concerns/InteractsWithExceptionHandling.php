@@ -1,21 +1,17 @@
 <?php
-/**
- * 基础，与异常处理交互
- */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
-use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\Console\Application as ConsoleApplication;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Throwable;
 
 trait InteractsWithExceptionHandling
 {
     /**
      * The original exception handler.
-	 * 原始异常处理
      *
      * @var \Illuminate\Contracts\Debug\ExceptionHandler|null
      */
@@ -23,7 +19,6 @@ trait InteractsWithExceptionHandling
 
     /**
      * Restore exception handling.
-	 * 恢复异常处理
      *
      * @return $this
      */
@@ -38,7 +33,6 @@ trait InteractsWithExceptionHandling
 
     /**
      * Only handle the given exceptions via the exception handler.
-	 * 只通过异常处理程序处理给定的异常
      *
      * @param  array  $exceptions
      * @return $this
@@ -50,7 +44,6 @@ trait InteractsWithExceptionHandling
 
     /**
      * Only handle validation exceptions via the exception handler.
-	 * 只通过异常处理程序处理验证异常
      *
      * @return $this
      */
@@ -61,7 +54,6 @@ trait InteractsWithExceptionHandling
 
     /**
      * Disable exception handling for the test.
-	 * 禁用测试的异常处理
      *
      * @param  array  $except
      * @return $this
@@ -93,12 +85,12 @@ trait InteractsWithExceptionHandling
             /**
              * Report or log an exception.
              *
-             * @param  \Exception  $e
+             * @param  \Throwable  $e
              * @return void
              *
              * @throws \Exception
              */
-            public function report(Exception $e)
+            public function report(Throwable $e)
             {
                 //
             }
@@ -106,10 +98,10 @@ trait InteractsWithExceptionHandling
             /**
              * Determine if the exception should be reported.
              *
-             * @param  \Exception  $e
+             * @param  \Throwable  $e
              * @return bool
              */
-            public function shouldReport(Exception $e)
+            public function shouldReport(Throwable $e)
             {
                 return false;
             }
@@ -118,12 +110,12 @@ trait InteractsWithExceptionHandling
              * Render an exception into an HTTP response.
              *
              * @param  \Illuminate\Http\Request  $request
-             * @param  \Exception  $e
+             * @param  \Throwable  $e
              * @return \Symfony\Component\HttpFoundation\Response
              *
-             * @throws \Exception
+             * @throws \Throwable
              */
-            public function render($request, Exception $e)
+            public function render($request, Throwable $e)
             {
                 foreach ($this->except as $class) {
                     if ($e instanceof $class) {
@@ -144,12 +136,12 @@ trait InteractsWithExceptionHandling
              * Render an exception to the console.
              *
              * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-             * @param  \Exception  $e
+             * @param  \Throwable  $e
              * @return void
              */
-            public function renderForConsole($output, Exception $e)
+            public function renderForConsole($output, Throwable $e)
             {
-                (new ConsoleApplication)->renderException($e, $output);
+                (new ConsoleApplication)->renderThrowable($e, $output);
             }
         });
 

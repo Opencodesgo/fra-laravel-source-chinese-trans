@@ -1,7 +1,4 @@
 <?php
-/**
- * 通知，路由通知
- */
 
 namespace Illuminate\Notifications;
 
@@ -12,7 +9,6 @@ trait RoutesNotifications
 {
     /**
      * Send the given notification.
-	 * 发送给定的通知
      *
      * @param  mixed  $instance
      * @return void
@@ -24,7 +20,6 @@ trait RoutesNotifications
 
     /**
      * Send the given notification immediately.
-	 * 立即发送给定的通知
      *
      * @param  mixed  $instance
      * @param  array|null  $channels
@@ -37,7 +32,6 @@ trait RoutesNotifications
 
     /**
      * Get the notification routing information for the given driver.
-	 * 得到给定驱动程序的通知路由信息
      *
      * @param  string  $driver
      * @param  \Illuminate\Notifications\Notification|null  $notification

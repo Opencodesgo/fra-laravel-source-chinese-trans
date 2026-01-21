@@ -1,7 +1,4 @@
 <?php
-/**
- * 授权，需要密码
- */
 
 namespace Illuminate\Auth\Middleware;
 
@@ -13,7 +10,6 @@ class RequirePassword
 {
     /**
      * The response factory instance.
-	 * 响应工厂实例
      *
      * @var \Illuminate\Contracts\Routing\ResponseFactory
      */
@@ -21,7 +17,6 @@ class RequirePassword
 
     /**
      * The URL generator instance.
-	 * 生成器实例URL
      *
      * @var \Illuminate\Contracts\Routing\UrlGenerator
      */
@@ -29,7 +24,6 @@ class RequirePassword
 
     /**
      * The password timeout.
-	 * 密码超时
      *
      * @var int
      */
@@ -37,7 +31,6 @@ class RequirePassword
 
     /**
      * Create a new middleware instance.
-	 * 创建新的中间件实例
      *
      * @param  \Illuminate\Contracts\Routing\ResponseFactory  $responseFactory
      * @param  \Illuminate\Contracts\Routing\UrlGenerator  $urlGenerator
@@ -53,7 +46,6 @@ class RequirePassword
 
     /**
      * Handle an incoming request.
-	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -79,7 +71,6 @@ class RequirePassword
 
     /**
      * Determine if the confirmation timeout has expired.
-	 * 确定确认超时是否已过期
      *
      * @param  \Illuminate\Http\Request  $request
      * @return bool

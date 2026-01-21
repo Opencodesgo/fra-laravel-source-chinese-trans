@@ -1,6 +1,6 @@
 <?php
 /**
- * 路由，路由依赖解析特性
+ * Illuminate，路由，路由依赖解析器特性
  */
 
 namespace Illuminate\Routing;
@@ -15,7 +15,6 @@ trait RouteDependencyResolverTrait
 {
     /**
      * Resolve the object method's type-hinted dependencies.
-	 * 解析对象方法的类型暗示依赖项
      *
      * @param  array  $parameters
      * @param  object  $instance
@@ -35,7 +34,6 @@ trait RouteDependencyResolverTrait
 
     /**
      * Resolve the given method's type-hinted dependencies.
-	 * 解析给定方法的类型提示依赖项
      *
      * @param  array  $parameters
      * @param  \ReflectionFunctionAbstract  $reflector
@@ -47,12 +45,12 @@ trait RouteDependencyResolverTrait
 
         $values = array_values($parameters);
 
-        foreach ($reflector->getParameters() as $key => $parameter) {
-            $instance = $this->transformDependency(
-                $parameter, $parameters
-            );
+        $skippableValue = new \stdClass;
 
-            if (! is_null($instance)) {
+        foreach ($reflector->getParameters() as $key => $parameter) {
+            $instance = $this->transformDependency($parameter, $parameters, $skippableValue);
+
+            if ($instance !== $skippableValue) {
                 $instanceCount++;
 
                 $this->spliceIntoParameters($parameters, $key, $instance);
@@ -67,31 +65,28 @@ trait RouteDependencyResolverTrait
 
     /**
      * Attempt to transform the given parameter into a class instance.
-	 * 尝试将给定的参数转换为类实例
      *
      * @param  \ReflectionParameter  $parameter
      * @param  array  $parameters
+     * @param  object  $skippableValue
      * @return mixed
      */
-    protected function transformDependency(ReflectionParameter $parameter, $parameters)
+    protected function transformDependency(ReflectionParameter $parameter, $parameters, $skippableValue)
     {
         $className = Reflector::getParameterClassName($parameter);
 
         // If the parameter has a type-hinted class, we will check to see if it is already in
         // the list of parameters. If it is we will just skip it as it is probably a model
         // binding and we do not want to mess with those; otherwise, we resolve it here.
-		// 如果参数有一个类型提示类，我们将检查它是否已经在参数列表中。
-		// 如果是这样，我们就跳过它，因为它可能是一个模型绑定，我们不想弄乱这些；否则，我们在这里解决。
         if ($className && ! $this->alreadyInParameters($className, $parameters)) {
-            return $parameter->isDefaultValueAvailable()
-                ? $parameter->getDefaultValue()
-                : $this->container->make($className);
+            return $parameter->isDefaultValueAvailable() ? null : $this->container->make($className);
         }
+
+        return $skippableValue;
     }
 
     /**
      * Determine if an object of the given class is in a list of parameters.
-	 * 确定给定类的对象是否在参数列表中
      *
      * @param  string  $class
      * @param  array  $parameters
@@ -106,7 +101,6 @@ trait RouteDependencyResolverTrait
 
     /**
      * Splice the given value into the parameter list.
-	 * 拼接给定的值到参数列表中
      *
      * @param  array  $parameters
      * @param  string  $offset

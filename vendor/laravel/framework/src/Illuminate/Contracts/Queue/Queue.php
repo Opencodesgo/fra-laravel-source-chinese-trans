@@ -1,7 +1,4 @@
 <?php
-/**
- * 契约，队列接口
- */
 
 namespace Illuminate\Contracts\Queue;
 
@@ -9,7 +6,6 @@ interface Queue
 {
     /**
      * Get the size of the queue.
-	 * 得到队列大小
      *
      * @param  string|null  $queue
      * @return int
@@ -18,7 +14,6 @@ interface Queue
 
     /**
      * Push a new job onto the queue.
-	 * 推入新作业入队列
      *
      * @param  string|object  $job
      * @param  mixed  $data
@@ -29,7 +24,6 @@ interface Queue
 
     /**
      * Push a new job onto the queue.
-	 * 推入新作业入队列
      *
      * @param  string  $queue
      * @param  string|object  $job
@@ -40,7 +34,6 @@ interface Queue
 
     /**
      * Push a raw payload onto the queue.
-	 * 推入原始有效负载至队列
      *
      * @param  string  $payload
      * @param  string|null  $queue
@@ -51,7 +44,6 @@ interface Queue
 
     /**
      * Push a new job onto the queue after a delay.
-	 * 推入新作业至队列使用延迟
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string|object  $job
@@ -63,7 +55,6 @@ interface Queue
 
     /**
      * Push a new job onto the queue after a delay.
-	 * 推入新任务至队列使用延迟
      *
      * @param  string  $queue
      * @param  \DateTimeInterface|\DateInterval|int  $delay
@@ -75,7 +66,6 @@ interface Queue
 
     /**
      * Push an array of jobs onto the queue.
-	 * 推入任务数组至队列
      *
      * @param  array  $jobs
      * @param  mixed  $data
@@ -86,16 +76,14 @@ interface Queue
 
     /**
      * Pop the next job off of the queue.
-	 * 取出下一个任务从队列中
      *
-     * @param  string  $queue
+     * @param  string|null  $queue
      * @return \Illuminate\Contracts\Queue\Job|null
      */
     public function pop($queue = null);
 
     /**
      * Get the connection name for the queue.
-	 * 得到队列连接名
      *
      * @return string
      */
@@ -103,7 +91,6 @@ interface Queue
 
     /**
      * Set the connection name for the queue.
-	 * 设置队列连接名
      *
      * @param  string  $name
      * @return $this

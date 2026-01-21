@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，Composer
- */
 
 namespace Illuminate\Support;
 
@@ -13,7 +10,6 @@ class Composer
 {
     /**
      * The filesystem instance.
-	 * 文件系统实例
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -21,7 +17,6 @@ class Composer
 
     /**
      * The working path to regenerate from.
-	 * 要重新生成的工作路径
      *
      * @var string|null
      */
@@ -29,7 +24,6 @@ class Composer
 
     /**
      * Create a new Composer manager instance.
-	 * 创建新的管理实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @param  string|null  $workingPath
@@ -43,7 +37,6 @@ class Composer
 
     /**
      * Regenerate the Composer autoloader files.
-	 * 重新生成Composer自动加载器文件
      *
      * @param  string|array  $extra
      * @return void
@@ -59,7 +52,6 @@ class Composer
 
     /**
      * Regenerate the optimized Composer autoloader files.
-	 * 重新生成优化的Composer自动加载器文件
      *
      * @return void
      */
@@ -70,7 +62,6 @@ class Composer
 
     /**
      * Get the composer command for the environment.
-	 * 得到环境的编写器命令
      *
      * @return array
      */
@@ -85,7 +76,6 @@ class Composer
 
     /**
      * Get the PHP binary.
-	 * 得到PHP二进制
      *
      * @return string
      */
@@ -96,7 +86,6 @@ class Composer
 
     /**
      * Get a new Symfony process instance.
-	 * 得到一个新的Symfony流程实例
      *
      * @param  array  $command
      * @return \Symfony\Component\Process\Process
@@ -108,7 +97,6 @@ class Composer
 
     /**
      * Set the working path used by the class.
-	 * 设置类使用的工作路径
      *
      * @param  string  $path
      * @return $this

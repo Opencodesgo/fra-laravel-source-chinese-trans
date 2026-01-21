@@ -1,15 +1,12 @@
 <?php
-/**
- * 基础，虚拟类根文件
- */
 
-namespace DummyNamespace;
+namespace {{ namespace }};
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class DummyClass extends TestCase
+class {{ class }} extends TestCase
 {
     /**
      * A basic feature test example.

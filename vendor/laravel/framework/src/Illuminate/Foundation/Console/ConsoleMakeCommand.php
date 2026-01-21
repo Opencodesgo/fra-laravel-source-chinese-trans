@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，控制台生成命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -13,7 +10,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -21,7 +17,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成类的类型
      *
      * @var string
      */
@@ -37,7 +31,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Replace the class name for the given stub.
-	 * 替换给定存根的类名
      *
      * @param  string  $stub
      * @param  string  $name
@@ -47,23 +40,25 @@ class ConsoleMakeCommand extends GeneratorCommand
     {
         $stub = parent::replaceClass($stub, $name);
 
-        return str_replace('dummy:command', $this->option('command'), $stub);
+        return str_replace(['dummy:command', '{{ command }}'], $this->option('command'), $stub);
     }
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的存根文件
      *
      * @return string
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/console.stub';
+        $relativePath = '/stubs/console.stub';
+
+        return file_exists($customPath = $this->laravel->basePath(trim($relativePath, '/')))
+            ? $customPath
+            : __DIR__.$relativePath;
     }
 
     /**
      * Get the default namespace for the class.
-	 * 得到类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -75,7 +70,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command arguments.
-	 * 得到控制台命令参数
      *
      * @return array
      */
@@ -88,7 +82,6 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
-	 * 得到控制台命令选项
      *
      * @return array
      */

@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，迁移回滚命令
- */
 
 namespace Illuminate\Database\Console\Migrations;
 
@@ -15,7 +12,6 @@ class RollbackCommand extends BaseCommand
 
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -23,7 +19,6 @@ class RollbackCommand extends BaseCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -31,7 +26,6 @@ class RollbackCommand extends BaseCommand
 
     /**
      * The migrator instance.
-	 * 迁移实例
      *
      * @var \Illuminate\Database\Migrations\Migrator
      */
@@ -39,7 +33,6 @@ class RollbackCommand extends BaseCommand
 
     /**
      * Create a new migration rollback command instance.
-	 * 创建新的迁移回滚命令实例
      *
      * @param  \Illuminate\Database\Migrations\Migrator  $migrator
      * @return void
@@ -53,29 +46,29 @@ class RollbackCommand extends BaseCommand
 
     /**
      * Execute the console command.
-	 * 执行控制台命令
      *
-     * @return void
+     * @return int
      */
     public function handle()
     {
         if (! $this->confirmToProceed()) {
-            return;
+            return 1;
         }
 
-        $this->migrator->setConnection($this->option('database'));
+        $this->migrator->usingConnection($this->option('database'), function () {
+            $this->migrator->setOutput($this->output)->rollback(
+                $this->getMigrationPaths(), [
+                    'pretend' => $this->option('pretend'),
+                    'step' => (int) $this->option('step'),
+                ]
+            );
+        });
 
-        $this->migrator->setOutput($this->output)->rollback(
-            $this->getMigrationPaths(), [
-                'pretend' => $this->option('pretend'),
-                'step' => (int) $this->option('step'),
-            ]
-        );
+        return 0;
     }
 
     /**
      * Get the console command options.
-	 * 得到控制台命令选项
      *
      * @return array
      */

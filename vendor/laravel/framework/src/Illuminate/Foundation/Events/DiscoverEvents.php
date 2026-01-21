@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，发现事件
- */
 
 namespace Illuminate\Foundation\Events;
 
@@ -17,7 +14,6 @@ class DiscoverEvents
 {
     /**
      * Get all of the events and listeners by searching the given listener directory.
-	 * 得到所有事件和侦听器
      *
      * @param  string  $listenerPath
      * @param  string  $basePath
@@ -34,7 +30,6 @@ class DiscoverEvents
 
     /**
      * Get all of the listeners and their corresponding events.
-	 * 得到所有的侦听器及其相应的事件
      *
      * @param  iterable  $listeners
      * @param  string  $basePath
@@ -73,7 +68,6 @@ class DiscoverEvents
 
     /**
      * Extract the class name from the given file path.
-	 * 提取类名从给定的文件路径中
      *
      * @param  \SplFileInfo  $file
      * @param  string  $basePath

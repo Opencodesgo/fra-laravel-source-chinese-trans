@@ -1,19 +1,18 @@
 <?php
 /**
- * 路由，路由管道
+ * Illuminate，路由，管道
  */
 
 namespace Illuminate\Routing;
 
-use Exception;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Request;
 use Illuminate\Pipeline\Pipeline as BasePipeline;
+use Throwable;
 
 /**
  * This extended pipeline catches any exceptions that occur during each slice.
- * 这个扩展的管道捕获每个切片期间发生的任何异常
  *
  * The exceptions are converted to HTTP responses for proper middleware handling.
  */
@@ -21,7 +20,6 @@ class Pipeline extends BasePipeline
 {
     /**
      * Handles the value returned from each pipe before passing it to the next.
-	 * 处理从每个管道返回的值，然后将其传递给下一个管道
      *
      * @param  mixed  $carry
      * @return mixed
@@ -35,15 +33,14 @@ class Pipeline extends BasePipeline
 
     /**
      * Handle the given exception.
-	 * 处理给定的异常
      *
      * @param  mixed  $passable
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return mixed
      *
-     * @throws \Exception
+     * @throws \Throwable
      */
-    protected function handleException($passable, Exception $e)
+    protected function handleException($passable, Throwable $e)
     {
         if (! $this->container->bound(ExceptionHandler::class) ||
             ! $passable instanceof Request) {

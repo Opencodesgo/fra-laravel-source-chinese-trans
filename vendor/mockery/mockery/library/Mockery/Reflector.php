@@ -1,25 +1,36 @@
 <?php
 
 /**
- * Mockery
+ * Mockery (https://docs.mockery.io/)
  *
- * LICENSE
- *
- * This source file is subject to the new BSD license that is bundled
- * with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://github.com/padraic/mockery/blob/master/LICENSE
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to padraic@php.net so we can send you a copy immediately.
- *
- * @category   Mockery
- * @package    Mockery
- * @copyright  Copyright (c) 2017 Dave Marshall https://github.com/davedevelopment
- * @license    http://github.com/padraic/mockery/blob/master/LICENSE New BSD License
+ * @copyright https://github.com/mockery/mockery/blob/HEAD/COPYRIGHT.md
+ * @license https://github.com/mockery/mockery/blob/HEAD/LICENSE BSD 3-Clause License
+ * @link https://github.com/mockery/mockery for the canonical source repository
  */
 
 namespace Mockery;
+
+use InvalidArgumentException;
+use ReflectionClass;
+use ReflectionIntersectionType;
+use ReflectionMethod;
+use ReflectionNamedType;
+use ReflectionParameter;
+use ReflectionType;
+use ReflectionUnionType;
+
+use function array_diff;
+use function array_intersect;
+use function array_map;
+use function array_merge;
+use function get_debug_type;
+use function implode;
+use function in_array;
+use function method_exists;
+use function sprintf;
+use function strpos;
+
+use const PHP_VERSION_ID;
 
 /**
  * @internal
@@ -27,104 +38,71 @@ namespace Mockery;
 class Reflector
 {
     /**
-     * Determine if the parameter is typed as an array.
+     * List of built-in types.
      *
-     * @param \ReflectionParameter $param
-     *
-     * @return bool
+     * @var list<string>
      */
-    public static function isArray(\ReflectionParameter $param)
-    {
-        if (\PHP_VERSION_ID < 70100) {
-            return $param->isArray();
-        }
-
-        $type = $param->getType();
-
-        return $type instanceof \ReflectionNamedType ? $type->getName() === 'array' : false;
-    }
+    public const BUILTIN_TYPES = ['array', 'bool', 'int', 'float', 'null', 'object', 'string'];
 
     /**
-     * Compute the string representation for the paramater type.
+     * List of reserved words.
      *
-     * @param \ReflectionParameter $param
-     * @param bool $withoutNullable
-     *
-     * @return string|null
+     * @var list<string>
      */
-    public static function getTypeHint(\ReflectionParameter $param, $withoutNullable = false)
-    {
-        // returns false if we are running PHP 7+
-        $typeHint = self::getLegacyTypeHint($param);
+    public const RESERVED_WORDS = ['bool', 'true', 'false', 'float', 'int', 'iterable', 'mixed', 'never', 'null', 'object', 'string', 'void'];
 
-        if ($typeHint !== false) {
-            return $typeHint;
-        }
+    /**
+     * Iterable.
+     *
+     * @var list<string>
+     */
+    private const ITERABLE = ['iterable'];
 
-        if (!$param->hasType()) {
-            return null;
-        }
-
-        $type = $param->getType();
-        $declaringClass = $param->getDeclaringClass();
-        $typeHint = self::typeToString($type, $declaringClass);
-
-        // PHP 7.1+ supports nullable types via a leading question mark
-        return (!$withoutNullable && \PHP_VERSION_ID >= 70100 && $type->allowsNull()) ? self::formatNullableType($typeHint) : $typeHint;
-    }
+    /**
+     * Traversable array.
+     *
+     * @var list<string>
+     */
+    private const TRAVERSABLE_ARRAY = ['\Traversable', 'array'];
 
     /**
      * Compute the string representation for the return type.
      *
-     * @param \ReflectionParameter $param
      * @param bool $withoutNullable
      *
-     * @return string|null
+     * @return null|string
      */
-    public static function getReturnType(\ReflectionMethod $method, $withoutNullable = false)
+    public static function getReturnType(ReflectionMethod $method, $withoutNullable = false)
     {
-        // Strip all return types for HHVM and skip PHP 5.
-        if (method_exists($method, 'getReturnTypeText') || \PHP_VERSION_ID < 70000) {
-            return null;
-        }
-
         $type = $method->getReturnType();
 
-        if (is_null($type) && method_exists($method, 'getTentativeReturnType')) {
+        if (! $type instanceof ReflectionType && method_exists($method, 'getTentativeReturnType')) {
             $type = $method->getTentativeReturnType();
         }
 
-        if (is_null($type)) {
+        if (! $type instanceof ReflectionType) {
             return null;
         }
 
-        $typeHint = self::typeToString($type, $method->getDeclaringClass());
+        $typeHint = self::getTypeFromReflectionType($type, $method->getDeclaringClass());
 
-        // PHP 7.1+ supports nullable types via a leading question mark
-        return (!$withoutNullable && \PHP_VERSION_ID >= 70100 && $type->allowsNull()) ? self::formatNullableType($typeHint) : $typeHint;
+        return (! $withoutNullable && $type->allowsNull()) ? self::formatNullableType($typeHint) : $typeHint;
     }
 
     /**
      * Compute the string representation for the simplest return type.
      *
-     * @param \ReflectionParameter $param
-     *
-     * @return string|null
+     * @return null|string
      */
-    public static function getSimplestReturnType(\ReflectionMethod $method)
+    public static function getSimplestReturnType(ReflectionMethod $method)
     {
-        // Strip all return types for HHVM and skip PHP 5.
-        if (method_exists($method, 'getReturnTypeText') || \PHP_VERSION_ID < 70000) {
-            return null;
-        }
-
         $type = $method->getReturnType();
 
-        if (is_null($type) && method_exists($method, 'getTentativeReturnType')) {
+        if (! $type instanceof ReflectionType && method_exists($method, 'getTentativeReturnType')) {
             $type = $method->getTentativeReturnType();
         }
 
-        if (is_null($type) || $type->allowsNull()) {
+        if (! $type instanceof ReflectionType || $type->allowsNull()) {
             return null;
         }
 
@@ -146,118 +124,139 @@ class Reflector
     }
 
     /**
-     * Compute the legacy type hint.
+     * Compute the string representation for the paramater type.
      *
-     * We return:
-     *   - string: the legacy type hint
-     *   - null: if there is no legacy type hint
-     *   - false: if we must check for PHP 7+ typing
+     * @param bool $withoutNullable
      *
-     * @param \ReflectionParameter $param
-     *
-     * @return string|null|false
+     * @return null|string
      */
-    private static function getLegacyTypeHint(\ReflectionParameter $param)
+    public static function getTypeHint(ReflectionParameter $param, $withoutNullable = false)
     {
-        // Handle HHVM typing
-        if (\method_exists($param, 'getTypehintText')) {
-            if ($param->isArray()) {
-                return 'array';
+        if (! $param->hasType()) {
+            return null;
+        }
+
+        $type = $param->getType();
+        $declaringClass = $param->getDeclaringClass();
+        $typeHint = self::getTypeFromReflectionType($type, $declaringClass);
+
+        return (! $withoutNullable && $type->allowsNull()) ? self::formatNullableType($typeHint) : $typeHint;
+    }
+
+    /**
+     * Determine if the parameter is typed as an array.
+     *
+     * @return bool
+     */
+    public static function isArray(ReflectionParameter $param)
+    {
+        $type = $param->getType();
+
+        return $type instanceof ReflectionNamedType && $type->getName();
+    }
+
+    /**
+     * Determine if the given type is a reserved word.
+     */
+    public static function isReservedWord(string $type): bool
+    {
+        return in_array(strtolower($type), self::RESERVED_WORDS, true);
+    }
+
+    /**
+     * Format the given type as a nullable type.
+     */
+    private static function formatNullableType(string $typeHint): string
+    {
+        if ($typeHint === 'mixed') {
+            return $typeHint;
+        }
+
+        if (strpos($typeHint, 'null') !== false) {
+            return $typeHint;
+        }
+
+        if (PHP_VERSION_ID < 80000) {
+            return sprintf('?%s', $typeHint);
+        }
+
+        return sprintf('%s|null', $typeHint);
+    }
+
+    private static function getTypeFromReflectionType(ReflectionType $type, ReflectionClass $declaringClass): string
+    {
+        if ($type instanceof ReflectionNamedType) {
+            $typeHint = $type->getName();
+
+            if ($type->isBuiltin()) {
+                return $typeHint;
             }
 
-            if ($param->isCallable()) {
-                return 'callable';
+            if ($typeHint === 'static') {
+                return $typeHint;
             }
 
-            $typeHint = $param->getTypehintText();
-
-            // throw away HHVM scalar types
-            if (\in_array($typeHint, array('int', 'integer', 'float', 'string', 'bool', 'boolean'), true)) {
-                return null;
+            // 'self' needs to be resolved to the name of the declaring class
+            if ($typeHint === 'self') {
+                $typeHint = $declaringClass->getName();
             }
 
+            // 'parent' needs to be resolved to the name of the parent class
+            if ($typeHint === 'parent') {
+                $typeHint = $declaringClass->getParentClass()->getName();
+            }
+
+            // class names need prefixing with a slash
             return sprintf('\\%s', $typeHint);
         }
 
-        // Handle PHP 5 typing
-        if (\PHP_VERSION_ID < 70000) {
-            if ($param->isArray()) {
-                return 'array';
-            }
+        if ($type instanceof ReflectionIntersectionType) {
+            $types = array_map(
+                static function (ReflectionType $type) use ($declaringClass): string {
+                    return self::getTypeFromReflectionType($type, $declaringClass);
+                },
+                $type->getTypes()
+            );
 
-            if ($param->isCallable()) {
-                return 'callable';
-            }
-
-            $typeHint = self::getLegacyClassName($param);
-
-            return $typeHint === null ? null : sprintf('\\%s', $typeHint);
+            return implode('&', $types);
         }
 
-        return false;
-    }
+        if ($type instanceof ReflectionUnionType) {
+            $types = array_map(
+                static function (ReflectionType $type) use ($declaringClass): string {
+                    return self::getTypeFromReflectionType($type, $declaringClass);
+                },
+                $type->getTypes()
+            );
 
-    /**
-     * Compute the class name using legacy APIs, if possible.
-     *
-     * This method MUST only be called on PHP 5.
-     *
-     * @param \ReflectionParameter $param
-     *
-     * @return string|null
-     */
-    private static function getLegacyClassName(\ReflectionParameter $param)
-    {
-        try {
-            $class = $param->getClass();
-
-            $typeHint = $class === null ? null : $class->getName();
-        } catch (\ReflectionException $e) {
-            $typeHint = null;
-        }
-
-        if ($typeHint === null) {
-            if (preg_match('/^Parameter #[0-9]+ \[ \<(required|optional)\> (?<typehint>\S+ )?.*\$' . $param->getName() . ' .*\]$/', (string) $param, $typehintMatch)) {
-                if (!empty($typehintMatch['typehint']) && $typehintMatch['typehint']) {
-                    $typeHint = $typehintMatch['typehint'];
-                }
+            $intersect = array_intersect(self::TRAVERSABLE_ARRAY, $types);
+            if ($intersect === self::TRAVERSABLE_ARRAY) {
+                $types = array_merge(self::ITERABLE, array_diff($types, self::TRAVERSABLE_ARRAY));
             }
+
+            return implode(
+                '|',
+                array_map(
+                    static function (string $type): string {
+                        return strpos($type, '&') === false ? $type : sprintf('(%s)', $type);
+                    },
+                    $types
+                )
+            );
         }
 
-        return $typeHint;
+        throw new InvalidArgumentException('Unknown ReflectionType: ' . get_debug_type($type));
     }
 
     /**
      * Get the string representation of the given type.
      *
-     * This method MUST only be called on PHP 7+.
-     *
-     * @param \ReflectionType  $type
-     * @param \ReflectionClass $declaringClass
-     *
-     * @return string|null
+     * @return list<array{typeHint:string,isPrimitive:bool}>
      */
-    private static function typeToString(\ReflectionType $type, \ReflectionClass $declaringClass)
+    private static function getTypeInformation(ReflectionType $type, ReflectionClass $declaringClass): array
     {
-        return \implode('|', \array_map(function (array $typeInformation) {
-            return $typeInformation['typeHint'];
-        }, self::getTypeInformation($type, $declaringClass)));
-    }
-
-    /**
-     * Get the string representation of the given type.
-     *
-     * This method MUST only be called on PHP 7+.
-     *
-     * @param \ReflectionType  $type
-     * @param \ReflectionClass $declaringClass
-     *
-     * @return list<array{typeHint: string, isPrimitive: bool}>
-     */
-    private static function getTypeInformation(\ReflectionType $type, \ReflectionClass $declaringClass)
-    {
-        // PHP 8 union types can be recursively processed
-        if ($type instanceof \ReflectionUnionType) {
+        // PHP 8 union types and PHP 8.1 intersection types can be recursively processed
+        if ($type instanceof ReflectionUnionType || $type instanceof ReflectionIntersectionType) {
             $types = [];
 
             foreach ($type->getTypes() as $innterType) {
@@ -273,15 +272,15 @@ class Reflector
             return $types;
         }
 
-        // PHP 7.0 doesn't have named types, but 7.1+ does
-        $typeHint = $type instanceof \ReflectionNamedType ? $type->getName() : (string) $type;
+        // $type must be an instance of \ReflectionNamedType
+        $typeHint = $type->getName();
 
         // builtins can be returned as is
         if ($type->isBuiltin()) {
             return [
                 [
                     'typeHint' => $typeHint,
-                    'isPrimitive' => in_array($typeHint, ['array', 'bool', 'int', 'float', 'null', 'object', 'string']),
+                    'isPrimitive' => in_array($typeHint, self::BUILTIN_TYPES, true),
                 ],
             ];
         }
@@ -313,23 +312,5 @@ class Reflector
                 'isPrimitive' => false,
             ],
         ];
-    }
-
-    /**
-     * Format the given type as a nullable type.
-     *
-     * This method MUST only be called on PHP 7.1+.
-     *
-     * @param string $typeHint
-     *
-     * @return string
-     */
-    private static function formatNullableType($typeHint)
-    {
-        if (\PHP_VERSION_ID < 80000) {
-            return sprintf('?%s', $typeHint);
-        }
-
-        return $typeHint === 'mixed' ? 'mixed' : sprintf('%s|null', $typeHint);
     }
 }

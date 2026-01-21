@@ -1,7 +1,4 @@
 <?php
-/**
- * 验证，过滤邮件验证
- */
 
 namespace Illuminate\Validation\Concerns;
 
@@ -11,8 +8,35 @@ use Egulias\EmailValidator\Validation\EmailValidation;
 class FilterEmailValidation implements EmailValidation
 {
     /**
+     * The flags to pass to the filter_var function.
+     *
+     * @var int|null
+     */
+    protected $flags;
+
+    /**
+     * Create a new validation instance.
+     *
+     * @param  int  $flags
+     * @return void
+     */
+    public function __construct($flags = null)
+    {
+        $this->flags = $flags;
+    }
+
+    /**
+     * Create a new instance which allows any unicode characters in local-part.
+     *
+     * @return static
+     */
+    public static function unicode()
+    {
+        return new static(FILTER_FLAG_EMAIL_UNICODE);
+    }
+
+    /**
      * Returns true if the given email is valid.
-	 * 返回true如果给定的电子邮件有效
      *
      * @param  string  $email
      * @param  \Egulias\EmailValidator\EmailLexer  $emailLexer
@@ -20,12 +44,13 @@ class FilterEmailValidation implements EmailValidation
      */
     public function isValid($email, EmailLexer $emailLexer)
     {
-        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+        return is_null($this->flags)
+                    ? filter_var($email, FILTER_VALIDATE_EMAIL) !== false
+                    : filter_var($email, FILTER_VALIDATE_EMAIL, $this->flags) !== false;
     }
 
     /**
      * Returns the validation error.
-	 * 返回验证错误
      *
      * @return \Egulias\EmailValidator\Exception\InvalidEmail|null
      */
@@ -36,7 +61,6 @@ class FilterEmailValidation implements EmailValidation
 
     /**
      * Returns the validation warnings.
-	 * 返回验证警告
      *
      * @return \Egulias\EmailValidator\Warning\Warning[]
      */

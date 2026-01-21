@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，语法抽象类
+ * 数据库，配置URL解析
  */
 
 namespace Illuminate\Database;
@@ -14,7 +14,6 @@ abstract class Grammar
 
     /**
      * The grammar table prefix.
-	 * 语法表前缀
      *
      * @var string
      */
@@ -22,7 +21,6 @@ abstract class Grammar
 
     /**
      * Wrap an array of values.
-	 * 包装一个数组值
      *
      * @param  array  $values
      * @return array
@@ -34,7 +32,6 @@ abstract class Grammar
 
     /**
      * Wrap a table in keyword identifiers.
-	 * 包装表用关键字标识符
      *
      * @param  \Illuminate\Database\Query\Expression|string  $table
      * @return string
@@ -50,7 +47,6 @@ abstract class Grammar
 
     /**
      * Wrap a value in keyword identifiers.
-	 * 包装值在关键字标识符中
      *
      * @param  \Illuminate\Database\Query\Expression|string  $value
      * @param  bool  $prefixAlias
@@ -65,8 +61,6 @@ abstract class Grammar
         // If the value being wrapped has a column alias we will need to separate out
         // the pieces so we can wrap each of the segments of the expression on its
         // own, and then join these both back together using the "as" connector.
-		// 如果被包装的值具有列别名，我们需要将这些片段分开，这样我们就可以单独包装表达式的每个片段，
-		// 然后使用"as"连接器将它们重新连接在一起。
         if (stripos($value, ' as ') !== false) {
             return $this->wrapAliasedValue($value, $prefixAlias);
         }
@@ -76,7 +70,6 @@ abstract class Grammar
 
     /**
      * Wrap a value that has an alias.
-	 * 包装具有别名的值
      *
      * @param  string  $value
      * @param  bool  $prefixAlias
@@ -89,8 +82,6 @@ abstract class Grammar
         // If we are wrapping a table we need to prefix the alias with the table prefix
         // as well in order to generate proper syntax. If this is a column of course
         // no prefix is necessary. The condition will be true when from wrapTable.
-		// 如果我们包装一个表，我们需要给别名加上表前缀为了生成正确的语法。
-		// 如果这是一列的话不需要剪树。当从wrapTable返回时，条件为真。
         if ($prefixAlias) {
             $segments[1] = $this->tablePrefix.$segments[1];
         }
@@ -100,7 +91,6 @@ abstract class Grammar
 
     /**
      * Wrap the given value segments.
-	 * 包装给定的值
      *
      * @param  array  $segments
      * @return string
@@ -116,7 +106,6 @@ abstract class Grammar
 
     /**
      * Wrap a single string in keyword identifiers.
-	 * 包装单个字符串在关键字标识符
      *
      * @param  string  $value
      * @return string
@@ -132,7 +121,6 @@ abstract class Grammar
 
     /**
      * Convert an array of column names into a delimited string.
-	 * 将列名数组转换为带分隔符的字符串
      *
      * @param  array  $columns
      * @return string
@@ -144,7 +132,6 @@ abstract class Grammar
 
     /**
      * Create query parameter place-holders for an array.
-	 * 创建查询参数占位为数组
      *
      * @param  array  $values
      * @return string
@@ -156,7 +143,6 @@ abstract class Grammar
 
     /**
      * Get the appropriate query parameter place-holder for a value.
-	 * 得到值的适当查询参数占位符
      *
      * @param  mixed  $value
      * @return string
@@ -168,7 +154,6 @@ abstract class Grammar
 
     /**
      * Quote the given string literal.
-	 * 引用给定的字符串字面值
      *
      * @param  string|array  $value
      * @return string
@@ -184,7 +169,6 @@ abstract class Grammar
 
     /**
      * Determine if the given value is a raw expression.
-	 * 确定给定的值是否是一个原始表达式
      *
      * @param  mixed  $value
      * @return bool
@@ -196,7 +180,6 @@ abstract class Grammar
 
     /**
      * Get the value of a raw expression.
-	 * 得到原始表达式的值
      *
      * @param  \Illuminate\Database\Query\Expression  $expression
      * @return string
@@ -208,7 +191,6 @@ abstract class Grammar
 
     /**
      * Get the format for database stored dates.
-	 * 得到数据库存储日期的格式
      *
      * @return string
      */
@@ -219,7 +201,6 @@ abstract class Grammar
 
     /**
      * Get the grammar's table prefix.
-	 * 得到表前缀
      *
      * @return string
      */
@@ -230,7 +211,6 @@ abstract class Grammar
 
     /**
      * Set the grammar's table prefix.
-	 * 设置表前缀
      *
      * @param  string  $prefix
      * @return $this

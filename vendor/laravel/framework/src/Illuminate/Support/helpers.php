@@ -1,8 +1,6 @@
 <?php
-/**
- * 支持，helpers函数库
- */
 
+use Illuminate\Contracts\Support\DeferringDisplayableValue;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -13,7 +11,6 @@ use Illuminate\Support\Optional;
 if (! function_exists('append_config')) {
     /**
      * Assign high numeric IDs to a config item to force appending.
-	 * 为配置项分配高数值id以强制追加
      *
      * @param  array  $array
      * @return array
@@ -37,7 +34,6 @@ if (! function_exists('append_config')) {
 if (! function_exists('blank')) {
     /**
      * Determine if the given value is "blank".
-	 * 确定给定的值是否为"空白"
      *
      * @param  mixed  $value
      * @return bool
@@ -67,7 +63,6 @@ if (! function_exists('blank')) {
 if (! function_exists('class_basename')) {
     /**
      * Get the class "basename" of the given object / class.
-	 * 得到给定对象/类的类"basename"
      *
      * @param  string|object  $class
      * @return string
@@ -83,7 +78,6 @@ if (! function_exists('class_basename')) {
 if (! function_exists('class_uses_recursive')) {
     /**
      * Returns all traits used by a class, its parent classes and trait of their traits.
-	 * 返回一个类，它的父类和它们的性状中的性状所使用的所有性状。
      *
      * @param  object|string  $class
      * @return array
@@ -107,7 +101,6 @@ if (! function_exists('class_uses_recursive')) {
 if (! function_exists('collect')) {
     /**
      * Create a collection from the given value.
-	 * 创建集合从给定值
      *
      * @param  mixed  $value
      * @return \Illuminate\Support\Collection
@@ -121,7 +114,6 @@ if (! function_exists('collect')) {
 if (! function_exists('data_fill')) {
     /**
      * Fill in data where it's missing.
-	 * 填写数据在缺少的地方
      *
      * @param  mixed  $target
      * @param  string|array  $key
@@ -137,11 +129,10 @@ if (! function_exists('data_fill')) {
 if (! function_exists('data_get')) {
     /**
      * Get an item from an array or object using "dot" notation.
-	 * 得到项从数组或对象中使用"点"表示法
      *
      * @param  mixed  $target
-     * @param  string|array|int  $key
-     * @param  mixed  $defaul
+     * @param  string|array|int|null  $key
+     * @param  mixed  $default
      * @return mixed
      */
     function data_get($target, $key, $default = null)
@@ -152,7 +143,13 @@ if (! function_exists('data_get')) {
 
         $key = is_array($key) ? $key : explode('.', $key);
 
-        while (! is_null($segment = array_shift($key))) {
+        foreach ($key as $i => $segment) {
+            unset($key[$i]);
+
+            if (is_null($segment)) {
+                return $target;
+            }
+
             if ($segment === '*') {
                 if ($target instanceof Collection) {
                     $target = $target->all();
@@ -185,7 +182,6 @@ if (! function_exists('data_get')) {
 if (! function_exists('data_set')) {
     /**
      * Set an item on an array or object using dot notation.
-	 * 设置项在数组或对象上使用点表示法
      *
      * @param  mixed  $target
      * @param  string|array  $key
@@ -248,14 +244,17 @@ if (! function_exists('data_set')) {
 if (! function_exists('e')) {
     /**
      * Encode HTML special characters in a string.
-	 * 编码HTML特殊字符在字符串中
      *
-     * @param  \Illuminate\Contracts\Support\Htmlable|string  $value
+     * @param  \Illuminate\Contracts\Support\DeferringDisplayableValue|\Illuminate\Contracts\Support\Htmlable|string  $value
      * @param  bool  $doubleEncode
      * @return string
      */
     function e($value, $doubleEncode = true)
     {
+        if ($value instanceof DeferringDisplayableValue) {
+            $value = $value->resolveDisplayableValue();
+        }
+
         if ($value instanceof Htmlable) {
             return $value->toHtml();
         }
@@ -267,7 +266,6 @@ if (! function_exists('e')) {
 if (! function_exists('env')) {
     /**
      * Gets the value of an environment variable.
-	 * 得到环境变量的值
      *
      * @param  string  $key
      * @param  mixed  $default
@@ -282,7 +280,6 @@ if (! function_exists('env')) {
 if (! function_exists('filled')) {
     /**
      * Determine if a value is "filled".
-	 * 确定一个值是否被"填充"
      *
      * @param  mixed  $value
      * @return bool
@@ -296,7 +293,6 @@ if (! function_exists('filled')) {
 if (! function_exists('head')) {
     /**
      * Get the first element of an array. Useful for method chaining.
-	 * 得到数组的第一个元素。用于方法链接。
      *
      * @param  array  $array
      * @return mixed
@@ -310,7 +306,6 @@ if (! function_exists('head')) {
 if (! function_exists('last')) {
     /**
      * Get the last element from an array.
-	 * 得到数组的最后一个元素
      *
      * @param  array  $array
      * @return mixed
@@ -324,10 +319,9 @@ if (! function_exists('last')) {
 if (! function_exists('object_get')) {
     /**
      * Get an item from an object using "dot" notation.
-	 * 得到项从对象中使用"点"符号
      *
      * @param  object  $object
-     * @param  string  $key
+     * @param  string|null  $key
      * @param  mixed  $default
      * @return mixed
      */
@@ -352,7 +346,6 @@ if (! function_exists('object_get')) {
 if (! function_exists('optional')) {
     /**
      * Provide access to optional objects.
-	 * 提供对可选对象的访问
      *
      * @param  mixed  $value
      * @param  callable|null  $callback
@@ -371,7 +364,6 @@ if (! function_exists('optional')) {
 if (! function_exists('preg_replace_array')) {
     /**
      * Replace a given pattern with each value in the array in sequentially.
-	 * 替换给定的模式用数组中的每个值依次
      *
      * @param  string  $pattern
      * @param  array  $replacements
@@ -391,12 +383,11 @@ if (! function_exists('preg_replace_array')) {
 if (! function_exists('retry')) {
     /**
      * Retry an operation a given number of times.
-	 * 重试给定次数的操作
      *
      * @param  int  $times
      * @param  callable  $callback
      * @param  int  $sleep
-     * @param  callable  $when
+     * @param  callable|null  $when
      * @return mixed
      *
      * @throws \Exception
@@ -428,7 +419,6 @@ if (! function_exists('retry')) {
 if (! function_exists('tap')) {
     /**
      * Call the given Closure with the given value then return the value.
-	 * 调用给定的Closure用给定的值，然后返回该值。
      *
      * @param  mixed  $value
      * @param  callable|null  $callback
@@ -449,7 +439,6 @@ if (! function_exists('tap')) {
 if (! function_exists('throw_if')) {
     /**
      * Throw the given exception if the given condition is true.
-	 * 抛出给定异常，如果给定条件为真。
      *
      * @param  mixed  $condition
      * @param  \Throwable|string  $exception
@@ -471,7 +460,6 @@ if (! function_exists('throw_if')) {
 if (! function_exists('throw_unless')) {
     /**
      * Throw the given exception unless the given condition is true.
-	 * 抛出给定异常，除非给定条件为真。
      *
      * @param  mixed  $condition
      * @param  \Throwable|string  $exception
@@ -493,7 +481,6 @@ if (! function_exists('throw_unless')) {
 if (! function_exists('trait_uses_recursive')) {
     /**
      * Returns all traits used by a trait and its traits.
-	 * 返回一个trait及其trait所使用的所有trait
      *
      * @param  string  $trait
      * @return array
@@ -513,7 +500,6 @@ if (! function_exists('trait_uses_recursive')) {
 if (! function_exists('transform')) {
     /**
      * Transform the given value if it is present.
-	 * 如果给定值存在，则对其进行转换。
      *
      * @param  mixed  $value
      * @param  callable  $callback
@@ -537,7 +523,6 @@ if (! function_exists('transform')) {
 if (! function_exists('value')) {
     /**
      * Return the default value of the given value.
-	 * 返回给定值的默认值
      *
      * @param  mixed  $value
      * @return mixed
@@ -551,7 +536,6 @@ if (! function_exists('value')) {
 if (! function_exists('windows_os')) {
     /**
      * Determine whether the current environment is Windows based.
-	 * 判断当前环境是否是基于Windows的
      *
      * @return bool
      */
@@ -564,7 +548,6 @@ if (! function_exists('windows_os')) {
 if (! function_exists('with')) {
     /**
      * Return the given value, optionally passed through the given callback.
-	 * 返回给定的值，可选地通过给定的回调传递。
      *
      * @param  mixed  $value
      * @param  callable|null  $callback

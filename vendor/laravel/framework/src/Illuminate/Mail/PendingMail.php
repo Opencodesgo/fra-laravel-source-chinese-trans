@@ -1,7 +1,4 @@
 <?php
-/**
- * 邮件中，等待中邮件
- */
 
 namespace Illuminate\Mail;
 
@@ -13,7 +10,6 @@ class PendingMail
 {
     /**
      * The mailer instance.
-	 * 邮件实例
      *
      * @var \Illuminate\Contracts\Mail\Mailer
      */
@@ -21,7 +17,6 @@ class PendingMail
 
     /**
      * The locale of the message.
-	 * 消息的区域设置
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class PendingMail
 
     /**
      * The "to" recipients of the message.
-	 * 消息的"to"收件人
      *
      * @var array
      */
@@ -37,7 +31,6 @@ class PendingMail
 
     /**
      * The "cc" recipients of the message.
-	 * 消息的"抄送"收件人
      *
      * @var array
      */
@@ -45,7 +38,6 @@ class PendingMail
 
     /**
      * The "bcc" recipients of the message.
-	 * 消息的"密件抄送"收件人
      *
      * @var array
      */
@@ -53,7 +45,6 @@ class PendingMail
 
     /**
      * Create a new mailable mailer instance.
-	 * 创建新的可邮件邮件实例
      *
      * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
      * @return void
@@ -65,7 +56,6 @@ class PendingMail
 
     /**
      * Set the locale of the message.
-	 * 设置消息的区域设置
      *
      * @param  string  $locale
      * @return $this
@@ -79,7 +69,6 @@ class PendingMail
 
     /**
      * Set the recipients of the message.
-	 * 设置消息的收件人
      *
      * @param  mixed  $users
      * @return $this
@@ -97,7 +86,6 @@ class PendingMail
 
     /**
      * Set the recipients of the message.
-	 * 设置电邮的收件人
      *
      * @param  mixed  $users
      * @return $this
@@ -111,7 +99,6 @@ class PendingMail
 
     /**
      * Set the recipients of the message.
-	 * 设置电邮的收件人
      *
      * @param  mixed  $users
      * @return $this
@@ -125,7 +112,6 @@ class PendingMail
 
     /**
      * Send a new mailable message instance.
-	 * 发送一个新的可邮件消息实例
      *
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
@@ -137,7 +123,6 @@ class PendingMail
 
     /**
      * Send a mailable message immediately.
-	 * 立即发送可发送的消息
      *
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
@@ -151,7 +136,6 @@ class PendingMail
 
     /**
      * Push the given mailable onto the queue.
-	 * 将给定的可邮件推送到队列中
      *
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
@@ -163,7 +147,6 @@ class PendingMail
 
     /**
      * Deliver the queued message after the given delay.
-	 * 在给定的延迟之后交付排队消息
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
@@ -176,7 +159,6 @@ class PendingMail
 
     /**
      * Populate the mailable with the addresses.
-	 * 用地址填充邮件
      *
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
      * @return \Illuminate\Mail\Mailable
@@ -185,7 +167,7 @@ class PendingMail
     {
         return tap($mailable->to($this->to)
             ->cc($this->cc)
-            ->bcc($this->bcc), function ($mailable) {
+            ->bcc($this->bcc), function (MailableContract $mailable) {
                 if ($this->locale) {
                     $mailable->locale($this->locale);
                 }

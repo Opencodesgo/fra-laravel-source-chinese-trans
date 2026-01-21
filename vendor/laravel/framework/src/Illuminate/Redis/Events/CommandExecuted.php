@@ -1,7 +1,4 @@
 <?php
-/**
- * Redis，事件命令执行
- */
 
 namespace Illuminate\Redis\Events;
 
@@ -9,7 +6,6 @@ class CommandExecuted
 {
     /**
      * The Redis command that was executed.
-	 * 被执行的Redis命令
      *
      * @var string
      */
@@ -17,7 +13,6 @@ class CommandExecuted
 
     /**
      * The array of command parameters.
-	 * 命令参数数组
      *
      * @var array
      */
@@ -25,7 +20,6 @@ class CommandExecuted
 
     /**
      * The number of milliseconds it took to execute the command.
-	 * 执行命令所需的毫秒数
      *
      * @var float
      */
@@ -33,7 +27,6 @@ class CommandExecuted
 
     /**
      * The Redis connection instance.
-	 * Redis连接实例
      *
      * @var \Illuminate\Redis\Connections\Connection
      */
@@ -41,7 +34,6 @@ class CommandExecuted
 
     /**
      * The Redis connection name.
-	 * Redis连接名称
      *
      * @var string
      */
@@ -49,7 +41,6 @@ class CommandExecuted
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  string  $command
      * @param  array  $parameters

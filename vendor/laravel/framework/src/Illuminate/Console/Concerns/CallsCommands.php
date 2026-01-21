@@ -1,7 +1,4 @@
 <?php
-/**
- * 控制台，调用命令
- */
 
 namespace Illuminate\Console\Concerns;
 
@@ -13,7 +10,6 @@ trait CallsCommands
 {
     /**
      * Resolve the console command instance for the given command.
-	 * 解析控制台命令实例为给定命令
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @return \Symfony\Component\Console\Command\Command
@@ -22,7 +18,6 @@ trait CallsCommands
 
     /**
      * Call another console command.
-	 * 调用另一个控制台命令
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
@@ -35,7 +30,6 @@ trait CallsCommands
 
     /**
      * Call another console command silently.
-	 * 调用另一个控制台命令以静默方式
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
@@ -48,7 +42,6 @@ trait CallsCommands
 
     /**
      * Run the given the console command.
-	 * 运行给定的控制台命令
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
@@ -66,7 +59,6 @@ trait CallsCommands
 
     /**
      * Create an input instance from the given arguments.
-	 * 创建输入实例根据给定的参数
      *
      * @param  array  $arguments
      * @return \Symfony\Component\Console\Input\ArrayInput
@@ -82,7 +74,6 @@ trait CallsCommands
 
     /**
      * Get all of the context passed to the command.
-	 * 得到传递给命令的所有上下文
      *
      * @return array
      */

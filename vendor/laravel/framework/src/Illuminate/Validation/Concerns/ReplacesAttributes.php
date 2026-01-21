@@ -1,7 +1,4 @@
 <?php
-/**
- * 验证，替代属性
- */
 
 namespace Illuminate\Validation\Concerns;
 
@@ -11,7 +8,6 @@ trait ReplacesAttributes
 {
     /**
      * Replace all place-holders for the between rule.
-	 * 替换between规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -26,7 +22,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the date_format rule.
-	 * 替换date_format规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -41,7 +36,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the different rule.
-	 * 替换不同规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -56,7 +50,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the digits rule.
-	 * 替换数字规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -71,7 +64,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the digits (between) rule.
-	 * 替换数字(between)规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -86,7 +78,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the min rule.
-	 * 替换min规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -101,7 +92,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the max rule.
-	 * 替换max规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -116,7 +106,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the in rule.
-	 * 替换in规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -135,7 +124,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the not_in rule.
-	 * 替换not_in规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -150,7 +138,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the in_array rule.
-	 * 替换in_array规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -165,7 +152,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the mimetypes rule.
-	 * 替换mimetypes规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -180,7 +166,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the mimes rule.
-	 * 替换mime规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -195,7 +180,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the required_with rule.
-	 * 替换required_with规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -210,7 +194,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the required_with_all rule.
-	 * 替换required_with_all规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -225,7 +208,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the required_without rule.
-	 * 替换required_without规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -240,7 +222,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the required_without_all rule.
-	 * 替换required_without_all规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -255,7 +236,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the size rule.
-	 * 替换大小规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -270,7 +250,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the gt rule.
-	 * 替换gt规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -289,7 +268,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the lt rule.
-	 * 替换lt规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -308,7 +286,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the gte rule.
-	 * 替换gte规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -327,7 +304,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the lte rule.
-	 * 替换lte规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -346,7 +322,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the required_if rule.
-	 * 替换required_if规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -365,7 +340,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the required_unless rule.
-	 * 替换required_unless规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -388,7 +362,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the same rule.
-	 * 替换同一规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -403,7 +376,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the before rule.
-	 * 替换before规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -422,7 +394,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the before_or_equal rule.
-	 * 替换before_or_equal规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -437,7 +408,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the after rule.
-	 * 替换after规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -452,7 +422,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the after_or_equal rule.
-	 * 替换after_or_equal规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -467,7 +436,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the date_equals rule.
-	 * 替换date_equals规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -482,7 +450,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the dimensions rule.
-	 * 替换维度规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -505,7 +472,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the ends_with rule.
-	 * 替换ends_with规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute
@@ -524,7 +490,6 @@ trait ReplacesAttributes
 
     /**
      * Replace all place-holders for the starts_with rule.
-	 * 替换starts_with规则的所有占位符
      *
      * @param  string  $message
      * @param  string  $attribute

@@ -1,7 +1,4 @@
 <?php
-/**
- * 控制台，事件
- */
 
 namespace Illuminate\Console\Scheduling;
 
@@ -13,19 +10,20 @@ use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Contracts\Mail\Mailer;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Reflector;
 use Illuminate\Support\Traits\Macroable;
+use Illuminate\Support\Traits\ReflectsClosures;
 use Psr\Http\Client\ClientExceptionInterface;
 use Symfony\Component\Process\Process;
 
 class Event
 {
-    use Macroable, ManagesFrequencies;
+    use Macroable, ManagesFrequencies, ReflectsClosures;
 
     /**
      * The command string.
-	 * 命令字符串
      *
      * @var string
      */
@@ -33,7 +31,6 @@ class Event
 
     /**
      * The cron expression representing the event's frequency.
-	 * 表示事件频率的cron表达式
      *
      * @var string
      */
@@ -41,7 +38,6 @@ class Event
 
     /**
      * The timezone the date should be evaluated on.
-	 * 时区应该对日期进行评估的
      *
      * @var \DateTimeZone|string
      */
@@ -49,7 +45,6 @@ class Event
 
     /**
      * The user the command should run as.
-	 * 用户命令应该被运行
      *
      * @var string
      */
@@ -57,7 +52,6 @@ class Event
 
     /**
      * The list of environments the command should run under.
-	 * 环境列表命令应该运行的
      *
      * @var array
      */
@@ -65,7 +59,6 @@ class Event
 
     /**
      * Indicates if the command should run in maintenance mode.
-	 * 指明该命令是否在维护模式下运行
      *
      * @var bool
      */
@@ -73,7 +66,6 @@ class Event
 
     /**
      * Indicates if the command should not overlap itself.
-	 * 指明命令是否不应该重叠
      *
      * @var bool
      */
@@ -81,7 +73,6 @@ class Event
 
     /**
      * Indicates if the command should only be allowed to run on one server for each cron expression.
-	 * 指明是否应该只允许对每个cron表达式在一台服务器上运行该命令
      *
      * @var bool
      */
@@ -89,7 +80,6 @@ class Event
 
     /**
      * The amount of time the mutex should be valid.
-	 * 互斥锁有效的时间长度
      *
      * @var int
      */
@@ -97,7 +87,6 @@ class Event
 
     /**
      * Indicates if the command should run in background.
-	 * 指明该命令是否应该在后台运行
      *
      * @var bool
      */
@@ -105,7 +94,6 @@ class Event
 
     /**
      * The array of filter callbacks.
-	 * 过滤器回调函数数组
      *
      * @var array
      */
@@ -113,7 +101,6 @@ class Event
 
     /**
      * The array of reject callbacks.
-	 * 拒绝回调的数组
      *
      * @var array
      */
@@ -121,7 +108,6 @@ class Event
 
     /**
      * The location that output should be sent to.
-	 * 输出应该发送到的位置
      *
      * @var string
      */
@@ -129,7 +115,6 @@ class Event
 
     /**
      * Indicates whether output should be appended.
-	 * 指明是否应追加输出
      *
      * @var bool
      */
@@ -137,7 +122,6 @@ class Event
 
     /**
      * The array of callbacks to be run before the event is started.
-	 * 在事件开始之前要运行的回调函数数组
      *
      * @var array
      */
@@ -145,7 +129,6 @@ class Event
 
     /**
      * The array of callbacks to be run after the event is finished.
-	 * 在事件开始之后要运行的回调函数数组
      *
      * @var array
      */
@@ -153,7 +136,6 @@ class Event
 
     /**
      * The human readable description of the event.
-	 * 人类可读的事件描述
      *
      * @var string
      */
@@ -161,7 +143,6 @@ class Event
 
     /**
      * The event mutex implementation.
-	 * 事件互斥锁实现
      *
      * @var \Illuminate\Console\Scheduling\EventMutex
      */
@@ -169,7 +150,6 @@ class Event
 
     /**
      * The exit status code of the command.
-	 * 命令的退出状态码
      *
      * @var int|null
      */
@@ -177,7 +157,6 @@ class Event
 
     /**
      * Create a new event instance.
-	 * 创建新的事件实例
      *
      * @param  \Illuminate\Console\Scheduling\EventMutex  $mutex
      * @param  string  $command
@@ -195,7 +174,6 @@ class Event
 
     /**
      * Get the default output depending on the OS.
-	 * 得到默认输出根据操作系统
      *
      * @return string
      */
@@ -206,7 +184,6 @@ class Event
 
     /**
      * Run the given event.
-	 * 运行给定事件
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -225,7 +202,6 @@ class Event
 
     /**
      * Get the mutex name for the scheduled command.
-	 * 得到计划命令的互斥对象名称
      *
      * @return string
      */
@@ -236,7 +212,6 @@ class Event
 
     /**
      * Run the command in the foreground.
-	 * 运行该命令在前台
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -252,7 +227,6 @@ class Event
 
     /**
      * Run the command in the background.
-	 * 运行该命令在后台
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -266,7 +240,6 @@ class Event
 
     /**
      * Call all of the "before" callbacks for the event.
-	 * 调用事件的所有"before"回调
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -280,7 +253,6 @@ class Event
 
     /**
      * Call all of the "after" callbacks for the event.
-	 * 调用事件的所有"after"回调
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -294,7 +266,6 @@ class Event
 
     /**
      * Call all of the "after" callbacks for the event.
-	 * 调用事件的所有"after"回调
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @param  int  $exitCode
@@ -309,7 +280,6 @@ class Event
 
     /**
      * Build the command string.
-	 * 构建命令字符串
      *
      * @return string
      */
@@ -320,7 +290,6 @@ class Event
 
     /**
      * Determine if the given event should run based on the Cron expression.
-	 * 确定给定的事件是否应该基于Cron表达式运行
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return bool
@@ -337,7 +306,6 @@ class Event
 
     /**
      * Determine if the event runs in maintenance mode.
-	 * 确定事件是否在维护模式下运行
      *
      * @return bool
      */
@@ -348,16 +316,15 @@ class Event
 
     /**
      * Determine if the Cron expression passes.
-	 * 确定Cron表达式是否通过
      *
      * @return bool
      */
     protected function expressionPasses()
     {
-        $date = Date::now();
+        $date = Carbon::now();
 
         if ($this->timezone) {
-            $date = $date->setTimezone($this->timezone);
+            $date->setTimezone($this->timezone);
         }
 
         return CronExpression::factory($this->expression)->isDue($date->toDateTimeString());
@@ -365,7 +332,6 @@ class Event
 
     /**
      * Determine if the event runs in the given environment.
-	 * 确定事件是否在给定环境中运行
      *
      * @param  string  $environment
      * @return bool
@@ -377,7 +343,6 @@ class Event
 
     /**
      * Determine if the filters pass for the event.
-	 * 确定筛选器是否通过该事件
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return bool
@@ -401,7 +366,6 @@ class Event
 
     /**
      * Ensure that the output is stored on disk in a log file.
-	 * 确保输出存储在磁盘上以日志文件的形式
      *
      * @return $this
      */
@@ -414,7 +378,6 @@ class Event
 
     /**
      * Send the output of the command to a given location.
-	 * 发送输出命令到给定位置
      *
      * @param  string  $location
      * @param  bool  $append
@@ -431,7 +394,6 @@ class Event
 
     /**
      * Append the output of the command to a given location.
-	 * 追加输出命令到给定位置
      *
      * @param  string  $location
      * @return $this
@@ -443,7 +405,6 @@ class Event
 
     /**
      * E-mail the results of the scheduled operation.
-	 * 通过电子邮件发送预定操作的结果
      *
      * @param  array|mixed  $addresses
      * @param  bool  $onlyIfOutputExists
@@ -464,7 +425,6 @@ class Event
 
     /**
      * E-mail the results of the scheduled operation if it produces output.
-	 * 通过电子邮件发送该操作的结果，如果计划操作产生输出。
      *
      * @param  array|mixed  $addresses
      * @return $this
@@ -478,7 +438,6 @@ class Event
 
     /**
      * E-mail the results of the scheduled operation if it fails.
-	 * 通过电子邮件发送其结果，如果计划操作失败。
      *
      * @param  array|mixed  $addresses
      * @return $this
@@ -496,7 +455,6 @@ class Event
 
     /**
      * Ensure that the command output is being captured.
-	 * 确保正在捕获命令输出
      *
      * @return void
      */
@@ -509,7 +467,6 @@ class Event
 
     /**
      * E-mail the output of the event to the recipients.
-	 * 通过电子邮件将事件的输出发送给收件人
      *
      * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
      * @param  array  $addresses
@@ -531,7 +488,6 @@ class Event
 
     /**
      * Get the e-mail subject line for output results.
-	 * 得到输出结果的电子邮件主题行
      *
      * @return string
      */
@@ -546,7 +502,6 @@ class Event
 
     /**
      * Register a callback to ping a given URL before the job runs.
-	 * 注册一个回调，以便在作业运行之前ping给定的URL。
      *
      * @param  string  $url
      * @return $this
@@ -558,7 +513,6 @@ class Event
 
     /**
      * Register a callback to ping a given URL before the job runs if the given condition is true.
-	 * 注册一个回调函数，如果给定的条件为真，则在作业运行之前ping给定的URL。
      *
      * @param  bool  $value
      * @param  string  $url
@@ -571,7 +525,6 @@ class Event
 
     /**
      * Register a callback to ping a given URL after the job runs.
-	 * 注册一个回调函数，以便在作业运行后ping给定的URL。
      *
      * @param  string  $url
      * @return $this
@@ -583,7 +536,7 @@ class Event
 
     /**
      * Register a callback to ping a given URL after the job runs if the given condition is true.
-     * 如果给定的条件为真，则在作业运行后注册一个回调来ping给定的URL。
+     *
      * @param  bool  $value
      * @param  string  $url
      * @return $this
@@ -606,7 +559,6 @@ class Event
 
     /**
      * Register a callback to ping a given URL if the operation fails.
-	 * 注册一个回调来ping给定的URL，如果操作失败。
      *
      * @param  string  $url
      * @return $this
@@ -618,7 +570,6 @@ class Event
 
     /**
      * Get the callback that pings the given URL.
-	 * 得到ping给定URL的回调
      *
      * @param  string  $url
      * @return \Closure
@@ -627,7 +578,7 @@ class Event
     {
         return function (Container $container, HttpClient $http) use ($url) {
             try {
-                $http->get($url);
+                $http->request('GET', $url);
             } catch (ClientExceptionInterface|TransferException $e) {
                 $container->make(ExceptionHandler::class)->report($e);
             }
@@ -636,7 +587,6 @@ class Event
 
     /**
      * State that the command should run in background.
-	 * 声明该命令应该在后台运行
      *
      * @return $this
      */
@@ -649,7 +599,6 @@ class Event
 
     /**
      * Set which user the command should run as.
-	 * 设置命令应该作为哪个用户运行
      *
      * @param  string  $user
      * @return $this
@@ -663,7 +612,6 @@ class Event
 
     /**
      * Limit the environments the command should run in.
-	 * 限制命令应该运行的环境
      *
      * @param  array|mixed  $environments
      * @return $this
@@ -677,7 +625,6 @@ class Event
 
     /**
      * State that the command should run even in maintenance mode.
-	 * 说明该命令即使在维护模式下也应该运行
      *
      * @return $this
      */
@@ -690,7 +637,6 @@ class Event
 
     /**
      * Do not allow the event to overlap each other.
-	 * 不要让事件相互重叠
      *
      * @param  int  $expiresAt
      * @return $this
@@ -710,7 +656,6 @@ class Event
 
     /**
      * Allow the event to only run on one server for each cron expression.
-	 * 允许事件仅在一台服务器上运行，对于每个cron表达式。
      *
      * @return $this
      */
@@ -723,7 +668,6 @@ class Event
 
     /**
      * Register a callback to further filter the schedule.
-	 * 注册回调以进一步筛选计划
      *
      * @param  \Closure|bool  $callback
      * @return $this
@@ -739,7 +683,6 @@ class Event
 
     /**
      * Register a callback to further filter the schedule.
-	 * 注册回调以进一步筛选计划
      *
      * @param  \Closure|bool  $callback
      * @return $this
@@ -755,7 +698,6 @@ class Event
 
     /**
      * Register a callback to be called before the operation.
-	 * 注册一个回调函数在操作之前
      *
      * @param  \Closure  $callback
      * @return $this
@@ -769,7 +711,6 @@ class Event
 
     /**
      * Register a callback to be called after the operation.
-	 * 注册一个在操作之后调用的回调函数
      *
      * @param  \Closure  $callback
      * @return $this
@@ -781,7 +722,6 @@ class Event
 
     /**
      * Register a callback to be called after the operation.
-	 * 注册一个在操作之后调用的回调函数
      *
      * @param  \Closure  $callback
      * @return $this
@@ -794,8 +734,21 @@ class Event
     }
 
     /**
+     * Register a callback that uses the output after the job runs.
+     *
+     * @param  \Closure  $callback
+     * @param  bool  $onlyIfOutputExists
+     * @return $this
+     */
+    public function thenWithOutput(Closure $callback, $onlyIfOutputExists = false)
+    {
+        $this->ensureOutputIsBeingCaptured();
+
+        return $this->then($this->withOutputCallback($callback, $onlyIfOutputExists));
+    }
+
+    /**
      * Register a callback to be called if the operation succeeds.
-	 * 注册一个回调函数，在操作成功时调用。
      *
      * @param  \Closure  $callback
      * @return $this
@@ -810,8 +763,21 @@ class Event
     }
 
     /**
+     * Register a callback that uses the output if the operation succeeds.
+     *
+     * @param  \Closure  $callback
+     * @param  bool  $onlyIfOutputExists
+     * @return $this
+     */
+    public function onSuccessWithOutput(Closure $callback, $onlyIfOutputExists = false)
+    {
+        $this->ensureOutputIsBeingCaptured();
+
+        return $this->onSuccess($this->withOutputCallback($callback, $onlyIfOutputExists));
+    }
+
+    /**
      * Register a callback to be called if the operation fails.
-	 * 注册一个回调函数，以便在操作失败时调用。
      *
      * @param  \Closure  $callback
      * @return $this
@@ -826,8 +792,39 @@ class Event
     }
 
     /**
+     * Register a callback that uses the output if the operation fails.
+     *
+     * @param  \Closure  $callback
+     * @param  bool  $onlyIfOutputExists
+     * @return $this
+     */
+    public function onFailureWithOutput(Closure $callback, $onlyIfOutputExists = false)
+    {
+        $this->ensureOutputIsBeingCaptured();
+
+        return $this->onFailure($this->withOutputCallback($callback, $onlyIfOutputExists));
+    }
+
+    /**
+     * Get a callback that provides output.
+     *
+     * @param  \Closure  $callback
+     * @param  bool  $onlyIfOutputExists
+     * @return \Closure
+     */
+    protected function withOutputCallback(Closure $callback, $onlyIfOutputExists = false)
+    {
+        return function (Container $container) use ($callback, $onlyIfOutputExists) {
+            $output = $this->output && file_exists($this->output) ? file_get_contents($this->output) : '';
+
+            return $onlyIfOutputExists && empty($output)
+                            ? null
+                            : $container->call($callback, ['output' => $output]);
+        };
+    }
+
+    /**
      * Set the human-friendly description of the event.
-	 * 设置事件的人性化描述
      *
      * @param  string  $description
      * @return $this
@@ -839,7 +836,6 @@ class Event
 
     /**
      * Set the human-friendly description of the event.
-	 * 设置事件的人性化描述
      *
      * @param  string  $description
      * @return $this
@@ -853,7 +849,6 @@ class Event
 
     /**
      * Get the summary of the event for display.
-	 * 得到要显示的事件摘要
      *
      * @return string
      */
@@ -868,7 +863,6 @@ class Event
 
     /**
      * Determine the next due date for an event.
-	 * 确定事件的下一个截止日期
      *
      * @param  \DateTimeInterface|string  $currentTime
      * @param  int  $nth
@@ -884,7 +878,6 @@ class Event
 
     /**
      * Get the Cron expression for the event.
-	 * 得到事件的Cron表达式
      *
      * @return string
      */
@@ -895,7 +888,6 @@ class Event
 
     /**
      * Set the event mutex implementation to be used.
-	 * 设置要使用的事件互斥锁实现
      *
      * @param  \Illuminate\Console\Scheduling\EventMutex  $mutex
      * @return $this

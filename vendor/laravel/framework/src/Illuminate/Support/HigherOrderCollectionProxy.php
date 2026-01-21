@@ -1,7 +1,4 @@
 <?php
-/**
- * 支持，高阶集合代理
- */
 
 namespace Illuminate\Support;
 
@@ -12,7 +9,6 @@ class HigherOrderCollectionProxy
 {
     /**
      * The collection being operated on.
-	 * 正在操作的集合
      *
      * @var \Illuminate\Support\Enumerable
      */
@@ -20,7 +16,6 @@ class HigherOrderCollectionProxy
 
     /**
      * The method being proxied.
-	 * 被代理的方法
      *
      * @var string
      */
@@ -28,7 +23,6 @@ class HigherOrderCollectionProxy
 
     /**
      * Create a new proxy instance.
-	 * 创建新的代码实例
      *
      * @param  \Illuminate\Support\Enumerable  $collection
      * @param  string  $method
@@ -42,7 +36,6 @@ class HigherOrderCollectionProxy
 
     /**
      * Proxy accessing an attribute onto the collection items.
-	 * 代理访问集合项上的属性
      *
      * @param  string  $key
      * @return mixed
@@ -56,7 +49,6 @@ class HigherOrderCollectionProxy
 
     /**
      * Proxy a method call onto the collection items.
-	 * 将方法调用代理到集合项上
      *
      * @param  string  $method
      * @param  array  $parameters

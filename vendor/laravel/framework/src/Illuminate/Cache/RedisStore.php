@@ -1,7 +1,4 @@
 <?php
-/**
- * 缓存，Redis存储
- */
 
 namespace Illuminate\Cache;
 
@@ -12,7 +9,6 @@ class RedisStore extends TaggableStore implements LockProvider
 {
     /**
      * The Redis factory implementation.
-	 * Redis工厂实现
      *
      * @var \Illuminate\Contracts\Redis\Factory
      */
@@ -20,7 +16,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * A string that should be prepended to keys.
-	 * 前缀，应该加在键前的字符串
      *
      * @var string
      */
@@ -28,7 +23,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * The Redis connection that should be used.
-	 * 应该使用的Redis连接
      *
      * @var string
      */
@@ -36,7 +30,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Create a new Redis store.
-	 * 创建新的Redis存储
      *
      * @param  \Illuminate\Contracts\Redis\Factory  $redis
      * @param  string  $prefix
@@ -52,7 +45,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Retrieve an item from the cache by key.
-	 * 检索项目从缓存中
      *
      * @param  string|array  $key
      * @return mixed
@@ -66,7 +58,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Retrieve multiple items from the cache by key.
-	 * 检索多个项目从缓存中
      *
      * Items not found in the cache will have a null value.
      *
@@ -90,7 +81,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Store an item in the cache for a given number of seconds.
-	 * 存储一个项目在缓存中使用给定的秒数
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -106,7 +96,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Store multiple items in the cache for a given number of seconds.
-	 * 存储多个项目在缓存中使用给定的秒数
      *
      * @param  array  $values
      * @param  int  $seconds
@@ -131,7 +120,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Store an item in the cache if the key doesn't exist.
-	 * 存储项目在缓存中，如果键不存在
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -149,7 +137,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Increment the value of an item in the cache.
-	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -162,7 +149,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Decrement the value of an item in the cache.
-	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -175,7 +161,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Store an item in the cache indefinitely.
-	 * 存储项目在缓存中无限期
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -188,7 +173,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Get a lock instance.
-	 * 得到锁实例
      *
      * @param  string  $name
      * @param  int  $seconds
@@ -202,7 +186,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Restore a lock instance using the owner identifier.
-	 * 恢复锁实例使用所有者标识符
      *
      * @param  string  $name
      * @param  string  $owner
@@ -215,7 +198,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Remove an item from the cache.
-	 * 移除一项从缓存中
      *
      * @param  string  $key
      * @return bool
@@ -227,7 +209,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Remove all items from the cache.
-	 * 清空所有项从缓存
      *
      * @return bool
      */
@@ -240,7 +221,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Begin executing a new tags operation.
-	 * 开始执行一个新的标记操作
      *
      * @param  array|mixed  $names
      * @return \Illuminate\Cache\RedisTaggedCache
@@ -254,7 +234,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Get the Redis connection instance.
-	 * 得到Redis连接实例
      *
      * @return \Illuminate\Redis\Connections\Connection
      */
@@ -265,7 +244,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Set the connection name to be used.
-	 * 设置要使用的连接名称
      *
      * @param  string  $connection
      * @return void
@@ -277,7 +255,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Get the Redis database instance.
-	 * 得到Redis数据库实例
      *
      * @return \Illuminate\Contracts\Redis\Factory
      */
@@ -288,7 +265,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Get the cache key prefix.
-	 * 得到缓存键前缀
      *
      * @return string
      */
@@ -299,7 +275,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Set the cache key prefix.
-	 * 设置缓存键前缀
      *
      * @param  string  $prefix
      * @return void
@@ -311,7 +286,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Serialize the value.
-	 * 序列化值
      *
      * @param  mixed  $value
      * @return mixed
@@ -323,7 +297,6 @@ class RedisStore extends TaggableStore implements LockProvider
 
     /**
      * Unserialize the value.
-	 * 反序列化值
      *
      * @param  mixed  $value
      * @return mixed

@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，控制台, 工厂制造指令
- */
 
 namespace Illuminate\Database\Console\Factories;
 
@@ -12,7 +9,6 @@ class FactoryMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -20,7 +16,6 @@ class FactoryMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -28,7 +23,6 @@ class FactoryMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成的类的类型
      *
      * @var string
      */
@@ -36,18 +30,29 @@ class FactoryMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
-	 * 得到生成器的存根文件
      *
      * @return string
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/factory.stub';
+        return $this->resolveStubPath('/stubs/factory.stub');
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param  string  $stub
+     * @return string
+     */
+    protected function resolveStubPath($stub)
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+            ? $customPath
+            : __DIR__.$stub;
     }
 
     /**
      * Build the class with the given name.
-	 * 构建类使用给定的名称
      *
      * @param  string  $name
      * @return string
@@ -60,22 +65,22 @@ class FactoryMakeCommand extends GeneratorCommand
 
         $model = class_basename($namespaceModel);
 
+        $replace = [
+            'NamespacedDummyModel' => $namespaceModel,
+            '{{ namespacedModel }}' => $namespaceModel,
+            '{{namespacedModel}}' => $namespaceModel,
+            'DummyModel' => $model,
+            '{{ model }}' => $model,
+            '{{model}}' => $model,
+        ];
+
         return str_replace(
-            [
-                'NamespacedDummyModel',
-                'DummyModel',
-            ],
-            [
-                $namespaceModel,
-                $model,
-            ],
-            parent::buildClass($name)
+            array_keys($replace), array_values($replace), parent::buildClass($name)
         );
     }
 
     /**
      * Get the destination class path.
-	 * 得到目标类路径
      *
      * @param  string  $name
      * @return string
@@ -91,7 +96,6 @@ class FactoryMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
-	 * 得到控制台命令选项
      *
      * @return array
      */

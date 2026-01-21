@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，查询，连接条款
- */
 
 namespace Illuminate\Database\Query;
 
@@ -11,7 +8,6 @@ class JoinClause extends Builder
 {
     /**
      * The type of join being performed.
-	 * 要执行的连接类型
      *
      * @var string
      */
@@ -19,7 +15,6 @@ class JoinClause extends Builder
 
     /**
      * The table the join clause is joining to.
-	 * 连接子句要连接的表
      *
      * @var string
      */
@@ -27,7 +22,6 @@ class JoinClause extends Builder
 
     /**
      * The connection of the parent query builder.
-	 * 父查询生成器的连接
      *
      * @var \Illuminate\Database\ConnectionInterface
      */
@@ -35,7 +29,6 @@ class JoinClause extends Builder
 
     /**
      * The grammar of the parent query builder.
-	 * 父查询生成器的语法
      *
      * @var \Illuminate\Database\Query\Grammars\Grammar
      */
@@ -43,7 +36,6 @@ class JoinClause extends Builder
 
     /**
      * The processor of the parent query builder.
-	 * 父查询生成器的处理器
      *
      * @var \Illuminate\Database\Query\Processors\Processor
      */
@@ -51,7 +43,6 @@ class JoinClause extends Builder
 
     /**
      * The class name of the parent query builder.
-	 * 父查询生成器的类名
      *
      * @var string
      */
@@ -59,7 +50,6 @@ class JoinClause extends Builder
 
     /**
      * Create a new join clause instance.
-	 * 创建新的连接子句实例
      *
      * @param  \Illuminate\Database\Query\Builder  $parentQuery
      * @param  string  $type
@@ -82,7 +72,6 @@ class JoinClause extends Builder
 
     /**
      * Add an "on" clause to the join.
-	 * 向联接添加一个"on"子句
      *
      * On clauses can be chained, e.g.
      *
@@ -112,7 +101,6 @@ class JoinClause extends Builder
 
     /**
      * Add an "or on" clause to the join.
-	 * 向联接添加"或on"子句
      *
      * @param  \Closure|string  $first
      * @param  string|null  $operator
@@ -126,7 +114,6 @@ class JoinClause extends Builder
 
     /**
      * Get a new instance of the join clause builder.
-	 * 得到连接子句构建器的新实例
      *
      * @return \Illuminate\Database\Query\JoinClause
      */
@@ -137,7 +124,6 @@ class JoinClause extends Builder
 
     /**
      * Create a new query instance for sub-query.
-	 * 创建新的查询实例为子查询
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -148,7 +134,6 @@ class JoinClause extends Builder
 
     /**
      * Create a new parent query instance.
-	 * 创建新的父查询实例
      *
      * @return \Illuminate\Database\Query\Builder
      */

@@ -1,7 +1,4 @@
 <?php
-/**
- * 队列，调用队列处理程序
- */
 
 namespace Illuminate\Queue;
 
@@ -17,7 +14,6 @@ class CallQueuedHandler
 {
     /**
      * The bus dispatcher implementation.
-	 * 总线调度实现
      *
      * @var \Illuminate\Contracts\Bus\Dispatcher
      */
@@ -25,7 +21,6 @@ class CallQueuedHandler
 
     /**
      * The container instance.
-	 * 容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -33,7 +28,6 @@ class CallQueuedHandler
 
     /**
      * Create a new handler instance.
-	 * 创建新的处理实例
      *
      * @param  \Illuminate\Contracts\Bus\Dispatcher  $dispatcher
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -47,7 +41,6 @@ class CallQueuedHandler
 
     /**
      * Handle the queued job.
-	 * 处理队列作业
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  array  $data
@@ -76,7 +69,6 @@ class CallQueuedHandler
 
     /**
      * Dispatch the given job / command through its specified middleware.
-	 * 调度给定的作业/命令通过指定的中间件
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $command
@@ -95,7 +87,6 @@ class CallQueuedHandler
 
     /**
      * Resolve the handler for the given command.
-	 * 解析给定命令的处理程序
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $command
@@ -114,7 +105,6 @@ class CallQueuedHandler
 
     /**
      * Set the job instance of the given class if necessary.
-	 * 设置给定类的作业实例如果需要
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $instance
@@ -131,7 +121,6 @@ class CallQueuedHandler
 
     /**
      * Ensure the next job in the chain is dispatched if applicable.
-	 * 确保链中的下一个作业被调度(如果适用)
      *
      * @param  mixed  $command
      * @return void
@@ -145,10 +134,9 @@ class CallQueuedHandler
 
     /**
      * Handle a model not found exception.
-	 * 处理未找到模型的异常
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return void
      */
     protected function handleModelNotFound(Job $job, $e)
@@ -171,12 +159,11 @@ class CallQueuedHandler
 
     /**
      * Call the failed method on the job instance.
-	 * 调用失败的方法在作业实例上
      *
      * The exception that caused the failure will be passed.
      *
      * @param  array  $data
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return void
      */
     public function failed(array $data, $e)

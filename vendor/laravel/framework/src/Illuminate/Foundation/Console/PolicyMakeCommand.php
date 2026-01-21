@@ -1,7 +1,4 @@
 <?php
-/**
- * 基础，政策生成命令
- */
 
 namespace Illuminate\Foundation\Console;
 
@@ -13,7 +10,6 @@ class PolicyMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
-	 * 控制台命令名
      *
      * @var string
      */
@@ -21,7 +17,6 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
-	 * 控制台命令描述
      *
      * @var string
      */
@@ -29,7 +24,6 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
-	 * 生成类的类型
      *
      * @var string
      */
@@ -37,7 +31,6 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Build the class with the given name.
-	 * 构建类使用给定名称
      *
      * @param  string  $name
      * @return string
@@ -55,7 +48,6 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Replace the User model namespace.
-	 * 替换User模型命名空间
      *
      * @param  string  $stub
      * @return string
@@ -76,8 +68,23 @@ class PolicyMakeCommand extends GeneratorCommand
     }
 
     /**
+     * Get the model for the guard's user provider.
+     *
+     * @return string|null
+     */
+    protected function userProviderModel()
+    {
+        $config = $this->laravel['config'];
+
+        $guard = $this->option('guard') ?: $config->get('auth.defaults.guard');
+
+        return $config->get(
+            'auth.providers.'.$config->get('auth.guards.'.$guard.'.provider').'.model'
+        );
+    }
+
+    /**
      * Replace the model for the given stub.
-	 * 替模型为给定存根
      *
      * @param  string  $stub
      * @param  string  $model
@@ -87,17 +94,11 @@ class PolicyMakeCommand extends GeneratorCommand
     {
         $model = str_replace('/', '\\', $model);
 
-        $namespaceModel = $this->laravel->getNamespace().$model;
-
         if (Str::startsWith($model, '\\')) {
-            $stub = str_replace('NamespacedDummyModel', trim($model, '\\'), $stub);
+            $namespacedModel = trim($model, '\\');
         } else {
-            $stub = str_replace('NamespacedDummyModel', $namespaceModel, $stub);
+            $namespacedModel = $this->laravel->getNamespace().$model;
         }
-
-        $stub = str_replace(
-            "use {$namespaceModel};\nuse {$namespaceModel};", "use {$namespaceModel};", $stub
-        );
 
         $model = class_basename(trim($model, '\\'));
 
@@ -105,33 +106,58 @@ class PolicyMakeCommand extends GeneratorCommand
 
         $dummyModel = Str::camel($model) === 'user' ? 'model' : $model;
 
-        $stub = str_replace('DocDummyModel', Str::snake($dummyModel, ' '), $stub);
+        $replace = [
+            'NamespacedDummyModel' => $namespacedModel,
+            '{{ namespacedModel }}' => $namespacedModel,
+            '{{namespacedModel}}' => $namespacedModel,
+            'DummyModel' => $model,
+            '{{ model }}' => $model,
+            '{{model}}' => $model,
+            'dummyModel' => Str::camel($dummyModel),
+            '{{ modelVariable }}' => Str::camel($dummyModel),
+            '{{modelVariable}}' => Str::camel($dummyModel),
+            'DummyUser' => $dummyUser,
+            '{{ user }}' => $dummyUser,
+            '{{user}}' => $dummyUser,
+            '$user' => '$'.Str::camel($dummyUser),
+        ];
 
-        $stub = str_replace('DummyModel', $model, $stub);
+        $stub = str_replace(
+            array_keys($replace), array_values($replace), $stub
+        );
 
-        $stub = str_replace('dummyModel', Str::camel($dummyModel), $stub);
-
-        $stub = str_replace('DummyUser', $dummyUser, $stub);
-
-        return str_replace('DocDummyPluralModel', Str::snake(Str::pluralStudly($dummyModel), ' '), $stub);
+        return str_replace(
+            "use {$namespacedModel};\nuse {$namespacedModel};", "use {$namespacedModel};", $stub
+        );
     }
 
     /**
      * Get the stub file for the generator.
-	 * 得到存根文件为生成器
      *
      * @return string
      */
     protected function getStub()
     {
         return $this->option('model')
-                    ? __DIR__.'/stubs/policy.stub'
-                    : __DIR__.'/stubs/policy.plain.stub';
+                    ? $this->resolveStubPath('/stubs/policy.stub')
+                    : $this->resolveStubPath('/stubs/policy.plain.stub');
+    }
+
+    /**
+     * Resolve the fully-qualified path to the stub.
+     *
+     * @param  string  $stub
+     * @return string
+     */
+    protected function resolveStubPath($stub)
+    {
+        return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
+                        ? $customPath
+                        : __DIR__.$stub;
     }
 
     /**
      * Get the default namespace for the class.
-	 * 得到类的默认命名空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -143,7 +169,6 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command arguments.
-	 * 得到控制台命令参数
      *
      * @return array
      */
@@ -151,6 +176,7 @@ class PolicyMakeCommand extends GeneratorCommand
     {
         return [
             ['model', 'm', InputOption::VALUE_OPTIONAL, 'The model that the policy applies to'],
+            ['guard', 'g', InputOption::VALUE_OPTIONAL, 'The guard that the policy relies on'],
         ];
     }
 }

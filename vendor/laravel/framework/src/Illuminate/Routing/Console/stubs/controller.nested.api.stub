@@ -1,78 +1,70 @@
 <?php
-/**
- * 路由，自己改注释
- */
 
-namespace DummyNamespace;
+namespace {{ namespace }};
 
-use DummyFullModelClass;
-use DummyRootNamespaceHttp\Controllers\Controller;
+use {{ namespacedModel }};
+use {{ rootNamespace }}Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use ParentDummyFullModelClass;
+use {{ namespacedParentModel }};
 
-class DummyClass extends Controller
+class {{ class }} extends Controller
 {
     /**
      * Display a listing of the resource.
-	 * 显示资源列表
      *
-     * @param  \ParentDummyFullModelClass  $ParentDummyModelVariable
+     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function index(ParentDummyModelClass $ParentDummyModelVariable)
+    public function index({{ parentModel }} ${{ parentModelVariable }})
     {
         //
     }
 
     /**
      * Store a newly created resource in storage.
-	 * 存储最近创建资源至存储中
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \ParentDummyFullModelClass  $ParentDummyModelVariable
+     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, ParentDummyModelClass $ParentDummyModelVariable)
+    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }})
     {
         //
     }
 
     /**
      * Display the specified resource.
-	 * 显示指定资源
      *
-     * @param  \ParentDummyFullModelClass  $ParentDummyModelVariable
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function show(ParentDummyModelClass $ParentDummyModelVariable, DummyModelClass $DummyModelVariable)
+    public function show({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }})
     {
         //
     }
 
     /**
      * Update the specified resource in storage.
-	 * 更新指定资源至存储中
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \ParentDummyFullModelClass  $ParentDummyModelVariable
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ParentDummyModelClass $ParentDummyModelVariable, DummyModelClass $DummyModelVariable)
+    public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }})
     {
         //
     }
 
     /**
      * Remove the specified resource from storage.
-	 * 移除指定资源从存储中
      *
-     * @param  \ParentDummyFullModelClass  $ParentDummyModelVariable
-     * @param  \DummyFullModelClass  $DummyModelVariable
+     * @param  \{{ namespacedParentModel }}  ${{ parentModelVariable }}
+     * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ParentDummyModelClass $ParentDummyModelVariable, DummyModelClass $DummyModelVariable)
+    public function destroy({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }})
     {
         //
     }

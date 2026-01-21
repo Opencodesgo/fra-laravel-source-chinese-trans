@@ -1,7 +1,4 @@
 <?php
-/**
- * 缓存，缓存空存储
- */
 
 namespace Illuminate\Cache;
 
@@ -11,7 +8,6 @@ class NullStore extends TaggableStore
 
     /**
      * Retrieve an item from the cache by key.
-	 * 检索项目从缓存中
      *
      * @param  string  $key
      * @return mixed
@@ -23,7 +19,6 @@ class NullStore extends TaggableStore
 
     /**
      * Store an item in the cache for a given number of seconds.
-	 * 存储项目在缓存中使用给定的秒数
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -37,7 +32,6 @@ class NullStore extends TaggableStore
 
     /**
      * Increment the value of an item in the cache.
-	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -50,7 +44,6 @@ class NullStore extends TaggableStore
 
     /**
      * Decrement the value of an item in the cache.
-	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -63,7 +56,6 @@ class NullStore extends TaggableStore
 
     /**
      * Store an item in the cache indefinitely.
-	 * 存储项目无限期地在缓存中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -76,7 +68,6 @@ class NullStore extends TaggableStore
 
     /**
      * Remove an item from the cache.
-	 * 从缓存中删除项目
      *
      * @param  string  $key
      * @return bool
@@ -88,7 +79,6 @@ class NullStore extends TaggableStore
 
     /**
      * Remove all items from the cache.
-	 * 清空缓存中所有项目
      *
      * @return bool
      */
@@ -99,7 +89,6 @@ class NullStore extends TaggableStore
 
     /**
      * Get the cache key prefix.
-	 * 得到缓存前缀
      *
      * @return string
      */

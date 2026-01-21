@@ -1,7 +1,4 @@
 <?php
-/**
- * 数据库，Eloquent有事件
- */
 
 namespace Illuminate\Database\Eloquent\Concerns;
 
@@ -14,7 +11,6 @@ trait HasEvents
 {
     /**
      * The event map for the model.
-	 * 模型事件映射
      *
      * Allows for object-based events for native Eloquent events.
      *
@@ -24,7 +20,6 @@ trait HasEvents
 
     /**
      * User exposed observable events.
-	 * 用户公开的可观察事件
      *
      * These are extra user-defined events observers may subscribe to.
      *
@@ -34,7 +29,6 @@ trait HasEvents
 
     /**
      * Register observers with the model.
-	 * 注册观察者到模型
      *
      * @param  object|array|string  $classes
      * @return void
@@ -52,7 +46,6 @@ trait HasEvents
 
     /**
      * Register a single observer with the model.
-	 * 注册一个观察者到模型
      *
      * @param  object|string  $class
      * @return void
@@ -66,8 +59,6 @@ trait HasEvents
         // When registering a model observer, we will spin through the possible events
         // and determine if this observer has that method. If it does, we will hook
         // it into the model's event system, making it convenient to watch these.
-		// 在注册模型观察者时，我们将浏览可能发生的事件并确定这个观察者是否有那个方法。
-		// 如果是这样，我们就会钩上它进入模型的事件系统，方便观看这些。
         foreach ($this->getObservableEvents() as $event) {
             if (method_exists($class, $event)) {
                 static::registerModelEvent($event, $className.'@'.$event);
@@ -77,7 +68,6 @@ trait HasEvents
 
     /**
      * Resolve the observer's class name from an object or string.
-	 * 解析观察者的类名从对象或字符串中
      *
      * @param  object|string  $class
      * @return string
@@ -99,7 +89,6 @@ trait HasEvents
 
     /**
      * Get the observable event names.
-	 * 得到可观察事件名
      *
      * @return array
      */
@@ -117,7 +106,6 @@ trait HasEvents
 
     /**
      * Set the observable event names.
-	 * 设置可观察事件的名称
      *
      * @param  array  $observables
      * @return $this
@@ -131,7 +119,6 @@ trait HasEvents
 
     /**
      * Add an observable event name.
-	 * 添加一个可观察事件名称
      *
      * @param  array|mixed  $observables
      * @return void
@@ -145,7 +132,6 @@ trait HasEvents
 
     /**
      * Remove an observable event name.
-	 * 移除一个可观察事件名
      *
      * @param  array|mixed  $observables
      * @return void
@@ -159,7 +145,6 @@ trait HasEvents
 
     /**
      * Register a model event with the dispatcher.
-	 * 注册一个模型事件使用调度程序
      *
      * @param  string  $event
      * @param  \Closure|string  $callback
@@ -176,7 +161,6 @@ trait HasEvents
 
     /**
      * Fire the given event for the model.
-	 * 触发给定的事件为模型
      *
      * @param  string  $event
      * @param  bool  $halt
@@ -191,9 +175,6 @@ trait HasEvents
         // First, we will get the proper method to call on the event dispatcher, and then we
         // will attempt to fire a custom, object based event for the given event. If that
         // returns a result we can return that result, or we'll call the string events.
-		// 首先，我们将获得在事件调度程序上调用的适当方法，
-		// 接着将尝试为给定事件触发一个自定义的、基于对象的事件。
-		// 如果那样返回一个结果我们可以返回那个结果，或者我们调用字符串事件。
         $method = $halt ? 'until' : 'dispatch';
 
         $result = $this->filterModelEventResults(
@@ -211,7 +192,6 @@ trait HasEvents
 
     /**
      * Fire a custom model event for the given event.
-	 * 触发一个自定义模型事件为给定事件
      *
      * @param  string  $event
      * @param  string  $method
@@ -232,7 +212,6 @@ trait HasEvents
 
     /**
      * Filter the model event results.
-	 * 筛选模型事件结果
      *
      * @param  mixed  $result
      * @return mixed
@@ -250,7 +229,6 @@ trait HasEvents
 
     /**
      * Register a retrieved model event with the dispatcher.
-	 * 注册检索到的模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -262,7 +240,6 @@ trait HasEvents
 
     /**
      * Register a saving model event with the dispatcher.
-	 * 注册一个保存模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -274,7 +251,6 @@ trait HasEvents
 
     /**
      * Register a saved model event with the dispatcher.
-	 * 注册已保存的模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -286,7 +262,6 @@ trait HasEvents
 
     /**
      * Register an updating model event with the dispatcher.
-	 * 注册更新模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -298,7 +273,6 @@ trait HasEvents
 
     /**
      * Register an updated model event with the dispatcher.
-	 * 注册更新后的模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -310,7 +284,6 @@ trait HasEvents
 
     /**
      * Register a creating model event with the dispatcher.
-	 * 注册一个创建模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -322,7 +295,6 @@ trait HasEvents
 
     /**
      * Register a created model event with the dispatcher.
-	 * 注册已创建的模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -334,7 +306,6 @@ trait HasEvents
 
     /**
      * Register a replicating model event with the dispatcher.
-	 * 注册复制模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -346,7 +317,6 @@ trait HasEvents
 
     /**
      * Register a deleting model event with the dispatcher.
-	 * 注册一个删除模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -358,7 +328,6 @@ trait HasEvents
 
     /**
      * Register a deleted model event with the dispatcher.
-	 * 注册已删除的模型事件向调度程序
      *
      * @param  \Closure|string  $callback
      * @return void
@@ -370,7 +339,6 @@ trait HasEvents
 
     /**
      * Remove all of the event listeners for the model.
-	 * 删除模型的所有事件侦听器
      *
      * @return void
      */
@@ -393,7 +361,6 @@ trait HasEvents
 
     /**
      * Get the event dispatcher instance.
-	 * 得到事件调度程序实例
      *
      * @return \Illuminate\Contracts\Events\Dispatcher
      */
@@ -404,7 +371,6 @@ trait HasEvents
 
     /**
      * Set the event dispatcher instance.
-	 * 设置事件调度实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @return void
@@ -416,7 +382,6 @@ trait HasEvents
 
     /**
      * Unset the event dispatcher for models.
-	 * 取消设置模型的事件调度程序
      *
      * @return void
      */
@@ -427,7 +392,6 @@ trait HasEvents
 
     /**
      * Execute a callback without firing any model events for any model type.
-	 * 执行回调在不触发任何模型类型的任何模型事件的情况下
      *
      * @param  callable  $callback
      * @return mixed
