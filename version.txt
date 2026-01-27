@@ -1,5 +1,9 @@
+
 Laravel Version: 7.30.7
-PHP Version: 7.2
+LTS Flag Not
+PHP Version: 7.4
+Frame Start Date: 2020-03-03
+Frame End Date: 2021-03-03
+
+Version2: v1.0.1
 Start Date: 2025-05-21
-Date: 2020-03-03
-Version2: v1.1
