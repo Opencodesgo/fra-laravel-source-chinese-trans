@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，Sqs队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -11,6 +14,7 @@ class SqsQueue extends Queue implements QueueContract
 {
     /**
      * The Amazon SQS instance.
+	 * SQS实例
      *
      * @var \Aws\Sqs\SqsClient
      */
@@ -18,6 +22,7 @@ class SqsQueue extends Queue implements QueueContract
 
     /**
      * The name of the default queue.
+	 * 默认队列名称
      *
      * @var string
      */
@@ -39,6 +44,7 @@ class SqsQueue extends Queue implements QueueContract
 
     /**
      * Create a new Amazon SQS queue instance.
+	 * 创建新的SQS队列实例
      *
      * @param  \Aws\Sqs\SqsClient  $sqs
      * @param  string  $default
@@ -156,6 +162,7 @@ class SqsQueue extends Queue implements QueueContract
 
     /**
      * Get the underlying SQS instance.
+	 * 获取底层SQS实例
      *
      * @return \Aws\Sqs\SqsClient
      */

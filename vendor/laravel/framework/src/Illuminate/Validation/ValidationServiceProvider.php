@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，验证，验证服务提供者
+ */
 
 namespace Illuminate\Validation;
 
@@ -9,6 +12,7 @@ class ValidationServiceProvider extends ServiceProvider implements DeferrablePro
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -54,6 +58,7 @@ class ValidationServiceProvider extends ServiceProvider implements DeferrablePro
 
     /**
      * Get the services provided by the provider.
+	 * 得到提供者提供的服务
      *
      * @return array
      */

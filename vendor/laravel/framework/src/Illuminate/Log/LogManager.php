@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，日志，日志记录器
+ * 服务容器绑定log
+ */
 
 namespace Illuminate\Log;
 
@@ -24,6 +28,7 @@ class LogManager implements LoggerInterface
 
     /**
      * The application instance.
+	 * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -31,6 +36,7 @@ class LogManager implements LoggerInterface
 
     /**
      * The array of resolved channels.
+	 * 已解析通道的数组
      *
      * @var array
      */
@@ -38,6 +44,7 @@ class LogManager implements LoggerInterface
 
     /**
      * The registered custom driver creators.
+	 * 注册的自定义驱动程序创建者
      *
      * @var array
      */
@@ -45,6 +52,7 @@ class LogManager implements LoggerInterface
 
     /**
      * The standard date format to use when writing logs.
+	 * 编写日志时使用的标准日期格式
      *
      * @var string
      */
@@ -52,6 +60,8 @@ class LogManager implements LoggerInterface
 
     /**
      * Create a new Log manager instance.
+	 * 创建一个新的日志管理器实例
+	 * 
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -63,6 +73,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create a new, on-demand aggregate logger instance.
+	 * 创建一个新的按需聚合日志记录器实例
      *
      * @param  array  $channels
      * @param  string|null  $channel
@@ -78,6 +89,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Get a log channel instance.
+	 * 获取日志通道实例
      *
      * @param  string|null  $channel
      * @return \Psr\Log\LoggerInterface
@@ -89,6 +101,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Get a log driver instance.
+	 * 获取日志驱动程序实例
      *
      * @param  string|null  $driver
      * @return \Psr\Log\LoggerInterface
@@ -108,6 +121,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Attempt to get the log from the local cache.
+	 * 尝试从本地缓存中获取日志
      *
      * @param  string  $name
      * @return \Psr\Log\LoggerInterface
@@ -129,6 +143,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Apply the configured taps for the logger.
+	 * 为记录器应用配置的水龙头
      *
      * @param  string  $name
      * @param  \Illuminate\Log\Logger  $logger
@@ -147,7 +162,8 @@ class LogManager implements LoggerInterface
 
     /**
      * Parse the given tap class string into a class name and arguments string.
-     *
+	 * 将给定的tap类字符串解析为类名和参数字符串
+     * 
      * @param  string  $tap
      * @return array
      */
@@ -158,6 +174,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an emergency log handler to avoid white screens of death.
+	 * 创建紧急日志处理程序以避免白屏死机
      *
      * @return \Psr\Log\LoggerInterface
      */
@@ -178,6 +195,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Resolve the given log instance by name.
+	 * 按名称解析给定的日志实例
      *
      * @param  string  $name
      * @return \Psr\Log\LoggerInterface
@@ -207,6 +225,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Call a custom driver creator.
+	 * 调用自定义驱动程序创建者
      *
      * @param  array  $config
      * @return mixed
@@ -218,6 +237,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create a custom log driver instance.
+	 * 创建自定义日志驱动程序实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -231,6 +251,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an aggregate log driver instance.
+	 * 创建聚合日志驱动程序实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -250,6 +271,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an instance of the single file log driver.
+	 * 创建单个文件日志驱动程序的实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -268,6 +290,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an instance of the daily file log driver.
+	 * 创建每日文件日志驱动程序的实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -284,6 +307,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an instance of the Slack log driver.
+	 * 创建Slack日志驱动程序的实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -308,6 +332,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an instance of the syslog log driver.
+	 * 创建syslog日志驱动程序的实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -324,6 +349,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an instance of the "error log" log driver.
+	 * 创建"错误日志"日志驱动程序的实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -339,6 +365,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Create an instance of any handler available in Monolog.
+	 * 创建一个在独白中可用的任何处理程序的实例
      *
      * @param  array  $config
      * @return \Psr\Log\LoggerInterface
@@ -367,6 +394,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Prepare the handlers for usage by Monolog.
+	 * 准备处理程序供Monolog使用
      *
      * @param  array  $handlers
      * @return array
@@ -382,6 +410,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Prepare the handler for usage by Monolog.
+	 * 准备处理程序供Monolog使用
      *
      * @param  \Monolog\Handler\HandlerInterface  $handler
      * @param  array  $config
@@ -408,6 +437,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Get a Monolog formatter instance.
+	 * 获取一个独白格式化程序实例
      *
      * @return \Monolog\Formatter\FormatterInterface
      */
@@ -420,6 +450,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Get fallback log channel name.
+	 * 获取回退日志通道名称
      *
      * @return string
      */
@@ -430,6 +461,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Get the log connection configuration.
+	 * 获取日志连接配置
      *
      * @param  string  $name
      * @return array
@@ -441,6 +473,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Get the default log driver name.
+	 * 获取默认的日志驱动程序名称
      *
      * @return string
      */
@@ -451,6 +484,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Set the default log driver name.
+	 * 设置默认的日志驱动程序名称
      *
      * @param  string  $name
      * @return void
@@ -462,6 +496,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Register a custom driver creator Closure.
+	 * 注册自定义驱动程序创建器闭包
      *
      * @param  string  $driver
      * @param  \Closure  $callback
@@ -476,6 +511,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Unset the given channel instance.
+	 * 取消给定通道实例的设置
      *
      * @param  string|null  $driver
      * @return $this
@@ -491,6 +527,7 @@ class LogManager implements LoggerInterface
 
     /**
      * System is unusable.
+	 * 系统不可用
      *
      * @param  string  $message
      * @param  array  $context
@@ -503,6 +540,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Action must be taken immediately.
+	 * 必须立即采取行动
      *
      * Example: Entire website down, database unavailable, etc. This should
      * trigger the SMS alerts and wake you up.
@@ -518,6 +556,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Critical conditions.
+	 * 临界状态
      *
      * Example: Application component unavailable, unexpected exception.
      *
@@ -533,6 +572,7 @@ class LogManager implements LoggerInterface
     /**
      * Runtime errors that do not require immediate action but should typically
      * be logged and monitored.
+	 * 运行时错误，不需要立即采取行动，但通常应该被记录和监视。
      *
      * @param  string  $message
      * @param  array  $context
@@ -545,6 +585,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Exceptional occurrences that are not errors.
+	 * 不属于错误的异常情况
      *
      * Example: Use of deprecated APIs, poor use of an API, undesirable things
      * that are not necessarily wrong.
@@ -560,6 +601,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Normal but significant events.
+	 * 正常但重要的事件
      *
      * @param  string  $message
      * @param  array  $context
@@ -572,6 +614,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Interesting events.
+	 * 有趣的事件
      *
      * Example: User logs in, SQL logs.
      *
@@ -586,6 +629,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Detailed debug information.
+	 * 详细的调试信息
      *
      * @param  string  $message
      * @param  array  $context
@@ -598,6 +642,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Logs with an arbitrary level.
+	 * 具有任意级别的日志
      *
      * @param  mixed  $level
      * @param  string  $message
@@ -611,6 +656,7 @@ class LogManager implements LoggerInterface
 
     /**
      * Dynamically call the default driver instance.
+	 * 动态调用默认驱动程序实例
      *
      * @param  string  $method
      * @param  array  $parameters

@@ -14,6 +14,7 @@ class ControllerDispatcher implements ControllerDispatcherContract
 
     /**
      * The container instance.
+	 * 容器实例
      *
      * @var \Illuminate\Container\Container
      */
@@ -33,6 +34,7 @@ class ControllerDispatcher implements ControllerDispatcherContract
 
     /**
      * Dispatch a request to a given controller and method.
+	 * 分派请求给给定的控制器和方法
      *
      * @param  \Illuminate\Routing\Route  $route
      * @param  mixed  $controller
@@ -45,6 +47,7 @@ class ControllerDispatcher implements ControllerDispatcherContract
             $route->parametersWithoutNulls(), $controller, $method
         );
 
+		// 通过路由找到的动作action在这里执行了
         if (method_exists($controller, 'callAction')) {
             return $controller->callAction($method, $parameters);
         }
@@ -54,6 +57,7 @@ class ControllerDispatcher implements ControllerDispatcherContract
 
     /**
      * Get the middleware for the controller instance.
+	 * 获取控制器实例的中间件
      *
      * @param  \Illuminate\Routing\Controller  $controller
      * @param  string  $method

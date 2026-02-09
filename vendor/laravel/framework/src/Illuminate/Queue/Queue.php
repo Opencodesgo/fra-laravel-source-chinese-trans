@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，队列，核心类
+ */
 
 namespace Illuminate\Queue;
 
@@ -14,6 +17,7 @@ abstract class Queue
 
     /**
      * The IoC container instance.
+	 * 容器实例
      *
      * @var \Illuminate\Container\Container
      */
@@ -21,6 +25,7 @@ abstract class Queue
 
     /**
      * The connection name for the queue.
+	 * 队列连接名
      *
      * @var string
      */
@@ -266,6 +271,7 @@ abstract class Queue
 
     /**
      * Set the connection name for the queue.
+	 * 设置队列的连接名称
      *
      * @param  string  $name
      * @return $this
@@ -279,6 +285,7 @@ abstract class Queue
 
     /**
      * Set the IoC container instance.
+	 * 设置IoC容器实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @return void

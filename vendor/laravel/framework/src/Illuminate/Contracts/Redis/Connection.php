@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，Redis，连接
+ */
 
 namespace Illuminate\Contracts\Redis;
 
@@ -8,6 +11,7 @@ interface Connection
 {
     /**
      * Subscribe to a set of given channels for messages.
+	 * 为消息订阅一组给定的通道
      *
      * @param  array|string  $channels
      * @param  \Closure  $callback
@@ -17,6 +21,7 @@ interface Connection
 
     /**
      * Subscribe to a set of given channels with wildcards.
+	 * 使用通配符订阅一组给定的通道
      *
      * @param  array|string  $channels
      * @param  \Closure  $callback
@@ -26,6 +31,7 @@ interface Connection
 
     /**
      * Run a command against the Redis database.
+	 * 对Redis数据库运行命令
      *
      * @param  string  $method
      * @param  array  $parameters

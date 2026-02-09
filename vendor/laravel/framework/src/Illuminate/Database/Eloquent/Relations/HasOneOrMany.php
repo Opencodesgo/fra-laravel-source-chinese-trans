@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，关系，一对一或多
+ */
 
 namespace Illuminate\Database\Eloquent\Relations;
 
@@ -10,6 +13,7 @@ abstract class HasOneOrMany extends Relation
 {
     /**
      * The foreign key of the parent model.
+	 * 父模型的外键
      *
      * @var string
      */
@@ -17,6 +21,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * The local key of the parent model.
+	 * 父模型的本地键
      *
      * @var string
      */
@@ -24,6 +29,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * The count of self joins.
+	 * 自我连接的计数
      *
      * @var int
      */
@@ -31,6 +37,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create a new has one or many relationship instance.
+	 * 创建一个新的有一个或多个关系实例
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -48,6 +55,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create and return an un-saved instance of the related model.
+	 * 创建并返回一个未保存的相关模型实例
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model
@@ -61,6 +69,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create and return an un-saved instances of the related models.
+	 * 创建并返回相关模型的未保存实例
      *
      * @param  iterable  $records
      * @return \Illuminate\Database\Eloquent\Collection
@@ -78,6 +87,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Set the base constraints on the relation query.
+	 * 设置关系查询的基本约束
      *
      * @return void
      */
@@ -92,6 +102,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Set the constraints for an eager load of the relation.
+	 * 为关系的急切负载设置约束
      *
      * @param  array  $models
      * @return void
@@ -133,6 +144,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Match the eagerly loaded results to their many parents.
+	 * 把急切的结果与他们的许多父母相匹配
      *
      * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
@@ -160,6 +172,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the value of a relationship by one or many type.
+	 * 通过一种或多种类型的关系获得关系的价值
      *
      * @param  array  $dictionary
      * @param  string  $key
@@ -175,6 +188,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Build model dictionary keyed by the relation's foreign key.
+	 * 通过关系的外键键建立模型字典
      *
      * @param  \Illuminate\Database\Eloquent\Collection  $results
      * @return array
@@ -190,6 +204,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Find a model by its primary key or return new instance of the related model.
+	 * 通过主键或返回相关模型的新实例查找模型
      *
      * @param  mixed  $id
      * @param  array  $columns
@@ -208,6 +223,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the first related model record matching the attributes or instantiate it.
+	 * 获取与属性匹配或实例化的第一个相关的模型记录
      *
      * @param  array  $attributes
      * @param  array  $values
@@ -242,6 +258,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create or update a related record matching the attributes, and fill it with values.
+	 * 创建或更新与属性匹配的相关记录,并以值填充。
      *
      * @param  array  $attributes
      * @param  array  $values
@@ -286,6 +303,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create a new instance of the related model.
+	 * 创建相关模型的新实例
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model
@@ -301,6 +319,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Create a Collection of new instances of the related model.
+	 * 创建相关模型的新实例集合
      *
      * @param  iterable  $records
      * @return \Illuminate\Database\Eloquent\Collection
@@ -318,6 +337,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Set the foreign ID for creating a related model.
+	 * 为创建相关模型设置外键ID
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
@@ -365,6 +385,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get a relationship join table hash.
+	 * 让关系加入表哈希
      *
      * @return string
      */
@@ -395,6 +416,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the fully qualified parent key name.
+	 * 获得完全合格的父键名称
      *
      * @return string
      */
@@ -405,6 +427,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the plain foreign key.
+	 * 获取普通外键
      *
      * @return string
      */
@@ -417,6 +440,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the foreign key for the relationship.
+	 * 获得关系的外键关键
      *
      * @return string
      */
@@ -427,6 +451,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the local key for the relationship.
+	 * 获取关系的本地键
      *
      * @return string
      */

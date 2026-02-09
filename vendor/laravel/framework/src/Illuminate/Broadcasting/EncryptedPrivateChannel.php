@@ -9,6 +9,7 @@ class EncryptedPrivateChannel extends Channel
 {
     /**
      * Create a new channel instance.
+	 * 创建新的信道实例
      *
      * @param  string  $name
      * @return void

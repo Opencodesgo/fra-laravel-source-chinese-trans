@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，清除编译命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -8,6 +11,7 @@ class ClearCompiledCommand extends Command
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -15,6 +19,7 @@ class ClearCompiledCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */

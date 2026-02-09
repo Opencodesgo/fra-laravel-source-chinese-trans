@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，关系，关联抽象类
+ */
 
 namespace Illuminate\Database\Eloquent\Relations;
 
@@ -22,6 +25,7 @@ abstract class Relation
 
     /**
      * The Eloquent query builder instance.
+	 * Eloquent查询生成器实例
      *
      * @var \Illuminate\Database\Eloquent\Builder
      */
@@ -29,6 +33,7 @@ abstract class Relation
 
     /**
      * The parent model instance.
+	 * 类模型实例
      *
      * @var \Illuminate\Database\Eloquent\Model
      */
@@ -36,6 +41,7 @@ abstract class Relation
 
     /**
      * The related model instance.
+	 * 相关的模型实例
      *
      * @var \Illuminate\Database\Eloquent\Model
      */
@@ -43,6 +49,7 @@ abstract class Relation
 
     /**
      * Indicates if the relation is adding constraints.
+	 * 指明关系是否正在添加约束
      *
      * @var bool
      */
@@ -50,6 +57,7 @@ abstract class Relation
 
     /**
      * An array to map class names to their morph names in database.
+	 * 在数据库中将类名映射到它们的morph名称的数组
      *
      * @var array
      */
@@ -57,6 +65,7 @@ abstract class Relation
 
     /**
      * Create a new relation instance.
+	 * 创建新的关系实例
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -73,6 +82,7 @@ abstract class Relation
 
     /**
      * Run a callback with constraints disabled on the relation.
+	 * 在禁用关系约束的情况下运行回调
      *
      * @param  \Closure  $callback
      * @return mixed
@@ -95,6 +105,7 @@ abstract class Relation
 
     /**
      * Set the base constraints on the relation query.
+	 * 设置关系查询的基本约束
      *
      * @return void
      */
@@ -102,6 +113,7 @@ abstract class Relation
 
     /**
      * Set the constraints for an eager load of the relation.
+	 * 为关系的急切负载设置约束
      *
      * @param  array  $models
      * @return void
@@ -110,6 +122,7 @@ abstract class Relation
 
     /**
      * Initialize the relation on a set of models.
+	 * 初始化一组模型的关系
      *
      * @param  array  $models
      * @param  string  $relation
@@ -119,6 +132,7 @@ abstract class Relation
 
     /**
      * Match the eagerly loaded results to their parents.
+	 * 把急切的结果与他们的父母相匹配
      *
      * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
@@ -129,6 +143,7 @@ abstract class Relation
 
     /**
      * Get the results of the relationship.
+	 * 得到关系的结果
      *
      * @return mixed
      */
@@ -136,6 +151,7 @@ abstract class Relation
 
     /**
      * Get the relationship for eager loading.
+	 * 获得对急切加载的关系
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
@@ -146,6 +162,7 @@ abstract class Relation
 
     /**
      * Execute the query as a "select" statement.
+	 * 将查询作为一个"select"语句执行
      *
      * @param  array  $columns
      * @return \Illuminate\Database\Eloquent\Collection
@@ -215,6 +232,7 @@ abstract class Relation
 
     /**
      * Get all of the primary keys for an array of models.
+	 * 获取一系列模型的主键
      *
      * @param  array  $models
      * @param  string|null  $key
@@ -229,6 +247,7 @@ abstract class Relation
 
     /**
      * Get the underlying query for the relation.
+	 * 获取关系的基本查询
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -249,6 +268,7 @@ abstract class Relation
 
     /**
      * Get the parent model of the relation.
+	 * 获取关系的父模型
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -259,6 +279,7 @@ abstract class Relation
 
     /**
      * Get the fully qualified parent key name.
+	 * 获得完全合格的父键名称
      *
      * @return string
      */
@@ -269,6 +290,7 @@ abstract class Relation
 
     /**
      * Get the related model of the relation.
+	 * 得到关系的相关模型
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
@@ -324,6 +346,7 @@ abstract class Relation
 
     /**
      * Set or get the morph map for polymorphic relations.
+	 * 设置或得到变形关系的morph映射
      *
      * @param  array|null  $map
      * @param  bool  $merge
@@ -371,6 +394,7 @@ abstract class Relation
 
     /**
      * Handle dynamic method calls to the relationship.
+	 * 处理对关系的动态方法调用
      *
      * @param  string  $method
      * @param  array  $parameters
@@ -393,6 +417,7 @@ abstract class Relation
 
     /**
      * Force a clone of the underlying query builder when cloning.
+	 * 克隆时强制克隆底层查询生成器
      *
      * @return void
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，Cookie，工厂
+ */
 
 namespace Illuminate\Contracts\Cookie;
 
@@ -6,6 +9,7 @@ interface Factory
 {
     /**
      * Create a new cookie instance.
+	 * 创建新的cookie实例
      *
      * @param  string  $name
      * @param  string  $value
@@ -22,6 +26,7 @@ interface Factory
 
     /**
      * Create a cookie that lasts "forever" (five years).
+	 * 做一块"永远"（5年）的cookie。
      *
      * @param  string  $name
      * @param  string  $value
@@ -37,6 +42,7 @@ interface Factory
 
     /**
      * Expire the given cookie.
+	 * 给定cookie到期
      *
      * @param  string  $name
      * @param  string|null  $path

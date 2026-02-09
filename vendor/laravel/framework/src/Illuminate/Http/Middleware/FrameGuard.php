@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Http，中间件，Frame Guard
+ */
 
 namespace Illuminate\Http\Middleware;
 
@@ -8,6 +11,7 @@ class FrameGuard
 {
     /**
      * Handle the given request and get the response.
+	 * 处理给定的请求并获得响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

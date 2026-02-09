@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，make:job作业生成命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -9,6 +12,7 @@ class JobMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */

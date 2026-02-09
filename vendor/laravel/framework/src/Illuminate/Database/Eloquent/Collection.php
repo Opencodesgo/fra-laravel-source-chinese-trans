@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，收集
+ */
 
 namespace Illuminate\Database\Eloquent;
 
@@ -14,6 +17,7 @@ class Collection extends BaseCollection implements QueueableCollection
 {
     /**
      * Find a model in the collection by key.
+	 * 按键在集合中查找模型
      *
      * @param  mixed  $key
      * @param  mixed  $default
@@ -44,6 +48,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationships onto the collection.
+	 * 将一组关系加载到集合中
      *
      * @param  array|string  $relations
      * @return $this
@@ -65,6 +70,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationship counts onto the collection.
+	 * 将一组关系计数加载到集合中
      *
      * @param  array|string  $relations
      * @return $this
@@ -98,6 +104,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationships onto the collection if they are not already eager loaded.
+	 * 如果一组关系尚未被急切加载，则将它们加载到集合上。
      *
      * @param  array|string  $relations
      * @return $this
@@ -192,6 +199,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Load a set of relationship counts onto the mixed relationship collection.
+	 * 将一组关系计数加载到混合关系集合上
      *
      * @param  string  $relation
      * @param  array  $relations
@@ -213,6 +221,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Determine if a key exists in the collection.
+	 * 确定一个键是否存在于集合中
      *
      * @param  mixed  $key
      * @param  mixed  $operator
@@ -346,6 +355,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Intersect the collection with the given items.
+	 * 将集合与给定的项目相交
      *
      * @param  \ArrayAccess|array  $items
      * @return static
@@ -527,6 +537,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Flip the items in the collection.
+	 * 翻转集合中的项目
      *
      * @return \Illuminate\Support\Collection
      */
@@ -602,6 +613,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the relationships of the entities being queued.
+	 * 获取正在排队的实体之间的关系
      *
      * @return array
      */
@@ -624,6 +636,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the connection of the entities being queued.
+	 * 获取正在排队的实体的连接
      *
      * @return string|null
      *
@@ -648,6 +661,7 @@ class Collection extends BaseCollection implements QueueableCollection
 
     /**
      * Get the Eloquent query builder from the collection.
+	 * 从集合中获取Eloquent查询生成器
      *
      * @return \Illuminate\Database\Eloquent\Builder
      *

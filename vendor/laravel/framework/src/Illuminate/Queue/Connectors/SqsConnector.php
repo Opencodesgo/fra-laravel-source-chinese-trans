@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，连接器，Sqs连接器
+ */
 
 namespace Illuminate\Queue\Connectors;
 
@@ -10,6 +13,7 @@ class SqsConnector implements ConnectorInterface
 {
     /**
      * Establish a queue connection.
+	 * 建立队列连接
      *
      * @param  array  $config
      * @return \Illuminate\Contracts\Queue\Queue
@@ -29,6 +33,7 @@ class SqsConnector implements ConnectorInterface
 
     /**
      * Get the default configuration for SQS.
+	 * 获取SQS的默认配置
      *
      * @param  array  $config
      * @return array

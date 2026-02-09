@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，SqlServer语法
+ */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -9,6 +12,7 @@ class SqlServerGrammar extends Grammar
 {
     /**
      * If this Grammar supports schema changes wrapped in a transaction.
+	 * 如果此语法支持封装在事务中的模式更改
      *
      * @var bool
      */
@@ -16,6 +20,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * The possible column modifiers.
+	 * 可能的列修饰符
      *
      * @var array
      */
@@ -23,6 +28,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * The columns available as serials.
+	 * 作为序列可用的列
      *
      * @var array
      */
@@ -881,6 +887,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Quote the given string literal.
+	 * 引用给定的字符串字面值
      *
      * @param  string|array  $value
      * @return string

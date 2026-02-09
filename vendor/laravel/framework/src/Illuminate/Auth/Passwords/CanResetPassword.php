@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，认证，通知，可以重置密码
+ */
 
 namespace Illuminate\Auth\Passwords;
 
@@ -8,6 +11,7 @@ trait CanResetPassword
 {
     /**
      * Get the e-mail address where password reset links are sent.
+	 * 获取发送密码重置链接的电子邮件地址
      *
      * @return string
      */
@@ -18,6 +22,7 @@ trait CanResetPassword
 
     /**
      * Send the password reset notification.
+	 * 发送密码重置通知
      *
      * @param  string  $token
      * @return void

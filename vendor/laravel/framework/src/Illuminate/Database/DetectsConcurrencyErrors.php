@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，配置URL解析
+ * Illuminate，数据库，检测并发错误
  */
 
 namespace Illuminate\Database;
@@ -13,6 +13,7 @@ trait DetectsConcurrencyErrors
 {
     /**
      * Determine if the given exception was caused by a concurrency error such as a deadlock or serialization failure.
+	 * 确定给定异常是否由并发错误（如死锁或序列化失败）引起。
      *
      * @param  \Throwable  $e
      * @return bool

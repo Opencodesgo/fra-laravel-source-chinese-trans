@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，工厂生成器
+ */
 
 namespace Illuminate\Database\Eloquent;
 
@@ -12,6 +15,7 @@ class FactoryBuilder
 
     /**
      * The model definitions in the container.
+	 * 容器中的模型定义
      *
      * @var array
      */
@@ -19,6 +23,7 @@ class FactoryBuilder
 
     /**
      * The model being built.
+	 * 正在构建的模型
      *
      * @var string
      */
@@ -26,6 +31,7 @@ class FactoryBuilder
 
     /**
      * The database connection on which the model instance should be persisted.
+	 * 应该在其上持久化模型实例的数据库连接
      *
      * @var string
      */
@@ -33,6 +39,7 @@ class FactoryBuilder
 
     /**
      * The model states.
+	 * 模型状态
      *
      * @var array
      */
@@ -75,6 +82,7 @@ class FactoryBuilder
 
     /**
      * Create an new builder instance.
+	 * 创建一个新的构建器实例
      *
      * @param  string  $class
      * @param  array  $definitions
@@ -110,6 +118,7 @@ class FactoryBuilder
 
     /**
      * Set the state to be applied to the model.
+	 * 设置要应用于模型的状态
      *
      * @param  string  $state
      * @return $this
@@ -147,6 +156,7 @@ class FactoryBuilder
 
     /**
      * Create a model and persist it in the database if requested.
+	 * 如果需要，创建一个模型并将其持久化到数据库中。
      *
      * @param  array  $attributes
      * @return \Closure
@@ -183,6 +193,7 @@ class FactoryBuilder
 
     /**
      * Create a collection of models and persist them to the database.
+	 * 创建一个模型集合，并将它们持久化到数据库中。
      *
      * @param  iterable  $records
      * @return \Illuminate\Database\Eloquent\Collection|mixed
@@ -196,6 +207,7 @@ class FactoryBuilder
 
     /**
      * Set the connection name on the results and store them.
+	 * 在结果上设置连接名称并存储它们
      *
      * @param  \Illuminate\Support\Collection  $results
      * @return void
@@ -213,6 +225,7 @@ class FactoryBuilder
 
     /**
      * Create a collection of models.
+	 * 创建一个模型集合
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|mixed
@@ -240,6 +253,7 @@ class FactoryBuilder
 
     /**
      * Create an array of raw attribute arrays.
+	 * 创建一个原始属性数组数组
      *
      * @param  array  $attributes
      * @return mixed
@@ -335,6 +349,7 @@ class FactoryBuilder
 
     /**
      * Get the state attributes.
+	 * 获取状态属性
      *
      * @param  string  $state
      * @param  array  $attributes
@@ -400,6 +415,7 @@ class FactoryBuilder
 
     /**
      * Call after callbacks for each model and state.
+	 * 在每个模型和状态的回调之后调用
      *
      * @param  array  $afterCallbacks
      * @param  \Illuminate\Support\Collection  $models
@@ -418,6 +434,7 @@ class FactoryBuilder
 
     /**
      * Call after callbacks for each model and state.
+	 * 在每个模型和状态的回调之后调用
      *
      * @param  array  $afterCallbacks
      * @param  \Illuminate\Database\Eloquent\Model  $model
@@ -437,6 +454,7 @@ class FactoryBuilder
 
     /**
      * Determine if the given state has an "after" callback.
+	 * 确定给定状态是否有一个"after"回调
      *
      * @param  string  $state
      * @return bool

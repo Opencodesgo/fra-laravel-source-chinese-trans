@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Cookie，CookieJar
+ */
 
 namespace Illuminate\Cookie;
 
@@ -14,6 +17,7 @@ class CookieJar implements JarContract
 
     /**
      * The default path (if specified).
+	 * 默认路径（如果指定)
      *
      * @var string
      */
@@ -21,6 +25,7 @@ class CookieJar implements JarContract
 
     /**
      * The default domain (if specified).
+	 * 默认域（如果指定）
      *
      * @var string
      */
@@ -28,6 +33,7 @@ class CookieJar implements JarContract
 
     /**
      * The default secure setting (defaults to null).
+	 * 默认值设置(默认值为null)
      *
      * @var bool|null
      */
@@ -35,6 +41,7 @@ class CookieJar implements JarContract
 
     /**
      * The default SameSite option (defaults to lax).
+	 * 默认的SameSite选项(默认为lax)
      *
      * @var string
      */
@@ -42,6 +49,7 @@ class CookieJar implements JarContract
 
     /**
      * All of the cookies queued for sending.
+	 * 所有的cookie都排队发送
      *
      * @var \Symfony\Component\HttpFoundation\Cookie[]
      */
@@ -49,6 +57,7 @@ class CookieJar implements JarContract
 
     /**
      * Create a new cookie instance.
+	 * 创建一个新的cookie实例
      *
      * @param  string  $name
      * @param  string  $value
@@ -72,6 +81,7 @@ class CookieJar implements JarContract
 
     /**
      * Create a cookie that lasts "forever" (five years).
+	 * 创建一个"永远"(5年)的cookie
      *
      * @param  string  $name
      * @param  string  $value
@@ -90,6 +100,7 @@ class CookieJar implements JarContract
 
     /**
      * Expire the given cookie.
+	 * 使给定的cookie过期
      *
      * @param  string  $name
      * @param  string|null  $path
@@ -103,6 +114,7 @@ class CookieJar implements JarContract
 
     /**
      * Determine if a cookie has been queued.
+	 * 确定是否已经排队了
      *
      * @param  string  $key
      * @param  string|null  $path
@@ -115,6 +127,7 @@ class CookieJar implements JarContract
 
     /**
      * Get a queued cookie instance.
+	 * 得到一个排队的cookie实例
      *
      * @param  string  $key
      * @param  mixed  $default
@@ -134,6 +147,7 @@ class CookieJar implements JarContract
 
     /**
      * Queue a cookie to send with the next response.
+	 * 队列一个cookie发送给下一个响应
      *
      * @param  array  $parameters
      * @return void
@@ -155,6 +169,7 @@ class CookieJar implements JarContract
 
     /**
      * Remove a cookie from the queue.
+	 * 从队列中删除一个cookie
      *
      * @param  string  $name
      * @param  string|null  $path
@@ -177,6 +192,7 @@ class CookieJar implements JarContract
 
     /**
      * Get the path and domain, or the default values.
+	 * 得到路径和域,或者默认值
      *
      * @param  string  $path
      * @param  string  $domain
@@ -191,6 +207,7 @@ class CookieJar implements JarContract
 
     /**
      * Set the default path and domain for the jar.
+	 * 设置jar的默认路径和域
      *
      * @param  string  $path
      * @param  string  $domain
@@ -207,6 +224,7 @@ class CookieJar implements JarContract
 
     /**
      * Get the cookies which have been queued for the next request.
+	 * 获取已为下一个请求排队的cookie
      *
      * @return \Symfony\Component\HttpFoundation\Cookie[]
      */

@@ -12,6 +12,7 @@ class EventServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Http，资源，条件加载属性
+ */
 
 namespace Illuminate\Http\Resources;
 
@@ -8,6 +11,7 @@ trait ConditionallyLoadsAttributes
 {
     /**
      * Filter the given data, removing any optional values.
+	 * 过滤给定的数据，删除任何可选值。
      *
      * @param  array  $data
      * @return array
@@ -42,6 +46,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Merge the given data in at the given index.
+	 * 在给定的索引处合并给定的数据
      *
      * @param  array  $data
      * @param  int  $index
@@ -65,6 +70,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Remove the missing values from the filtered data.
+	 * 从过滤的数据中删除缺失的值
      *
      * @param  array  $data
      * @return array
@@ -93,6 +99,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Retrieve a value based on a given condition.
+	 * 根据给定条件检索值
      *
      * @param  bool  $condition
      * @param  mixed  $value
@@ -110,6 +117,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Merge a value into the array.
+	 * 将值合并到数组中
      *
      * @param  mixed  $value
      * @return \Illuminate\Http\Resources\MergeValue|mixed
@@ -121,6 +129,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Merge a value based on a given condition.
+	 * 根据给定条件合并一个值
      *
      * @param  bool  $condition
      * @param  mixed  $value
@@ -133,6 +142,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Merge the given attributes.
+	 * 合并给定的属性
      *
      * @param  array  $attributes
      * @return \Illuminate\Http\Resources\MergeValue
@@ -146,6 +156,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Retrieve an accessor when it has been appended.
+	 * 在被追加时检索访问器
      *
      * @param  string  $attribute
      * @param  mixed  $value
@@ -163,6 +174,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Retrieve a relationship if it has been loaded.
+	 * 检索已加载的关系
      *
      * @param  string  $relationship
      * @param  mixed  $value
@@ -192,6 +204,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Execute a callback if the given pivot table has been loaded.
+	 * 如果已加载给定的数据透视表，则执行回调。
      *
      * @param  string  $table
      * @param  mixed  $value
@@ -228,6 +241,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Transform the given value if it is present.
+	 * 如果给定值存在，则对其进行转换。
      *
      * @param  mixed  $value
      * @param  callable  $callback

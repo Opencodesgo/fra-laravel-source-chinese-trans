@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，问题，隐藏属性
+ */
 
 namespace Illuminate\Database\Eloquent\Concerns;
 
@@ -8,6 +11,7 @@ trait HidesAttributes
 {
     /**
      * The attributes that should be hidden for serialization.
+	 * 应该为序列化隐藏的属性
      *
      * @var array
      */
@@ -15,6 +19,7 @@ trait HidesAttributes
 
     /**
      * The attributes that should be visible in serialization.
+	 * 应该在序列化中可见的属性
      *
      * @var array
      */
@@ -22,6 +27,7 @@ trait HidesAttributes
 
     /**
      * Get the hidden attributes for the model.
+	 * 获取模型的隐藏属性
      *
      * @return array
      */
@@ -32,6 +38,7 @@ trait HidesAttributes
 
     /**
      * Set the hidden attributes for the model.
+	 * 为模型设置隐藏属性
      *
      * @param  array  $hidden
      * @return $this
@@ -45,6 +52,7 @@ trait HidesAttributes
 
     /**
      * Get the visible attributes for the model.
+	 * 获取模型的可见属性
      *
      * @return array
      */
@@ -55,6 +63,7 @@ trait HidesAttributes
 
     /**
      * Set the visible attributes for the model.
+	 * 设置模型的可见属性
      *
      * @param  array  $visible
      * @return $this
@@ -68,6 +77,7 @@ trait HidesAttributes
 
     /**
      * Make the given, typically hidden, attributes visible.
+	 * 使给定的（通常是隐藏的）属性可见
      *
      * @param  array|string|null  $attributes
      * @return $this
@@ -87,6 +97,7 @@ trait HidesAttributes
 
     /**
      * Make the given, typically hidden, attributes visible if the given truth test passes.
+	 * 如果给定的真值测试通过，则使给定的（通常是隐藏的）属性可见。
      *
      * @param  bool|Closure  $condition
      * @param  array|string|null  $attributes
@@ -101,6 +112,7 @@ trait HidesAttributes
 
     /**
      * Make the given, typically visible, attributes hidden.
+	 * 将给定的（通常是可见的）属性隐藏起来
      *
      * @param  array|string|null  $attributes
      * @return $this
@@ -116,6 +128,7 @@ trait HidesAttributes
 
     /**
      * Make the given, typically visible, attributes hidden if the given truth test passes.
+	 * 如果给定的真值测试通过，则将给定的（通常是可见的）属性隐藏起来。
      *
      * @param  bool|Closure  $condition
      * @param  array|string|null  $attributes

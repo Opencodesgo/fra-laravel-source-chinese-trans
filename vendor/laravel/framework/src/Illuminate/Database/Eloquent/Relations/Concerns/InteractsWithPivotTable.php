@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，关系，问题，与数据透视表交互
+ */
 
 namespace Illuminate\Database\Eloquent\Relations\Concerns;
 
@@ -11,6 +14,7 @@ trait InteractsWithPivotTable
 {
     /**
      * Toggles a model (or models) from the parent.
+	 * 从父模型切换一个（或多个）模型
      *
      * Each existing model is detached, and non existing ones are attached.
      *
@@ -64,6 +68,7 @@ trait InteractsWithPivotTable
 
     /**
      * Sync the intermediate tables with a list of IDs without detaching.
+	 * 同步中间表与id列表，而不分离。
      *
      * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
      * @return array
@@ -75,6 +80,7 @@ trait InteractsWithPivotTable
 
     /**
      * Sync the intermediate tables with a list of IDs or collection of models.
+	 * 将中间表与id列表或模型集合同步
      *
      * @param  \Illuminate\Support\Collection|\Illuminate\Database\Eloquent\Model|array  $ids
      * @param  bool  $detaching
@@ -125,6 +131,7 @@ trait InteractsWithPivotTable
 
     /**
      * Format the sync / toggle record list so that it is keyed by ID.
+	 * 格式化同步/ toggle记录列表,使它被ID键入
      *
      * @param  array  $records
      * @return array
@@ -142,6 +149,7 @@ trait InteractsWithPivotTable
 
     /**
      * Attach all of the records that aren't in the given current records.
+	 * 将所有未在给定当前记录中的记录附加在一起
      *
      * @param  array  $records
      * @param  array  $current
@@ -176,6 +184,7 @@ trait InteractsWithPivotTable
 
     /**
      * Update an existing pivot record on the table.
+	 * 更新表上现有的数据透视记录
      *
      * @param  mixed  $id
      * @param  array  $attributes
@@ -208,6 +217,7 @@ trait InteractsWithPivotTable
 
     /**
      * Update an existing pivot record on the table via a custom class.
+	 * 通过自定义类更新表上现有的主记录
      *
      * @param  mixed  $id
      * @param  array  $attributes
@@ -236,6 +246,7 @@ trait InteractsWithPivotTable
 
     /**
      * Attach a model to the parent.
+	 * 将一个模型附加到父模型上
      *
      * @param  mixed  $id
      * @param  array  $attributes
@@ -262,6 +273,7 @@ trait InteractsWithPivotTable
 
     /**
      * Attach a model to the parent using a custom class.
+	 * 使用自定义类将模型附加到父模型
      *
      * @param  mixed  $id
      * @param  array  $attributes
@@ -280,6 +292,7 @@ trait InteractsWithPivotTable
 
     /**
      * Create an array of records to insert into the pivot table.
+	 * 创建一组记录插入到主表中
      *
      * @param  array  $ids
      * @param  array  $attributes
@@ -306,6 +319,7 @@ trait InteractsWithPivotTable
 
     /**
      * Create a full attachment record payload.
+	 * 创建一个完整的连接记录有效负载
      *
      * @param  int  $key
      * @param  mixed  $value
@@ -324,6 +338,7 @@ trait InteractsWithPivotTable
 
     /**
      * Get the attach record ID and extra attributes.
+	 * 获取附加记录ID和额外属性
      *
      * @param  mixed  $key
      * @param  mixed  $value
@@ -339,6 +354,7 @@ trait InteractsWithPivotTable
 
     /**
      * Create a new pivot attachment record.
+	 * 创建一个新的pivot附件记录
      *
      * @param  int  $id
      * @param  bool  $timed
@@ -366,6 +382,7 @@ trait InteractsWithPivotTable
 
     /**
      * Set the creation and update timestamps on an attach record.
+	 * 在附加记录上设置创建和更新时间戳
      *
      * @param  array  $record
      * @param  bool  $exists
@@ -394,6 +411,7 @@ trait InteractsWithPivotTable
 
     /**
      * Determine whether the given column is defined as a pivot column.
+	 * 确定给定的列是否被定义为主列
      *
      * @param  string  $column
      * @return bool
@@ -405,6 +423,7 @@ trait InteractsWithPivotTable
 
     /**
      * Detach models from the relationship.
+	 * 从关系中分离模型
      *
      * @param  mixed  $ids
      * @param  bool  $touch
@@ -437,6 +456,7 @@ trait InteractsWithPivotTable
             // Once we have all of the conditions set on the statement, we are ready
             // to run the delete on the pivot table. Then, if the touch parameter
             // is true, we will go ahead and touch all related models to sync.
+			// 一旦我们有了所有的条件，我们准备在主表上运行delete。
             $results = $query->delete();
         }
 
@@ -449,6 +469,7 @@ trait InteractsWithPivotTable
 
     /**
      * Detach models from the relationship using a custom class.
+	 * 使用自定义类的关系分离模型
      *
      * @param  mixed  $ids
      * @return int
@@ -469,6 +490,7 @@ trait InteractsWithPivotTable
 
     /**
      * Get the pivot models that are currently attached.
+	 * 获取当前附加的pivot模型
      *
      * @return \Illuminate\Support\Collection
      */
@@ -485,6 +507,7 @@ trait InteractsWithPivotTable
 
     /**
      * Create a new pivot model instance.
+	 * 创建一个新的pivot模型实例
      *
      * @param  array  $attributes
      * @param  bool  $exists
@@ -501,6 +524,7 @@ trait InteractsWithPivotTable
 
     /**
      * Create a new existing pivot model instance.
+	 * 创建一个新的现有的pivot模型实例
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Relations\Pivot
@@ -512,6 +536,7 @@ trait InteractsWithPivotTable
 
     /**
      * Get a new plain query builder for the pivot table.
+	 * 为pivot表获取一个新的纯查询生成器
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -533,6 +558,7 @@ trait InteractsWithPivotTable
 
     /**
      * Create a new query builder for the pivot table.
+	 * 为pivot表创建一个新的查询生成器
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -572,6 +598,7 @@ trait InteractsWithPivotTable
 
     /**
      * Get all of the IDs from the given mixed value.
+	 * 从给定的混合值中获取所有的id
      *
      * @param  mixed  $value
      * @return array
@@ -595,6 +622,7 @@ trait InteractsWithPivotTable
 
     /**
      * Get the ID from the given mixed value.
+	 * 从给定的混合值中获取ID
      *
      * @param  mixed  $value
      * @return mixed
@@ -606,6 +634,7 @@ trait InteractsWithPivotTable
 
     /**
      * Cast the given keys to integers if they are numeric and string otherwise.
+	 * 如果它们是数字和字符串,则将给定的键输入到整数
      *
      * @param  array  $keys
      * @return array
@@ -633,6 +662,7 @@ trait InteractsWithPivotTable
 
     /**
      * Cast the given pivot attributes.
+	 * 转换给定的枢轴属性
      *
      * @param  array  $attributes
      * @return array
@@ -646,6 +676,7 @@ trait InteractsWithPivotTable
 
     /**
      * Converts a given value to a given type value.
+	 * 将给定值转换为给定类型值
      *
      * @param  string  $type
      * @param  mixed  $value

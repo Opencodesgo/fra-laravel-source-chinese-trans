@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Session会话，文件会话处理程序
+ */
 
 namespace Illuminate\Session;
 
@@ -11,6 +14,7 @@ class FileSessionHandler implements SessionHandlerInterface
 {
     /**
      * The filesystem instance.
+	 * 文件系统实例
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -18,6 +22,7 @@ class FileSessionHandler implements SessionHandlerInterface
 
     /**
      * The path where sessions should be stored.
+	 * 应该存储会话的路径
      *
      * @var string
      */
@@ -32,6 +37,7 @@ class FileSessionHandler implements SessionHandlerInterface
 
     /**
      * Create a new file driven handler instance.
+	 * 创建一个新的文件驱动处理实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @param  string  $path

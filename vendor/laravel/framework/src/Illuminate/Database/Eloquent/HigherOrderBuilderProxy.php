@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，高阶生成器代理
+ */
 
 namespace Illuminate\Database\Eloquent;
 
@@ -9,6 +12,7 @@ class HigherOrderBuilderProxy
 {
     /**
      * The collection being operated on.
+	 * 正在操作的集合
      *
      * @var \Illuminate\Database\Eloquent\Builder
      */
@@ -16,6 +20,7 @@ class HigherOrderBuilderProxy
 
     /**
      * The method being proxied.
+	 * 被代理的方法
      *
      * @var string
      */
@@ -23,6 +28,7 @@ class HigherOrderBuilderProxy
 
     /**
      * Create a new proxy instance.
+	 * 创建一个新的代理实例
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $builder
      * @param  string  $method
@@ -36,6 +42,7 @@ class HigherOrderBuilderProxy
 
     /**
      * Proxy a scope call onto the query builder.
+	 * 将范围调用代理到查询生成器
      *
      * @param  string  $method
      * @param  array  $parameters

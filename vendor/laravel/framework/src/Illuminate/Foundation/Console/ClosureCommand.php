@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，开关闭合命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -12,6 +15,7 @@ class ClosureCommand extends Command
 {
     /**
      * The command callback.
+	 * 命令回调
      *
      * @var \Closure
      */
@@ -19,6 +23,7 @@ class ClosureCommand extends Command
 
     /**
      * Create a new command instance.
+	 * 创建新的命令实例
      *
      * @param  string  $signature
      * @param  \Closure  $callback

@@ -11,6 +11,7 @@ class RouteGroup
 {
     /**
      * Merge route groups into a new array.
+	 * 合并路由组到新的数组中
      *
      * @param  array  $new
      * @param  array  $old
@@ -36,6 +37,7 @@ class RouteGroup
 
     /**
      * Format the namespace for the new group attributes.
+	 * 为新组属性格式化命名空间
      *
      * @param  array  $new
      * @param  array  $old
@@ -54,6 +56,7 @@ class RouteGroup
 
     /**
      * Format the prefix for the new group attributes.
+	 * 格式化新组属性的前缀
      *
      * @param  array  $new
      * @param  array  $old
@@ -73,6 +76,7 @@ class RouteGroup
 
     /**
      * Format the "wheres" for the new group attributes.
+	 * 为新组属性设置"where"的格式
      *
      * @param  array  $new
      * @param  array  $old
@@ -88,6 +92,7 @@ class RouteGroup
 
     /**
      * Format the "as" clause of the new group attributes.
+	 * 格式化新组属性的"as"子句
      *
      * @param  array  $new
      * @param  array  $old

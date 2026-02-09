@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，工作进程
+ */
 
 namespace Illuminate\Queue;
 
@@ -21,6 +24,7 @@ class Worker
 
     /**
      * The queue manager instance.
+	 * 队列管理器实例
      *
      * @var \Illuminate\Contracts\Queue\Factory
      */
@@ -70,6 +74,7 @@ class Worker
 
     /**
      * Create a new queue worker.
+	 * 创建新的队列工作进程
      *
      * @param  \Illuminate\Contracts\Queue\Factory  $manager
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
@@ -688,6 +693,7 @@ class Worker
 
     /**
      * Set the queue manager instance.
+	 * 设置队列管理器实例
      *
      * @param  \Illuminate\Contracts\Queue\Factory  $manager
      * @return void

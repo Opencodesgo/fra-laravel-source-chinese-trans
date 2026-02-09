@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，门面，架构
+ */
 
 namespace Illuminate\Support\Facades;
 

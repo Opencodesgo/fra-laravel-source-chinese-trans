@@ -12,6 +12,7 @@ class SetRequestForConsole
 {
     /**
      * Bootstrap the given application.
+	 * 引导给定应用
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void

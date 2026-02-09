@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，事件，命令完成
+ */
 
 namespace Illuminate\Console\Events;
 
@@ -9,6 +12,7 @@ class CommandFinished
 {
     /**
      * The command name.
+	 * 命令名称
      *
      * @var string
      */
@@ -16,6 +20,7 @@ class CommandFinished
 
     /**
      * The console input implementation.
+	 * 控制台输入实现
      *
      * @var \Symfony\Component\Console\Input\InputInterface|null
      */
@@ -23,6 +28,7 @@ class CommandFinished
 
     /**
      * The command output implementation.
+	 * 控制台输出实现
      *
      * @var \Symfony\Component\Console\Output\OutputInterface|null
      */
@@ -30,6 +36,7 @@ class CommandFinished
 
     /**
      * The command exit code.
+	 * 命令退出代码
      *
      * @var int
      */
@@ -37,6 +44,7 @@ class CommandFinished
 
     /**
      * Create a new event instance.
+	 * 创建新的事件实例
      *
      * @param  string  $command
      * @param  \Symfony\Component\Console\Input\InputInterface  $input

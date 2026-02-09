@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，make:provider命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -8,6 +11,7 @@ class ProviderMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -15,6 +19,7 @@ class ProviderMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -39,6 +44,7 @@ class ProviderMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间。
      *
      * @param  string  $rootNamespace
      * @return string

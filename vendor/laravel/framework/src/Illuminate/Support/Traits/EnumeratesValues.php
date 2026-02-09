@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，特征，大规模
+ */
 
 namespace Illuminate\Support\Traits;
 

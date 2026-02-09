@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，可枚举接口
+ */
 
 namespace Illuminate\Support;
 
@@ -8,6 +11,7 @@ class ConfigurationUrlParser
 {
     /**
      * The drivers aliases map.
+	 * 驱动程序别名映射
      *
      * @var array
      */

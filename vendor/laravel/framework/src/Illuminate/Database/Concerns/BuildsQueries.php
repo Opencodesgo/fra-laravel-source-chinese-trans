@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，问题，构建查询
+ */
 
 namespace Illuminate\Database\Concerns;
 
@@ -10,6 +13,7 @@ trait BuildsQueries
 {
     /**
      * Chunk the results of the query.
+	 * 将查询的结果分块
      *
      * @param  int  $count
      * @param  callable  $callback
@@ -25,6 +29,7 @@ trait BuildsQueries
             // We'll execute the query for the given page and get the results. If there are
             // no results we can just break and return from here. When there are results
             // we will call the callback with the current chunk of these results here.
+			// 我们将执行给定页面的查询并获得结果。如果没有结果，我们可以从这里中断并返回。
             $results = $this->forPage($page, $count)->get();
 
             $countResults = $results->count();
@@ -36,6 +41,7 @@ trait BuildsQueries
             // On each chunk result set, we will pass them to the callback and then let the
             // developer take care of everything within the callback, which allows us to
             // keep the memory low for spinning through large result sets for working.
+			// 对于每个数据块结果集，我们将它们传递给回调函数，然后让开发者负责回调中的一切。
             if ($callback($results, $page) === false) {
                 return false;
             }
@@ -50,6 +56,7 @@ trait BuildsQueries
 
     /**
      * Execute a callback over each item while chunking.
+	 * 在分块时对每个项执行回调
      *
      * @param  callable  $callback
      * @param  int  $count
@@ -68,6 +75,7 @@ trait BuildsQueries
 
     /**
      * Chunk the results of a query by comparing IDs.
+	 * 通过比较id对查询结果进行分组
      *
      * @param  int  $count
      * @param  callable  $callback
@@ -89,6 +97,7 @@ trait BuildsQueries
             // We'll execute the query for the given page and get the results. If there are
             // no results we can just break and return from here. When there are results
             // we will call the callback with the current chunk of these results here.
+			// 我们将执行给定页面的查询并获得结果。
             $results = $clone->forPageAfterId($count, $lastId, $column)->get();
 
             $countResults = $results->count();
@@ -100,6 +109,7 @@ trait BuildsQueries
             // On each chunk result set, we will pass them to the callback and then let the
             // developer take care of everything within the callback, which allows us to
             // keep the memory low for spinning through large result sets for working.
+			// 对于每个数据块结果集，我们将它们传递给回调函数，然后让开发者负责回调中的一切。
             if ($callback($results) === false) {
                 return false;
             }
@@ -114,6 +124,7 @@ trait BuildsQueries
 
     /**
      * Execute a callback over each item while chunking by ID.
+	 * 在按ID分块时对每个项执行回调
      *
      * @param  callable  $callback
      * @param  int  $count
@@ -134,6 +145,7 @@ trait BuildsQueries
 
     /**
      * Execute the query and get the first result.
+	 * 执行查询并获得第一个结果
      *
      * @param  array|string  $columns
      * @return \Illuminate\Database\Eloquent\Model|object|static|null
@@ -145,6 +157,7 @@ trait BuildsQueries
 
     /**
      * Apply the callback's query changes if the given "value" is true.
+	 * 如果给定的"value"为真，则应用回调的查询更改。
      *
      * @param  mixed  $value
      * @param  callable  $callback
@@ -164,6 +177,7 @@ trait BuildsQueries
 
     /**
      * Pass the query to a given callback.
+	 * 将查询传递给给定的回调
      *
      * @param  callable  $callback
      * @return $this
@@ -175,6 +189,7 @@ trait BuildsQueries
 
     /**
      * Apply the callback's query changes if the given "value" is false.
+	 * 如果给定的"value"为false，则应用回调的查询更改。
      *
      * @param  mixed  $value
      * @param  callable  $callback
@@ -194,6 +209,7 @@ trait BuildsQueries
 
     /**
      * Create a new length-aware paginator instance.
+	 * 创建一个新的长度感知分页器实例
      *
      * @param  \Illuminate\Support\Collection  $items
      * @param  int  $total
@@ -211,6 +227,7 @@ trait BuildsQueries
 
     /**
      * Create a new simple paginator instance.
+	 * 创建一个新的简单分页器实例
      *
      * @param  \Illuminate\Support\Collection  $items
      * @param  int  $perPage

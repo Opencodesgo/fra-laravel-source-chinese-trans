@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，工作进行选项
+ */
 
 namespace Illuminate\Queue;
 
@@ -55,6 +58,7 @@ class WorkerOptions
 
     /**
      * Create a new worker options instance.
+	 * 创建一个新的工作进程选项实例
      *
      * @param  int  $delay
      * @param  int  $memory

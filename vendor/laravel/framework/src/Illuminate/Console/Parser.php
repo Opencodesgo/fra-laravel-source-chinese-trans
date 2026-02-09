@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，分析程序
+ */
 
 namespace Illuminate\Console;
 
@@ -11,6 +14,7 @@ class Parser
 {
     /**
      * Parse the given console command definition into an array.
+	 * 将给定的控制台命令定义解析为数组
      *
      * @param  string  $expression
      * @return array
@@ -32,6 +36,7 @@ class Parser
 
     /**
      * Extract the name of the command from the expression.
+	 * 从表达式中提取命令的名称
      *
      * @param  string  $expression
      * @return string
@@ -49,6 +54,7 @@ class Parser
 
     /**
      * Extract all of the parameters from the tokens.
+	 * 从标记中提取所有参数
      *
      * @param  array  $tokens
      * @return array
@@ -72,6 +78,7 @@ class Parser
 
     /**
      * Parse an argument expression.
+	 * 解析参数表达式
      *
      * @param  string  $token
      * @return \Symfony\Component\Console\Input\InputArgument
@@ -98,6 +105,7 @@ class Parser
 
     /**
      * Parse an option expression.
+	 * 解析选项表达式
      *
      * @param  string  $token
      * @return \Symfony\Component\Console\Input\InputOption
@@ -131,6 +139,7 @@ class Parser
 
     /**
      * Parse the token into its token and description segments.
+	 * 将令牌解析为它的令牌和描述段
      *
      * @param  string  $token
      * @return array

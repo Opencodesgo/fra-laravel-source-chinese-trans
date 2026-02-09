@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，任务，Sync同步任务
+ */
 
 namespace Illuminate\Queue\Jobs;
 
@@ -9,6 +12,7 @@ class SyncJob extends Job implements JobContract
 {
     /**
      * The class name of the job.
+	 * 任务类名
      *
      * @var string
      */
@@ -23,6 +27,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Create a new job instance.
+	 * 创建新的任务实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  string  $payload
@@ -61,6 +66,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
+	 * 得到任务标识符
      *
      * @return string
      */
@@ -81,6 +87,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Get the name of the queue the job belongs to.
+	 * 获取任务所属队列的名称
      *
      * @return string
      */

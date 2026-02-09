@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，加密，加密器
+ * 服务容器绑定encrypter
+ */
 
 namespace Illuminate\Encryption;
 
@@ -11,6 +15,7 @@ class Encrypter implements EncrypterContract
 {
     /**
      * The encryption key.
+	 * 公开密钥加密算法
      *
      * @var string
      */
@@ -18,6 +23,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * The algorithm used for encryption.
+	 * 用于加密的算法
      *
      * @var string
      */
@@ -25,6 +31,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Create a new encrypter instance.
+	 * 创建一个新的加密器实例
      *
      * @param  string  $key
      * @param  string  $cipher
@@ -46,6 +53,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Determine if the given key and cipher combination is valid.
+	 * 确定给定的密钥和密码组合是否有效
      *
      * @param  string  $key
      * @param  string  $cipher
@@ -61,6 +69,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Create a new encryption key for the given cipher.
+	 * 为给定的密码创建新的加密密钥
      *
      * @param  string  $cipher
      * @return string
@@ -72,6 +81,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Encrypt the given value.
+	 * 加密给定值
      *
      * @param  mixed  $value
      * @param  bool  $serialize
@@ -86,6 +96,7 @@ class Encrypter implements EncrypterContract
         // First we will encrypt the value using OpenSSL. After this is encrypted we
         // will proceed to calculating a MAC for the encrypted value so that this
         // value can be verified later as not having been changed by the users.
+		// 首先，我们将使用OpenSSL加密该值。
         $value = \openssl_encrypt(
             $serialize ? serialize($value) : $value,
             $this->cipher, $this->key, 0, $iv
@@ -98,6 +109,7 @@ class Encrypter implements EncrypterContract
         // Once we get the encrypted value we'll go ahead and base64_encode the input
         // vector and create the MAC for the encrypted value so we can then verify
         // its authenticity. Then, we'll JSON the data into the "payload" array.
+		// 一旦我们得到了加密的值，我们将继续对输入进行base64_encode。
         $mac = $this->hash($iv = base64_encode($iv), $value);
 
         $json = json_encode(compact('iv', 'value', 'mac'), JSON_UNESCAPED_SLASHES);
@@ -111,6 +123,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Encrypt a string without serialization.
+	 * 加密不序列化的字符串
      *
      * @param  string  $value
      * @return string
@@ -124,6 +137,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Decrypt the given value.
+	 * 解密给定值
      *
      * @param  string  $payload
      * @param  bool  $unserialize
@@ -153,6 +167,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Decrypt the given string without unserialization.
+	 * 在不反序列化的情况下解密给定字符串
      *
      * @param  string  $payload
      * @return string
@@ -166,6 +181,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Create a MAC for the given value.
+	 * 为给定值创建一个MAC
      *
      * @param  string  $iv
      * @param  mixed  $value
@@ -178,6 +194,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Get the JSON array from the given payload.
+	 * 从给定的有效负载获取JSON数组
      *
      * @param  string  $payload
      * @return array
@@ -191,6 +208,7 @@ class Encrypter implements EncrypterContract
         // If the payload is not valid JSON or does not have the proper keys set we will
         // assume it is invalid and bail out of the routine since we will not be able
         // to decrypt the given value. We'll also check the MAC for this encryption.
+		// 如果有效负载不是有效的JSON或没有正确的键集。
         if (! $this->validPayload($payload)) {
             throw new DecryptException('The payload is invalid.');
         }
@@ -204,7 +222,8 @@ class Encrypter implements EncrypterContract
 
     /**
      * Verify that the encryption payload is valid.
-     *
+     * 验证加密有效负载是否有效
+	 * 
      * @param  mixed  $payload
      * @return bool
      */
@@ -216,6 +235,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Determine if the MAC for the given payload is valid.
+	 * 确定给定负载的MAC是否有效
      *
      * @param  array  $payload
      * @return bool
@@ -231,6 +251,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Calculate the hash of the given payload.
+	 * 计算给定负载的哈希值
      *
      * @param  array  $payload
      * @param  string  $bytes
@@ -245,6 +266,7 @@ class Encrypter implements EncrypterContract
 
     /**
      * Get the encryption key.
+	 * 获取加密密钥
      *
      * @return string
      */

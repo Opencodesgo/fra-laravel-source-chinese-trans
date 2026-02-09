@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，门面，日期
+ */
 
 namespace Illuminate\Support\Facades;
 
@@ -91,6 +94,7 @@ class Date extends Facade
 
     /**
      * Get the registered name of the component.
+	 * 获取组件的注册名称
      *
      * @return string
      *
@@ -103,6 +107,7 @@ class Date extends Facade
 
     /**
      * Resolve the facade root instance from the container.
+	 * 从容器中解析facade根实例
      *
      * @param  string  $name
      * @return mixed

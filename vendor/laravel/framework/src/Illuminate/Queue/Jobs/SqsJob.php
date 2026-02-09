@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，任务，Amazon SQS任务
+ */
 
 namespace Illuminate\Queue\Jobs;
 
@@ -10,6 +13,7 @@ class SqsJob extends Job implements JobContract
 {
     /**
      * The Amazon SQS client instance.
+	 * Amazon SQS客户端实例
      *
      * @var \Aws\Sqs\SqsClient
      */
@@ -17,6 +21,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * The Amazon SQS job instance.
+	 * Amazon SQS任务实例
      *
      * @var array
      */
@@ -24,6 +29,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Create a new job instance.
+	 * 创建新的任务实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \Aws\Sqs\SqsClient  $sqs
@@ -60,6 +66,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Delete the job from the queue.
+	 * 从队列中删除任务
      *
      * @return void
      */
@@ -84,6 +91,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
+	 * 得到任务标识符
      *
      * @return string
      */
@@ -104,6 +112,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the underlying SQS client instance.
+	 * 获取底层SQS客户端实例
      *
      * @return \Aws\Sqs\SqsClient
      */
@@ -114,6 +123,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the underlying raw SQS job.
+	 * 获取底层原始SQS任务
      *
      * @return array
      */

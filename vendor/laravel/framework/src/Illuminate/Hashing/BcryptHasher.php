@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，哈希，哈希抽象类
+ */
 
 namespace Illuminate\Hashing;
 
@@ -9,6 +12,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 {
     /**
      * The default cost factor.
+	 * 默认的成本因子
      *
      * @var int
      */

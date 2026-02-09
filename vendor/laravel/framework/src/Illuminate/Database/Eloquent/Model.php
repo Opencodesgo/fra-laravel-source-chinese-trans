@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，模型
+ */
 
 namespace Illuminate\Database\Eloquent;
 
@@ -33,6 +36,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The connection name for the model.
+	 * 模型的连接名称
      *
      * @var string|null
      */
@@ -40,6 +44,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The table associated with the model.
+	 * 与模型相关联的表
      *
      * @var string
      */
@@ -47,6 +52,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The primary key for the model.
+	 * 模型的主键
      *
      * @var string
      */
@@ -75,6 +81,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The relationship counts that should be eager loaded on every query.
+	 * 应该在每个查询上立即加载的关系计数
      *
      * @var array
      */
@@ -82,6 +89,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The number of models to return for pagination.
+	 * 要为分页返回的模型数
      *
      * @var int
      */
@@ -89,6 +97,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Indicates if the model exists.
+	 * 指示模型是否存在
      *
      * @var bool
      */
@@ -96,6 +105,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Indicates if the model was inserted during the current request lifecycle.
+	 * 指示模型是否在当前请求生命周期中插入
      *
      * @var bool
      */
@@ -103,6 +113,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The connection resolver instance.
+	 * 连接解析器实例
      *
      * @var \Illuminate\Database\ConnectionResolverInterface
      */
@@ -110,6 +121,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The event dispatcher instance.
+	 * 事件调度程序实例
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
@@ -117,6 +129,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The array of booted models.
+	 * 启动模型的数组
      *
      * @var array
      */
@@ -145,6 +158,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * The name of the "created at" column.
+	 * "创建时间"列的名称
      *
      * @var string|null
      */
@@ -159,6 +173,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Create a new Eloquent model instance.
+	 * 创建一个新的Eloquent模型实例
      *
      * @param  array  $attributes
      * @return void
@@ -206,6 +221,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Bootstrap the model and its traits.
+	 * 引导模型及其特征
      *
      * @return void
      */
@@ -216,6 +232,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Boot all of the bootable traits on the model.
+	 * 启动模型上所有可启动的特征
      *
      * @return void
      */
@@ -248,6 +265,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Initialize any initializable traits on the model.
+	 * 初始化模型上任何可初始化的特征
      *
      * @return void
      */
@@ -260,6 +278,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Perform any actions required after the model boots.
+	 * 在模型启动后执行所需的任何操作
      *
      * @return void
      */
@@ -270,6 +289,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Clear the list of booted models so they will be re-booted.
+	 * 清除已启动的模型列表，以便它们将被重新启动。
      *
      * @return void
      */
@@ -311,6 +331,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Determine if the given model is ignoring touches.
+	 * 确定给定模型是否忽略触摸
      *
      * @param  string|null  $class
      * @return bool
@@ -334,6 +355,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Fill the model with an array of attributes.
+	 * 用属性数组填充模型
      *
      * @param  array  $attributes
      * @return $this
@@ -365,6 +387,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Fill the model with an array of attributes. Force mass assignment.
+	 * 用属性数组填充模型。力质量分配。
      *
      * @param  array  $attributes
      * @return $this
@@ -378,6 +401,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Qualify the given column name by the model's table.
+	 * 根据模型的表限定给定的列名
      *
      * @param  string  $column
      * @return string
@@ -393,6 +417,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Remove the table name from a given key.
+	 * 从给定键中删除表名
      *
      * @param  string  $key
      * @return string
@@ -433,6 +458,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Create a new model instance that is existing.
+	 * 创建一个现有的新模型实例
      *
      * @param  array  $attributes
      * @param  string|null  $connection
@@ -453,6 +479,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Begin querying the model on a given connection.
+	 * 开始查询给定连接上的模型
      *
      * @param  string|null  $connection
      * @return \Illuminate\Database\Eloquent\Builder
@@ -494,6 +521,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Begin querying a model with eager loading.
+	 * 开始查询具有即时加载的模型
      *
      * @param  array|string  $relations
      * @return \Illuminate\Database\Eloquent\Builder
@@ -507,6 +535,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Eager load relations on the model.
+	 * 模型上的急切载荷关系
      *
      * @param  array|string  $relations
      * @return $this
@@ -555,6 +584,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Eager load relation counts on the model.
+	 * 急切负荷关系依赖于模型
      *
      * @param  array|string  $relations
      * @return $this
@@ -636,6 +666,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Increment the underlying attribute value and sync with original.
+	 * 增加底层属性值并与原始属性同步
      *
      * @param  string  $column
      * @param  float|int  $amount
@@ -654,6 +685,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Update the model in the database.
+	 * 更新数据库中的模型
      *
      * @param  array  $attributes
      * @param  array  $options
@@ -698,6 +730,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Save the model to the database.
+	 * 将模型保存到数据库中
      *
      * @param  array  $options
      * @return bool
@@ -747,6 +780,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Save the model to the database using transaction.
+	 * 使用事务将模型保存到数据库中
      *
      * @param  array  $options
      * @return bool
@@ -779,6 +813,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Perform a model update operation.
+	 * 执行一个模型更新操作
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return bool
@@ -892,6 +927,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Insert the given attributes and set the ID on the model.
+	 * 插入给定的属性并在模型上设置ID
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  array  $attributes
@@ -939,6 +975,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Delete the model from the database.
+	 * 从数据库中删除模型
      *
      * @return bool|null
      *
@@ -992,6 +1029,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Perform the actual delete query on this model instance.
+	 * 对这个模型实例执行实际的删除查询
      *
      * @return void
      */
@@ -1004,6 +1042,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Begin querying the model.
+	 * 开始查询模型
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -1036,6 +1075,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get a new query builder with no relationships loaded.
+	 * 获取没有加载任何关系的新查询生成器
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -1097,6 +1137,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Create a new Eloquent query builder for the model.
+	 * 为模型创建一个新的Eloquent查询构建器
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -1118,6 +1159,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Create a new Eloquent Collection instance.
+	 * 创建一个新的Eloquent Collection实例
      *
      * @param  array  $models
      * @return \Illuminate\Database\Eloquent\Collection
@@ -1129,6 +1171,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Create a new pivot model instance.
+	 * 创建一个新的pivot模型实例
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parent
      * @param  array  $attributes
@@ -1156,6 +1199,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Apply the given named scope if possible.
+	 * 如果可能，应用给定的命名作用域。
      *
      * @param  string  $scope
      * @param  array  $parameters
@@ -1250,6 +1294,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Clone the model into a new, non-existing instance.
+	 * 将模型克隆到一个新的、不存在的实例中。
      *
      * @param  array|null  $except
      * @return static
@@ -1291,6 +1336,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Determine if two models are not the same.
+	 * 确定两个模型是否不相同
      *
      * @param  \Illuminate\Database\Eloquent\Model|null  $model
      * @return bool
@@ -1335,6 +1381,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Resolve a connection instance.
+	 * 解析连接实例
      *
      * @param  string|null  $connection
      * @return \Illuminate\Database\Connection
@@ -1346,6 +1393,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the connection resolver instance.
+	 * 获取连接解析程序实例
      *
      * @return \Illuminate\Database\ConnectionResolverInterface
      */
@@ -1356,6 +1404,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Set the connection resolver instance.
+	 * 设置连接解析器实例
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
      * @return void
@@ -1479,6 +1528,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the value of the model's primary key.
+	 * 获取模型主键的值
      *
      * @return mixed
      */
@@ -1489,6 +1539,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the queueable identity for the entity.
+	 * 获取实体的可排队标识
      *
      * @return mixed
      */
@@ -1499,6 +1550,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the queueable relationships for the entity.
+	 * 获取实体的可排队关系
      *
      * @return array
      */
@@ -1531,6 +1583,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the queueable connection for the entity.
+	 * 获取实体的可排队连接
      *
      * @return string|null
      */
@@ -1541,6 +1594,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the value of the model's route key.
+	 * 获取模型的路由键值
      *
      * @return mixed
      */
@@ -1551,6 +1605,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the route key for the model.
+	 * 获取模型的路由键
      *
      * @return string
      */
@@ -1561,6 +1616,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Retrieve the model for a bound value.
+	 * 检索绑定值的模型
      *
      * @param  mixed  $value
      * @param  string|null  $field
@@ -1573,6 +1629,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Retrieve the child model for a bound value.
+	 * 检索绑定值的子模型
      *
      * @param  string  $childType
      * @param  mixed  $value
@@ -1595,6 +1652,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the default foreign key name for the model.
+	 * 获取模型的默认外键名
      *
      * @return string
      */
@@ -1605,6 +1663,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the number of models to return per page.
+	 * 获取每页返回的模型数量
      *
      * @return int
      */
@@ -1628,6 +1687,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Dynamically retrieve attributes on the model.
+	 * 动态检索模型上的属性
      *
      * @param  string  $key
      * @return mixed
@@ -1639,6 +1699,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Dynamically set attributes on the model.
+	 * 动态设置模型上的属性
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -1651,6 +1712,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Determine if the given attribute exists.
+	 * 确定给定属性是否存在
      *
      * @param  mixed  $offset
      * @return bool
@@ -1662,6 +1724,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Get the value for a given offset.
+	 * 获取给定偏移量的值
      *
      * @param  mixed  $offset
      * @return mixed
@@ -1673,6 +1736,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Set the value for a given offset.
+	 * 设置给定偏移量的值
      *
      * @param  mixed  $offset
      * @param  mixed  $value
@@ -1685,6 +1749,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Unset the value for a given offset.
+	 * 取消给定偏移量的值
      *
      * @param  mixed  $offset
      * @return void
@@ -1696,6 +1761,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Determine if an attribute or relation exists on the model.
+	 * 确定模型上是否存在属性或关系
      *
      * @param  string  $key
      * @return bool
@@ -1707,6 +1773,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Unset an attribute on the model.
+	 * 取消对模型的属性设置
      *
      * @param  string  $key
      * @return void
@@ -1718,6 +1785,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Handle dynamic method calls into the model.
+	 * 处理对模型的动态方法调用
      *
      * @param  string  $method
      * @param  array  $parameters
@@ -1750,6 +1818,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Convert the model to its string representation.
+	 * 将模型转换为其字符串表示形式
      *
      * @return string
      */
@@ -1760,6 +1829,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * Prepare the object for serialization.
+	 * 为序列化准备对象
      *
      * @return array
      */
@@ -1774,6 +1844,7 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
 
     /**
      * When a model is being unserialized, check if it needs to be booted.
+	 * 当一个模型被反序列化时，检查它是否需要被引导。
      *
      * @return void
      */

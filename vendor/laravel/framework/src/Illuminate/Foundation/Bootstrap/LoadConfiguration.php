@@ -16,6 +16,7 @@ class LoadConfiguration
 {
     /**
      * Bootstrap the given application.
+	 * 引导给定的应用
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -27,6 +28,9 @@ class LoadConfiguration
         // First we will see if we have a cache configuration file. If we do, we'll load
         // the configuration items from that file so that it is very quick. Otherwise
         // we will need to spin through every configuration file and load them all.
+		// 首先，我们将查看是否有缓存配置文件。
+		// 如果这样做，我们将该文件中的配置项。
+		// 否则，我们需要遍历每个配置文件并全部加载它们。
         if (file_exists($cached = $app->getCachedConfigPath())) {
             $items = require $cached;
 
@@ -36,6 +40,7 @@ class LoadConfiguration
         // Next we will spin through all of the configuration files in the configuration
         // directory and load each one into the repository. This will make all of the
         // options available to the developer for use in various parts of this app.
+		// 接下来，我们将浏览配置中的所有配置文件。
         $app->instance('config', $config = new Repository($items));
 
         if (! isset($loadedFromCache)) {
@@ -56,6 +61,7 @@ class LoadConfiguration
 
     /**
      * Load the configuration items from all of the files.
+	 * 从所有文件中加载配置项
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @param  \Illuminate\Contracts\Config\Repository  $repository
@@ -78,6 +84,7 @@ class LoadConfiguration
 
     /**
      * Get all of the configuration files for the application.
+	 * 获取应用程序的所有配置文件
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return array
@@ -101,6 +108,7 @@ class LoadConfiguration
 
     /**
      * Get the configuration file nesting path.
+	 * 获取配置文件嵌套路径
      *
      * @param  \SplFileInfo  $file
      * @param  string  $configPath

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，down下线命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -21,6 +24,7 @@ class DownCommand extends Command
 
     /**
      * The console command description.
+	 * 将应用置于维护模式
      *
      * @var string
      */
@@ -28,12 +32,14 @@ class DownCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行命令
      *
      * @return int
      */
     public function handle()
     {
         try {
+			// 文件storage/framework/down
             if (file_exists(storage_path('framework/down'))) {
                 $this->comment('Application is already down.');
 

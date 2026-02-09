@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，监听器
+ */
 
 namespace Illuminate\Queue;
 
@@ -10,6 +13,7 @@ class Listener
 {
     /**
      * The command working path.
+	 * 命令工作路径
      *
      * @var string
      */
@@ -17,6 +21,7 @@ class Listener
 
     /**
      * The environment the workers should run under.
+	 * 工作进程工作的环境
      *
      * @var string
      */
@@ -56,6 +61,7 @@ class Listener
 
     /**
      * Get the PHP binary.
+	 * 得到PHP类
      *
      * @return string
      */
@@ -66,6 +72,7 @@ class Listener
 
     /**
      * Get the Artisan binary.
+	 * 得到工具类
      *
      * @return string
      */
@@ -163,6 +170,7 @@ class Listener
 
     /**
      * Run the given process.
+	 * 运行给定进程
      *
      * @param  \Symfony\Component\Process\Process  $process
      * @param  int  $memory
@@ -219,6 +227,7 @@ class Listener
 
     /**
      * Set the output handler callback.
+	 * 设置输出处理程序回调
      *
      * @param  \Closure  $outputHandler
      * @return void

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，视图，引擎
+ */
 
 namespace Illuminate\Contracts\View;
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，配置URL解析
+ * Illuminate，数据库，MySql连接
  */
 
 namespace Illuminate\Database;
@@ -15,6 +15,7 @@ class MySqlConnection extends Connection
 {
     /**
      * Get the default query grammar instance.
+	 * 获取默认查询语法实例
      *
      * @return \Illuminate\Database\Query\Grammars\MySqlGrammar
      */
@@ -25,6 +26,7 @@ class MySqlConnection extends Connection
 
     /**
      * Get a schema builder instance for the connection.
+	 * 获取连接的模式生成器实例
      *
      * @return \Illuminate\Database\Schema\MySqlBuilder
      */
@@ -39,6 +41,7 @@ class MySqlConnection extends Connection
 
     /**
      * Get the default schema grammar instance.
+	 * 获取默认模式语法实例
      *
      * @return \Illuminate\Database\Schema\Grammars\MySqlGrammar
      */
@@ -49,6 +52,7 @@ class MySqlConnection extends Connection
 
     /**
      * Get the default post processor instance.
+	 * 获取默认的请求处理器实例
      *
      * @return \Illuminate\Database\Query\Processors\MySqlProcessor
      */
@@ -59,6 +63,7 @@ class MySqlConnection extends Connection
 
     /**
      * Get the Doctrine DBAL driver.
+	 * 获取Doctrine DBAL驱动程序
      *
      * @return \Doctrine\DBAL\Driver\PDOMySql\Driver
      */

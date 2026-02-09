@@ -19,6 +19,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * The event instance.
+	 * 事件实例
      *
      * @var mixed
      */
@@ -26,6 +27,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * The number of times the job may be attempted.
+	 * 可能尝试该作业的次数
      *
      * @var int
      */
@@ -33,6 +35,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * The number of seconds the job can run before timing out.
+	 * 作业在超时之前可以运行的秒数
      *
      * @var int
      */
@@ -40,6 +43,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * Create a new job handler instance.
+	 * 创建新的作业处理实例
      *
      * @param  mixed  $event
      * @return void
@@ -53,6 +57,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * Handle the queued job.
+	 * 处理排队作业
      *
      * @param  \Illuminate\Contracts\Broadcasting\Broadcaster  $broadcaster
      * @return void
@@ -70,6 +75,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * Get the payload for the given event.
+	 * 获取给定事件的有效负载
      *
      * @param  mixed  $event
      * @return array
@@ -95,6 +101,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * Format the given value for a property.
+	 * 为属性设置给定值的格式
      *
      * @param  mixed  $value
      * @return mixed
@@ -110,6 +117,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * Get the display name for the queued job.
+	 * 获取排队作业的显示名称
      *
      * @return string
      */
@@ -120,6 +128,7 @@ class BroadcastEvent implements ShouldQueue
 
     /**
      * Prepare the instance for cloning.
+	 * 为克隆准备实例
      *
      * @return void
      */

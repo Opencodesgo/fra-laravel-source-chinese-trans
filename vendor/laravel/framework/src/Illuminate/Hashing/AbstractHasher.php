@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，哈希，哈希抽象类
+ */
 
 namespace Illuminate\Hashing;
 

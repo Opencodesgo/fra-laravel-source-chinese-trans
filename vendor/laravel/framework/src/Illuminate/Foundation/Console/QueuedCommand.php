@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，命令队列
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -20,6 +23,7 @@ class QueuedCommand implements ShouldQueue
 
     /**
      * Create a new job instance.
+	 * 创建新的作业实例
      *
      * @param  array  $data
      * @return void
@@ -31,6 +35,7 @@ class QueuedCommand implements ShouldQueue
 
     /**
      * Handle the job.
+	 * 处理作业
      *
      * @param  \Illuminate\Contracts\Console\Kernel  $kernel
      * @return void

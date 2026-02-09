@@ -9,6 +9,7 @@ class Channel
 {
     /**
      * The channel's name.
+	 * 信道名称
      *
      * @var string
      */
@@ -16,6 +17,7 @@ class Channel
 
     /**
      * Create a new channel instance.
+	 * 创建信道实例
      *
      * @param  string  $name
      * @return void
@@ -27,6 +29,7 @@ class Channel
 
     /**
      * Convert the channel instance to a string.
+	 * 将信道实例转换为字符串
      *
      * @return string
      */

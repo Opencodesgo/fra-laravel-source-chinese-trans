@@ -13,6 +13,7 @@ trait ResponseTrait
 {
     /**
      * The original content of the response.
+	 * 响应的原始内容
      *
      * @var mixed
      */
@@ -20,6 +21,7 @@ trait ResponseTrait
 
     /**
      * The exception that triggered the error response (if applicable).
+	 * 触发错误响应的异常（如果适用）
      *
      * @var \Throwable|null
      */
@@ -27,6 +29,7 @@ trait ResponseTrait
 
     /**
      * Get the status code for the response.
+	 * 获取响应的状态码
      *
      * @return int
      */
@@ -37,6 +40,7 @@ trait ResponseTrait
 
     /**
      * Get the content of the response.
+	 * 获取响应的内容
      *
      * @return string
      */
@@ -47,6 +51,7 @@ trait ResponseTrait
 
     /**
      * Get the original response content.
+	 * 获取原始响应内容
      *
      * @return mixed
      */
@@ -59,6 +64,7 @@ trait ResponseTrait
 
     /**
      * Set a header on the Response.
+	 * 在响应上设置标题
      *
      * @param  string  $key
      * @param  array|string  $values
@@ -74,6 +80,7 @@ trait ResponseTrait
 
     /**
      * Add an array of headers to the response.
+	 * 向响应添加一个标题数组
      *
      * @param  \Symfony\Component\HttpFoundation\HeaderBag|array  $headers
      * @return $this
@@ -93,6 +100,7 @@ trait ResponseTrait
 
     /**
      * Add a cookie to the response.
+	 * 向响应添加一个cookie
      *
      * @param  \Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
      * @return $this
@@ -104,6 +112,7 @@ trait ResponseTrait
 
     /**
      * Add a cookie to the response.
+	 * 向响应添加一个cookie
      *
      * @param  \Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
      * @return $this
@@ -121,6 +130,7 @@ trait ResponseTrait
 
     /**
      * Get the callback of the response.
+	 * 获取响应的回调
      *
      * @return string|null
      */
@@ -131,6 +141,7 @@ trait ResponseTrait
 
     /**
      * Set the exception to attach to the response.
+	 * 将异常设置为附加到响应
      *
      * @param  \Throwable  $e
      * @return $this

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，会话，中间件，开始会话
+ */
 
 namespace Illuminate\Session\Middleware;
 
@@ -15,6 +18,7 @@ class StartSession
 {
     /**
      * The session manager.
+	 * 会话管理
      *
      * @var \Illuminate\Session\SessionManager
      */
@@ -267,6 +271,7 @@ class StartSession
 
     /**
      * Determine if the configured session driver is persistent.
+	 * 确定配置的会话驱动是否持久
      *
      * @param  array|null  $config
      * @return bool
@@ -280,6 +285,7 @@ class StartSession
 
     /**
      * Resolve the given cache driver.
+	 * 解析给定的缓存驱动程序
      *
      * @param  string  $driver
      * @return \Illuminate\Cache\Store

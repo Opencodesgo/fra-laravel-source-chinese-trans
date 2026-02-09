@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，控制台，监听命令
+ */
 
 namespace Illuminate\Queue\Console;
 
@@ -10,6 +13,7 @@ class ListenCommand extends Command
 {
     /**
      * The console command name.
+	 * 控制台命令名称 queue:listen
      *
      * @var string
      */
@@ -25,6 +29,7 @@ class ListenCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -32,6 +37,7 @@ class ListenCommand extends Command
 
     /**
      * The queue listener instance.
+	 * 队列监听器实例
      *
      * @var \Illuminate\Queue\Listener
      */
@@ -39,6 +45,7 @@ class ListenCommand extends Command
 
     /**
      * Create a new queue listen command.
+	 * 创建一个新的队列监听命令
      *
      * @param  \Illuminate\Queue\Listener  $listener
      * @return void
@@ -52,6 +59,7 @@ class ListenCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return void
      */
@@ -60,6 +68,7 @@ class ListenCommand extends Command
         // We need to get the right queue for the connection which is set in the queue
         // configuration file for the application. We will pull it based on the set
         // connection being run for the queue operation currently being executed.
+		// 我们需要为在队列中设置的连接获得应用中正确的队列配置文件
         $queue = $this->getQueue(
             $connection = $this->input->getArgument('connection')
         );
@@ -71,6 +80,7 @@ class ListenCommand extends Command
 
     /**
      * Get the name of the queue connection to listen on.
+	 * 获取要侦听的队列连接的名称
      *
      * @param  string  $connection
      * @return string
@@ -86,6 +96,7 @@ class ListenCommand extends Command
 
     /**
      * Get the listener options for the command.
+	 * 获取该命令的监听器选项
      *
      * @return \Illuminate\Queue\ListenerOptions
      */
@@ -101,6 +112,7 @@ class ListenCommand extends Command
 
     /**
      * Set the options on the queue listener.
+	 * 设置队列监听器上的选项
      *
      * @param  \Illuminate\Queue\Listener  $listener
      * @return void

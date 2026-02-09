@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，认证，通知，是否可以重置密码
+ */
 
 namespace Illuminate\Auth\Passwords;
 
@@ -13,6 +16,7 @@ class PasswordBrokerManager implements FactoryContract
 {
     /**
      * The application instance.
+	 * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -20,6 +24,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * The array of created "drivers".
+	 * 已创建的"驱动程序"数组
      *
      * @var array
      */
@@ -27,6 +32,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Create a new PasswordBroker manager instance.
+	 * 创建新的密码代理管理器实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -38,6 +44,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Attempt to get the broker from the local cache.
+	 * 从本地缓存中尝试得到代理
      *
      * @param  string|null  $name
      * @return \Illuminate\Contracts\Auth\PasswordBroker
@@ -51,6 +58,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Resolve the given broker.
+	 * 解析给定代理
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Auth\PasswordBroker
@@ -68,6 +76,7 @@ class PasswordBrokerManager implements FactoryContract
         // The password broker uses a token repository to validate tokens and send user
         // password e-mails, as well as validating that password reset process as an
         // aggregate service of sorts providing a convenient interface for resets.
+		// 密码代理使用令牌存储库来验证令牌并发送用户。
         return new PasswordBroker(
             $this->createTokenRepository($config),
             $this->app['auth']->createUserProvider($config['provider'] ?? null)
@@ -76,6 +85,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Create a token repository instance based on the given configuration.
+	 * 根据给定的配置创建令牌存储库实例
      *
      * @param  array  $config
      * @return \Illuminate\Auth\Passwords\TokenRepositoryInterface
@@ -102,6 +112,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Get the password broker configuration.
+	 * 获取密码代理配置
      *
      * @param  string  $name
      * @return array
@@ -113,6 +124,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Get the default password broker name.
+	 * 获取默认密码代理名称
      *
      * @return string
      */
@@ -123,6 +135,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Set the default password broker name.
+	 * 设置默认密码代理名称
      *
      * @param  string  $name
      * @return void
@@ -134,6 +147,7 @@ class PasswordBrokerManager implements FactoryContract
 
     /**
      * Dynamically call the default driver instance.
+	 * 动态调取默认驱动实例
      *
      * @param  string  $method
      * @param  array  $parameters

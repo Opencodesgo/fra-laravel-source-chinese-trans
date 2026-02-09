@@ -9,6 +9,7 @@ class RouteFileRegistrar
 {
     /**
      * The router instance.
+	 * 路由器实例
      *
      * @var \Illuminate\Routing\Router
      */
@@ -16,6 +17,7 @@ class RouteFileRegistrar
 
     /**
      * Create a new route file registrar instance.
+	 * 创建新的路由文件注册器实例
      *
      * @param  \Illuminate\Routing\Router  $router
      * @return void
@@ -27,6 +29,7 @@ class RouteFileRegistrar
 
     /**
      * Require the given routes file.
+	 * 需要给定的路由文件
      *
      * @param  string  $routes
      * @return void

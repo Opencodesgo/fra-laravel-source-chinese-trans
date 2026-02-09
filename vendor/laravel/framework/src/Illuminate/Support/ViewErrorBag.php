@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，数组
+ */
 
 namespace Illuminate\Support;
 

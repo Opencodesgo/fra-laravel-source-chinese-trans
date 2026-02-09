@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，Sync队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -14,6 +17,7 @@ class SyncQueue extends Queue implements QueueContract
 {
     /**
      * Get the size of the queue.
+	 * 得到队列大小
      *
      * @param  string|null  $queue
      * @return int
@@ -149,6 +153,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Pop the next job off of the queue.
+	 * 将下一个任务从队列中弹出
      *
      * @param  string|null  $queue
      * @return \Illuminate\Contracts\Queue\Job|null

@@ -23,6 +23,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * The request instance.
+	 * 请求实例
      *
      * @var \Illuminate\Http\Request
      */
@@ -30,6 +31,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * The session store instance.
+	 * session存储实例
      *
      * @var \Illuminate\Session\Store
      */
@@ -37,6 +39,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Flash a piece of data to the session.
+	 * 将一段数据写入会话
      *
      * @param  string|array  $key
      * @param  mixed  $value
@@ -55,6 +58,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Add multiple cookies to the response.
+	 * 向响应添加多个cookie
      *
      * @param  array  $cookies
      * @return $this
@@ -70,6 +74,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Flash an array of input to the session.
+	 * 将输入数组闪存到会话中
      *
      * @param  array|null  $input
      * @return $this
@@ -85,6 +90,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Remove all uploaded files form the given input array.
+	 * 从给定的输入数组中删除所有上传的文件
      *
      * @param  array  $input
      * @return array
@@ -106,6 +112,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Flash an array of input to the session.
+	 * 将输入数组闪现到会话中
      *
      * @return $this
      */
@@ -116,6 +123,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Flash an array of input to the session.
+	 * 将输入数组闪现到会话中
      *
      * @return $this
      */
@@ -150,6 +158,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Add a fragment identifier to the URL.
+	 * 向URL添加片段标识符
      *
      * @param  string  $fragment
      * @return $this
@@ -162,6 +171,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Remove any fragment identifier from the response URL.
+	 * 从响应URL中删除任何片段标识符
      *
      * @return $this
      */
@@ -172,6 +182,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Parse the given errors into an appropriate value.
+	 * 将给定的错误解析为适当的值
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
      * @return \Illuminate\Support\MessageBag
@@ -187,6 +198,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Get the original response content.
+	 * 获取原始响应内容
      *
      * @return null
      */
@@ -197,6 +209,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Get the request instance.
+	 * 获取请求实例
      *
      * @return \Illuminate\Http\Request|null
      */
@@ -207,6 +220,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Set the request instance.
+	 * 设置请求实例
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void
@@ -218,6 +232,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Get the session store instance.
+	 * 获取会话存储实例
      *
      * @return \Illuminate\Session\Store|null
      */
@@ -228,6 +243,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Set the session store instance.
+	 * 设置会话存储实例
      *
      * @param  \Illuminate\Session\Store  $session
      * @return void
@@ -239,6 +255,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Dynamically bind flash data in the session.
+	 * 动态绑定会话中的flash数据
      *
      * @param  string  $method
      * @param  array  $parameters

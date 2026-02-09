@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，文件视图查找器
+ * Illuminate，视图，文件视图查找器
  */
 
 namespace Illuminate\View;

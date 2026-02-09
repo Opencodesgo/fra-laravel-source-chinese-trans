@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，迁移，数据库迁移存储库
+ */
 
 namespace Illuminate\Database\Migrations;
 
@@ -8,6 +11,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 {
     /**
      * The database connection resolver instance.
+	 * 数据库连接解析器实例
      *
      * @var \Illuminate\Database\ConnectionResolverInterface
      */
@@ -15,6 +19,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * The name of the migration table.
+	 * 迁移表的名称
      *
      * @var string
      */
@@ -22,6 +27,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * The name of the database connection to use.
+	 * 要使用的数据库连接的名称
      *
      * @var string
      */
@@ -29,6 +35,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Create a new database migration repository instance.
+	 * 创建一个新的数据库迁移存储库实例
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $resolver
      * @param  string  $table
@@ -42,6 +49,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get the completed migrations.
+	 * 获取完成的迁移
      *
      * @return array
      */
@@ -55,6 +63,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get list of migrations.
+	 * 得到迁移列表
      *
      * @param  int  $steps
      * @return array
@@ -70,6 +79,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get the last migration batch.
+	 * 获取最后一个迁移批号
      *
      * @return array
      */
@@ -82,6 +92,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get the completed migrations with their batch numbers.
+	 * 用他们的批号来完成已完成的迁移
      *
      * @return array
      */
@@ -95,6 +106,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Log that a migration was run.
+	 * 运行迁移的日志
      *
      * @param  string  $file
      * @param  int  $batch
@@ -109,6 +121,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Remove a migration from the log.
+	 * 从日志中删除迁移
      *
      * @param  object  $migration
      * @return void
@@ -120,6 +133,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get the next migration batch number.
+	 * 获取下一个迁移批数
      *
      * @return int
      */
@@ -130,6 +144,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get the last migration batch number.
+	 * 获取最后一个迁移批号
      *
      * @return int
      */
@@ -140,6 +155,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Create the migration repository data store.
+	 * 创建迁移存储库数据存储
      *
      * @return void
      */
@@ -159,6 +175,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Determine if the migration repository exists.
+	 * 确定迁移存储库是否存在
      *
      * @return bool
      */
@@ -171,6 +188,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get a query builder for the migration table.
+	 * 为迁移表获取查询生成器
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -191,6 +209,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Resolve the database connection instance.
+	 * 解析数据库连接实例
      *
      * @return \Illuminate\Database\Connection
      */
@@ -201,6 +220,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Set the information source to gather data.
+	 * 设置信息源以收集数据
      *
      * @param  string  $name
      * @return void

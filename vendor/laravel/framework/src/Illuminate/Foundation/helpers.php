@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，别名加载器
+ */
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Auth\Access\Gate;

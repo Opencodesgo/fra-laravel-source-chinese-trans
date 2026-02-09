@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，工作台，迁移，刷新命令
+ */
 
 namespace Illuminate\Database\Console\Migrations;
 
@@ -12,6 +15,7 @@ class RefreshCommand extends Command
 
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -19,6 +23,7 @@ class RefreshCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -26,6 +31,7 @@ class RefreshCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return int
      */
@@ -38,6 +44,7 @@ class RefreshCommand extends Command
         // Next we'll gather some of the options so that we can have the right options
         // to pass to the commands. This includes options such as which database to
         // use and the path to use for the migration. Then we'll run the command.
+		// 接下来，我们将收集一些选项，以便我们可以正确传递给命令。
         $database = $this->input->getOption('database');
 
         $path = $this->input->getOption('path');
@@ -56,6 +63,7 @@ class RefreshCommand extends Command
         // The refresh command is essentially just a brief aggregate of a few other of
         // the migration commands and just provides a convenient wrapper to execute
         // them in succession. We'll also see if we need to re-seed the database.
+		// 刷新命令本质上只是其他几个命令的简单聚合
         $this->call('migrate', array_filter([
             '--database' => $database,
             '--path' => $path,
@@ -72,6 +80,7 @@ class RefreshCommand extends Command
 
     /**
      * Run the rollback command.
+	 * 执行回滚命令
      *
      * @param  string  $database
      * @param  string  $path
@@ -91,6 +100,7 @@ class RefreshCommand extends Command
 
     /**
      * Run the reset command.
+	 * 执行重置命令
      *
      * @param  string  $database
      * @param  string  $path
@@ -108,6 +118,7 @@ class RefreshCommand extends Command
 
     /**
      * Determine if the developer has requested database seeding.
+	 * 确定开发人员是否请求了数据库播种
      *
      * @return bool
      */
@@ -118,6 +129,7 @@ class RefreshCommand extends Command
 
     /**
      * Run the database seeder command.
+	 * 运行database seeder命令
      *
      * @param  string  $database
      * @return void
@@ -133,6 +145,7 @@ class RefreshCommand extends Command
 
     /**
      * Get the console command options.
+	 * 获取控制台命令选项
      *
      * @return array
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，Memcached连接器
+ */
 
 namespace Illuminate\Cache;
 
@@ -8,6 +11,7 @@ class MemcachedConnector
 {
     /**
      * Create a new Memcached connection.
+	 * 创建一个新的Memcached连接
      *
      * @param  array  $servers
      * @param  string|null  $connectionId
@@ -37,6 +41,7 @@ class MemcachedConnector
 
     /**
      * Get a new Memcached instance.
+	 * 获取一个新的Memcached实例
      *
      * @param  string|null  $connectionId
      * @param  array  $credentials
@@ -60,6 +65,7 @@ class MemcachedConnector
 
     /**
      * Create the Memcached instance.
+	 * 创建Memcached实例
      *
      * @param  string|null  $connectionId
      * @return \Memcached
@@ -71,6 +77,7 @@ class MemcachedConnector
 
     /**
      * Set the SASL credentials on the Memcached connection.
+	 * 在Memcached连接上设置SASL凭据
      *
      * @param  \Memcached  $memcached
      * @param  array  $credentials

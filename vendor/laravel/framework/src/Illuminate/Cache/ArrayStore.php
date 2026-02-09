@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，数组存储
+ */
 
 namespace Illuminate\Cache;
 
@@ -11,6 +14,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * The array of stored values.
+	 * 存储值的数组
      *
      * @var array
      */
@@ -18,6 +22,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * The array of locks.
+	 * 锁数组
      *
      * @var array
      */
@@ -25,6 +30,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Indicates if values are serialized within the store.
+	 * 指示值是否在存储区中序列化
      *
      * @var bool
      */
@@ -32,6 +38,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Create a new Array store.
+	 * 创建一个新的Array存储
      *
      * @param  bool  $serializesValues
      * @return void
@@ -43,6 +50,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Retrieve an item from the cache by key.
+	 * 按键从缓存中检索项
      *
      * @param  string|array  $key
      * @return mixed
@@ -68,6 +76,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Store an item in the cache for a given number of seconds.
+	 * 将项存储在缓存中给定的秒数
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -108,6 +117,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Decrement the value of an item in the cache.
+	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -161,6 +171,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Get the cache key prefix.
+	 * 获取缓存键前缀
      *
      * @return string
      */
@@ -171,6 +182,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Get the expiration time of the key.
+	 * 获取密钥的过期时间
      *
      * @param  int  $seconds
      * @return int
@@ -193,6 +205,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Get a lock instance.
+	 * 得到锁实例
      *
      * @param  string  $name
      * @param  int  $seconds
@@ -206,6 +219,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Restore a lock instance using the owner identifier.
+	 * 使用所有者标识符恢复锁实例
      *
      * @param  string  $name
      * @param  string  $owner

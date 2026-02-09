@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，路由，控制台，存根，需要根据需要修改
+ */
 
 namespace {{ namespace }};
 
@@ -8,6 +11,7 @@ class {{ class }}
 {
     /**
      * Handle an incoming request.
+	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next

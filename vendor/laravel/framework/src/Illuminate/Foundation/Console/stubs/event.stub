@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace DummyNamespace;
 
@@ -16,6 +19,7 @@ class DummyClass
 
     /**
      * Create a new event instance.
+	 * 创建事件实例
      *
      * @return void
      */

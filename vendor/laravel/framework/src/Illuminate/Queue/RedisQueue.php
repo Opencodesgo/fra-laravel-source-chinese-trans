@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，Redis队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -11,6 +14,7 @@ class RedisQueue extends Queue implements QueueContract
 {
     /**
      * The Redis factory implementation.
+	 * Redis工厂实现
      *
      * @var \Illuminate\Contracts\Redis\Factory
      */
@@ -18,6 +22,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * The connection name.
+	 * 连接名称
      *
      * @var string
      */
@@ -25,6 +30,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * The name of the default queue.
+	 * 默认队列名称
      *
      * @var string
      */
@@ -46,6 +52,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Create a new Redis queue instance.
+	 * 创建新的Redis队列实例
      *
      * @param  \Illuminate\Contracts\Redis\Factory  $redis
      * @param  string  $default
@@ -300,6 +307,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the underlying Redis instance.
+	 * 获取底层Redis实例
      *
      * @return \Illuminate\Contracts\Redis\Factory
      */

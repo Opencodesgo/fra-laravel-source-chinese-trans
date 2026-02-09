@@ -1,6 +1,7 @@
 <?php
 /**
  * Illuminate，路由，路由器
+ * 服务容器绑定router
  */
 
 namespace Illuminate\Routing;
@@ -38,6 +39,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The event dispatcher instance.
+	 * 事件调度器实例
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
@@ -45,6 +47,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The IoC container instance.
+	 * IoC容器实例
      *
      * @var \Illuminate\Container\Container
      */
@@ -52,6 +55,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The route collection instance.
+	 * 路由集合实例
      *
      * @var \Illuminate\Routing\RouteCollectionInterface
      */
@@ -59,6 +63,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The currently dispatched route instance.
+	 * 当前调度的路由实例
      *
      * @var \Illuminate\Routing\Route|null
      */
@@ -66,6 +71,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The request currently being dispatched.
+	 * 当前正在调度的请求
      *
      * @var \Illuminate\Http\Request
      */
@@ -73,6 +79,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * All of the short-hand keys for middlewares.
+	 * 所有中间件的快捷键
      *
      * @var array
      */
@@ -80,6 +87,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * All of the middleware groups.
+	 * 所有中间件组
      *
      * @var array
      */
@@ -87,8 +95,10 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The priority-sorted list of middleware.
+	 * 中间件的优先级排序列表
      *
      * Forces the listed middleware to always be in the given order.
+	 * 强制列出的中间件始终按照给定的顺序排列。
      *
      * @var array
      */
@@ -96,6 +106,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The registered route value binders.
+	 * 注册路由值绑定
      *
      * @var array
      */
@@ -103,6 +114,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The globally available parameter patterns.
+	 * 全局可用的参数模式
      *
      * @var array
      */
@@ -110,6 +122,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * The route group attribute stack.
+	 * 路由组属性栈
      *
      * @var array
      */
@@ -117,6 +130,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * All of the verbs supported by the router.
+	 * 路由器支持的所有动作：GET、HEAD、POST、PUT、PATCH、DELETE、OPTIONS
      *
      * @var array
      */
@@ -139,6 +153,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new GET route with the router.
+	 * 向路由器注册一条新的GET路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -151,6 +166,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new POST route with the router.
+	 * 向路由器注册一条新的POST路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -163,6 +179,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new PUT route with the router.
+	 * 向路由器注册一条新的PUT路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -175,6 +192,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new PATCH route with the router.
+	 * 向路由器注册一条新的PATCH路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -187,6 +205,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new DELETE route with the router.
+	 * 向路由器注册一条新的DELETE路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -199,6 +218,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new OPTIONS route with the router.
+	 * 向路由器注册一个新的OPTIONS路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -211,6 +231,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new route responding to all verbs.
+	 * 注册一个响应所有动词的新路由
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
@@ -223,6 +244,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new Fallback route with the router.
+	 * 向路由器注册一个新的回退路由
      *
      * @param  array|string|callable|null  $action
      * @return \Illuminate\Routing\Route
@@ -238,6 +260,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Create a redirect from one URI to another.
+	 * 创建从一个URI到另一个URI的重定向
      *
      * @param  string  $uri
      * @param  string  $destination
@@ -253,6 +276,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Create a permanent redirect from one URI to another.
+	 * 创建从一个URI到另一个URI的永久重定向
      *
      * @param  string  $uri
      * @param  string  $destination
@@ -265,6 +289,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a new route that returns a view.
+	 * 注册一个返回视图的新路由
      *
      * @param  string  $uri
      * @param  string  $view
@@ -294,6 +319,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register an array of resource controllers.
+	 * 注册一个资源控制器数组
      *
      * @param  array  $resources
      * @param  array  $options
@@ -308,6 +334,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Route a resource to a controller.
+	 * 将资源路由到控制器
      *
      * @param  string  $name
      * @param  string  $controller
@@ -329,6 +356,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register an array of API resource controllers.
+	 * 注册一个API资源控制器数组
      *
      * @param  array  $resources
      * @param  array  $options
@@ -343,6 +371,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Route an API resource to a controller.
+	 * 将API资源路由到控制器
      *
      * @param  string  $name
      * @param  string  $controller
@@ -364,6 +393,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Create a route group with shared attributes.
+	 * 创建具有共享属性的路由组
      *
      * @param  array  $attributes
      * @param  \Closure|string  $routes
@@ -376,6 +406,8 @@ class Router implements BindingRegistrar, RegistrarContract
         // Once we have updated the group stack, we'll load the provided routes and
         // merge in the group's attributes when the routes are created. After we
         // have created the routes, we will pop the attributes off the stack.
+		// 一旦我们更新了组堆栈，我们就会加载提供的路由，合并创建路由时组的属性。
+		// 在我们已经创建路由之后，我们将从堆栈中弹出属性。
         $this->loadRoutes($routes);
 
         array_pop($this->groupStack);
@@ -383,6 +415,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Update the group stack with the given attributes.
+	 * 用给定的属性更新组堆栈
      *
      * @param  array  $attributes
      * @return void
@@ -398,6 +431,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Merge the given array with the last group stack.
+	 * 将给定的数组与最后一个组堆栈合并
      *
      * @param  array  $new
      * @param  bool  $prependExistingPrefix
@@ -410,6 +444,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Load the provided routes.
+	 * 加载提供的路由
      *
      * @param  \Closure|string  $routes
      * @return void
@@ -425,6 +460,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the prefix from the last group on the stack.
+	 * 从堆栈上的最后一个组获取前缀
      *
      * @return string
      */
@@ -441,6 +477,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Add a route to the underlying route collection.
+	 * 添加路由至底层路由集合
      *
      * @param  array|string  $methods
      * @param  string  $uri
@@ -454,6 +491,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Create a new route instance.
+	 * 创建一个新的路由实例
      *
      * @param  array|string  $methods
      * @param  string  $uri
@@ -465,6 +503,7 @@ class Router implements BindingRegistrar, RegistrarContract
         // If the route is routing to a controller we will parse the route action into
         // an acceptable array format before registering it and creating this route
         // instance itself. We need to build the Closure that will call this out.
+		// 如果路由要路由到一个控制器，我们将把路由动作解析为在注册和创建路由之前使用可接受的数组格式实例本身。
         if ($this->actionReferencesController($action)) {
             $action = $this->convertToControllerAction($action);
         }
@@ -476,6 +515,7 @@ class Router implements BindingRegistrar, RegistrarContract
         // If we have groups that need to be merged, we will merge them now after this
         // route has already been created and is ready to go. After we're done with
         // the merge we will be ready to return the route back out to the caller.
+		// 如果我们有需要合并的组，我们将在此之后合并它们路由已经创建好了，可以运行了。
         if ($this->hasGroupStack()) {
             $this->mergeGroupAttributesIntoRoute($route);
         }
@@ -487,6 +527,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Determine if the action is routing to a controller.
+	 * 确定动作是否路由到控制器
      *
      * @param  mixed  $action
      * @return bool
@@ -502,6 +543,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Add a controller based route action to the action array.
+	 * 向动作数组中添加一个基于控制器的路由动作
      *
      * @param  array|string  $action
      * @return array
@@ -515,6 +557,7 @@ class Router implements BindingRegistrar, RegistrarContract
         // Here we'll merge any group "uses" statement if necessary so that the action
         // has the proper clause for this property. Then we can simply set the name
         // of the controller on the action and return the action array for usage.
+		// 在这里，如果有必要，我们将合并任何组"uses"语句，以便操作有适合这个属性的子句。
         if ($this->hasGroupStack()) {
             $action['uses'] = $this->prependGroupNamespace($action['uses']);
         }
@@ -522,6 +565,7 @@ class Router implements BindingRegistrar, RegistrarContract
         // Here we will set this controller name on the action array just so we always
         // have a copy of it for reference if we need it. This can be used while we
         // search for a controller name or do some other type of fetch operation.
+		// 这里我们将在动作数组上设置这个控制器名保存一份副本，以备需要时参考。
         $action['controller'] = $action['uses'];
 
         return $action;
@@ -529,6 +573,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Prepend the last group namespace onto the use clause.
+	 * 将最后一个组名称空间前置到use子句
      *
      * @param  string  $class
      * @return string
@@ -543,6 +588,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Create a new Route object.
+	 * 创建一个新的Route对象
      *
      * @param  array|string  $methods
      * @param  string  $uri
@@ -558,6 +604,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Prefix the given URI with the last prefix.
+	 * 用最后一个前缀作为给定URI的前缀
      *
      * @param  string  $uri
      * @return string
@@ -569,6 +616,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Add the necessary where clauses to the route based on its initial registration.
+	 * 根据路由的初始注册添加必要的where子句
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return \Illuminate\Routing\Route
@@ -584,6 +632,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Merge the group stack with the controller action.
+	 * 将组堆叠与控制器动作合并
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return void
@@ -598,6 +647,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Return the response returned by the given route.
+	 * 返回由给定路由返回的响应
      *
      * @param  string  $name
      * @return \Symfony\Component\HttpFoundation\Response
@@ -653,6 +703,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Return the response for the given route.
+	 * 返回给定路由的响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Routing\Route  $route
@@ -673,6 +724,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Run the given route within a Stack "onion" instance.
+	 * 在Stack"onion"实例中运行给定的路由
      *
      * @param  \Illuminate\Routing\Route  $route
      * @param  \Illuminate\Http\Request  $request
@@ -697,6 +749,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Gather the middleware for the given route with resolved class names.
+	 * 为给定路由添加已解析类名的中间件
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return array
@@ -718,6 +771,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Sort the given middleware by priority.
+	 * 按优先级对给定的中间件排序
      *
      * @param  \Illuminate\Support\Collection  $middlewares
      * @return array
@@ -729,6 +783,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Create a response instance from the given value.
+	 * 根据给定的值创建响应实例
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @param  mixed  $response
@@ -741,6 +796,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Static version of prepareResponse.
+	 * 准备响应的静态版本
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @param  mixed  $response
@@ -776,6 +832,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Substitute the route bindings onto the route.
+	 * 将路由绑定替换到路由上
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return \Illuminate\Routing\Route
@@ -795,6 +852,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Substitute the implicit Eloquent model bindings for the route.
+	 * 将隐式Eloquent模型绑定替换为路由
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return void
@@ -808,6 +866,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Call the binding callback for the given key.
+	 * 调用给定键的绑定回调
      *
      * @param  string  $key
      * @param  string  $value
@@ -823,6 +882,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a route matched event listener.
+	 * 注册一个路由匹配的事件监听器
      *
      * @param  string|callable  $callback
      * @return void
@@ -834,6 +894,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get all of the defined middleware short-hand names.
+	 * 获取所有已定义的中间件简写名称
      *
      * @return array
      */
@@ -844,6 +905,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a short-hand name for a middleware.
+	 * 为中间件注册一个简写名称
      *
      * @param  string  $name
      * @param  string  $class
@@ -858,6 +920,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Check if a middlewareGroup with the given name exists.
+	 * 检查是否存在具有给定名称的
      *
      * @param  string  $name
      * @return bool
@@ -869,6 +932,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get all of the defined middleware groups.
+	 * 获取所有已定义的中间件组
      *
      * @return array
      */
@@ -879,6 +943,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a group of middleware.
+	 * 注册一组中间件
      *
      * @param  string  $name
      * @param  array  $middleware
@@ -893,8 +958,10 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Add a middleware to the beginning of a middleware group.
+	 * 在中间件组的开头添加一个中间件
      *
      * If the middleware is already in the group, it will not be added again.
+	 * 如果中间件已经在组中，则不会再次添加它。
      *
      * @param  string  $group
      * @param  string  $middleware
@@ -911,6 +978,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Add a middleware to the end of a middleware group.
+	 * 在中间件组的末尾添加一个中间件
      *
      * If the middleware is already in the group, it will not be added again.
      *
@@ -933,6 +1001,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Add a new route parameter binder.
+	 * 添加一个新的路由参数绑定器
      *
      * @param  string  $key
      * @param  string|callable  $binder
@@ -947,6 +1016,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Register a model binder for a wildcard.
+	 * 为通配符注册一个模型绑定器
      *
      * @param  string  $key
      * @param  string  $class
@@ -960,6 +1030,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the binding callback for a given binding.
+	 * 获取给定绑定的绑定回调
      *
      * @param  string  $key
      * @return \Closure|null
@@ -973,6 +1044,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the global "where" patterns.
+	 * 获取全局"where"模式
      *
      * @return array
      */
@@ -983,6 +1055,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Set a global where pattern on all routes.
+	 * 在所有路由上设置全局where模式
      *
      * @param  string  $key
      * @param  string  $pattern
@@ -995,6 +1068,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Set a group of global where patterns on all routes.
+	 * 在所有路由上设置一组全局where模式
      *
      * @param  array  $patterns
      * @return void
@@ -1008,6 +1082,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Determine if the router currently has a group stack.
+	 * 确定路由器当前是否有组堆栈
      *
      * @return bool
      */
@@ -1018,6 +1093,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the current group stack for the router.
+	 * 获取路由器的当前组堆栈
      *
      * @return array
      */
@@ -1028,6 +1104,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get a route parameter for the current route.
+	 * 获取当前路由的路由参数
      *
      * @param  string  $key
      * @param  string|null  $default
@@ -1040,6 +1117,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the request currently being dispatched.
+	 * 获取当前正在分派的请求
      *
      * @return \Illuminate\Http\Request
      */
@@ -1050,6 +1128,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the currently dispatched route instance.
+	 * 获取当前调度的路由实例
      *
      * @return \Illuminate\Routing\Route
      */
@@ -1060,6 +1139,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the currently dispatched route instance.
+	 * 获取当前调度的路由实例
      *
      * @return \Illuminate\Routing\Route|null
      */
@@ -1070,6 +1150,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Check if a route with the given name exists.
+	 * 检查给定名称的路由是否存在
      *
      * @param  string  $name
      * @return bool
@@ -1089,6 +1170,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the current route name.
+	 * 获取当前路由名称
      *
      * @return string|null
      */
@@ -1099,6 +1181,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Alias for the "currentRouteNamed" method.
+	 * "当前路由命名"方法的别名
      *
      * @param  mixed  ...$patterns
      * @return bool
@@ -1110,6 +1193,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Determine if the current route matches a pattern.
+	 * 确定当前路由是否与模式匹配
      *
      * @param  mixed  ...$patterns
      * @return bool
@@ -1121,6 +1205,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the current route action.
+	 * 获取当前的路由动作
      *
      * @return string|null
      */
@@ -1133,6 +1218,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Alias for the "currentRouteUses" method.
+	 * "当前路由使用情况"方法的别名
      *
      * @param  array  ...$patterns
      * @return bool
@@ -1150,6 +1236,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Determine if the current route action matches a given action.
+	 * 确定当前路由操作是否与给定操作匹配
      *
      * @param  string  $action
      * @return bool
@@ -1161,6 +1248,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Set the unmapped global resource parameters to singular.
+	 * 将未映射的全局资源参数设置为singular
      *
      * @param  bool  $singular
      * @return void
@@ -1172,6 +1260,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Set the global resource parameter mapping.
+	 * 设置全局资源参数映射
      *
      * @param  array  $parameters
      * @return void
@@ -1183,6 +1272,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get or set the verbs used in the resource URIs.
+	 * 获取或设置资源uri中使用的谓词
      *
      * @param  array  $verbs
      * @return array|null
@@ -1194,6 +1284,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Get the underlying route collection.
+	 * 获取底层路由集合
      *
      * @return \Illuminate\Routing\RouteCollectionInterface
      */
@@ -1204,6 +1295,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Set the route collection instance.
+	 * 设置路由集合实例
      *
      * @param  \Illuminate\Routing\RouteCollection  $routes
      * @return void
@@ -1221,6 +1313,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Set the compiled route collection instance.
+	 * 设置编译路由集合实例
      *
      * @param  array  $routes
      * @return void
@@ -1236,6 +1329,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Remove any duplicate middleware from the given array.
+	 * 从给定数组中删除任何重复的中间件
      *
      * @param  array  $middleware
      * @return array
@@ -1259,6 +1353,7 @@ class Router implements BindingRegistrar, RegistrarContract
 
     /**
      * Dynamically handle calls into the router instance.
+	 * 动态处理对路由器实例的调用
      *
      * @param  string  $method
      * @param  array  $parameters

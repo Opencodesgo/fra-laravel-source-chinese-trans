@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，路由，控制台，存根，需要根据需要修改
+ */
 
 namespace {{ namespace }};
 
@@ -10,6 +13,7 @@ class {{ class }} extends Controller
 {
     /**
      * Display a listing of the resource.
+	 * 显示资源的列表
      *
      * @return \Illuminate\Http\Response
      */
@@ -41,6 +45,7 @@ class {{ class }} extends Controller
 
     /**
      * Display the specified resource.
+	 * 显示指定资源
      *
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response
@@ -63,6 +68,7 @@ class {{ class }} extends Controller
 
     /**
      * Update the specified resource in storage.
+	 * 更新存储中的指定资源
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
@@ -75,6 +81,7 @@ class {{ class }} extends Controller
 
     /**
      * Remove the specified resource from storage.
+	 * 移除存储中的指定资源
      *
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response

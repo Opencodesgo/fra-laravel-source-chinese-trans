@@ -11,6 +11,7 @@ class PendingBroadcast
 {
     /**
      * The event dispatcher implementation.
+	 * 事件分派器实现
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
@@ -18,6 +19,7 @@ class PendingBroadcast
 
     /**
      * The event instance.
+	 * 事件实例
      *
      * @var mixed
      */
@@ -25,6 +27,7 @@ class PendingBroadcast
 
     /**
      * Create a new pending broadcast instance.
+	 * 创建一个新的挂起广播实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @param  mixed  $event
@@ -38,6 +41,7 @@ class PendingBroadcast
 
     /**
      * Broadcast the event to everyone except the current user.
+	 * 将事件广播给除当前用户之外的所有人
      *
      * @return $this
      */
@@ -52,6 +56,7 @@ class PendingBroadcast
 
     /**
      * Handle the object's destruction.
+	 * 处理对象销毁
      *
      * @return void
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，配置URL解析
+ * Illuminate，数据库，SQLite连接
  */
 
 namespace Illuminate\Database;
@@ -15,6 +15,7 @@ class SQLiteConnection extends Connection
 {
     /**
      * Create a new database connection instance.
+	 * 创建新的数据库连接实例
      *
      * @param  \PDO|\Closure  $pdo
      * @param  string  $database
@@ -39,6 +40,7 @@ class SQLiteConnection extends Connection
 
     /**
      * Get the default query grammar instance.
+	 * 得到默认查询语法实例
      *
      * @return \Illuminate\Database\Query\Grammars\SQLiteGrammar
      */
@@ -49,6 +51,7 @@ class SQLiteConnection extends Connection
 
     /**
      * Get a schema builder instance for the connection.
+	 * 获取连接的模式生成器实例
      *
      * @return \Illuminate\Database\Schema\SQLiteBuilder
      */
@@ -63,6 +66,7 @@ class SQLiteConnection extends Connection
 
     /**
      * Get the default schema grammar instance.
+	 * 得到默认模式语法实例
      *
      * @return \Illuminate\Database\Schema\Grammars\SQLiteGrammar
      */
@@ -73,6 +77,7 @@ class SQLiteConnection extends Connection
 
     /**
      * Get the default post processor instance.
+	 * 获取默认的post处理器实例
      *
      * @return \Illuminate\Database\Query\Processors\SQLiteProcessor
      */
@@ -83,6 +88,7 @@ class SQLiteConnection extends Connection
 
     /**
      * Get the Doctrine DBAL driver.
+	 * 获取Doctrine DBAL驱动程序
      *
      * @return \Doctrine\DBAL\Driver\PDOSqlite\Driver
      */
@@ -93,6 +99,7 @@ class SQLiteConnection extends Connection
 
     /**
      * Get the database connection foreign key constraints configuration option.
+	 * 获取数据库连接外键约束配置选项
      *
      * @return bool|null
      */

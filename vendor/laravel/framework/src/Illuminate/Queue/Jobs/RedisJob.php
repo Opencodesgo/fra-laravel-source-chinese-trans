@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，任务，Redis任务
+ */
 
 namespace Illuminate\Queue\Jobs;
 
@@ -10,6 +13,7 @@ class RedisJob extends Job implements JobContract
 {
     /**
      * The Redis queue instance.
+	 * Redis队列实例
      *
      * @var \Illuminate\Queue\RedisQueue
      */
@@ -38,6 +42,7 @@ class RedisJob extends Job implements JobContract
 
     /**
      * Create a new job instance.
+	 * 创建新任务实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \Illuminate\Queue\RedisQueue  $redis
@@ -74,6 +79,7 @@ class RedisJob extends Job implements JobContract
 
     /**
      * Delete the job from the queue.
+	 * 从队列中删除任务
      *
      * @return void
      */
@@ -86,6 +92,7 @@ class RedisJob extends Job implements JobContract
 
     /**
      * Release the job back into the queue.
+	 * 从队列中释放任务
      *
      * @param  int  $delay
      * @return void
@@ -109,6 +116,7 @@ class RedisJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
+	 * 得到任务标识符
      *
      * @return string|null
      */
@@ -119,6 +127,7 @@ class RedisJob extends Job implements JobContract
 
     /**
      * Get the underlying Redis factory implementation.
+	 * 获取底层Redis工厂实现
      *
      * @return \Illuminate\Queue\RedisQueue
      */
@@ -129,6 +138,7 @@ class RedisJob extends Job implements JobContract
 
     /**
      * Get the underlying reserved Redis job.
+	 * 获取底层预留的Redis任务
      *
      * @return string
      */

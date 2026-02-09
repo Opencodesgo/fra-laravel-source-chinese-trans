@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，工作台，迁移，迁移Make命令
+ */
 
 namespace Illuminate\Database\Console\Migrations;
 
@@ -10,6 +13,7 @@ class MigrateMakeCommand extends BaseCommand
 {
     /**
      * The console command signature.
+	 * 控制台命令签名
      *
      * @var string
      */
@@ -22,6 +26,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -29,6 +34,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * The migration creator instance.
+	 * 迁移创建器实例
      *
      * @var \Illuminate\Database\Migrations\MigrationCreator
      */
@@ -36,6 +42,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * The Composer instance.
+	 * Composer实例
      *
      * @var \Illuminate\Support\Composer
      */
@@ -43,6 +50,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * Create a new migration install command instance.
+	 * 创建一个新的迁移安装命令实例
      *
      * @param  \Illuminate\Database\Migrations\MigrationCreator  $creator
      * @param  \Illuminate\Support\Composer  $composer
@@ -58,6 +66,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return void
      */
@@ -66,6 +75,7 @@ class MigrateMakeCommand extends BaseCommand
         // It's possible for the developer to specify the tables to modify in this
         // schema operation. The developer may also specify if this table needs
         // to be freshly created so we can create the appropriate migrations.
+		// 开发人员可以在其中指定要修改的表。
         $name = Str::snake(trim($this->input->getArgument('name')));
 
         $table = $this->input->getOption('table');
@@ -91,6 +101,7 @@ class MigrateMakeCommand extends BaseCommand
         // Now we are ready to write the migration out to disk. Once we've written
         // the migration out, we will dump-autoload for the entire framework to
         // make sure that the migrations are registered by the class loaders.
+		// 现在我们准备将迁移写入磁盘。
         $this->writeMigration($name, $table, $create);
 
         $this->composer->dumpAutoloads();
@@ -98,6 +109,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * Write the migration file to disk.
+	 * 写入迁移文件至磁盘
      *
      * @param  string  $name
      * @param  string  $table
@@ -119,6 +131,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * Get migration path (either specified by '--path' option or default location).
+	 * 获取迁移路径（由'——path'选项指定或默认位置）。
      *
      * @return string
      */
@@ -135,6 +148,7 @@ class MigrateMakeCommand extends BaseCommand
 
     /**
      * Determine if the given path(s) are pre-resolved "real" paths.
+	 * 确定给定的路径是否是预先解析的"真实"路径
      *
      * @return bool
      */

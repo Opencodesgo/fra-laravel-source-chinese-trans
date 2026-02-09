@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，数据库队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -13,6 +16,7 @@ class DatabaseQueue extends Queue implements QueueContract
 {
     /**
      * The database connection instance.
+	 * 数据库连接实例
      *
      * @var \Illuminate\Database\Connection
      */
@@ -20,6 +24,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * The database table that holds the jobs.
+	 * 保存作业的数据库表
      *
      * @var string
      */
@@ -27,6 +32,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * The name of the default queue.
+	 * 默认队列的名称
      *
      * @var string
      */
@@ -34,6 +40,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * The expiration time of a job.
+	 * 任务超时时间，默认60秒
      *
      * @var int|null
      */
@@ -41,6 +48,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * Create a new database queue instance.
+	 * 创建一个新的数据库队列实例
      *
      * @param  \Illuminate\Database\Connection  $database
      * @param  string  $table
@@ -58,6 +66,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * Get the size of the queue.
+	 * 获取队列的大小
      *
      * @param  string|null  $queue
      * @return int
@@ -71,6 +80,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue.
+	 * 将新作业推送到队列中
      *
      * @param  string  $job
      * @param  mixed  $data
@@ -305,6 +315,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * Delete a reserved job from the queue.
+	 * 从队列中删除保留的任务
      *
      * @param  string  $queue
      * @param  string  $id
@@ -323,6 +334,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * Get the queue or return the default.
+	 * 获取队列或返回默认值
      *
      * @param  string|null  $queue
      * @return string
@@ -334,6 +346,7 @@ class DatabaseQueue extends Queue implements QueueContract
 
     /**
      * Get the underlying database instance.
+	 * 获取底层数据库实例
      *
      * @return \Illuminate\Database\Connection
      */

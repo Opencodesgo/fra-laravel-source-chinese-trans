@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，哈希，哈希抽象类
+ */
 
 namespace Illuminate\Hashing;
 
@@ -9,6 +12,7 @@ class HashManager extends Manager implements Hasher
 {
     /**
      * Create an instance of the Bcrypt hash Driver.
+	 * 创建Bcrypt哈希驱动程序的实例
      *
      * @return \Illuminate\Hashing\BcryptHasher
      */
@@ -87,6 +91,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Get the default driver name.
+	 * 得到默认驱动名称
      *
      * @return string
      */

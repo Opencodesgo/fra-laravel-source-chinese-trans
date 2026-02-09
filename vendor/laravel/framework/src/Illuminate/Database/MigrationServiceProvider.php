@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，配置URL解析
+ * Illuminate，数据库，迁移服务提供商
  */
 
 namespace Illuminate\Database;
@@ -23,6 +23,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 {
     /**
      * The commands to be registered.
+	 * 需要注册的命令
      *
      * @var array
      */
@@ -39,6 +40,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -55,6 +57,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the migration repository service.
+	 * 注册迁移存储库服务
      *
      * @return void
      */
@@ -69,6 +72,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the migrator service.
+	 * 注册迁移器服务
      *
      * @return void
      */
@@ -86,6 +90,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the migration creator.
+	 * 注册迁移创建者
      *
      * @return void
      */
@@ -98,6 +103,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the given commands.
+	 * 注册给定的命令
      *
      * @param  array  $commands
      * @return void
@@ -113,6 +119,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -125,6 +132,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -137,6 +145,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -149,6 +158,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -158,6 +168,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
             // Once we have the migration creator registered, we will create the command
             // and inject the creator. The creator is responsible for the actual file
             // creation of the migrations, and may be extended by these developers.
+			// 一旦我们完成迁移创建者注册，我们将创建命令并注入创造者。
             $creator = $app['migration.creator'];
 
             $composer = $app['composer'];
@@ -168,6 +179,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -180,6 +192,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -192,6 +205,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -204,6 +218,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Register the command.
+	 * 注册命令
      *
      * @return void
      */
@@ -216,6 +231,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Get the services provided by the provider.
+	 * 获取提供者提供的服务
      *
      * @return array
      */

@@ -9,6 +9,7 @@ trait Authenticatable
 {
     /**
      * The column name of the "remember me" token.
+	 * "记住我"令牌的列名
      *
      * @var string
      */
@@ -16,6 +17,7 @@ trait Authenticatable
 
     /**
      * Get the name of the unique identifier for the user.
+	 * 获取用户的唯一标识符的名称
      *
      * @return string
      */
@@ -26,6 +28,7 @@ trait Authenticatable
 
     /**
      * Get the unique identifier for the user.
+	 * 获取用户的唯一标识符
      *
      * @return mixed
      */
@@ -36,6 +39,7 @@ trait Authenticatable
 
     /**
      * Get the password for the user.
+	 * 得到用户的密码
      *
      * @return string
      */
@@ -46,6 +50,7 @@ trait Authenticatable
 
     /**
      * Get the token value for the "remember me" session.
+	 * 获取"记住我"会话的令牌值
      *
      * @return string|null
      */
@@ -58,6 +63,7 @@ trait Authenticatable
 
     /**
      * Set the token value for the "remember me" session.
+	 * 设置"记住我"会话的令牌值
      *
      * @param  string  $value
      * @return void
@@ -71,6 +77,7 @@ trait Authenticatable
 
     /**
      * Get the column name for the "remember me" token.
+	 * 获取"记住我"令牌的列名
      *
      * @return string
      */

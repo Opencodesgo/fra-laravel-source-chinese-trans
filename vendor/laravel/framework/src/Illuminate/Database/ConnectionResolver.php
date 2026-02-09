@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，连接
+ * Illuminate，数据库，连接解析器
  */
 
 namespace Illuminate\Database;
@@ -9,6 +9,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 {
     /**
      * All of the registered connections.
+	 * 所有已注册的连接
      *
      * @var array
      */
@@ -16,6 +17,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * The default connection name.
+	 * 默认连接名称
      *
      * @var string
      */
@@ -23,6 +25,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * Create a new connection resolver instance.
+	 * 创建一个新的连接解析器实例
      *
      * @param  array  $connections
      * @return void
@@ -36,6 +39,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * Get a database connection instance.
+	 * 获取数据库连接实例
      *
      * @param  string|null  $name
      * @return \Illuminate\Database\ConnectionInterface
@@ -51,6 +55,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * Add a connection to the resolver.
+	 * 添加到解析器的连接
      *
      * @param  string  $name
      * @param  \Illuminate\Database\ConnectionInterface  $connection
@@ -63,6 +68,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * Check if a connection has been registered.
+	 * 检查是否已经注册了连接
      *
      * @param  string  $name
      * @return bool
@@ -74,6 +80,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * Get the default connection name.
+	 * 获取默认连接名称
      *
      * @return string
      */
@@ -84,6 +91,7 @@ class ConnectionResolver implements ConnectionResolverInterface
 
     /**
      * Set the default connection name.
+	 * 设置默认连接名称
      *
      * @param  string  $name
      * @return void

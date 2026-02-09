@@ -1,8 +1,7 @@
 <?php
 /**
- * 支持，可枚举接口
+ * Illuminate，支持，可列举的
  */
-
 
 namespace Illuminate\Support;
 

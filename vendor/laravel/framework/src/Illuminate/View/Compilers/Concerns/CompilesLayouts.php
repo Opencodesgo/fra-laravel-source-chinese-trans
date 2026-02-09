@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译布局
+ * Illuminate，视图，编译器，关注点，编译布局
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -17,6 +17,7 @@ trait CompilesLayouts
 
     /**
      * Compile the extends statements into valid PHP.
+	 * 将extends语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -34,6 +35,7 @@ trait CompilesLayouts
 
     /**
      * Compile the section statements into valid PHP.
+	 * 将section语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -47,6 +49,7 @@ trait CompilesLayouts
 
     /**
      * Replace the @parent directive to a placeholder.
+	 * 将@parent指令替换为占位符
      *
      * @return string
      */
@@ -59,6 +62,7 @@ trait CompilesLayouts
 
     /**
      * Compile the yield statements into valid PHP.
+	 * 将yield语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -70,6 +74,7 @@ trait CompilesLayouts
 
     /**
      * Compile the show statements into valid PHP.
+	 * 将show语句编译成有效的PHP
      *
      * @return string
      */
@@ -80,6 +85,7 @@ trait CompilesLayouts
 
     /**
      * Compile the append statements into valid PHP.
+	 * 将追加语句编译成有效的PHP
      *
      * @return string
      */
@@ -90,6 +96,7 @@ trait CompilesLayouts
 
     /**
      * Compile the overwrite statements into valid PHP.
+	 * 将覆盖语句编译成有效的PHP
      *
      * @return string
      */

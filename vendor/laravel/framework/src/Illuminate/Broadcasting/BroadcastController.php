@@ -13,6 +13,7 @@ class BroadcastController extends Controller
 {
     /**
      * Authenticate the request for channel access.
+	 * 验证通道访问请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

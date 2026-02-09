@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，查询，语法，SQLite语法
+ */
 
 namespace Illuminate\Database\Query\Grammars;
 
@@ -10,6 +13,7 @@ class SQLiteGrammar extends Grammar
 {
     /**
      * All of the available clause operators.
+	 * 所有可用的子句操作符
      *
      * @var array
      */
@@ -21,6 +25,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile the lock into SQL.
+	 * 将锁编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  bool|string  $value
@@ -33,6 +38,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Wrap a union subquery in parentheses.
+	 * 在括号中包一个联合子查询
      *
      * @param  string  $sql
      * @return string
@@ -44,6 +50,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "where date" clause.
+	 * 编译"where date"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -104,6 +111,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a date based where clause.
+	 * 编译一个基于日期的where子句
      *
      * @param  string  $type
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -184,6 +192,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Group the nested JSON columns.
+	 * 组嵌套JSON列
      *
      * @param  array  $values
      * @return array
@@ -203,6 +212,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "JSON" patch statement into SQL.
+	 * 将"JSON"补丁语句编译成SQL
      *
      * @param  string  $column
      * @param  mixed  $value
@@ -235,6 +245,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Prepare the bindings for an update statement.
+	 * 为更新语句准备绑定
      *
      * @param  array  $bindings
      * @param  array  $values
@@ -259,6 +270,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a delete statement into SQL.
+	 * 将一个删除语句编译为SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -274,6 +286,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a delete statement with joins or limit into SQL.
+	 * 用连接或限制编译一个删除语句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -291,6 +304,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a truncate table statement into SQL.
+	 * 将截断表语句编译为SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return array
@@ -305,6 +319,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Wrap the given JSON selector.
+	 * 包装给定的JSON选择器
      *
      * @param  string  $value
      * @return string

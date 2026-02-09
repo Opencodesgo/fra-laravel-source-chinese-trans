@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，提供者，工具服务提供者
+ */
 
 namespace Illuminate\Foundation\Providers;
 
@@ -73,6 +76,7 @@ class ArtisanServiceProvider extends ServiceProvider implements DeferrableProvid
 {
     /**
      * The commands to be registered.
+	 * 需要注册的命令
      *
      * @var array
      */

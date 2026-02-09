@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，Beanstalkd队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -6,6 +9,7 @@ class LuaScripts
 {
     /**
      * Get the Lua script for computing the size of queue.
+	 * 获取用于计算队列大小的Lua脚本
      *
      * KEYS[1] - The name of the primary queue
      * KEYS[2] - The name of the "delayed" queue
@@ -94,6 +98,7 @@ LUA;
 
     /**
      * Get the Lua script to migrate expired jobs back onto the queue.
+	 * 使用Lua脚本将过期的作业迁移回队列
      *
      * KEYS[1] - The queue we are removing jobs from, for example: queues:foo:reserved
      * KEYS[2] - The queue we are moving jobs to, for example: queues:foo

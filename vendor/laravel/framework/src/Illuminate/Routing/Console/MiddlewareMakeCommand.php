@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，路由，控制台，中间件Make命令
+ */
 
 namespace Illuminate\Routing\Console;
 
@@ -8,6 +11,7 @@ class MiddlewareMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
+	 * 控制台命令名
      *
      * @var string
      */
@@ -15,6 +19,7 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -22,6 +27,7 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成类类型
      *
      * @var string
      */
@@ -29,6 +35,7 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -39,6 +46,7 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * Resolve the fully-qualified path to the stub.
+	 * 解析到存根的全限定路径
      *
      * @param  string  $stub
      * @return string
@@ -52,6 +60,7 @@ class MiddlewareMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string

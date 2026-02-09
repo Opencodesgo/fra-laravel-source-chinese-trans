@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，问题，管理事务
+ */
 
 namespace Illuminate\Database\Concerns;
 
@@ -9,6 +12,7 @@ trait ManagesTransactions
 {
     /**
      * Execute a Closure within a transaction.
+	 * 在事务中执行闭包
      *
      * @param  \Closure  $callback
      * @param  int  $attempts
@@ -24,6 +28,8 @@ trait ManagesTransactions
             // We'll simply execute the given callback within a try / catch block and if we
             // catch any exception we can rollback this transaction so that none of this
             // gets actually persisted to a database or stored in a permanent fashion.
+			// 我们将简单地在try / catch块中执行给定的回调捕获任何异常，我们可以回滚这个事务，
+			// 这样这些都不会发生实际持久化到数据库或以永久方式存储。
             try {
                 $callbackResult = $callback($this);
             }
@@ -31,6 +37,7 @@ trait ManagesTransactions
             // If we catch an exception we'll rollback this transaction and try again if we
             // are not out of attempts. If we are out of attempts we will just throw the
             // exception back out and let the developer handle an uncaught exceptions.
+			// 如果捕获异常，我们将回滚此事务并再次尝试。
             catch (Throwable $e) {
                 $this->handleTransactionException(
                     $e, $currentAttempt, $attempts
@@ -61,6 +68,7 @@ trait ManagesTransactions
 
     /**
      * Handle an exception encountered when running a transacted statement.
+	 * 处理运行事务语句时遇到的异常
      *
      * @param  \Throwable  $e
      * @param  int  $currentAttempt
@@ -74,6 +82,7 @@ trait ManagesTransactions
         // On a deadlock, MySQL rolls back the entire transaction so we can't just
         // retry the query. We have to throw this exception all the way out and
         // let the developer handle it in another way. We will decrement too.
+		// 
         if ($this->causedByConcurrencyError($e) &&
             $this->transactions > 1) {
             $this->transactions--;
@@ -96,6 +105,7 @@ trait ManagesTransactions
 
     /**
      * Start a new database transaction.
+	 * 启动一个新的数据库事务
      *
      * @return void
      *
@@ -112,6 +122,7 @@ trait ManagesTransactions
 
     /**
      * Create a transaction within the database.
+	 * 在数据库中创建一个事务
      *
      * @return void
      *
@@ -134,6 +145,7 @@ trait ManagesTransactions
 
     /**
      * Create a save point within the database.
+	 * 在数据库中创建一个保存点
      *
      * @return void
      *
@@ -148,6 +160,7 @@ trait ManagesTransactions
 
     /**
      * Handle an exception from a transaction beginning.
+	 * 从事务开始处理异常
      *
      * @param  \Throwable  $e
      * @return void
@@ -167,6 +180,7 @@ trait ManagesTransactions
 
     /**
      * Commit the active database transaction.
+	 * 提交活动数据库事务
      *
      * @return void
      *
@@ -185,6 +199,7 @@ trait ManagesTransactions
 
     /**
      * Handle an exception encountered when committing a transaction.
+	 * 处理提交事务时遇到的异常
      *
      * @param  \Throwable  $e
      * @param  int  $currentAttempt
@@ -211,6 +226,7 @@ trait ManagesTransactions
 
     /**
      * Rollback the active database transaction.
+	 * 回滚活动数据库事务
      *
      * @param  int|null  $toLevel
      * @return void
@@ -222,6 +238,7 @@ trait ManagesTransactions
         // We allow developers to rollback to a certain transaction level. We will verify
         // that this given transaction level is valid before attempting to rollback to
         // that level. If it's not we will just return out and not attempt anything.
+		// 我们允许开发人员回滚到某个事务级别。
         $toLevel = is_null($toLevel)
                     ? $this->transactions - 1
                     : $toLevel;
@@ -246,6 +263,7 @@ trait ManagesTransactions
 
     /**
      * Perform a rollback within the database.
+	 * 在数据库中执行回滚
      *
      * @param  int  $toLevel
      * @return void
@@ -265,6 +283,7 @@ trait ManagesTransactions
 
     /**
      * Handle an exception from a rollback.
+	 * 处理回滚的异常
      *
      * @param  \Throwable  $e
      * @return void
@@ -282,6 +301,7 @@ trait ManagesTransactions
 
     /**
      * Get the number of active transactions.
+	 * 获取活动事务的数量
      *
      * @return int
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，基础，应用
+ */
 
 namespace Illuminate\Contracts\Foundation;
 
@@ -8,6 +11,7 @@ interface Application extends Container
 {
     /**
      * Get the version number of the application.
+	 * 获取应用的版本号
      *
      * @return string
      */
@@ -15,6 +19,7 @@ interface Application extends Container
 
     /**
      * Get the base path of the Laravel installation.
+	 * 获取Laravel安装的基本路径
      *
      * @param  string  $path
      * @return string
@@ -23,6 +28,7 @@ interface Application extends Container
 
     /**
      * Get the path to the bootstrap directory.
+	 * 获取引导目录的路径
      *
      * @param  string  $path  Optionally, a path to append to the bootstrap path
      * @return string
@@ -31,6 +37,7 @@ interface Application extends Container
 
     /**
      * Get the path to the application configuration files.
+	 * 获取应用程序配置文件的路径
      *
      * @param  string  $path  Optionally, a path to append to the config path
      * @return string
@@ -39,6 +46,7 @@ interface Application extends Container
 
     /**
      * Get the path to the database directory.
+	 * 获取数据库目录的路径
      *
      * @param  string  $path  Optionally, a path to append to the database path
      * @return string
@@ -47,6 +55,7 @@ interface Application extends Container
 
     /**
      * Get the path to the resources directory.
+	 * 获取资源目录的路径
      *
      * @param  string  $path
      * @return string
@@ -55,6 +64,7 @@ interface Application extends Container
 
     /**
      * Get the path to the storage directory.
+	 * 获取存储目录的路径
      *
      * @return string
      */
@@ -62,6 +72,7 @@ interface Application extends Container
 
     /**
      * Get or check the current application environment.
+	 * 获取或检查当前应用环境
      *
      * @param  string|array  $environments
      * @return string|bool
@@ -70,6 +81,7 @@ interface Application extends Container
 
     /**
      * Determine if the application is running in the console.
+	 * 确定应用是否在控制台中运行
      *
      * @return bool
      */
@@ -77,6 +89,7 @@ interface Application extends Container
 
     /**
      * Determine if the application is running unit tests.
+	 * 确定应用是否正在运行单元测试
      *
      * @return bool
      */
@@ -84,6 +97,7 @@ interface Application extends Container
 
     /**
      * Determine if the application is currently down for maintenance.
+	 * 确定应用当前是否关闭以进行维护
      *
      * @return bool
      */
@@ -91,6 +105,7 @@ interface Application extends Container
 
     /**
      * Register all of the configured providers.
+	 * 注册所有已配置的提供者
      *
      * @return void
      */
@@ -98,6 +113,7 @@ interface Application extends Container
 
     /**
      * Register a service provider with the application.
+	 * 向应用注册一个服务提供者
      *
      * @param  \Illuminate\Support\ServiceProvider|string  $provider
      * @param  bool  $force
@@ -107,6 +123,7 @@ interface Application extends Container
 
     /**
      * Register a deferred provider and service.
+	 * 注册一个延迟的提供者和服务
      *
      * @param  string  $provider
      * @param  string|null  $service
@@ -116,6 +133,7 @@ interface Application extends Container
 
     /**
      * Resolve a service provider instance from the class name.
+	 * 从类名解析服务提供者实例
      *
      * @param  string  $provider
      * @return \Illuminate\Support\ServiceProvider
@@ -124,6 +142,7 @@ interface Application extends Container
 
     /**
      * Boot the application's service providers.
+	 * 引导应用的服务提供者
      *
      * @return void
      */
@@ -131,6 +150,7 @@ interface Application extends Container
 
     /**
      * Register a new boot listener.
+	 * 注册一个新的引导监听者
      *
      * @param  callable  $callback
      * @return void
@@ -139,6 +159,7 @@ interface Application extends Container
 
     /**
      * Register a new "booted" listener.
+	 * 注册一个新的"已启动"监听者
      *
      * @param  callable  $callback
      * @return void
@@ -147,6 +168,7 @@ interface Application extends Container
 
     /**
      * Run the given array of bootstrap classes.
+	 * 运行给定的引导类数组
      *
      * @param  array  $bootstrappers
      * @return void
@@ -155,6 +177,7 @@ interface Application extends Container
 
     /**
      * Get the current application locale.
+	 * 获取当前应用程序区域设置
      *
      * @return string
      */
@@ -162,6 +185,7 @@ interface Application extends Container
 
     /**
      * Get the application namespace.
+	 * 获取应用的命名空间
      *
      * @return string
      *
@@ -171,6 +195,7 @@ interface Application extends Container
 
     /**
      * Get the registered service provider instances if any exist.
+	 * 获取注册的服务提供者实例（如果存在的话）
      *
      * @param  \Illuminate\Support\ServiceProvider|string  $provider
      * @return array
@@ -179,6 +204,7 @@ interface Application extends Container
 
     /**
      * Determine if the application has been bootstrapped before.
+	 * 确定应用程序之前是否被引导过
      *
      * @return bool
      */
@@ -186,6 +212,7 @@ interface Application extends Container
 
     /**
      * Load and boot all of the remaining deferred providers.
+	 * 加载并引导所有剩余的延迟提供程序
      *
      * @return void
      */
@@ -193,6 +220,7 @@ interface Application extends Container
 
     /**
      * Set the current application locale.
+	 * 设置当前应用程序区域设置
      *
      * @param  string  $locale
      * @return void
@@ -201,6 +229,7 @@ interface Application extends Container
 
     /**
      * Determine if middleware has been disabled for the application.
+	 * 确定是否为应用禁用了中间件
      *
      * @return bool
      */
@@ -208,6 +237,7 @@ interface Application extends Container
 
     /**
      * Terminate the application.
+	 * 终止应用程序
      *
      * @return void
      */

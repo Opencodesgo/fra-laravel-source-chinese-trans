@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，调度，调度运行命令
+ */
 
 namespace Illuminate\Console\Scheduling;
 
@@ -16,6 +19,7 @@ class ScheduleRunCommand extends Command
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -23,6 +27,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -30,6 +35,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * The schedule instance.
+	 * 调度实例
      *
      * @var \Illuminate\Console\Scheduling\Schedule
      */
@@ -37,6 +43,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * The 24 hour timestamp this scheduler command started running.
+	 * 这个调度器命令开始运行的时间戳是24小时
      *
      * @var \Illuminate\Support\Carbon
      */
@@ -44,6 +51,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * Check if any events ran.
+	 * 检查是否任务运行
      *
      * @var bool
      */
@@ -51,6 +59,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * The event dispatcher.
+	 * 事件调度程序
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
@@ -58,6 +67,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * The exception handler.
+	 * 异常处理程序
      *
      * @var \Illuminate\Contracts\Debug\ExceptionHandler
      */
@@ -65,6 +75,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * Create a new command instance.
+	 * 创建新的命令实例
      *
      * @return void
      */
@@ -77,6 +88,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
@@ -112,6 +124,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * Run the given single server event.
+	 * 运行给定的单个服务器事件
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @return void
@@ -127,6 +140,7 @@ class ScheduleRunCommand extends Command
 
     /**
      * Run the given event.
+	 * 运行给定的事件
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @return void

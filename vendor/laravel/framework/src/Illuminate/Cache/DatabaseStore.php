@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，数据库存储
+ */
 
 namespace Illuminate\Cache;
 
@@ -18,6 +21,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * The database connection instance.
+	 * 数据库连接实例
      *
      * @var \Illuminate\Database\ConnectionInterface
      */
@@ -25,6 +29,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * The name of the cache table.
+	 * 缓存表的名称
      *
      * @var string
      */
@@ -32,6 +37,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * A string that should be prepended to keys.
+	 * 应该加在键前的字符串
      *
      * @var string
      */
@@ -39,6 +45,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * The name of the cache locks table.
+	 * 缓存锁表的名称
      *
      * @var string
      */
@@ -46,6 +53,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * An array representation of the lock lottery odds.
+	 * 表示锁定彩票赔率的数组
      *
      * @var array
      */
@@ -53,6 +61,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Create a new database store.
+	 * 创建一个新的数据库存储
      *
      * @param  \Illuminate\Database\ConnectionInterface  $connection
      * @param  string  $table
@@ -76,6 +85,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Retrieve an item from the cache by key.
+	 * 按键从缓存中检索项
      *
      * @param  string|array  $key
      * @return mixed
@@ -89,6 +99,7 @@ class DatabaseStore implements LockProvider, Store
         // If we have a cache record we will check the expiration time against current
         // time on the system and see if the record has expired. If it has, we will
         // remove the records from the database table so it isn't returned again.
+		// 如果我们有一个缓存记录，我们将根据当前记录检查过期时间。
         if (is_null($cache)) {
             return;
         }
@@ -109,6 +120,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Store an item in the cache for a given number of seconds.
+	 * 将项存储在缓存中给定的秒数
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -132,6 +144,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Store an item in the cache if the key doesn't exist.
+	 * 如果键不存在，则将项存储在缓存中。
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -161,6 +174,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Increment the value of an item in the cache.
+	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -175,6 +189,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Decrement the value of an item in the cache.
+	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -189,6 +204,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Increment or decrement an item in the cache.
+	 * 增加或减少缓存中的项
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -236,6 +252,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Get the current system time.
+	 * 获取当前系统时间
      *
      * @return int
      */
@@ -246,6 +263,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Store an item in the cache indefinitely.
+	 * 将项无限期地存储在缓存中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -258,6 +276,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Get a lock instance.
+	 * 获取一个锁实例
      *
      * @param  string  $name
      * @param  int  $seconds
@@ -290,6 +309,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Remove an item from the cache.
+	 * 从缓存中删除项
      *
      * @param  string  $key
      * @return bool
@@ -303,6 +323,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Remove all items from the cache.
+	 * 从缓存中删除所有项
      *
      * @return bool
      */
@@ -315,6 +336,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Get a query builder for the cache table.
+	 * 获取缓存表的查询生成器
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -325,6 +347,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Get the underlying database connection.
+	 * 获取底层数据库连接
      *
      * @return \Illuminate\Database\ConnectionInterface
      */
@@ -335,6 +358,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Get the cache key prefix.
+	 * 获取缓存键前缀
      *
      * @return string
      */
@@ -345,6 +369,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Serialize the given value.
+	 * 序列化给定的值
      *
      * @param  mixed  $value
      * @return string
@@ -362,6 +387,7 @@ class DatabaseStore implements LockProvider, Store
 
     /**
      * Unserialize the given value.
+	 * 反序列化给定的值
      *
      * @param  string  $value
      * @return mixed

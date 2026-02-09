@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Session会话，储存
+ */
 
 namespace Illuminate\Session;
 
@@ -13,6 +16,7 @@ class Store implements Session
 {
     /**
      * The session ID.
+	 * 会话ID
      *
      * @var string
      */
@@ -20,6 +24,7 @@ class Store implements Session
 
     /**
      * The session name.
+	 * 会话名称
      *
      * @var string
      */
@@ -27,6 +32,7 @@ class Store implements Session
 
     /**
      * The session attributes.
+	 * 会话属性
      *
      * @var array
      */
@@ -48,6 +54,7 @@ class Store implements Session
 
     /**
      * Create a new session instance.
+	 * 创建新的会话实例
      *
      * @param  string  $name
      * @param  \SessionHandlerInterface  $handler
@@ -659,6 +666,7 @@ class Store implements Session
 
     /**
      * Set the request on the handler instance.
+	 * 在处理程序实例上设置请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void

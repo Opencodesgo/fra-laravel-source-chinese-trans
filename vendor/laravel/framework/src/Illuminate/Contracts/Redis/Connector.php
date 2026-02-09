@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，Redis，连接
+ */
 
 namespace Illuminate\Contracts\Redis;
 
@@ -6,6 +9,7 @@ interface Connector
 {
     /**
      * Create a connection to a Redis cluster.
+	 * 创建到Redis集群的连接
      *
      * @param  array  $config
      * @param  array  $options
@@ -15,6 +19,7 @@ interface Connector
 
     /**
      * Create a connection to a Redis instance.
+	 * 创建一个到Redis实例的连接
      *
      * @param  array  $config
      * @param  array  $clusterOptions

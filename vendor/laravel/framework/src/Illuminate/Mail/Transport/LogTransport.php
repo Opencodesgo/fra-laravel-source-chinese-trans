@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，邮件，传输，日志传输
+ */
 
 namespace Illuminate\Mail\Transport;
 
@@ -10,6 +13,7 @@ class LogTransport extends Transport
 {
     /**
      * The Logger instance.
+	 * Logger实例
      *
      * @var \Psr\Log\LoggerInterface
      */
@@ -17,6 +21,7 @@ class LogTransport extends Transport
 
     /**
      * Create a new log transport instance.
+	 * 创建一个新的日志传输实例
      *
      * @param  \Psr\Log\LoggerInterface  $logger
      * @return void
@@ -42,6 +47,7 @@ class LogTransport extends Transport
 
     /**
      * Get a loggable string out of a Swiftmailer entity.
+	 * 从Swiftmailer实体中获取可记录的字符串
      *
      * @param  \Swift_Mime_SimpleMimeEntity  $entity
      * @return string
@@ -59,6 +65,7 @@ class LogTransport extends Transport
 
     /**
      * Get the logger for the LogTransport instance.
+	 * 获取LogTransport实例的记录器
      *
      * @return \Psr\Log\LoggerInterface
      */

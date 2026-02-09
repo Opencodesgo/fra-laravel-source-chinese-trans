@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，翻译，翻译服务提供者
+ */
 
 namespace Illuminate\Translation;
 
@@ -9,6 +12,7 @@ class TranslationServiceProvider extends ServiceProvider implements DeferrablePr
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -46,6 +50,7 @@ class TranslationServiceProvider extends ServiceProvider implements DeferrablePr
 
     /**
      * Get the services provided by the provider.
+	 * 得到提供者提供的服务
      *
      * @return array
      */

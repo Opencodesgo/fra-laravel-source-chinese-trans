@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，与队列交互
+ */
 
 namespace Illuminate\Queue;
 
@@ -8,6 +11,7 @@ trait InteractsWithQueue
 {
     /**
      * The underlying queue job instance.
+	 * 底层队列任务实例
      *
      * @var \Illuminate\Contracts\Queue\Job
      */
@@ -25,6 +29,7 @@ trait InteractsWithQueue
 
     /**
      * Delete the job from the queue.
+	 * 从队列中删除任务
      *
      * @return void
      */
@@ -37,6 +42,7 @@ trait InteractsWithQueue
 
     /**
      * Fail the job from the queue.
+	 * 从队列中失败任务
      *
      * @param  \Throwable|null  $exception
      * @return void
@@ -50,6 +56,7 @@ trait InteractsWithQueue
 
     /**
      * Release the job back into the queue.
+	 * 释放任务并返回队列
      *
      * @param  int  $delay
      * @return void
@@ -63,6 +70,7 @@ trait InteractsWithQueue
 
     /**
      * Set the base queue job instance.
+	 * 设置基本队列任务实例
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return $this

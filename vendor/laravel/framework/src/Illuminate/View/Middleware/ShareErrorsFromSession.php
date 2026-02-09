@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，中间件，来自会话的共享错误
+ * Illuminate，视图，中间件，来自会话的共享错误
  */
 
 namespace Illuminate\View\Middleware;

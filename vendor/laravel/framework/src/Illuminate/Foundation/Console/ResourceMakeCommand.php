@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，make:resource命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -10,6 +13,7 @@ class ResourceMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -17,6 +21,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -24,6 +29,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成的类的类型
      *
      * @var string
      */
@@ -31,6 +37,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return void
      */
@@ -45,6 +52,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */

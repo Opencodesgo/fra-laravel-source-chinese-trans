@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Http，异常，大量请求异常
+ */
 
 namespace Illuminate\Http\Exceptions;
 
@@ -9,6 +12,7 @@ class PostTooLargeException extends HttpException
 {
     /**
      * Create a new "post too large" exception instance.
+	 * 创建一个新的"post too large"异常实例
      *
      * @param  string|null  $message
      * @param  \Throwable|null  $previous

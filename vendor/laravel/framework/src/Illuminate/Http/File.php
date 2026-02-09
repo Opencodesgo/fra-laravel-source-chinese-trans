@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，文件
+ * Illuminate，Http，文件，从Symfony文件继承
  */
 
 namespace Illuminate\Http;

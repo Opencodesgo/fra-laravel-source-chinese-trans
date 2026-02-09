@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，队列，队列管理
+ * 服务容器绑定queue
+ */
 
 namespace Illuminate\Queue;
 
@@ -14,6 +18,7 @@ class QueueManager implements FactoryContract, MonitorContract
 {
     /**
      * The application instance.
+	 * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -248,6 +253,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Dynamically pass calls to the default connection.
+	 * 动态地将调用传递给默认连接
      *
      * @param  string  $method
      * @param  array  $parameters

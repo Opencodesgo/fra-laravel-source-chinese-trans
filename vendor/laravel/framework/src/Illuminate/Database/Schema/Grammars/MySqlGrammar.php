@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，MySql语法
+ */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -11,6 +14,7 @@ class MySqlGrammar extends Grammar
 {
     /**
      * The possible column modifiers.
+	 * 可能的列修饰符
      *
      * @var array
      */
@@ -21,6 +25,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * The possible column serials.
+	 * 可能的列序列
      *
      * @var array
      */
@@ -1036,6 +1041,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Wrap a single string in keyword identifiers.
+	 * 在关键字标识符中包装单个字符串
      *
      * @param  string  $value
      * @return string

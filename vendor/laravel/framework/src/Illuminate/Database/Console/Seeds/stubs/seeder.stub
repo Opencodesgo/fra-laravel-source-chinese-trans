@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，播种机，播种机，根据实际修改
+ */
 
 use Illuminate\Database\Seeder;
 
@@ -6,6 +9,7 @@ class {{ class }} extends Seeder
 {
     /**
      * Run the database seeds.
+	 * 运行数据库种子
      *
      * @return void
      */

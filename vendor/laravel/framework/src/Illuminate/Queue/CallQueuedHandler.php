@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，调用队列处理者
+ */
 
 namespace Illuminate\Queue;
 
@@ -14,6 +17,7 @@ class CallQueuedHandler
 {
     /**
      * The bus dispatcher implementation.
+	 * 总线调度程序实现
      *
      * @var \Illuminate\Contracts\Bus\Dispatcher
      */
@@ -21,6 +25,7 @@ class CallQueuedHandler
 
     /**
      * The container instance.
+	 * 容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -28,6 +33,7 @@ class CallQueuedHandler
 
     /**
      * Create a new handler instance.
+	 * 创建新的处理程序实例
      *
      * @param  \Illuminate\Contracts\Bus\Dispatcher  $dispatcher
      * @param  \Illuminate\Contracts\Container\Container  $container
@@ -41,6 +47,7 @@ class CallQueuedHandler
 
     /**
      * Handle the queued job.
+	 * 处理队列任务
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  array  $data
@@ -134,6 +141,7 @@ class CallQueuedHandler
 
     /**
      * Handle a model not found exception.
+	 * 处理模型未找到异常
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
@@ -159,6 +167,7 @@ class CallQueuedHandler
 
     /**
      * Call the failed method on the job instance.
+	 * 在任务实例上调用失败的方法
      *
      * The exception that caused the failure will be passed.
      *

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，查询，语法，SqlServer语法
+ */
 
 namespace Illuminate\Database\Query\Grammars;
 
@@ -10,6 +13,7 @@ class SqlServerGrammar extends Grammar
 {
     /**
      * All of the available clause operators.
+	 * 所有可用的子句操作符
      *
      * @var array
      */
@@ -21,6 +25,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a select query into SQL.
+	 * 将select查询编译为SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -45,6 +50,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the "select *" portion of the query.
+	 * 编译查询的"select *"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $columns
@@ -61,6 +67,7 @@ class SqlServerGrammar extends Grammar
         // If there is a limit on the query, but not an offset, we will add the top
         // clause to the query, which serves as a "limit" type clause within the
         // SQL Server system similar to the limit keywords available in MySQL.
+		// 如果查询有一个限制而不是偏移量，我们将添加顶部对查询的子句。
         if ($query->limit > 0 && $query->offset <= 0) {
             $select .= 'top '.$query->limit.' ';
         }
@@ -70,6 +77,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the "from" portion of the query.
+	 * 编译查询的"从"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -120,6 +128,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a "JSON contains" statement into SQL.
+	 * 将"JSON包含"语句编译为SQL
      *
      * @param  string  $column
      * @param  string  $value
@@ -160,6 +169,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Create a full ANSI offset clause for the query.
+	 * 为查询创建一个完整的ANSI偏移子
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $components
@@ -191,6 +201,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the over statement for a table expression.
+	 * 编译表表达式的语句
      *
      * @param  string  $orderings
      * @return string
@@ -202,6 +213,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a common table expression for a query.
+	 * 为查询编译一个常用的表表达式
      *
      * @param  string  $sql
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -287,6 +299,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the lock into SQL.
+	 * 编译锁到SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  bool|string  $value
@@ -310,6 +323,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile an exists statement into SQL.
+	 * 编译存在的语句为SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -325,6 +339,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile an update statement with joins into SQL.
+	 * 编译连接到SQL的更新语句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -343,6 +358,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Prepare the bindings for an update statement.
+	 * 为更新语句准备绑定
      *
      * @param  array  $bindings
      * @param  array  $values
@@ -359,6 +375,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the SQL statement to define a savepoint.
+	 * 编译SQL语句来定义一个保存点
      *
      * @param  string  $name
      * @return string
@@ -381,6 +398,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Get the format for database stored dates.
+	 * 获取数据库存储日期的格式
      *
      * @return string
      */
@@ -391,6 +409,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap a single string in keyword identifiers.
+	 * 在关键字标识符中包一个字符串
      *
      * @param  string  $value
      * @return string
@@ -402,6 +421,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap the given JSON selector.
+	 * 包装给定的JSON选择器
      *
      * @param  string  $value
      * @return string
@@ -415,6 +435,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap the given JSON boolean value.
+	 * 包装给定的JSON布尔值
      *
      * @param  string  $value
      * @return string
@@ -426,6 +447,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap a table in keyword identifiers.
+	 * 在关键字标识符中包装表
      *
      * @param  \Illuminate\Database\Query\Expression|string  $table
      * @return string
@@ -441,6 +463,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap a table in keyword identifiers.
+	 * 所有可用的子句操作符
      *
      * @param  string  $table
      * @return string

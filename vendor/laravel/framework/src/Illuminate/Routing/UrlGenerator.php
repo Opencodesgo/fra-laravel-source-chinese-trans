@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，路由，URL生成器
+ */
 
 namespace Illuminate\Routing;
 
@@ -20,6 +23,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The route collection.
+	 * 路由集合
      *
      * @var \Illuminate\Routing\RouteCollectionInterface
      */
@@ -27,6 +31,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The request instance.
+	 * 请求实例
      *
      * @var \Illuminate\Http\Request
      */
@@ -34,6 +39,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The asset root URL.
+	 * 资产根URL
      *
      * @var string
      */
@@ -41,6 +47,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The forced URL root.
+	 * 强制URL根
      *
      * @var string
      */
@@ -48,6 +55,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The forced scheme for URLs.
+	 * url的强制方案
      *
      * @var string
      */
@@ -55,6 +63,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * A cached copy of the URL root for the current request.
+	 * 当前请求的URL根的缓存副本
      *
      * @var string|null
      */
@@ -62,6 +71,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * A cached copy of the URL scheme for the current request.
+	 * 当前请求的URL方案的缓存副本
      *
      * @var string|null
      */
@@ -69,6 +79,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The root namespace being applied to controller actions.
+	 * 应用于控制器动作的根命名空间
      *
      * @var string
      */
@@ -76,6 +87,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * The session resolver callable.
+	 * 可调用的会话解析器
      *
      * @var callable
      */
@@ -111,6 +123,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Create a new URL Generator instance.
+	 * 创建新的URL生成器实例
      *
      * @param  \Illuminate\Routing\RouteCollectionInterface  $routes
      * @param  \Illuminate\Http\Request  $request
@@ -127,6 +140,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the full URL for the current request.
+	 * 获取当前请求的完整URL
      *
      * @return string
      */
@@ -137,6 +151,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the current URL for the request.
+	 * 获取请求的当前URL
      *
      * @return string
      */
@@ -147,6 +162,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the URL for the previous request.
+	 * 获取前一个请求的URL
      *
      * @param  mixed  $fallback
      * @return string
@@ -168,6 +184,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the previous URL from the session if possible.
+	 * 如果可能的话，从会话中获取前一个URL
      *
      * @return string|null
      */
@@ -180,6 +197,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Generate an absolute URL to the given path.
+	 * 生成给定路径的绝对URL
      *
      * @param  string  $path
      * @param  mixed  $extra
@@ -213,6 +231,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Generate a secure, absolute URL to the given path.
+	 * 生成给定路径的安全的绝对URL
      *
      * @param  string  $path
      * @param  array  $parameters
@@ -225,6 +244,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Generate the URL to an application asset.
+	 * 生成应用程序资产的URL
      *
      * @param  string  $path
      * @param  bool|null  $secure
@@ -248,6 +268,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Generate the URL to a secure asset.
+	 * 生成安全资产的URL
      *
      * @param  string  $path
      * @return string
@@ -277,6 +298,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Remove the index.php file from a path.
+	 * 从路径中删除index.php文件
      *
      * @param  string  $root
      * @return string
@@ -357,6 +379,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Determine if the given request has a valid signature.
+	 * 确定给定请求是否具有有效签名
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  bool  $absolute
@@ -370,6 +393,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Determine if the signature from the given request matches the URL.
+	 * 确定来自给定请求的签名是否与URL匹配
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  bool  $absolute
@@ -390,6 +414,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Determine if the expires timestamp from the given request is not from the past.
+	 * 确定给定请求的过期时间戳是否不是过去的
      *
      * @param  \Illuminate\Http\Request  $request
      * @return bool
@@ -403,6 +428,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the URL to a named route.
+	 * 获取一个命名路由的URL
      *
      * @param  string  $name
      * @param  mixed  $parameters
@@ -628,6 +654,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Set the forced root URL.
+	 * 设置强制根URL
      *
      * @param  string|null  $root
      * @return void
@@ -679,6 +706,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the request instance.
+	 * 获取请求实例
      *
      * @return \Illuminate\Http\Request
      */
@@ -711,6 +739,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Set the route collection.
+	 * 设置路由集合
      *
      * @param  \Illuminate\Routing\RouteCollectionInterface  $routes
      * @return $this
@@ -724,6 +753,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Get the session implementation from the resolver.
+	 * 从解析器获取会话实现
      *
      * @return \Illuminate\Session\Store|null
      */
@@ -736,6 +766,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Set the session resolver for the generator.
+	 * 为生成器设置会话解析器
      *
      * @param  callable  $sessionResolver
      * @return $this
@@ -749,6 +780,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Set the encryption key resolver.
+	 * 设置加密密钥解析器
      *
      * @param  callable  $keyResolver
      * @return $this
@@ -762,6 +794,7 @@ class UrlGenerator implements UrlGeneratorContract
 
     /**
      * Set the root controller namespace.
+	 * 设置根控制器命名空间
      *
      * @param  string  $rootNamespace
      * @return $this

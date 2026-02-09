@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，失败，DynamoDb失败的任务提供者
+ */
 
 namespace Illuminate\Queue\Failed;
 
@@ -13,6 +16,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 {
     /**
      * The DynamoDB client instance.
+	 * DynamoDB客户端实例
      *
      * @var \Aws\DynamoDb\DynamoDbClient
      */
@@ -20,6 +24,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * The application name.
+	 * 应用名称
      *
      * @var string
      */
@@ -27,6 +32,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * The table name.
+	 * 表名称
      *
      * @var string
      */
@@ -34,6 +40,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Create a new DynamoDb failed job provider.
+	 * 创建一个新的DynamoDb失败任务提供者
      *
      * @param  \Aws\DynamoDb\DynamoDbClient  $dynamo
      * @param  string  $applicationName
@@ -49,6 +56,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Log a failed job into storage.
+	 * 记录失败的任务到存储中
      *
      * @param  string  $connection
      * @param  string  $queue
@@ -81,6 +89,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Get a list of all of the failed jobs.
+	 * 获取所有失败任务的列表
      *
      * @return array
      */
@@ -112,6 +121,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Get a single failed job.
+	 * 得到一个失败的任务
      *
      * @param  mixed  $id
      * @return object|null
@@ -144,6 +154,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Delete a single failed job from storage.
+	 * 从存储中删除单个失败的作业
      *
      * @param  mixed  $id
      * @return bool
@@ -163,6 +174,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Flush all of the failed jobs from storage.
+	 * 从存储中清除所有失败的作业
      *
      * @return void
      *

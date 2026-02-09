@@ -13,6 +13,7 @@ class RedirectController extends Controller
 {
     /**
      * Invoke the controller method.
+	 * 调用控制器方法
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Routing\UrlGenerator  $url

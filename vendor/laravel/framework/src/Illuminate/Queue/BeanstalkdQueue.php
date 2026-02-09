@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，Beanstalkd队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -11,6 +14,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 {
     /**
      * The Pheanstalk instance.
+	 * Pheanstalk实例
      *
      * @var \Pheanstalk\Pheanstalk
      */
@@ -18,6 +22,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * The name of the default tube.
+	 * 默认管道的名称
      *
      * @var string
      */
@@ -39,6 +44,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Create a new Beanstalkd queue instance.
+	 * 创建新的Beanstalkd队列实例
      *
      * @param  \Pheanstalk\Pheanstalk  $pheanstalk
      * @param  string  $default
@@ -56,6 +62,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Get the size of the queue.
+	 * 得到队列大小
      *
      * @param  string|null  $queue
      * @return int
@@ -69,6 +76,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue.
+	 * 将新作业推送到队列中
      *
      * @param  string  $job
      * @param  mixed  $data
@@ -162,6 +170,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Get the underlying Pheanstalk instance.
+	 * 获取底层Pheanstalk实例
      *
      * @return \Pheanstalk\Pheanstalk
      */

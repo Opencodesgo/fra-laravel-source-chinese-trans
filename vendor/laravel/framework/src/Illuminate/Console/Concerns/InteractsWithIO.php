@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，问题，与IO交互
+ */
 
 namespace Illuminate\Console\Concerns;
 
@@ -16,6 +19,7 @@ trait InteractsWithIO
 {
     /**
      * The input interface implementation.
+	 * 输入接口实现
      *
      * @var \Symfony\Component\Console\Input\InputInterface
      */
@@ -23,6 +27,7 @@ trait InteractsWithIO
 
     /**
      * The output interface implementation.
+	 * 输出接口实现
      *
      * @var \Illuminate\Console\OutputStyle
      */
@@ -30,6 +35,7 @@ trait InteractsWithIO
 
     /**
      * The default verbosity of output commands.
+	 * 输出命令的默认长度
      *
      * @var int
      */
@@ -37,6 +43,7 @@ trait InteractsWithIO
 
     /**
      * The mapping between human readable verbosity levels and Symfony's OutputInterface.
+	 * 人类可读的冗长级别和Symfony的OutputInterface之间的映射
      *
      * @var array
      */
@@ -50,6 +57,7 @@ trait InteractsWithIO
 
     /**
      * Determine if the given argument is present.
+	 * 确定给定参数是否存在
      *
      * @param  string|int  $name
      * @return bool
@@ -61,6 +69,7 @@ trait InteractsWithIO
 
     /**
      * Get the value of a command argument.
+	 * 获取命令参数的值
      *
      * @param  string|null  $key
      * @return string|array|null
@@ -76,6 +85,7 @@ trait InteractsWithIO
 
     /**
      * Get all of the arguments passed to the command.
+	 * 获取传递给命令的所有参数
      *
      * @return array
      */
@@ -86,6 +96,7 @@ trait InteractsWithIO
 
     /**
      * Determine if the given option is present.
+	 * 确定给定选项是否存在
      *
      * @param  string  $name
      * @return bool
@@ -97,6 +108,7 @@ trait InteractsWithIO
 
     /**
      * Get the value of a command option.
+	 * 获取命令选项的值
      *
      * @param  string|null  $key
      * @return string|array|bool|null
@@ -112,6 +124,7 @@ trait InteractsWithIO
 
     /**
      * Get all of the options passed to the command.
+	 * 获取传递给命令的所有选项
      *
      * @return array
      */
@@ -122,6 +135,7 @@ trait InteractsWithIO
 
     /**
      * Confirm a question with the user.
+	 * 与用户确认问题
      *
      * @param  string  $question
      * @param  bool  $default
@@ -134,6 +148,7 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input.
+	 * 提示用户输入
      *
      * @param  string  $question
      * @param  string|null  $default
@@ -146,6 +161,7 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input with auto completion.
+	 * 提示用户输入并自动完成
      *
      * @param  string  $question
      * @param  array|callable  $choices
@@ -159,6 +175,7 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input with auto completion.
+	 * 提示用户输入并自动完成
      *
      * @param  string  $question
      * @param  array|callable  $choices
@@ -194,6 +211,7 @@ trait InteractsWithIO
 
     /**
      * Give the user a single choice from an array of answers.
+	 * 从一组答案中给用户一个选择
      *
      * @param  string  $question
      * @param  array  $choices
@@ -213,6 +231,7 @@ trait InteractsWithIO
 
     /**
      * Format input to textual table.
+	 * 将输入格式化为文本表
      *
      * @param  array  $headers
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $rows
@@ -320,6 +339,7 @@ trait InteractsWithIO
 
     /**
      * Write a string in an alert box.
+	 * 在提示框中写一个字符串
      *
      * @param  string  $string
      * @return void
@@ -359,6 +379,7 @@ trait InteractsWithIO
 
     /**
      * Set the verbosity level.
+	 * 设置冗长级别
      *
      * @param  string|int  $level
      * @return void
@@ -387,6 +408,7 @@ trait InteractsWithIO
 
     /**
      * Get the output implementation.
+	 * 获取输出实现
      *
      * @return \Illuminate\Console\OutputStyle
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，空值队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -8,6 +11,7 @@ class NullQueue extends Queue implements QueueContract
 {
     /**
      * Get the size of the queue.
+	 * 得到队列大小
      *
      * @param  string|null  $queue
      * @return int

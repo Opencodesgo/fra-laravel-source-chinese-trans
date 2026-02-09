@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，serve命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -12,6 +15,7 @@ class ServeCommand extends Command
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -19,6 +23,7 @@ class ServeCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -26,6 +31,7 @@ class ServeCommand extends Command
 
     /**
      * The current port offset.
+	 * 当前端口偏移量
      *
      * @var int
      */
@@ -33,6 +39,7 @@ class ServeCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return int
      *
@@ -82,6 +89,7 @@ class ServeCommand extends Command
 
     /**
      * Get the port for the command.
+	 * 获取命令的端口，默认为8000
      *
      * @return string
      */
@@ -94,6 +102,7 @@ class ServeCommand extends Command
 
     /**
      * Check if command has reached its max amount of port tries.
+	 * 检查命令是否已达到端口尝试的最大数量
      *
      * @return bool
      */
@@ -105,6 +114,7 @@ class ServeCommand extends Command
 
     /**
      * Get the console command options.
+	 * 获取控制台命令选项
      *
      * @return array
      */

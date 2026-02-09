@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，工作台，迁移，基本命令
+ */
 
 namespace Illuminate\Database\Console\Migrations;
 
@@ -11,6 +14,7 @@ class MigrateCommand extends BaseCommand
 
     /**
      * The name and signature of the console command.
+	 * 控制台命令的名称和签名
      *
      * @var string
      */
@@ -24,6 +28,7 @@ class MigrateCommand extends BaseCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -31,6 +36,7 @@ class MigrateCommand extends BaseCommand
 
     /**
      * The migrator instance.
+	 * 迁移实例
      *
      * @var \Illuminate\Database\Migrations\Migrator
      */
@@ -38,6 +44,7 @@ class MigrateCommand extends BaseCommand
 
     /**
      * Create a new migration command instance.
+	 * 创建新的迁移命令实例
      *
      * @param  \Illuminate\Database\Migrations\Migrator  $migrator
      * @return void
@@ -51,6 +58,7 @@ class MigrateCommand extends BaseCommand
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return int
      */
@@ -66,6 +74,7 @@ class MigrateCommand extends BaseCommand
             // Next, we will check to see if a path option has been defined. If it has
             // we will use the path relative to the root of this installation folder
             // so that migrations may be run for any path within the applications.
+			// 接下来，我们将检查是否定义了路径选项。
             $this->migrator->setOutput($this->output)
                     ->run($this->getMigrationPaths(), [
                         'pretend' => $this->option('pretend'),
@@ -85,6 +94,7 @@ class MigrateCommand extends BaseCommand
 
     /**
      * Prepare the migration database for running.
+	 * 准备运行迁移数据库
      *
      * @return void
      */

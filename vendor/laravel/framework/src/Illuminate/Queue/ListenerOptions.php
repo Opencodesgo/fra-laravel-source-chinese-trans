@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，Beanstalkd队列
+ */
 
 namespace Illuminate\Queue;
 
@@ -6,6 +9,7 @@ class ListenerOptions extends WorkerOptions
 {
     /**
      * The environment the worker should run in.
+	 * 工作进程应该运行的环境
      *
      * @var string
      */
@@ -13,6 +17,7 @@ class ListenerOptions extends WorkerOptions
 
     /**
      * Create a new listener options instance.
+	 * 创建一个新的监听器选项实例
      *
      * @param  string|null  $environment
      * @param  int  $delay

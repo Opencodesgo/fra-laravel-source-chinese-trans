@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，容器，绑定方法
+ */
 
 namespace Illuminate\Container;
 
@@ -12,6 +15,7 @@ class BoundMethod
 {
     /**
      * Call the given Closure / class@method and inject its dependencies.
+	 * 调用给定的Closure / class@method并注入它的依赖项
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  callable|string  $callback
@@ -39,6 +43,7 @@ class BoundMethod
 
     /**
      * Call a string reference to a class using Class@method syntax.
+	 * 使用Class@method语法调用对类的字符串引用
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  string  $target
@@ -55,6 +60,7 @@ class BoundMethod
         // We will assume an @ sign is used to delimit the class name from the method
         // name. We will split on this @ sign and then build a callable array that
         // we can pass right back into the "call" method for dependency binding.
+		// 我们将假设使用@符号来分隔类名和方法.
         $method = count($segments) === 2
                         ? $segments[1] : $defaultMethod;
 
@@ -69,6 +75,7 @@ class BoundMethod
 
     /**
      * Call a method that has been bound to the container.
+	 * 调用已绑定到容器的方法
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  callable  $callback
@@ -95,6 +102,7 @@ class BoundMethod
 
     /**
      * Normalize the given callback into a Class@method string.
+	 * 将给定的回调函数规范化为Class@method字符串
      *
      * @param  callable  $callback
      * @return string
@@ -108,6 +116,7 @@ class BoundMethod
 
     /**
      * Get all dependencies for a given method.
+	 * 获取给定方法的所有依赖项
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  callable|string  $callback
@@ -129,6 +138,7 @@ class BoundMethod
 
     /**
      * Get the proper reflection instance for the given callback.
+	 * 获取给定回调的适当反射实例
      *
      * @param  callable|string  $callback
      * @return \ReflectionFunctionAbstract
@@ -150,6 +160,7 @@ class BoundMethod
 
     /**
      * Get the dependency for the given call parameter.
+	 * 获取给定调用参数的依赖项
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \ReflectionParameter  $parameter
@@ -183,6 +194,7 @@ class BoundMethod
 
     /**
      * Determine if the given string is in Class@method syntax.
+	 * 确定给定字符串是否使用Class@method语法
      *
      * @param  mixed  $callback
      * @return bool

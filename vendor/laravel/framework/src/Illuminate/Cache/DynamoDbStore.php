@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，DynamoDb存储
+ */
 
 namespace Illuminate\Cache;
 
@@ -17,6 +20,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * The DynamoDB client instance.
+	 * DynamoDB客户端实例
      *
      * @var \Aws\DynamoDb\DynamoDbClient
      */
@@ -24,6 +28,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * The table name.
+	 * 表名
      *
      * @var string
      */
@@ -31,6 +36,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * The name of the attribute that should hold the key.
+	 * 应该保存键的属性的名称
      *
      * @var string
      */
@@ -38,6 +44,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * The name of the attribute that should hold the value.
+	 * 应该保存该值的属性的名称
      *
      * @var string
      */
@@ -45,6 +52,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * The name of the attribute that should hold the expiration timestamp.
+	 * 应该保存过期时间戳的属性的名称
      *
      * @var string
      */
@@ -52,6 +60,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * A string that should be prepended to keys.
+	 * 应该加在键前的字符串
      *
      * @var string
      */
@@ -59,6 +68,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Create a new store instance.
+	 * 创建一个新的存储实例
      *
      * @param  \Aws\DynamoDb\DynamoDbClient  $dynamo
      * @param  string  $table
@@ -86,6 +96,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Retrieve an item from the cache by key.
+	 * 按键从缓存中检索项
      *
      * @param  string  $key
      * @return mixed
@@ -121,8 +132,10 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Retrieve multiple items from the cache by key.
+	 * 按键从缓存中检索多个项
      *
      * Items not found in the cache will have a null value.
+	 * 在缓存中找不到的项将具有空值
      *
      * @param  array  $keys
      * @return array
@@ -169,6 +182,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Determine if the given item is expired.
+	 * 确定给定的项是否过期
      *
      * @param  array  $item
      * @param  \DateTimeInterface|null  $expiration
@@ -184,6 +198,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Store an item in the cache for a given number of seconds.
+	 * 将项存储在缓存中给定的秒数
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -212,6 +227,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Store multiple items in the cache for a given number of $seconds.
+	 * 在给定的$秒数内将多个项存储在缓存中
      *
      * @param  array  $values
      * @param  int  $seconds
@@ -248,6 +264,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Store an item in the cache if the key doesn't exist.
+	 * 如果键不存在，则将项存储在缓存中。
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -294,6 +311,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Increment the value of an item in the cache.
+	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -339,6 +357,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Decrement the value of an item in the cache.
+	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -384,6 +403,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Store an item in the cache indefinitely.
+	 * 将项无限期地存储在缓存中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -396,6 +416,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Get a lock instance.
+	 * 获取一个锁实例
      *
      * @param  string  $name
      * @param  int  $seconds
@@ -409,6 +430,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Restore a lock instance using the owner identifier.
+	 * 使用所有者标识符恢复锁实例
      *
      * @param  string  $name
      * @param  string  $owner
@@ -421,6 +443,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Remove an item from the cache.
+	 * 从缓存中删除项
      *
      * @param  string  $key
      * @return bool
@@ -441,6 +464,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Remove all items from the cache.
+	 * 从缓存中删除所有项
      *
      * @return bool
      *
@@ -453,6 +477,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Get the UNIX timestamp for the given number of seconds.
+	 * 获取给定秒数的UNIX时间戳
      *
      * @param  int  $seconds
      * @return int
@@ -466,6 +491,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Serialize the value.
+	 * 序列化值
      *
      * @param  mixed  $value
      * @return mixed
@@ -477,6 +503,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Unserialize the value.
+	 * 反序列化该值
      *
      * @param  mixed  $value
      * @return mixed
@@ -496,6 +523,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Get the DynamoDB type for the given value.
+	 * 获取给定值的DynamoDB类型
      *
      * @param  mixed  $value
      * @return string
@@ -507,6 +535,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Get the cache key prefix.
+	 * 获取缓存键前缀
      *
      * @return string
      */
@@ -517,6 +546,7 @@ class DynamoDbStore implements LockProvider, Store
 
     /**
      * Set the cache key prefix.
+	 * 设置缓存键前缀
      *
      * @param  string  $prefix
      * @return void

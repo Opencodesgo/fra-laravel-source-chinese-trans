@@ -1,6 +1,7 @@
 <?php
 /**
- * 视图，编译器，Blade编译器
+ * Illuminate，视图，编译器，Blade编译器
+ * 服务容器绑定无
  */
 
 namespace Illuminate\View\Compilers;

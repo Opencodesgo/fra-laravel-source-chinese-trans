@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，TaggableStore
+ */
 
 namespace Illuminate\Cache;
 
@@ -8,6 +11,7 @@ abstract class TaggableStore implements Store
 {
     /**
      * Begin executing a new tags operation.
+	 * 开始执行一个新的标记操作
      *
      * @param  array|mixed  $names
      * @return \Illuminate\Cache\TaggedCache

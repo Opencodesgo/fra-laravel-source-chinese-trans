@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，关系，向多变形
+ */
 
 namespace Illuminate\Database\Eloquent\Relations;
 
@@ -10,6 +13,7 @@ class MorphToMany extends BelongsToMany
 {
     /**
      * The type of the polymorphic relation.
+	 * 多态关系的类型
      *
      * @var string
      */
@@ -17,6 +21,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * The class name of the morph type constraint.
+	 * 变形类型约束的类名
      *
      * @var string
      */
@@ -24,6 +29,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Indicates if we are connecting the inverse of the relation.
+	 * 指示我们是否连接关系的逆
      *
      * This primarily affects the morphClass constraint.
      *
@@ -33,6 +39,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Create a new morph to many relationship instance.
+	 * 为许多关系实例创建一个新的变形
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -61,6 +68,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Set the where clause for the relation query.
+	 * 为关系查询设置where子句
      *
      * @return $this
      */
@@ -88,6 +96,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Create a new pivot attachment record.
+	 * 创建一个新的枢轴附件记录
      *
      * @param  int  $id
      * @param  bool  $timed
@@ -132,6 +141,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Create a new query builder for the pivot table.
+	 * 为数据透视表创建一个新的查询生成器
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -142,6 +152,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Create a new pivot model instance.
+	 * 创建一个新的pivot模型实例
      *
      * @param  array  $attributes
      * @param  bool  $exists
@@ -163,6 +174,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Get the pivot columns for the relation.
+	 * 得到关系的主列
      *
      * "pivot_" is prefixed at each column for easy removal later.
      *
@@ -179,6 +191,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Get the foreign key "type" name.
+	 * 获取外键"类型"名称
      *
      * @return string
      */
@@ -189,6 +202,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Get the class name of the parent model.
+	 * 获取父模型的类名
      *
      * @return string
      */
@@ -199,6 +213,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Get the indicator for a reverse relationship.
+	 * 获取反向关系的指示符
      *
      * @return bool
      */

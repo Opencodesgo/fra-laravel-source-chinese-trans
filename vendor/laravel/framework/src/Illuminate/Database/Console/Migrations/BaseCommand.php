@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，工作台，迁移，基本命令
+ */
 
 namespace Illuminate\Database\Console\Migrations;
 
@@ -8,6 +11,7 @@ class BaseCommand extends Command
 {
     /**
      * Get all of the migration paths.
+	 * 获取所有迁移路径
      *
      * @return array
      */
@@ -16,6 +20,7 @@ class BaseCommand extends Command
         // Here, we will check to see if a path option has been defined. If it has we will
         // use the path relative to the root of the installation folder so our database
         // migrations may be run for any customized path from within the application.
+		// 这里，我们将检查是否定义了路径选项。
         if ($this->input->hasOption('path') && $this->option('path')) {
             return collect($this->option('path'))->map(function ($path) {
                 return ! $this->usingRealPath()
@@ -31,6 +36,7 @@ class BaseCommand extends Command
 
     /**
      * Determine if the given path(s) are pre-resolved "real" paths.
+	 * 确定给定的路径是否是预先解析的"真实"路径
      *
      * @return bool
      */
@@ -41,6 +47,7 @@ class BaseCommand extends Command
 
     /**
      * Get the path to the migration directory.
+	 * 获取迁移目录的路径
      *
      * @return string
      */

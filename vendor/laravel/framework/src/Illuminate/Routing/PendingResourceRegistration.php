@@ -14,6 +14,7 @@ class PendingResourceRegistration
 
     /**
      * The resource registrar.
+	 * 资源注册者
      *
      * @var \Illuminate\Routing\ResourceRegistrar
      */
@@ -21,6 +22,7 @@ class PendingResourceRegistration
 
     /**
      * The resource name.
+	 * 资源名称
      *
      * @var string
      */
@@ -28,6 +30,7 @@ class PendingResourceRegistration
 
     /**
      * The resource controller.
+	 * 资源控制器
      *
      * @var string
      */
@@ -35,6 +38,7 @@ class PendingResourceRegistration
 
     /**
      * The resource options.
+	 * 资源选项
      *
      * @var array
      */
@@ -42,6 +46,7 @@ class PendingResourceRegistration
 
     /**
      * The resource's registration status.
+	 * 资源的注册状态
      *
      * @var bool
      */
@@ -49,6 +54,7 @@ class PendingResourceRegistration
 
     /**
      * Create a new pending resource registration instance.
+	 * 创建新的挂起的资源注册实例
      *
      * @param  \Illuminate\Routing\ResourceRegistrar  $registrar
      * @param  string  $name
@@ -66,6 +72,7 @@ class PendingResourceRegistration
 
     /**
      * Set the methods the controller should apply to.
+	 * 设置控制器应该应用的方法
      *
      * @param  array|string|dynamic  $methods
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -79,6 +86,7 @@ class PendingResourceRegistration
 
     /**
      * Set the methods the controller should exclude.
+	 * 设置控制器应该排除的方法
      *
      * @param  array|string|dynamic  $methods
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -92,6 +100,7 @@ class PendingResourceRegistration
 
     /**
      * Set the route names for controller actions.
+	 * 设置控制器动作的路由名
      *
      * @param  array|string  $names
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -105,6 +114,7 @@ class PendingResourceRegistration
 
     /**
      * Set the route name for a controller action.
+	 * 设置控制器动作的路由名
      *
      * @param  string  $method
      * @param  string  $name
@@ -119,6 +129,7 @@ class PendingResourceRegistration
 
     /**
      * Override the route parameter names.
+	 * 覆盖路由参数名
      *
      * @param  array|string  $parameters
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -132,6 +143,7 @@ class PendingResourceRegistration
 
     /**
      * Override a route parameter's name.
+	 * 重写路由参数的名称
      *
      * @param  string  $previous
      * @param  string  $new
@@ -146,6 +158,7 @@ class PendingResourceRegistration
 
     /**
      * Add middleware to the resource routes.
+	 * 向资源路由中添加中间件
      *
      * @param  mixed  $middleware
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -159,6 +172,7 @@ class PendingResourceRegistration
 
     /**
      * Specify middleware that should be removed from the resource routes.
+	 * 指定应该从资源路由中删除的中间件
      *
      * @param  array|string  $middleware
      * @return $this|array
@@ -174,6 +188,7 @@ class PendingResourceRegistration
 
     /**
      * Add "where" constraints to the resource routes.
+	 * 为资源路由添加"where"约束
      *
      * @param  mixed  $wheres
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -187,6 +202,7 @@ class PendingResourceRegistration
 
     /**
      * Indicate that the resource routes should have "shallow" nesting.
+	 * 指明资源路由应该有"浅"嵌套
      *
      * @param  bool  $shallow
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -200,6 +216,7 @@ class PendingResourceRegistration
 
     /**
      * Indicate that the resource routes should be scoped using the given binding fields.
+	 * 指明资源路由应该使用给定的绑定字段限定范围
      *
      * @param  array  $fields
      * @return \Illuminate\Routing\PendingResourceRegistration
@@ -213,6 +230,7 @@ class PendingResourceRegistration
 
     /**
      * Register the resource route.
+	 * 注册资源路由
      *
      * @return \Illuminate\Routing\RouteCollection
      */
@@ -227,6 +245,7 @@ class PendingResourceRegistration
 
     /**
      * Handle the object's destruction.
+	 * 处理对象销毁
      *
      * @return void
      */

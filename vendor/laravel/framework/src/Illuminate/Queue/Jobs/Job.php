@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，任务，任务抽象类
+ */
 
 namespace Illuminate\Queue\Jobs;
 
@@ -13,6 +16,7 @@ abstract class Job
 
     /**
      * The job handler instance.
+	 * 任务处理程序实例
      *
      * @var mixed
      */
@@ -20,6 +24,7 @@ abstract class Job
 
     /**
      * The IoC container instance.
+	 * IoC容器实例
      *
      * @var \Illuminate\Container\Container
      */
@@ -27,6 +32,7 @@ abstract class Job
 
     /**
      * Indicates if the job has been deleted.
+	 * 指明任务是否已删除
      *
      * @var bool
      */
@@ -34,6 +40,7 @@ abstract class Job
 
     /**
      * Indicates if the job has been released.
+	 * 指明任务是否已释放
      *
      * @var bool
      */
@@ -41,6 +48,7 @@ abstract class Job
 
     /**
      * Indicates if the job has failed.
+	 * 指明任务是否失败
      *
      * @var bool
      */
@@ -62,6 +70,7 @@ abstract class Job
 
     /**
      * Get the job identifier.
+	 * 得到任务标识符
      *
      * @return string
      */
@@ -76,6 +85,7 @@ abstract class Job
 
     /**
      * Get the UUID of the job.
+	 * 得到任务的UUID
      *
      * @return string|null
      */
@@ -86,6 +96,7 @@ abstract class Job
 
     /**
      * Fire the job.
+	 * 触发任务
      *
      * @return void
      */
@@ -100,6 +111,7 @@ abstract class Job
 
     /**
      * Delete the job from the queue.
+	 * 从队列中删除任务
      *
      * @return void
      */
@@ -110,6 +122,7 @@ abstract class Job
 
     /**
      * Determine if the job has been deleted.
+	 * 确定任务是否已被删除
      *
      * @return bool
      */
@@ -141,6 +154,7 @@ abstract class Job
 
     /**
      * Determine if the job has been deleted or released.
+	 * 确定任务是否已被删除或释放
      *
      * @return bool
      */
@@ -151,6 +165,7 @@ abstract class Job
 
     /**
      * Determine if the job has been marked as a failure.
+	 * 确定任务是否已被标记为失败
      *
      * @return bool
      */
@@ -216,6 +231,7 @@ abstract class Job
 
     /**
      * Resolve the given class.
+	 * 解析给定的类
      *
      * @param  string  $class
      * @return mixed
@@ -329,6 +345,7 @@ abstract class Job
 
     /**
      * Get the name of the queue the job belongs to.
+	 * 获取任务所属队列的名称
      *
      * @return string
      */
@@ -339,6 +356,7 @@ abstract class Job
 
     /**
      * Get the service container instance.
+	 * 获取服务容器实例
      *
      * @return \Illuminate\Container\Container
      */

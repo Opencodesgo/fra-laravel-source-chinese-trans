@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，邮件，邮件收发机
+ * 服务容器绑定mailer
+ */
 
 namespace Illuminate\Mail;
 
@@ -23,6 +27,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The name that is configured for the mailer.
+	 * 为邮件收发机配置名称
      *
      * @var string
      */
@@ -30,6 +35,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The view factory instance.
+	 * 视图工厂实例
      *
      * @var \Illuminate\Contracts\View\Factory
      */
@@ -37,6 +43,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The Swift Mailer instance.
+	 * Swift Mailer实例
      *
      * @var \Swift_Mailer
      */
@@ -44,6 +51,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The event dispatcher instance.
+	 * 事件调度程序实例
      *
      * @var \Illuminate\Contracts\Events\Dispatcher|null
      */
@@ -51,6 +59,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The global from address and name.
+	 * 全局发件地址
      *
      * @var array
      */
@@ -58,6 +67,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The global reply-to address and name.
+	 * 全局回复地址
      *
      * @var array
      */
@@ -65,6 +75,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The global return path address.
+	 * 全局返回路径地址
      *
      * @var array
      */
@@ -72,6 +83,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The global to address and name.
+	 * 全局地址和名称
      *
      * @var array
      */
@@ -79,6 +91,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * The queue factory implementation.
+	 * 队列工厂实现
      *
      * @var \Illuminate\Contracts\Queue\Factory
      */
@@ -86,6 +99,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Array of failed recipients.
+	 * 失败的收件人数组
      *
      * @var array
      */
@@ -93,6 +107,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Create a new Mailer instance.
+	 * 创建一个新的Mailer实例
      *
      * @param  string  $name
      * @param  \Illuminate\Contracts\View\Factory  $views
@@ -110,6 +125,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the global from address and name.
+	 * 设置全局的from地址和名称
      *
      * @param  string  $address
      * @param  string|null  $name
@@ -122,6 +138,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the global reply-to address and name.
+	 * 设置全局回复地址和名称
      *
      * @param  string  $address
      * @param  string|null  $name
@@ -134,6 +151,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the global return path address.
+	 * 设置全局返回路径地址
      *
      * @param  string  $address
      * @return void
@@ -157,6 +175,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Begin the process of mailing a mailable class instance.
+	 * 开始邮寄可邮寄类实例的过程
      *
      * @param  mixed  $users
      * @return \Illuminate\Mail\PendingMail
@@ -168,6 +187,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Begin the process of mailing a mailable class instance.
+	 * 开始邮寄可邮寄类实例的过程
      *
      * @param  mixed  $users
      * @return \Illuminate\Mail\PendingMail
@@ -179,6 +199,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Begin the process of mailing a mailable class instance.
+	 * 开始邮寄可邮寄类实例的过程
      *
      * @param  mixed  $users
      * @return \Illuminate\Mail\PendingMail
@@ -227,6 +248,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Render the given message as a view.
+	 * 将给定的消息呈现为视图
      *
      * @param  string|array  $view
      * @param  array  $data
@@ -237,6 +259,7 @@ class Mailer implements MailerContract, MailQueueContract
         // First we need to parse the view, which could either be a string or an array
         // containing both an HTML and plain text versions of the view which should
         // be used when sending an e-mail. We will extract both of them out here.
+		// 首先，我们需要解析视图，它可以是字符串也可以是数组，同时包含视图的HTML和纯文本版本。
         [$view, $plain, $raw] = $this->parseView($view);
 
         $data['message'] = $this->createMessage();
@@ -246,6 +269,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Send a new message using a view.
+	 * 使用视图发送新消息
      *
      * @param  \Illuminate\Contracts\Mail\Mailable|string|array  $view
      * @param  array  $data
@@ -293,6 +317,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Send the given mailable.
+	 * 发送给定的邮件
      *
      * @param  \Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
@@ -306,6 +331,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Parse the given view name or array.
+	 * 解析给定的视图名或数组
      *
      * @param  string|array  $view
      * @return array
@@ -341,6 +367,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Add the content to a given message.
+	 * 将内容添加到给定消息中
      *
      * @param  \Illuminate\Mail\Message  $message
      * @param  string  $view
@@ -370,6 +397,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Render the given view.
+	 * 呈现给定的视图
      *
      * @param  string  $view
      * @param  array  $data
@@ -384,6 +412,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the global "to" address on the given message.
+	 * 在给定消息上设置全局"to"地址
      *
      * @param  \Illuminate\Mail\Message  $message
      * @return void
@@ -479,6 +508,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Create a new message instance.
+	 * 创建一个新的消息实例
      *
      * @return \Illuminate\Mail\Message
      */
@@ -509,6 +539,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Send a Swift Message instance.
+	 * 发送一个Swift消息实例
      *
      * @param  \Swift_Message  $message
      * @return int|null
@@ -526,6 +557,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Determines if the message can be sent.
+	 * 确定是否可以发送消息
      *
      * @param  \Swift_Message  $message
      * @param  array  $data
@@ -544,6 +576,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Dispatch the message sent event.
+	 * 分派消息发送事件
      *
      * @param  \Illuminate\Mail\Message  $message
      * @param  array  $data
@@ -560,6 +593,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Force the transport to re-connect.
+	 * 强制传输重新连接
      *
      * This will prevent errors in daemon queue situations.
      *
@@ -582,6 +616,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Get the Swift Mailer instance.
+	 * 获取Swift Mailer实例
      *
      * @return \Swift_Mailer
      */
@@ -592,6 +627,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Get the view factory instance.
+	 * 获取视图工厂实例
      *
      * @return \Illuminate\Contracts\View\Factory
      */
@@ -602,6 +638,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the Swift Mailer instance.
+	 * 设置Swift邮件实例
      *
      * @param  \Swift_Mailer  $swift
      * @return void
@@ -613,6 +650,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the queue manager instance.
+	 * 设置队列管理器实例
      *
      * @param  \Illuminate\Contracts\Queue\Factory  $queue
      * @return $this

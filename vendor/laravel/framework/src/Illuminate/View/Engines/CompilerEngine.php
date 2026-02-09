@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，引擎，编译器引擎
+ * Illuminate，视图，引擎，编译器引擎
  */
 
 namespace Illuminate\View\Engines;

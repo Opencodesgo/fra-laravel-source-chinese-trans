@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，分页，分页服务提供者
+ */
 
 namespace Illuminate\Pagination;
 
@@ -8,6 +11,7 @@ class PaginationServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
+	 * 引导任何应用服务
      *
      * @return void
      */
@@ -24,6 +28,7 @@ class PaginationServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */

@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，翻译，数组装载
+ * 服务容器绑定translator
+ */
 
 namespace Illuminate\Translation;
 

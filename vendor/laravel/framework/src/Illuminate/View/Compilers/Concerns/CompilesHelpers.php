@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译帮助
+ * Illuminate，视图，编译器，关注点，编译帮助
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -20,6 +20,7 @@ trait CompilesHelpers
 
     /**
      * Compile the "dd" statements into valid PHP.
+	 * 将"dd"语句编译成有效的PHP
      *
      * @param  string  $arguments
      * @return string
@@ -31,6 +32,7 @@ trait CompilesHelpers
 
     /**
      * Compile the "dump" statements into valid PHP.
+	 * 将"dump"语句编译成有效的PHP
      *
      * @param  string  $arguments
      * @return string

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，邮件，消息
+ */
 
 namespace Illuminate\Mail;
 
@@ -15,6 +18,7 @@ class Message
 
     /**
      * The Swift Message instance.
+	 * Swift Message实例
      *
      * @var \Swift_Message
      */
@@ -22,6 +26,7 @@ class Message
 
     /**
      * CIDs of files embedded in the message.
+	 * 消息中嵌入文件的CIDs
      *
      * @var array
      */
@@ -29,6 +34,7 @@ class Message
 
     /**
      * Create a new message instance.
+	 * 创建新的消息实例
      *
      * @param  \Swift_Message  $swift
      * @return void
@@ -81,6 +87,7 @@ class Message
 
     /**
      * Add a recipient to the message.
+	 * 向邮件添加收件人
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -150,6 +157,7 @@ class Message
 
     /**
      * Add a recipient to the message.
+	 * 向邮件添加收件人
      *
      * @param  string|array  $address
      * @param  string  $name
@@ -169,6 +177,7 @@ class Message
 
     /**
      * Set the subject of the message.
+	 * 设置邮件的主题
      *
      * @param  string  $subject
      * @return $this
@@ -182,6 +191,7 @@ class Message
 
     /**
      * Set the message priority level.
+	 * 设置消息优先级
      *
      * @param  int  $level
      * @return $this
@@ -195,6 +205,7 @@ class Message
 
     /**
      * Attach a file to the message.
+	 * 将文件附加到消息中
      *
      * @param  string  $file
      * @param  array  $options
@@ -209,6 +220,7 @@ class Message
 
     /**
      * Create a Swift Attachment instance.
+	 * 创建一个Swift Attachment实例
      *
      * @param  string  $file
      * @return \Swift_Mime_Attachment
@@ -220,6 +232,7 @@ class Message
 
     /**
      * Attach in-memory data as an attachment.
+	 * 将内存中的数据作为附件附加
      *
      * @param  string  $data
      * @param  string  $name
@@ -235,6 +248,7 @@ class Message
 
     /**
      * Create a Swift Attachment instance from data.
+	 * 从data创建一个Swift Attachment实例
      *
      * @param  string  $data
      * @param  string  $name
@@ -279,6 +293,7 @@ class Message
 
     /**
      * Prepare and attach the given attachment.
+	 * 准备并附上给定的附件
      *
      * @param  \Swift_Attachment  $attachment
      * @param  array  $options
@@ -289,6 +304,7 @@ class Message
         // First we will check for a MIME type on the message, which instructs the
         // mail client on what type of attachment the file is so that it may be
         // downloaded correctly by the user. The MIME option is not required.
+		// 首先，我们将检查消息上的MIME类型。
         if (isset($options['mime'])) {
             $attachment->setContentType($options['mime']);
         }
@@ -307,6 +323,7 @@ class Message
 
     /**
      * Get the underlying Swift Message instance.
+	 * 获取底层Swift Message实例
      *
      * @return \Swift_Message
      */
@@ -317,6 +334,7 @@ class Message
 
     /**
      * Dynamically pass missing methods to the Swift instance.
+	 * 动态地将缺少的方法传递给Swift实例
      *
      * @param  string  $method
      * @param  array  $parameters

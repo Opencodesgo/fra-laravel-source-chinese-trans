@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，调度，缓存调度互斥锁
+ */
 
 namespace Illuminate\Console\Scheduling;
 
@@ -9,6 +12,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 {
     /**
      * The cache factory implementation.
+	 * 缓存工厂实现
      *
      * @var \Illuminate\Contracts\Cache\Factory
      */
@@ -16,6 +20,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 
     /**
      * The cache store that should be used.
+	 * 应该使用的缓存存储
      *
      * @var string|null
      */
@@ -23,6 +28,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 
     /**
      * Create a new scheduling strategy.
+	 * 创建新的调度策略
      *
      * @param  \Illuminate\Contracts\Cache\Factory  $cache
      * @return void
@@ -34,6 +40,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 
     /**
      * Attempt to obtain a scheduling mutex for the given event.
+	 * 尝试获取给定事件的调度互斥锁
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
@@ -48,6 +55,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 
     /**
      * Determine if a scheduling mutex exists for the given event.
+	 * 确定是否存在给定事件的调度互斥锁
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
@@ -62,6 +70,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 
     /**
      * Specify the cache store that should be used.
+	 * 指定应该使用的缓存存储
      *
      * @param  string  $store
      * @return $this

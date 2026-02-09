@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，make:observer命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -10,6 +13,7 @@ class ObserverMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -17,6 +21,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，日期工厂
+ */
 
 namespace Illuminate\Support;
 

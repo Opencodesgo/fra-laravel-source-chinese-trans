@@ -33,6 +33,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The name of the Guard. Typically "session".
+	 * 守卫名称，典型会话
      *
      * Corresponds to guard name in authentication configuration.
      *
@@ -42,6 +43,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The user we last attempted to retrieve.
+	 * 上次尝试检索的用户
      *
      * @var \Illuminate\Contracts\Auth\Authenticatable
      */
@@ -49,6 +51,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Indicates if the user was authenticated via a recaller cookie.
+	 * 指明用户是否通过召回cookie进行身份验证
      *
      * @var bool
      */
@@ -56,6 +59,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The session used by the guard.
+	 * 守卫使用的会话
      *
      * @var \Illuminate\Contracts\Session\Session
      */
@@ -63,6 +67,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The Illuminate cookie creator service.
+	 * cookie创建器服务
      *
      * @var \Illuminate\Contracts\Cookie\QueueingFactory
      */
@@ -70,6 +75,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The request instance.
+	 * 请求实例
      *
      * @var \Symfony\Component\HttpFoundation\Request
      */
@@ -77,6 +83,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * The event dispatcher instance.
+	 * 事件调度器实例
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
@@ -84,6 +91,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Indicates if the logout method has been called.
+	 * 指明是否已调用注销方法
      *
      * @var bool
      */
@@ -91,6 +99,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Indicates if a token user retrieval has been attempted.
+	 * 指明是否尝试检索令牌用户
      *
      * @var bool
      */
@@ -98,6 +107,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Create a new authentication guard.
+	 * 创建新的身份验证守卫
      *
      * @param  string  $name
      * @param  \Illuminate\Contracts\Auth\UserProvider  $provider
@@ -118,6 +128,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the currently authenticated user.
+	 * 获取当前经过身份验证的用户
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
@@ -130,6 +141,8 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If we've already retrieved the user for the current request we can just
         // return it back immediately. We do not want to fetch the user data on
         // every call to this method because that would be tremendously slow.
+		// 如果我们已经检索了当前请求的用户，我们可以马上返还。
+		// 我们不希望每次调用这个方法获取用户数据，因为这非常慢。
         if (! is_null($this->user)) {
             return $this->user;
         }
@@ -139,6 +152,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // First we will try to load the user using the identifier in the session if
         // one exists. Otherwise we will check for a "remember me" cookie in this
         // request, and if one exists, attempt to retrieve the user using that.
+		// 首先，我们将尝试在会话中使用标识符来加载用户如果存在。
         if (! is_null($id) && $this->user = $this->provider->retrieveById($id)) {
             $this->fireAuthenticatedEvent($this->user);
         }
@@ -146,6 +160,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If the user is null, but we decrypt a "recaller" cookie we can attempt to
         // pull the user data on that cookie which serves as a remember cookie on
         // the application. Once we have a user we can return it to the caller.
+		// 如果用户为空，但是我们可以尝试解密一个"召回者"cookie，从cookie中提取用户数据，作为记忆cookie应用程序。
         if (is_null($this->user) && ! is_null($recaller = $this->recaller())) {
             $this->user = $this->userFromRecaller($recaller);
 
@@ -161,6 +176,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Pull a user from the repository by its "remember me" cookie token.
+	 * 通过"记住我"cookie令牌从存储库中拉出用户
      *
      * @param  \Illuminate\Auth\Recaller  $recaller
      * @return mixed
@@ -174,6 +190,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If the user is null, but we decrypt a "recaller" cookie we can attempt to
         // pull the user data on that cookie which serves as a remember cookie on
         // the application. Once we have a user we can return it to the caller.
+		// 如果用户为空，但是我们可以尝试解密一个"召回者"cookie。
         $this->recallAttempted = true;
 
         $this->viaRemember = ! is_null($user = $this->provider->retrieveByToken(
@@ -185,6 +202,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the decrypted recaller cookie for the request.
+	 * 获取请求的解密调用者cookie
      *
      * @return \Illuminate\Auth\Recaller|null
      */
@@ -201,6 +219,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the ID for the currently authenticated user.
+	 * 获取当前经过身份验证的用户ID
      *
      * @return int|string|null
      */
@@ -217,6 +236,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Log a user into the application without sessions or cookies.
+	 * 在没有会话或cookie的情况下将用户登录到应用程序
      *
      * @param  array  $credentials
      * @return bool
@@ -236,6 +256,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Log the given user ID into the application without sessions or cookies.
+	 * 将给定的用户ID登录到没有会话或cookie的应用程序中
      *
      * @param  mixed  $id
      * @return \Illuminate\Contracts\Auth\Authenticatable|false
@@ -253,6 +274,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Validate a user's credentials.
+	 * 验证用户的凭据
      *
      * @param  array  $credentials
      * @return bool
@@ -266,6 +288,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Attempt to authenticate using HTTP Basic Auth.
+	 * 尝试使用HTTP基本认证进行身份验证
      *
      * @param  string  $field
      * @param  array  $extraConditions
@@ -280,6 +303,8 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If a username is set on the HTTP basic request, we will return out without
         // interrupting the request lifecycle. Otherwise, we'll need to generate a
         // request indicating that the given credentials were invalid for login.
+		// 如果在HTTP基本请求上设置了用户名，我们将返回没有。
+		// 否则，我们需要生成请求表明给定的凭据无效。
         if ($this->attemptBasic($this->getRequest(), $field, $extraConditions)) {
             return;
         }
@@ -289,6 +314,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Perform a stateless HTTP Basic login attempt.
+	 * 执行无状态HTTP基本登录尝试
      *
      * @param  string  $field
      * @param  array  $extraConditions
@@ -305,6 +331,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Attempt to authenticate using basic authentication.
+	 * 尝试使用基本身份验证进行身份验证
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @param  string  $field
@@ -324,6 +351,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the credential array for a HTTP Basic request.
+	 * 获取HTTP基本请求的凭据数组
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @param  string  $field
@@ -336,6 +364,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the response for basic authentication.
+	 * 获取基本身份验证的响应
      *
      * @return void
      *
@@ -348,6 +377,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Attempt to authenticate a user using the given credentials.
+	 * 尝试使用给定凭据对用户进行身份验证
      *
      * @param  array  $credentials
      * @param  bool  $remember
@@ -362,6 +392,8 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If an implementation of UserInterface was returned, we'll ask the provider
         // to validate the user against the given credentials, and if they are in
         // fact valid we'll log the users into the application and return true.
+		// 如果返回了UserInterface的实现，我们将询问提供者根据给定的凭据验证用户，
+		// 如果他们在我们将用户登录到应用程序并返回true。
         if ($this->hasValidCredentials($user, $credentials)) {
             $this->login($user, $remember);
 
@@ -371,6 +403,8 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If the authentication attempt fails we will fire an event so that the user
         // may be notified of any suspicious attempts to access their account from
         // an unrecognized user. A developer may listen to this event as needed.
+		// 如果验证尝试失败，我们将触发一个事件，以便用户可能会被通知任何可疑的企图访问他们的无法识别的用户帐户。
+		// 开发人员可以根据需要侦听此事件。
         $this->fireFailedEvent($user, $credentials);
 
         return false;
@@ -378,6 +412,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Determine if the user matches the credentials.
+	 * 确定用户是否与凭据匹配
      *
      * @param  mixed  $user
      * @param  array  $credentials
@@ -396,6 +431,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Log the given user ID into the application.
+	 * 将给定的用户ID记录到应用程序中
      *
      * @param  mixed  $id
      * @param  bool  $remember
@@ -414,6 +450,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Log a user into the application.
+	 * 将用户登录到应用程序
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  bool  $remember
@@ -426,6 +463,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If the user should be permanently "remembered" by the application we will
         // queue a permanent cookie that contains the encrypted copy of the user
         // identifier. We will then decrypt this later to retrieve the users.
+		// 如果用户应该被应用程序永久"记住"，我们会对包含用户加密副本的永久cookie进行排队。
         if ($remember) {
             $this->ensureRememberTokenIsSet($user);
 
@@ -435,6 +473,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If we have an event dispatcher instance set we will fire an event so that
         // any listeners will hook into the authentication events and run actions
         // based on the login and logout events fired from the guard instances.
+		// 如果我们设置了一个事件调度程序实例，我们将触发一个事件以便任何侦听器都将挂钩到身份验证事件并运行操作。
         $this->fireLoginEvent($user, $remember);
 
         $this->setUser($user);
@@ -442,6 +481,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Update the session with the given ID.
+	 * 使用给定的ID更新会话
      *
      * @param  string  $id
      * @return void
@@ -455,6 +495,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Create a new "remember me" token for the user if one doesn't already exist.
+	 * 为用户创建一个新的"记住我"令牌（如果还不存在）。
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
@@ -468,6 +509,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Queue the recaller cookie into the cookie jar.
+	 * 将召回cookie排队放入cookie压缩中。
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
@@ -481,6 +523,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Create a "remember me" cookie for a given ID.
+	 * 为给定ID创建"记住我"会话
      *
      * @param  string  $value
      * @return \Symfony\Component\HttpFoundation\Cookie
@@ -492,6 +535,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Log the user out of the application.
+	 * 将用户从应用程序中注销
      *
      * @return void
      */
@@ -508,6 +552,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If we have an event dispatcher instance, we can fire off the logout event
         // so any further processing can be done. This allows the developer to be
         // listening for anytime a user signs out of this application manually.
+		// 如果我们有一个事件调度程序实例，我们可以触发注销事件以便任何进一步的处理都可以进行。
         if (isset($this->events)) {
             $this->events->dispatch(new Logout($this->name, $user));
         }
@@ -515,6 +560,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // Once we have fired the logout event we will clear the users out of memory
         // so they are no longer available as the user is no longer considered as
         // being signed into this application and should not be available here.
+		// 触发注销事件后，我们将从内存中清除用户以便它们不再可用，因为用户不再被认为。
         $this->user = null;
 
         $this->loggedOut = true;
@@ -522,6 +568,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Remove the user data from the session and cookies.
+	 * 从会话和cookie中删除用户数据
      *
      * @return void
      */
@@ -537,6 +584,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Refresh the "remember me" token for the user.
+	 * 刷新用户的"记住我"令牌
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
@@ -550,6 +598,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Log the user out of the application on their current device only.
+	 * 仅在用户当前设备上注销其应用程序
      *
      * @return void
      */
@@ -562,6 +611,8 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // If we have an event dispatcher instance, we can fire off the logout event
         // so any further processing can be done. This allows the developer to be
         // listening for anytime a user signs out of this application manually.
+		// 如果我们有一个事件调度程序实例，我们可以触发注销事件以便任何进一步的处理都可以进行。
+		// 这使得开发人员可以监听任何时候用户手动退出此应用程序。
         if (isset($this->events)) {
             $this->events->dispatch(new CurrentDeviceLogout($this->name, $user));
         }
@@ -569,6 +620,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // Once we have fired the logout event we will clear the users out of memory
         // so they are no longer available as the user is no longer considered as
         // being signed into this application and should not be available here.
+		// 触发注销事件后，我们将从内存中清除用户以便它们不再可用，因为用户不再被考虑。
         $this->user = null;
 
         $this->loggedOut = true;
@@ -576,8 +628,10 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Invalidate other sessions for the current user.
+	 * 使当前用户的其他会话无效
      *
      * The application must be using the AuthenticateSession middleware.
+	 * 应用程序必须使用authenticatessession中间件
      *
      * @param  string  $password
      * @param  string  $attribute
@@ -605,6 +659,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Register an authentication attempt event listener.
+	 * 注册身份验证尝试事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -618,6 +673,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Fire the attempt event with the arguments.
+	 * 用参数触发尝试事件
      *
      * @param  array  $credentials
      * @param  bool  $remember
@@ -634,6 +690,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Fires the validated event if the dispatcher is set.
+	 * 如果设置了调度程序，则触发已验证的事件。
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
@@ -649,6 +706,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Fire the login event if the dispatcher is set.
+	 * 如果设置了调度程序，则触发登录事件。
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  bool  $remember
@@ -665,6 +723,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Fire the authenticated event if the dispatcher is set.
+	 * 如果设置了调度程序，则触发经过身份验证的事件。
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
@@ -680,6 +739,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Fire the other device logout event if the dispatcher is set.
+	 * 如果设置了调度程序，则触发另一个设备注销事件。
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
@@ -695,6 +755,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Fire the failed authentication attempt event with the given arguments.
+	 * 使用给定参数触发失败的身份验证尝试事件
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
      * @param  array  $credentials
@@ -711,6 +772,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the last user we attempted to authenticate.
+	 * 获取我们尝试验证的最后一个用户
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable
      */
@@ -721,6 +783,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get a unique identifier for the auth session value.
+	 * 获取认证会话值的唯一标识符
      *
      * @return string
      */
@@ -731,6 +794,8 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the name of the cookie used to store the "recaller".
+	 * 获取用于存储"召回器"的cookie的名称。
+	 * 
      *
      * @return string
      */
@@ -741,6 +806,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Determine if the user was authenticated via "remember me" cookie.
+	 * 确定用户是否通过"记住我"cookie进行了身份验证
      *
      * @return bool
      */
@@ -751,6 +817,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the cookie creator instance used by the guard.
+	 * 获取守卫使用的cookie创建器实例
      *
      * @return \Illuminate\Contracts\Cookie\QueueingFactory
      *
@@ -767,6 +834,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Set the cookie creator instance used by the guard.
+	 * 设置守卫使用的cookie创建器实例
      *
      * @param  \Illuminate\Contracts\Cookie\QueueingFactory  $cookie
      * @return void
@@ -778,6 +846,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the event dispatcher instance.
+	 * 得到事件调度器实例
      *
      * @return \Illuminate\Contracts\Events\Dispatcher
      */
@@ -788,6 +857,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Set the event dispatcher instance.
+	 * 设置事件调度程序实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
@@ -799,6 +869,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the session store used by the guard.
+	 * 获取守卫使用的会话存储
      *
      * @return \Illuminate\Contracts\Session\Session
      */
@@ -809,6 +880,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Return the currently cached user.
+	 * 返回当前缓存的用户
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
@@ -819,6 +891,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Set the current user.
+	 * 设置当前用户
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return $this
@@ -836,6 +909,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Get the current request instance.
+	 * 得到当前请求实例
      *
      * @return \Symfony\Component\HttpFoundation\Request
      */
@@ -846,6 +920,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 
     /**
      * Set the current request instance.
+	 * 设置当前请求实例
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @return $this

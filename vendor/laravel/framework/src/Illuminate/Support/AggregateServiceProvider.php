@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，综合服务提供者
+ */
 
 namespace Illuminate\Support;
 

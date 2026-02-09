@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，关注点，管理翻译
+ * Illuminate，视图，关注点，管理翻译
  */
 
 namespace Illuminate\View\Concerns;

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Session会话，数据库会话处理程序
+ */
 
 namespace Illuminate\Session;
 
@@ -17,6 +20,7 @@ class DatabaseSessionHandler implements ExistenceAwareInterface, SessionHandlerI
 
     /**
      * The database connection instance.
+	 * 数据库连接实例
      *
      * @var \Illuminate\Database\ConnectionInterface
      */
@@ -52,6 +56,7 @@ class DatabaseSessionHandler implements ExistenceAwareInterface, SessionHandlerI
 
     /**
      * Create a new database session handler instance.
+	 * 创建新的数据库会话处理实例
      *
      * @param  \Illuminate\Database\ConnectionInterface  $connection
      * @param  string  $table
@@ -281,6 +286,7 @@ class DatabaseSessionHandler implements ExistenceAwareInterface, SessionHandlerI
 
     /**
      * Set the existence state for the session.
+	 * 设置会话的存在状态
      *
      * @param  bool  $value
      * @return $this

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，通知，消息，简单信息
+ */
 
 namespace Illuminate\Notifications\Messages;
 
@@ -9,6 +12,7 @@ class SimpleMessage
 {
     /**
      * The "level" of the notification (info, success, error).
+	 * 通知的"级别" (info, success, error)
      *
      * @var string
      */
@@ -16,6 +20,7 @@ class SimpleMessage
 
     /**
      * The subject of the notification.
+	 * 通知的主题
      *
      * @var string
      */
@@ -23,6 +28,7 @@ class SimpleMessage
 
     /**
      * The notification's greeting.
+	 * 通知的问候
      *
      * @var string
      */
@@ -30,6 +36,7 @@ class SimpleMessage
 
     /**
      * The notification's salutation.
+	 * 通知的称呼
      *
      * @var string
      */
@@ -37,6 +44,7 @@ class SimpleMessage
 
     /**
      * The "intro" lines of the notification.
+	 * 通知的"介绍"行
      *
      * @var array
      */
@@ -58,6 +66,7 @@ class SimpleMessage
 
     /**
      * The action URL.
+	 * 动作URL
      *
      * @var string
      */
@@ -84,6 +93,7 @@ class SimpleMessage
 
     /**
      * Indicate that the notification gives information about an error.
+	 * 指明通知提供有关错误的信息
      *
      * @return $this
      */
@@ -109,6 +119,7 @@ class SimpleMessage
 
     /**
      * Set the subject of the notification.
+	 * 设置通知的主题
      *
      * @param  string  $subject
      * @return $this
@@ -122,6 +133,7 @@ class SimpleMessage
 
     /**
      * Set the greeting of the notification.
+	 * 设置通知的欢迎语
      *
      * @param  string  $greeting
      * @return $this
@@ -135,6 +147,7 @@ class SimpleMessage
 
     /**
      * Set the salutation of the notification.
+	 * 设置通知的称呼
      *
      * @param  string  $salutation
      * @return $this
@@ -178,6 +191,7 @@ class SimpleMessage
 
     /**
      * Format the given line of text.
+	 * 格式化给定的文本行
      *
      * @param  \Illuminate\Contracts\Support\Htmlable|string|array  $line
      * @return \Illuminate\Contracts\Support\Htmlable|string
@@ -212,6 +226,7 @@ class SimpleMessage
 
     /**
      * Set the name of the mailer that should send the notification.
+	 * 设置应发送通知的邮件的名称
      *
      * @param  string  $mailer
      * @return $this
@@ -225,6 +240,7 @@ class SimpleMessage
 
     /**
      * Get an array representation of the message.
+	 * 获取消息的数组表示形式
      *
      * @return array
      */

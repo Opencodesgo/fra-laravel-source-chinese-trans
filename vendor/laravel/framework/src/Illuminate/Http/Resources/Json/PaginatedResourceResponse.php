@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Http，资源，Json，分页资源收集
+ */
 
 namespace Illuminate\Http\Resources\Json;
 
@@ -8,6 +11,7 @@ class PaginatedResourceResponse extends ResourceResponse
 {
     /**
      * Create an HTTP response that represents the object.
+	 * 创建一个表示对象的HTTP响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
@@ -35,6 +39,7 @@ class PaginatedResourceResponse extends ResourceResponse
 
     /**
      * Add the pagination information to the response.
+	 * 将分页信息添加到响应中
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
@@ -51,6 +56,7 @@ class PaginatedResourceResponse extends ResourceResponse
 
     /**
      * Get the pagination links for the response.
+	 * 获取响应的分页链接
      *
      * @param  array  $paginated
      * @return array
@@ -67,6 +73,7 @@ class PaginatedResourceResponse extends ResourceResponse
 
     /**
      * Gather the meta data for the response.
+	 * 收集响应的元数据
      *
      * @param  array  $paginated
      * @return array

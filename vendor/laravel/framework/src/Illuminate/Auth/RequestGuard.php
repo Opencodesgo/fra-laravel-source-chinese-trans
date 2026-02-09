@@ -16,6 +16,7 @@ class RequestGuard implements Guard
 
     /**
      * The guard callback.
+	 * 守卫回调
      *
      * @var callable
      */
@@ -23,6 +24,7 @@ class RequestGuard implements Guard
 
     /**
      * The request instance.
+	 * 请求实例
      *
      * @var \Illuminate\Http\Request
      */
@@ -30,6 +32,7 @@ class RequestGuard implements Guard
 
     /**
      * Create a new authentication guard.
+	 * 创建新的身份验证守卫
      *
      * @param  callable  $callback
      * @param  \Illuminate\Http\Request  $request
@@ -45,6 +48,7 @@ class RequestGuard implements Guard
 
     /**
      * Get the currently authenticated user.
+	 * 获取当前经过身份验证的用户
      *
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
@@ -53,6 +57,7 @@ class RequestGuard implements Guard
         // If we've already retrieved the user for the current request we can just
         // return it back immediately. We do not want to fetch the user data on
         // every call to this method because that would be tremendously slow.
+		// 如果我们已经检索了当前请求的用户，我们可以马上返还。
         if (! is_null($this->user)) {
             return $this->user;
         }
@@ -64,6 +69,7 @@ class RequestGuard implements Guard
 
     /**
      * Validate a user's credentials.
+	 * 验证用户的凭据
      *
      * @param  array  $credentials
      * @return bool
@@ -77,6 +83,7 @@ class RequestGuard implements Guard
 
     /**
      * Set the current request instance.
+	 * 设置当前请求实例
      *
      * @param  \Illuminate\Http\Request  $request
      * @return $this

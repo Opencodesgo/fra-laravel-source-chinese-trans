@@ -14,6 +14,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * The underlying event dispatcher instance.
+	 * 底层事件调度程序实例
      *
      * @var \Illuminate\Contracts\Bus\Dispatcher
      */
@@ -21,6 +22,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Create a new event dispatcher instance that does not fire.
+	 * 创建一个不触发的新事件调度程序实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @return void
@@ -32,6 +34,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Don't fire an event.
+	 * 不触发事件
      *
      * @param  string|object  $event
      * @param  mixed  $payload
@@ -44,6 +47,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Don't register an event and payload to be fired later.
+	 * 不要将事件和有效载荷注册为稍后触发
      *
      * @param  string  $event
      * @param  array  $payload
@@ -55,6 +59,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Don't dispatch an event.
+	 * 不要调度事件
      *
      * @param  string|object  $event
      * @param  mixed  $payload
@@ -66,6 +71,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Register an event listener with the dispatcher.
+	 * 向调度程序注册事件侦听器
      *
      * @param  string|array  $events
      * @param  \Closure|string  $listener
@@ -78,6 +84,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Determine if a given event has listeners.
+	 * 确定给定事件是否有侦听器
      *
      * @param  string  $eventName
      * @return bool
@@ -89,6 +96,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Register an event subscriber with the dispatcher.
+	 * 向调度员注册一个事件订阅者
      *
      * @param  object|string  $subscriber
      * @return void
@@ -100,6 +108,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Flush a set of pushed events.
+	 * 刷新一组推送的事件
      *
      * @param  string  $event
      * @return void
@@ -111,6 +120,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Remove a set of listeners from the dispatcher.
+	 * 从调度程序中删除一组侦听器
      *
      * @param  string  $event
      * @return void
@@ -122,6 +132,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Forget all of the queued listeners.
+	 * 忘记所有排队的侦听器
      *
      * @return void
      */
@@ -132,6 +143,7 @@ class NullDispatcher implements DispatcherContract
 
     /**
      * Dynamically pass method calls to the underlying dispatcher.
+	 * 动态地将方法调用传递给底层调度程序
      *
      * @param  string  $method
      * @param  array  $parameters

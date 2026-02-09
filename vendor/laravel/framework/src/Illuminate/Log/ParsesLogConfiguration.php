@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，日志，日志记录器
+ */
 
 namespace Illuminate\Log;
 
@@ -9,6 +12,7 @@ trait ParsesLogConfiguration
 {
     /**
      * The Log levels.
+	 * 日志级别
      *
      * @var array
      */
@@ -25,6 +29,8 @@ trait ParsesLogConfiguration
 
     /**
      * Get fallback log channel name.
+	 * 获取回退日志通道名称
+	 * 
      *
      * @return string
      */
@@ -32,6 +38,7 @@ trait ParsesLogConfiguration
 
     /**
      * Parse the string level into a Monolog constant.
+	 * 将字符串level解析为一个Monolog常量
      *
      * @param  array  $config
      * @return int
@@ -51,6 +58,7 @@ trait ParsesLogConfiguration
 
     /**
      * Extract the log channel from the given configuration.
+	 * 从给定的配置中提取日志通道
      *
      * @param  array  $config
      * @return string

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，事件清除命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -9,6 +12,7 @@ class EventClearCommand extends Command
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -16,6 +20,7 @@ class EventClearCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -23,6 +28,7 @@ class EventClearCommand extends Command
 
     /**
      * The filesystem instance.
+	 * 文件系统实例 
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -43,6 +49,7 @@ class EventClearCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return void
      *

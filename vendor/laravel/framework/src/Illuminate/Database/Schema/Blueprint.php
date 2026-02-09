@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，蓝图
+ */
 
 namespace Illuminate\Database\Schema;
 
@@ -17,6 +20,7 @@ class Blueprint
 
     /**
      * The table the blueprint describes.
+	 * 蓝图描述的表格
      *
      * @var string
      */
@@ -24,6 +28,7 @@ class Blueprint
 
     /**
      * The prefix of the table.
+	 * 表前缀
      *
      * @var string
      */
@@ -31,6 +36,7 @@ class Blueprint
 
     /**
      * The columns that should be added to the table.
+	 * 应该添加到表的列
      *
      * @var \Illuminate\Database\Schema\ColumnDefinition[]
      */
@@ -38,6 +44,7 @@ class Blueprint
 
     /**
      * The commands that should be run for the table.
+	 * 应该为表运行的命令
      *
      * @var \Illuminate\Support\Fluent[]
      */
@@ -45,6 +52,7 @@ class Blueprint
 
     /**
      * The storage engine that should be used for the table.
+	 * 应该用于表的存储引擎
      *
      * @var string
      */
@@ -73,6 +81,7 @@ class Blueprint
 
     /**
      * Create a new schema blueprint.
+	 * 创建一个新的模式蓝图
      *
      * @param  string  $table
      * @param  \Closure|null  $callback
@@ -1533,6 +1542,7 @@ class Blueprint
 
     /**
      * Get the columns on the blueprint that should be changed.
+	 * 获取蓝图上应该更改的列
      *
      * @return \Illuminate\Database\Schema\ColumnDefinition[]
      */

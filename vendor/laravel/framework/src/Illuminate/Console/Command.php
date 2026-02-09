@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，命令
+ */
 
 namespace Illuminate\Console;
 
@@ -16,6 +19,7 @@ class Command extends SymfonyCommand
 
     /**
      * The Laravel application instance.
+	 * 应用实例
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -23,6 +27,7 @@ class Command extends SymfonyCommand
 
     /**
      * The name and signature of the console command.
+	 * console命令的名称和签名
      *
      * @var string
      */
@@ -30,6 +35,7 @@ class Command extends SymfonyCommand
 
     /**
      * The console command name.
+	 * 控制台命令名
      *
      * @var string
      */
@@ -37,6 +43,7 @@ class Command extends SymfonyCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string|null
      */
@@ -44,6 +51,7 @@ class Command extends SymfonyCommand
 
     /**
      * The console command help text.
+	 * 控制台命令帮助
      *
      * @var string|null
      */
@@ -51,6 +59,7 @@ class Command extends SymfonyCommand
 
     /**
      * Indicates whether the command should be shown in the Artisan command list.
+	 * 指示该命令是否应该显示在Artisan命令列表中
      *
      * @var bool
      */
@@ -58,6 +67,7 @@ class Command extends SymfonyCommand
 
     /**
      * Create a new console command instance.
+	 * 创建新的控制台命令实例
      *
      * @return void
      */
@@ -88,6 +98,7 @@ class Command extends SymfonyCommand
 
     /**
      * Configure the console command using a fluent definition.
+	 * 使用连贯的定义配置console命令
      *
      * @return void
      */
@@ -106,6 +117,7 @@ class Command extends SymfonyCommand
 
     /**
      * Run the console command.
+	 * 执行console命令
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -124,6 +136,7 @@ class Command extends SymfonyCommand
 
     /**
      * Execute the console command.
+	 * 执行console命令
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -136,6 +149,7 @@ class Command extends SymfonyCommand
 
     /**
      * Resolve the console command instance for the given command.
+	 * 解析给定命令的控制台命令实例
      *
      * @param  \Symfony\Component\Console\Command\Command|string  $command
      * @return \Symfony\Component\Console\Command\Command
@@ -179,6 +193,7 @@ class Command extends SymfonyCommand
 
     /**
      * Get the Laravel application instance.
+	 * 获取框架应用程序实例
      *
      * @return \Illuminate\Contracts\Foundation\Application
      */
@@ -189,6 +204,7 @@ class Command extends SymfonyCommand
 
     /**
      * Set the Laravel application instance.
+	 * 设置框架应用实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $laravel
      * @return void

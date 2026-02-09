@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，批量分配异常
+ */
 
 namespace Illuminate\Database\Eloquent;
 

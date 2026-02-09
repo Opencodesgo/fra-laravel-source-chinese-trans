@@ -17,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -32,6 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register the authenticator services.
+	 * 注册认证器服务
      *
      * @return void
      */
@@ -41,6 +43,8 @@ class AuthServiceProvider extends ServiceProvider
             // Once the authentication service has actually been requested by the developer
             // we will set a variable in the application indicating such. This helps us
             // know that we need to set any queued cookies in the after event later.
+			// 一旦验证服务实际上被开发人员请求了，我们将在应用程序中设置一个变量。
+			// 我将帮助我们知道我们需要在以后的事件中设置任何排队的cookie。
             $app['auth.loaded'] = true;
 
             return new AuthManager($app);
@@ -53,6 +57,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register a resolver for the authenticated user.
+	 * 为经过身份验证的用户注册一个解析器
      *
      * @return void
      */
@@ -67,6 +72,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register the access gate service.
+	 * 注册门禁服务
      *
      * @return void
      */
@@ -81,6 +87,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register a resolver for the authenticated user.
+	 * 为经过身份验证的用户注册一个解析器
      *
      * @return void
      */
@@ -99,6 +106,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Handle the re-binding of the request binding.
+	 * 处理请求绑定的重新绑定
      *
      * @return void
      */
@@ -113,6 +121,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Handle the re-binding of the event dispatcher binding.
+	 * 处理事件调度程序绑定的重新绑定
      *
      * @return void
      */

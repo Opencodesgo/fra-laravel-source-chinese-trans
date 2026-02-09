@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译组件
+ * Illuminate，视图，编译器，关注点，编译组件
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -19,6 +19,7 @@ trait CompilesComponents
 
     /**
      * Compile the component statements into valid PHP.
+	 * 将组件语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -42,6 +43,7 @@ trait CompilesComponents
 
     /**
      * Get a new component hash for a component name.
+	 * 获取组件名称的新组件哈希值
      *
      * @param  string  $component
      * @return string
@@ -55,6 +57,7 @@ trait CompilesComponents
 
     /**
      * Compile a class component opening.
+	 * 编译一个类组件
      *
      * @param  string  $component
      * @param  string  $alias

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，Postgres语法
+ */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -9,6 +12,7 @@ class PostgresGrammar extends Grammar
 {
     /**
      * If this Grammar supports schema changes wrapped in a transaction.
+	 * 如果此语法支持封装在事务中的模式更改
      *
      * @var bool
      */
@@ -16,6 +20,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * The possible column modifiers.
+	 * 可能的列修饰符
      *
      * @var array
      */
@@ -23,6 +28,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * The columns available as serials.
+	 * 作为序列可用的列
      *
      * @var array
      */
@@ -30,6 +36,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * The commands to be executed outside of create or alter command.
+	 * 要在create或alter命令之外执行的命令
      *
      * @var array
      */
@@ -57,6 +64,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a create table command.
+	 * 编译一个create table命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -358,6 +366,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a rename index command.
+	 * 编译一个重命名索引命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -727,6 +736,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Create the column definition for a year type.
+	 * 创建年份类型的列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -738,6 +748,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Create the column definition for a binary type.
+	 * 为二进制类型创建列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -749,6 +760,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Create the column definition for a uuid type.
+	 * 为uid类型创建列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -760,6 +772,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Create the column definition for an IP address type.
+	 * 为IP地址类型创建列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -771,6 +784,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Create the column definition for a MAC address type.
+	 * 创建MAC地址类型的列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -782,6 +796,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Create the column definition for a spatial Geometry type.
+	 * 为空间几何类型创建列定义
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -881,6 +896,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Format the column definition for a PostGIS spatial type.
+	 * 格式化PostGIS空间类型的列定义
      *
      * @param  string  $type
      * @param  \Illuminate\Support\Fluent  $column
@@ -901,6 +917,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Get the SQL for a collation column modifier.
+	 * 获取排序列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -955,6 +972,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Get the SQL for a generated virtual column modifier.
+	 * 获取生成的虚拟列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column
@@ -969,6 +987,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Get the SQL for a generated stored column modifier.
+	 * 获取生成的存储列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column

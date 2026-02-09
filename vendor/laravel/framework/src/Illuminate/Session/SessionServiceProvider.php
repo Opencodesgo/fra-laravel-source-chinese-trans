@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，Session会话，会话服务提供商
+ * 服务容器绑定session
+ */
 
 namespace Illuminate\Session;
 
@@ -10,6 +14,7 @@ class SessionServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -28,6 +33,7 @@ class SessionServiceProvider extends ServiceProvider
 
     /**
      * Register the session manager instance.
+	 * 注册会话管理实例
      *
      * @return void
      */
@@ -40,6 +46,7 @@ class SessionServiceProvider extends ServiceProvider
 
     /**
      * Register the session driver instance.
+	 * 注册会话驱动实例
      *
      * @return void
      */

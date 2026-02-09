@@ -1,6 +1,7 @@
 <?php
 /**
  * Illuminate，Http，响应
+ * 服务容器绑定response
  */
 
 namespace Illuminate\Http;
@@ -76,6 +77,7 @@ class Response extends SymfonyResponse
 
     /**
      * Determine if the given content should be turned into JSON.
+	 * 确定是否应该将给定的内容转换成JSON
      *
      * @param  mixed  $content
      * @return bool

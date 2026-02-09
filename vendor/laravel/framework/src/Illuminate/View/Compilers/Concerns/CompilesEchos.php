@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译显示
+ * Illuminate，视图，编译器，关注点，编译显示
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -25,6 +25,7 @@ trait CompilesEchos
 
     /**
      * Get the echo methods in the proper order for compilation.
+	 * 以适当的顺序获取echo方法以进行编译
      *
      * @return array
      */
@@ -39,6 +40,7 @@ trait CompilesEchos
 
     /**
      * Compile the "raw" echo statements.
+	 * 编译"原始"echo语句
      *
      * @param  string  $value
      * @return string
@@ -58,6 +60,7 @@ trait CompilesEchos
 
     /**
      * Compile the "regular" echo statements.
+	 * 编译"常规"echo语句
      *
      * @param  string  $value
      * @return string

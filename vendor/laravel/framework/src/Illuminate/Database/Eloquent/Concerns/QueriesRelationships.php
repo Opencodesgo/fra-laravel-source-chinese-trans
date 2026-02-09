@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，问题，查询关系
+ */
 
 namespace Illuminate\Database\Eloquent\Concerns;
 
@@ -15,6 +18,7 @@ trait QueriesRelationships
 {
     /**
      * Add a relationship count / exists condition to the query.
+	 * 向查询添加关系计数/存在条件
      *
      * @param  \Illuminate\Database\Eloquent\Relations\Relation|string  $relation
      * @param  string  $operator
@@ -42,6 +46,7 @@ trait QueriesRelationships
         // If we only need to check for the existence of the relation, then we can optimize
         // the subquery to only run a "where exists" clause instead of this full "count"
         // clause. This will make these queries run much faster compared with a count.
+		// 如果我们只需要检查关系是否存在。
         $method = $this->canUseExistsForExistenceCheck($operator, $count)
                         ? 'getRelationExistenceQuery'
                         : 'getRelationExistenceCountQuery';
@@ -64,6 +69,7 @@ trait QueriesRelationships
 
     /**
      * Add nested relationship count / exists conditions to the query.
+	 * 向查询添加嵌套关系count / exists条件
      *
      * Sets up recursive call to whereHas until we finish the nested relation.
      *
@@ -99,6 +105,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query with an "or".
+	 * 使用"或"向查询添加关系计数/存在条件
      *
      * @param  string  $relation
      * @param  string  $operator
@@ -112,6 +119,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query.
+	 * 向查询添加关系计数/存在条件
      *
      * @param  string  $relation
      * @param  string  $boolean
@@ -125,6 +133,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query with an "or".
+	 * 使用"或"向查询添加关系计数/存在条件
      *
      * @param  string  $relation
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -136,6 +145,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query with where clauses.
+	 * 使用where子句向查询添加关系count / exists条件
      *
      * @param  string  $relation
      * @param  \Closure|null  $callback
@@ -150,6 +160,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query with where clauses and an "or".
+	 * 使用where子句和“或”向查询添加关系count / exists条件
      *
      * @param  string  $relation
      * @param  \Closure|null  $callback
@@ -164,6 +175,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query with where clauses.
+	 * 使用where子句向查询添加关系count / exists条件
      *
      * @param  string  $relation
      * @param  \Closure|null  $callback
@@ -176,6 +188,7 @@ trait QueriesRelationships
 
     /**
      * Add a relationship count / exists condition to the query with where clauses and an "or".
+	 * 使用where子句和“或”向查询添加关系count / exists条件
      *
      * @param  string  $relation
      * @param  \Closure|null  $callback
@@ -188,6 +201,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query.
+	 * 向查询添加一个多态关系计数/存在条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -231,6 +245,7 @@ trait QueriesRelationships
 
     /**
      * Get the BelongsTo relationship for a single polymorphic type.
+	 * 获取单个多态类型的BelongsTo关系
      *
      * @param  \Illuminate\Database\Eloquent\Relations\MorphTo  $relation
      * @param  string  $type
@@ -253,6 +268,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query with an "or".
+	 * 使用"或"向查询添加多态关系计数/存在条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -267,6 +283,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query.
+	 * 向查询添加一个多态关系计数/存在条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -281,6 +298,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query with an "or".
+	 * 使用"或"向查询添加多态关系计数/存在条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -293,6 +311,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query with where clauses.
+	 * 使用where子句向查询添加一个多态关系count / exists条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -308,6 +327,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query with where clauses and an "or".
+	 * 使用where子句和"或"向查询添加一个多态关系count / exists条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -323,6 +343,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query with where clauses.
+	 * 使用where子句向查询添加一个多态关系count / exists条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -336,6 +357,7 @@ trait QueriesRelationships
 
     /**
      * Add a polymorphic relationship count / exists condition to the query with where clauses and an "or".
+	 * 使用where子句和"或"向查询添加一个多态关系count / exists条件
      *
      * @param  string  $relation
      * @param  string|array  $types
@@ -349,6 +371,7 @@ trait QueriesRelationships
 
     /**
      * Add subselect queries to count the relations.
+	 * 添加子选择查询来统计关系
      *
      * @param  mixed  $relations
      * @return $this
@@ -369,6 +392,7 @@ trait QueriesRelationships
             // First we will determine if the name has been aliased using an "as" clause on the name
             // and if it has we will extract the actual relationship name and the desired name of
             // the resulting column. This allows multiple counts on the same relationship name.
+			// 首先，我们将使用名称上的"as"子句确定该名称是否已使用别名
             $segments = explode(' ', $name);
 
             unset($alias);
@@ -413,6 +437,7 @@ trait QueriesRelationships
 
     /**
      * Add the "has" condition where clause to the query.
+	 * 向查询中添加"has"条件where子句
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $hasQuery
      * @param  \Illuminate\Database\Eloquent\Relations\Relation  $relation
@@ -432,6 +457,7 @@ trait QueriesRelationships
 
     /**
      * Merge the where constraints from another query to the current query.
+	 * 将来自另一个查询的where约束合并到当前查询
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $from
      * @return \Illuminate\Database\Eloquent\Builder|static
@@ -452,6 +478,7 @@ trait QueriesRelationships
 
     /**
      * Add a sub-query count clause to this query.
+	 * 向该查询添加子查询计数子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $operator
@@ -473,6 +500,7 @@ trait QueriesRelationships
 
     /**
      * Get the "has relation" base query instance.
+	 * 获取"有关系"基查询实例
      *
      * @param  string  $relation
      * @return \Illuminate\Database\Eloquent\Relations\Relation
@@ -486,6 +514,7 @@ trait QueriesRelationships
 
     /**
      * Check if we can run an "exists" query to optimize performance.
+	 * 检查我们是否可以运行"exists"查询来优化性能
      *
      * @param  string  $operator
      * @param  int  $count

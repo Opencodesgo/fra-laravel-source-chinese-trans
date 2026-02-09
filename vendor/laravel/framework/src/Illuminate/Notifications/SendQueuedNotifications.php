@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，通知，发送排队通知
+ */
 
 namespace Illuminate\Notifications;
 
@@ -16,6 +19,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * The notifiable entities that should receive the notification.
+	 * 应接收通知的应通知实体
      *
      * @var \Illuminate\Support\Collection
      */
@@ -23,6 +27,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * The notification to be sent.
+	 * 要发送的通知
      *
      * @var \Illuminate\Notifications\Notification
      */
@@ -30,6 +35,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * All of the channels to send the notification to.
+	 * 将通知发送到的所有通道
      *
      * @var array
      */
@@ -37,6 +43,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * The number of times the job may be attempted.
+	 * 可能尝试该作业的次数
      *
      * @var int
      */
@@ -44,6 +51,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * The number of seconds the job can run before timing out.
+	 * 作业在计时结束前可以运行的秒数
      *
      * @var int
      */
@@ -51,6 +59,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Create a new job instance.
+	 * 创建一个新的任务实例
      *
      * @param  \Illuminate\Notifications\Notifiable|\Illuminate\Support\Collection  $notifiables
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -68,6 +77,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Wrap the notifiable(s) in a collection.
+	 * 将可通知对象包装在一个集合中
      *
      * @param  \Illuminate\Notifications\Notifiable|\Illuminate\Support\Collection  $notifiables
      * @return \Illuminate\Support\Collection
@@ -85,6 +95,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Send the notifications.
+	 * 发送通知
      *
      * @param  \Illuminate\Notifications\ChannelManager  $manager
      * @return void
@@ -96,6 +107,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Get the display name for the queued job.
+	 * 获取排队任务的显示名称
      *
      * @return string
      */
@@ -147,6 +159,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Prepare the instance for cloning.
+	 * 为克隆准备实例
      *
      * @return void
      */

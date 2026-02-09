@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译条件
+ * Illuminate，视图，编译器，关注点，编译条件
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -45,6 +45,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-auth statements into valid PHP.
+	 * 将end-auth语句编译成有效的PHP
      *
      * @return string
      */
@@ -55,6 +56,7 @@ trait CompilesConditionals
 
     /**
      * Compile the env statements into valid PHP.
+	 * 将env语句编译成有效的PHP
      *
      * @param  string  $environments
      * @return string
@@ -66,6 +68,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-env statements into valid PHP.
+	 * 将end-env语句编译成有效的PHP
      *
      * @return string
      */
@@ -154,6 +157,7 @@ trait CompilesConditionals
 
     /**
      * Compile the if statements into valid PHP.
+	 * 将if语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -165,6 +169,7 @@ trait CompilesConditionals
 
     /**
      * Compile the unless statements into valid PHP.
+	 * 将unless语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -238,6 +243,7 @@ trait CompilesConditionals
 
     /**
      * Compile the switch statements into valid PHP.
+	 * 将switch语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -251,6 +257,7 @@ trait CompilesConditionals
 
     /**
      * Compile the case statements into valid PHP.
+	 * 将case语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -268,6 +275,7 @@ trait CompilesConditionals
 
     /**
      * Compile the default statements in switch case into valid PHP.
+	 * 将switch情况下的默认语句编译成有效的PHP
      *
      * @return string
      */
@@ -278,6 +286,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end switch statements into valid PHP.
+	 * 将结束开关语句编译成有效的PHP
      *
      * @return string
      */
@@ -288,6 +297,7 @@ trait CompilesConditionals
 
     /**
      * Compile an once block into valid PHP.
+	 * 将once块编译成有效的PHP
      *
      * @return string
      */

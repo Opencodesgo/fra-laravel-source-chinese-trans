@@ -14,6 +14,7 @@ class ImplicitRouteBinding
 {
     /**
      * Resolve the implicit route bindings for the given route.
+	 * 解析给定路由的隐式路由绑定
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \Illuminate\Routing\Route  $route
@@ -56,6 +57,7 @@ class ImplicitRouteBinding
 
     /**
      * Return the parameter name if it exists in the given parameters.
+	 * 如果参数名存在于给定参数中，则返回参数名。
      *
      * @param  string  $name
      * @param  array  $parameters
@@ -67,6 +69,7 @@ class ImplicitRouteBinding
             return $name;
         }
 
+		// 检查蛇形命名法
         if (array_key_exists($snakedName = Str::snake($name), $parameters)) {
             return $snakedName;
         }

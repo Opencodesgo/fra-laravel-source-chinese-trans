@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，连接器，SQLite连接器
+ */
 
 namespace Illuminate\Database\Connectors;
 
@@ -8,6 +11,7 @@ class SQLiteConnector extends Connector implements ConnectorInterface
 {
     /**
      * Establish a database connection.
+	 * 建立数据库连接
      *
      * @param  array  $config
      * @return \PDO
@@ -30,6 +34,7 @@ class SQLiteConnector extends Connector implements ConnectorInterface
         // Here we'll verify that the SQLite database exists before going any further
         // as the developer probably wants to know if the database exists and this
         // SQLite driver will not throw any exception if it does not by default.
+		// 在进一步操作之前，我们将验证SQLite数据库是否存在。
         if ($path === false) {
             throw new InvalidArgumentException("Database ({$config['database']}) does not exist.");
         }

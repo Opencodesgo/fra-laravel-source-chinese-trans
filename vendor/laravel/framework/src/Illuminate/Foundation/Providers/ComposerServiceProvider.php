@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，提供者，Composer服务提供者
+ */
 
 namespace Illuminate\Foundation\Providers;
 

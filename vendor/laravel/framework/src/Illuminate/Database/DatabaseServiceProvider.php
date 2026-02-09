@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，数据库服务提供者
+ * Illuminate，数据库，数据库服务提供者
  */
 
 namespace Illuminate\Database;
@@ -18,6 +18,7 @@ class DatabaseServiceProvider extends ServiceProvider
 {
     /**
      * The array of resolved Faker instances.
+	 * 已解析的Faker实例数组
      *
      * @var array
      */
@@ -25,6 +26,7 @@ class DatabaseServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap the application events.
+	 * 启动应用事件
      *
      * @return void
      */
@@ -37,6 +39,7 @@ class DatabaseServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -53,6 +56,7 @@ class DatabaseServiceProvider extends ServiceProvider
 
     /**
      * Register the primary database bindings.
+	 * 注册主数据库绑定
      *
      * @return void
      */
@@ -79,6 +83,7 @@ class DatabaseServiceProvider extends ServiceProvider
 
     /**
      * Register the Eloquent factory instance in the container.
+	 * 在容器中注册有说服力的工厂实例
      *
      * @return void
      */
@@ -105,6 +110,7 @@ class DatabaseServiceProvider extends ServiceProvider
 
     /**
      * Register the queueable entity resolver implementation.
+	 * 注册可排队实体解析器实现
      *
      * @return void
      */

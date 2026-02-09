@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，建立者
+ */
 
 namespace Illuminate\Database\Eloquent;
 
@@ -28,6 +31,7 @@ class Builder
 
     /**
      * The base query builder instance.
+	 * 基本查询生成器实例
      *
      * @var \Illuminate\Database\Query\Builder
      */
@@ -35,6 +39,7 @@ class Builder
 
     /**
      * The model being queried.
+	 * 正在查询的模型
      *
      * @var \Illuminate\Database\Eloquent\Model
      */
@@ -42,6 +47,7 @@ class Builder
 
     /**
      * The relationships that should be eager loaded.
+	 * 这种关系应该是充满渴望的
      *
      * @var array
      */
@@ -49,6 +55,7 @@ class Builder
 
     /**
      * All of the globally registered builder macros.
+	 * 所有全球注册的生成器宏
      *
      * @var array
      */
@@ -56,6 +63,7 @@ class Builder
 
     /**
      * All of the locally registered builder macros.
+	 * 所有本地注册的生成器宏
      *
      * @var array
      */
@@ -63,6 +71,7 @@ class Builder
 
     /**
      * A replacement for the typical delete function.
+	 * 替换典型的删除函数
      *
      * @var \Closure
      */
@@ -70,6 +79,7 @@ class Builder
 
     /**
      * The methods that should be returned from query builder.
+	 * 应该从查询生成器返回的方法
      *
      * @var array
      */
@@ -80,6 +90,7 @@ class Builder
 
     /**
      * Applied global scopes.
+	 * 应用全局范围
      *
      * @var array
      */
@@ -87,6 +98,7 @@ class Builder
 
     /**
      * Removed global scopes.
+	 * 删除全局作用域
      *
      * @var array
      */
@@ -94,6 +106,7 @@ class Builder
 
     /**
      * Create a new Eloquent query builder instance.
+	 * 创建一个新的有说服力的查询生成器实例
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return void
@@ -105,6 +118,7 @@ class Builder
 
     /**
      * Create and return an un-saved model instance.
+	 * 创建并返回一个未保存的模型实例
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model|static
@@ -116,6 +130,7 @@ class Builder
 
     /**
      * Register a new global scope.
+	 * 注册一个新的全球范围
      *
      * @param  string  $identifier
      * @param  \Illuminate\Database\Eloquent\Scope|\Closure  $scope
@@ -153,6 +168,7 @@ class Builder
 
     /**
      * Remove all or passed registered global scopes.
+	 * 删除所有或通过注册的全局范围
      *
      * @param  array|null  $scopes
      * @return $this
@@ -172,6 +188,7 @@ class Builder
 
     /**
      * Get an array of global scopes that were removed from the query.
+	 * 获取从查询中删除的全局范围
      *
      * @return array
      */
@@ -182,6 +199,7 @@ class Builder
 
     /**
      * Add a where clause on the primary key to the query.
+	 * 在查询的主键上添加where子句
      *
      * @param  mixed  $id
      * @return $this
@@ -203,6 +221,7 @@ class Builder
 
     /**
      * Add a where clause on the primary key to the query.
+	 * 在查询的主键上添加where子句。
      *
      * @param  mixed  $id
      * @return $this
@@ -294,6 +313,7 @@ class Builder
 
     /**
      * Add an "order by" clause for a timestamp to the query.
+	 * 在查询中添加一个"order by"子句
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @return $this
@@ -311,6 +331,7 @@ class Builder
 
     /**
      * Create a collection of models from plain arrays.
+	 * 从普通数组创建模型集合
      *
      * @param  array  $items
      * @return \Illuminate\Database\Eloquent\Collection
@@ -340,6 +361,7 @@ class Builder
 
     /**
      * Find a model by its primary key.
+	 * 通过它的主键查找模型
      *
      * @param  mixed  $id
      * @param  array  $columns
@@ -374,6 +396,7 @@ class Builder
 
     /**
      * Find a model by its primary key or throw an exception.
+	 * 通过主键查找模型或抛出异常
      *
      * @param  mixed  $id
      * @param  array  $columns
@@ -434,6 +457,7 @@ class Builder
 
     /**
      * Get the first record matching the attributes or create it.
+	 * 获取与属性匹配或创建的第一个记录
      *
      * @param  array  $attributes
      * @param  array  $values
@@ -452,6 +476,7 @@ class Builder
 
     /**
      * Create or update a record matching the attributes, and fill it with values.
+	 * 创建或更新匹配属性的记录,并用值填充它
      *
      * @param  array  $attributes
      * @param  array  $values
@@ -466,6 +491,7 @@ class Builder
 
     /**
      * Execute the query and get the first result or throw an exception.
+	 * 执行查询并获得第一个结果或抛出异常
      *
      * @param  array  $columns
      * @return \Illuminate\Database\Eloquent\Model|static
@@ -483,6 +509,7 @@ class Builder
 
     /**
      * Execute the query and get the first result or call a callback.
+	 * 执行查询并获得第一个结果或调用回调
      *
      * @param  \Closure|array  $columns
      * @param  \Closure|null  $callback
@@ -551,6 +578,7 @@ class Builder
 
     /**
      * Eager load the relationships for the models.
+	 * 渴望加载模型的关系
      *
      * @param  array  $models
      * @return array
@@ -630,6 +658,7 @@ class Builder
 
     /**
      * Get the deeply nested relations for a given top-level relation.
+	 * 为给定的顶级关系获得深嵌套关系
      *
      * @param  string  $relation
      * @return array
@@ -713,6 +742,7 @@ class Builder
 
     /**
      * Paginate the given query.
+	 * 分页给定的查询。
      *
      * @param  int|null  $perPage
      * @param  array  $columns
@@ -740,6 +770,7 @@ class Builder
 
     /**
      * Paginate the given query into a simple paginator.
+	 * 将给定的查询分页成一个简单的分页
      *
      * @param  int|null  $perPage
      * @param  array  $columns
@@ -792,6 +823,7 @@ class Builder
 
     /**
      * Update a record in the database.
+	 * 在数据库中更新记录
      *
      * @param  array  $values
      * @return int
@@ -803,6 +835,7 @@ class Builder
 
     /**
      * Increment a column's value by a given amount.
+	 * 以给定的数量增加列的值
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @param  float|int  $amount
@@ -818,6 +851,7 @@ class Builder
 
     /**
      * Decrement a column's value by a given amount.
+	 * 以给定的金额减去列值
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @param  float|int  $amount
@@ -864,6 +898,7 @@ class Builder
 
     /**
      * Delete a record from the database.
+	 * 从数据库中删除一个记录
      *
      * @return mixed
      */
@@ -878,6 +913,7 @@ class Builder
 
     /**
      * Run the default delete function on the builder.
+	 * 在构建器上运行默认的删除函数
      *
      * Since we do not apply scopes here, the row will actually be deleted.
      *
@@ -912,6 +948,7 @@ class Builder
 
     /**
      * Call the given local model scopes.
+	 * 调用给定的局部模型范围
      *
      * @param  array|string  $scopes
      * @return static|mixed
@@ -977,6 +1014,7 @@ class Builder
 
     /**
      * Apply the given scope on the current builder instance.
+	 * 在当前生成器实例上应用给定的范围
      *
      * @param  callable  $scope
      * @param  array  $parameters
@@ -1005,6 +1043,7 @@ class Builder
 
     /**
      * Apply the given named scope on the current builder instance.
+	 * 在当前生成器实例上应用给定的给定范围
      *
      * @param  string  $scope
      * @param  array  $parameters
@@ -1019,6 +1058,7 @@ class Builder
 
     /**
      * Nest where conditions by slicing them at the given where count.
+	 * 在给定的地方将它们切片的条件
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $originalWhereCount
@@ -1067,6 +1107,7 @@ class Builder
 
     /**
      * Create a where array with nested where conditions.
+	 * 在条件下创建一个嵌套的数组
      *
      * @param  array  $whereSlice
      * @param  string  $boolean
@@ -1113,6 +1154,7 @@ class Builder
 
     /**
      * Create a new instance of the model being queried.
+	 * 创建被查询的模型的新实例
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model|static
@@ -1161,6 +1203,7 @@ class Builder
 
     /**
      * Create a constraint to select the given columns for the relation.
+	 * 创建一个约束来选择该关系的给定列
      *
      * @param  string  $name
      * @return array
@@ -1182,6 +1225,7 @@ class Builder
 
     /**
      * Parse the nested relationships in a relation.
+	 * 解析关系中的嵌套关系
      *
      * @param  string  $name
      * @param  array  $results
@@ -1255,6 +1299,7 @@ class Builder
 
     /**
      * Get the relationships being eagerly loaded.
+	 * 让关系被急切地加载
      *
      * @return array
      */
@@ -1265,6 +1310,7 @@ class Builder
 
     /**
      * Set the relationships being eagerly loaded.
+	 * 设置急切地加载的关系
      *
      * @param  array  $eagerLoad
      * @return $this
@@ -1368,6 +1414,7 @@ class Builder
 
     /**
      * Dynamically access builder proxies.
+	 * 动态访问构建器代理
      *
      * @param  string  $key
      * @return mixed
@@ -1463,6 +1510,7 @@ class Builder
 
     /**
      * Register the given mixin with the builder.
+	 * 在构建器中注册给定的mixin
      *
      * @param  string  $mixin
      * @param  bool  $replace
@@ -1485,6 +1533,7 @@ class Builder
 
     /**
      * Force a clone of the underlying query builder when cloning.
+	 * 克隆时强制克隆底层查询生成器
      *
      * @return void
      */

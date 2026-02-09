@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，key:generate密钥生成命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -12,6 +15,7 @@ class KeyGenerateCommand extends Command
 
     /**
      * The name and signature of the console command.
+	 * console命令的名称和签名
      *
      * @var string
      */
@@ -21,6 +25,7 @@ class KeyGenerateCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述，设置应用KEY
      *
      * @var string
      */
@@ -28,6 +33,7 @@ class KeyGenerateCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return void
      */
@@ -53,6 +59,7 @@ class KeyGenerateCommand extends Command
 
     /**
      * Generate a random key for the application.
+	 * 为应用生成一个随机密钥
      *
      * @return string
      */

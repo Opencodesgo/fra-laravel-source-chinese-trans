@@ -1,4 +1,8 @@
 <?php
+/**
+ * Illuminate，契约，控制台，内核
+ * 服务容器绑定artisan
+ */
 
 namespace Illuminate\Contracts\Console;
 
@@ -6,6 +10,7 @@ interface Kernel
 {
     /**
      * Handle an incoming console command.
+	 * 处理传入的控制台命令
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface|null  $output
@@ -15,6 +20,7 @@ interface Kernel
 
     /**
      * Run an Artisan console command by name.
+	 * 通过名称运行控制台命令
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -25,6 +31,7 @@ interface Kernel
 
     /**
      * Queue an Artisan console command by name.
+	 * 按名称将工具控制台命令排队
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -34,6 +41,7 @@ interface Kernel
 
     /**
      * Get all of the commands registered with the console.
+	 * 获取在控制台注册的所有命令
      *
      * @return array
      */
@@ -41,6 +49,7 @@ interface Kernel
 
     /**
      * Get the output for the last run command.
+	 * 获取最后一个运行命令的输出
      *
      * @return string
      */
@@ -48,6 +57,7 @@ interface Kernel
 
     /**
      * Terminate the application.
+	 * 终止应用
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  int  $status

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，改变列
+ */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -15,6 +18,7 @@ class ChangeColumn
 {
     /**
      * Compile a change column command into a series of SQL statements.
+	 * 编译更改列命令成一系列SQL语句
      *
      * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
@@ -50,6 +54,7 @@ class ChangeColumn
 
     /**
      * Get the Doctrine table difference for the given changes.
+	 * 获取给定更改的Doctrine表差异
      *
      * @param  \Illuminate\Database\Schema\Grammars\Grammar  $grammar
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
@@ -67,6 +72,7 @@ class ChangeColumn
 
     /**
      * Get a copy of the given Doctrine table after making the column changes.
+	 * 在更改列后获取给定Doctrine表的副本
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Doctrine\DBAL\Schema\Table  $table
@@ -99,6 +105,7 @@ class ChangeColumn
 
     /**
      * Get the Doctrine column instance for a column change.
+	 * 获取Doctrine列实例以进行列更改
      *
      * @param  \Doctrine\DBAL\Schema\Table  $table
      * @param  \Illuminate\Support\Fluent  $fluent
@@ -113,6 +120,7 @@ class ChangeColumn
 
     /**
      * Get the Doctrine column change options.
+	 * 获取Doctrine列更改选项
      *
      * @param  \Illuminate\Support\Fluent  $fluent
      * @return array
@@ -137,6 +145,7 @@ class ChangeColumn
 
     /**
      * Get the doctrine column type.
+	 * 获取条令列类型
      *
      * @param  string  $type
      * @return \Doctrine\DBAL\Types\Type
@@ -187,6 +196,7 @@ class ChangeColumn
 
     /**
      * Determine if the given type does not need character / collation options.
+	 * 确定给定类型是否不需要字符/排序选项
      *
      * @param  string  $type
      * @return bool
@@ -212,6 +222,7 @@ class ChangeColumn
 
     /**
      * Get the matching Doctrine option for a given Fluent attribute name.
+	 * 获取给定Fluent属性名称的匹配Doctrine选项
      *
      * @param  string  $attribute
      * @return string|null
@@ -235,6 +246,7 @@ class ChangeColumn
 
     /**
      * Get the matching Doctrine value for a given Fluent attribute.
+	 * 获取给定Fluent属性的匹配Doctrine值
      *
      * @param  string  $option
      * @param  mixed  $value

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，门面，通知
+ */
 
 namespace Illuminate\Support\Facades;
 
@@ -25,6 +28,7 @@ class Notification extends Facade
 {
     /**
      * Replace the bound instance with a fake.
+	 * 将绑定实例替换为伪实例
      *
      * @return \Illuminate\Support\Testing\Fakes\NotificationFake
      */
@@ -37,6 +41,7 @@ class Notification extends Facade
 
     /**
      * Begin sending a notification to an anonymous notifiable.
+	 * 开始向匿名通知对象发送通知
      *
      * @param  string  $channel
      * @param  mixed  $route
@@ -49,6 +54,7 @@ class Notification extends Facade
 
     /**
      * Get the registered name of the component.
+	 * 获取组件的注册名称
      *
      * @return string
      */

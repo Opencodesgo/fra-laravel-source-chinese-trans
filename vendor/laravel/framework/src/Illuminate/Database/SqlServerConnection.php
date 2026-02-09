@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，配置URL解析
+ * Illuminate，数据库，SqlServer连接
  */
 
 namespace Illuminate\Database;
@@ -17,6 +17,7 @@ class SqlServerConnection extends Connection
 {
     /**
      * Execute a Closure within a transaction.
+	 * 在事务中执行闭包
      *
      * @param  \Closure  $callback
      * @param  int  $attempts
@@ -36,6 +37,7 @@ class SqlServerConnection extends Connection
             // We'll simply execute the given callback within a try / catch block
             // and if we catch any exception we can rollback the transaction
             // so that none of the changes are persisted to the database.
+			// 我们将简单地在一个try / catch块中执行给定的回调
             try {
                 $result = $callback($this);
 
@@ -57,6 +59,7 @@ class SqlServerConnection extends Connection
 
     /**
      * Get the default query grammar instance.
+	 * 获取默认查询语法实例
      *
      * @return \Illuminate\Database\Query\Grammars\SqlServerGrammar
      */
@@ -67,6 +70,7 @@ class SqlServerConnection extends Connection
 
     /**
      * Get a schema builder instance for the connection.
+	 * 获取连接的模式生成器实例
      *
      * @return \Illuminate\Database\Schema\SqlServerBuilder
      */
@@ -81,6 +85,7 @@ class SqlServerConnection extends Connection
 
     /**
      * Get the default schema grammar instance.
+	 * 获取默认模式语法实例
      *
      * @return \Illuminate\Database\Schema\Grammars\SqlServerGrammar
      */
@@ -91,6 +96,7 @@ class SqlServerConnection extends Connection
 
     /**
      * Get the default post processor instance.
+	 * 获取默认的post处理器实例
      *
      * @return \Illuminate\Database\Query\Processors\SqlServerProcessor
      */
@@ -101,6 +107,7 @@ class SqlServerConnection extends Connection
 
     /**
      * Get the Doctrine DBAL driver.
+	 * 获取Doctrine DBAL驱动程序
      *
      * @return \Doctrine\DBAL\Driver\PDOSqlsrv\Driver
      */

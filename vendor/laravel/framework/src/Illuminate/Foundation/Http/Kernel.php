@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，Http，内核
+ * Illuminate，基础，Http，内核，重要类
  */
 
 namespace Illuminate\Foundation\Http;
@@ -35,7 +35,7 @@ class Kernel implements KernelContract
 
     /**
      * The bootstrap classes for the application.
-	 * 应用的引导类
+	 * 应用的引导类，主要有加载环境、加载配置、处理异常、注册门面、注册提供者、启动提供者
      *
      * @var array
      */
@@ -58,6 +58,7 @@ class Kernel implements KernelContract
 
     /**
      * The application's route middleware groups.
+	 * 应用程序的路由中间件组
      *
      * @var array
      */
@@ -65,6 +66,7 @@ class Kernel implements KernelContract
 
     /**
      * The application's route middleware.
+	 * 应用的路由中间件
      *
      * @var array
      */
@@ -72,6 +74,7 @@ class Kernel implements KernelContract
 
     /**
      * The priority-sorted list of middleware.
+	 * 中间件的优先级排序列表
      *
      * Forces non-global middleware to always be in the given order.
      *
@@ -89,6 +92,7 @@ class Kernel implements KernelContract
 
     /**
      * Create a new HTTP kernel instance.
+	 * 创建一个新的HTTP内核实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @param  \Illuminate\Routing\Router  $router
@@ -137,12 +141,16 @@ class Kernel implements KernelContract
      */
     protected function sendRequestThroughRouter($request)
     {
+		// 将请求对象注册到容器
         $this->app->instance('request', $request);
 
+		// 注册完即清除掉节约资源
         Facade::clearResolvedInstance('request');
 
+		// 引导及启动提供者
         $this->bootstrap();
 
+		// 通过管道执行
         return (new Pipeline($this->app))
                     ->send($request)
                     ->through($this->app->shouldSkipMiddleware() ? [] : $this->middleware)
@@ -151,12 +159,15 @@ class Kernel implements KernelContract
 
     /**
      * Bootstrap the application for HTTP requests.
+	 * 为HTTP请求引导应用
      *
      * @return void
      */
     public function bootstrap()
     {
+		// Illuminate\Foundation\Application
         if (! $this->app->hasBeenBootstrapped()) {
+			// 42行protected $bootstrappers = [，开始真正的引导加载
             $this->app->bootstrapWith($this->bootstrappers());
         }
     }
@@ -179,6 +190,7 @@ class Kernel implements KernelContract
 
     /**
      * Call the terminate method on any terminable middleware.
+	 * 在任何可终止的中间件上调用terminate方法
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Http\Response  $response
@@ -193,6 +205,7 @@ class Kernel implements KernelContract
 
     /**
      * Call the terminate method on any terminable middleware.
+	 * 在任何可终止的中间件上调用terminate方法
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Http\Response  $response
@@ -222,6 +235,7 @@ class Kernel implements KernelContract
 
     /**
      * Gather the route middleware for the given request.
+	 * 收集给定请求的路由中间件
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
@@ -237,6 +251,7 @@ class Kernel implements KernelContract
 
     /**
      * Parse a middleware string to get the name and parameters.
+	 * 解析中间件字符串以获取名称和参数
      *
      * @param  string  $middleware
      * @return array
@@ -254,6 +269,7 @@ class Kernel implements KernelContract
 
     /**
      * Determine if the kernel has a given middleware.
+	 * 确定内核是否有给定的中间件
      *
      * @param  string  $middleware
      * @return bool
@@ -265,6 +281,7 @@ class Kernel implements KernelContract
 
     /**
      * Add a new middleware to beginning of the stack if it does not already exist.
+	 * 如果新的中间件不存在，则在堆栈的开头添加它。
      *
      * @param  string  $middleware
      * @return $this
@@ -280,6 +297,7 @@ class Kernel implements KernelContract
 
     /**
      * Add a new middleware to end of the stack if it does not already exist.
+	 * 在堆栈的末尾添加一个新的中间件（如果它还不存在）。
      *
      * @param  string  $middleware
      * @return $this
@@ -295,6 +313,7 @@ class Kernel implements KernelContract
 
     /**
      * Prepend the given middleware to the given middleware group.
+	 * 将给定的中间件添加到给定的中间件组
      *
      * @param  string  $group
      * @param  string  $middleware
@@ -319,6 +338,7 @@ class Kernel implements KernelContract
 
     /**
      * Append the given middleware to the given middleware group.
+	 * 将给定的中间件附加到给定的中间件组
      *
      * @param  string  $group
      * @param  string  $middleware
@@ -343,6 +363,7 @@ class Kernel implements KernelContract
 
     /**
      * Prepend the given middleware to the middleware priority list.
+	 * 将给定的中间件添加到中间件优先级列表中
      *
      * @param  string  $middleware
      * @return $this
@@ -360,6 +381,7 @@ class Kernel implements KernelContract
 
     /**
      * Append the given middleware to the middleware priority list.
+	 * 将给定的中间件附加到中间件优先级列表中
      *
      * @param  string  $middleware
      * @return $this
@@ -377,6 +399,7 @@ class Kernel implements KernelContract
 
     /**
      * Sync the current state of the middleware to the router.
+	 * 将中间件的当前状态同步到路由器
      *
      * @return void
      */
@@ -395,6 +418,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the bootstrap classes for the application.
+	 * 获取应用程序的引导类
      *
      * @return array
      */
@@ -405,6 +429,7 @@ class Kernel implements KernelContract
 
     /**
      * Report the exception to the exception handler.
+	 * 向异常处理程序报告异常
      *
      * @param  \Throwable  $e
      * @return void
@@ -416,6 +441,7 @@ class Kernel implements KernelContract
 
     /**
      * Render the exception to a response.
+	 * 呈现异常给响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable  $e
@@ -428,6 +454,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the application's route middleware groups.
+	 * 获取应用程序的路由中间件组
      *
      * @return array
      */
@@ -438,6 +465,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the application's route middleware.
+	 * 获取应用程序的路由中间件
      *
      * @return array
      */
@@ -448,6 +476,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the Laravel application instance.
+	 * 获取Laravel应用程序实例
      *
      * @return \Illuminate\Contracts\Foundation\Application
      */

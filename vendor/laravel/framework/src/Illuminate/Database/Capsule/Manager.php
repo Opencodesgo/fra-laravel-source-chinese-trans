@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，压缩，管理者
+ */
 
 namespace Illuminate\Database\Capsule;
 
@@ -16,6 +19,7 @@ class Manager
 
     /**
      * The database manager instance.
+	 * 数据库管理实例
      *
      * @var \Illuminate\Database\DatabaseManager
      */
@@ -23,6 +27,7 @@ class Manager
 
     /**
      * Create a new database capsule manager.
+	 * 创建新的数据库压缩管理器
      *
      * @param  \Illuminate\Container\Container|null  $container
      * @return void
@@ -34,6 +39,8 @@ class Manager
         // Once we have the container setup, we will setup the default configuration
         // options in the container "config" binding. This will make the database
         // manager work correctly out of the box without extreme configuration.
+		// 容器设置完成后，我们将设置容器"config"绑定中默认配置选项的选项。
+		// 这将使数据库管理工作正确开箱即用，没有极端的配置。
         $this->setupDefaultConfiguration();
 
         $this->setupManager();
@@ -41,6 +48,7 @@ class Manager
 
     /**
      * Setup the default database configuration options.
+	 * 设置默认的数据库配置选项
      *
      * @return void
      */
@@ -53,6 +61,7 @@ class Manager
 
     /**
      * Build the database manager instance.
+	 * 构建数据库管理器实例
      *
      * @return void
      */
@@ -65,6 +74,7 @@ class Manager
 
     /**
      * Get a connection instance from the global manager.
+	 * 从全局管理器获取连接实例
      *
      * @param  string|null  $connection
      * @return \Illuminate\Database\Connection
@@ -76,6 +86,7 @@ class Manager
 
     /**
      * Get a fluent query builder instance.
+	 * 获取一个流畅的查询生成器实例
      *
      * @param  \Closure|\Illuminate\Database\Query\Builder|string  $table
      * @param  string|null  $as
@@ -89,6 +100,7 @@ class Manager
 
     /**
      * Get a schema builder instance.
+	 * 获取模式构建器实例
      *
      * @param  string|null  $connection
      * @return \Illuminate\Database\Schema\Builder
@@ -100,6 +112,7 @@ class Manager
 
     /**
      * Get a registered connection instance.
+	 * 获取已注册的连接实例
      *
      * @param  string|null  $name
      * @return \Illuminate\Database\Connection
@@ -111,6 +124,7 @@ class Manager
 
     /**
      * Register a connection with the manager.
+	 * 注册与管理器的连接
      *
      * @param  array  $config
      * @param  string  $name
@@ -127,6 +141,7 @@ class Manager
 
     /**
      * Bootstrap Eloquent so it is ready for usage.
+	 * 引导雄辩，所以它是准备使用。
      *
      * @return void
      */
@@ -137,6 +152,7 @@ class Manager
         // If we have an event dispatcher instance, we will go ahead and register it
         // with the Eloquent ORM, allowing for model callbacks while creating and
         // updating "model" instances; however, it is not necessary to operate.
+		// 如果我们有一个事件调度程序实例，我们将继续在ORM注册它，在创建和时允许模型回调。
         if ($dispatcher = $this->getEventDispatcher()) {
             Eloquent::setEventDispatcher($dispatcher);
         }
@@ -144,6 +160,7 @@ class Manager
 
     /**
      * Set the fetch mode for the database connections.
+	 * 设置数据库连接的获取模式
      *
      * @param  int  $fetchMode
      * @return $this
@@ -157,6 +174,7 @@ class Manager
 
     /**
      * Get the database manager instance.
+	 * 获取数据库管理器实例
      *
      * @return \Illuminate\Database\DatabaseManager
      */
@@ -167,6 +185,7 @@ class Manager
 
     /**
      * Get the current event dispatcher instance.
+	 * 获取当前事件调度程序实例
      *
      * @return \Illuminate\Contracts\Events\Dispatcher|null
      */
@@ -179,6 +198,7 @@ class Manager
 
     /**
      * Set the event dispatcher instance to be used by connections.
+	 * 设置要由连接使用的事件调度程序实例
      *
      * @param  \Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @return void
@@ -190,6 +210,7 @@ class Manager
 
     /**
      * Dynamically pass methods to the default connection.
+	 * 动态地将方法传递给默认连接
      *
      * @param  string  $method
      * @param  array  $parameters

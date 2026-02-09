@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，查询，语法，Postgres语法
+ */
 
 namespace Illuminate\Database\Query\Grammars;
 
@@ -10,6 +13,7 @@ class PostgresGrammar extends Grammar
 {
     /**
      * All of the available clause operators.
+	 * 所有可用的子句操作符
      *
      * @var array
      */
@@ -44,6 +48,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a "where date" clause.
+	 * 编译"where date"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -58,6 +63,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a "where time" clause.
+	 * 编译"where time"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -72,6 +78,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a date based where clause.
+	 * 编译一个基于where子句的日期
      *
      * @param  string  $type
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -200,6 +207,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile the columns for an update statement.
+	 * 编译更新语句的列
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -323,6 +331,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Wrap the given JSON selector.
+	 * 包装给定的JSON选择器
      *
      * @param  string  $value
      * @return string
@@ -373,6 +382,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Wrap the attributes of the give JSON path.
+	 * 包装给定JSON路径的属性
      *
      * @param  array  $path
      * @return array

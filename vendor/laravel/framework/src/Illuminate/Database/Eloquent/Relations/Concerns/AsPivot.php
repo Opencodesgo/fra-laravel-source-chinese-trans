@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，关系，问题，作为支点
+ */
 
 namespace Illuminate\Database\Eloquent\Relations\Concerns;
 
@@ -10,6 +13,7 @@ trait AsPivot
 {
     /**
      * The parent model of the relationship.
+	 * 关系的父模型
      *
      * @var \Illuminate\Database\Eloquent\Model
      */
@@ -17,6 +21,7 @@ trait AsPivot
 
     /**
      * The name of the foreign key column.
+	 * 外键列的名称
      *
      * @var string
      */
@@ -24,6 +29,7 @@ trait AsPivot
 
     /**
      * The name of the "other key" column.
+	 * "其他键"列的名称
      *
      * @var string
      */
@@ -31,6 +37,7 @@ trait AsPivot
 
     /**
      * Create a new pivot model instance.
+	 * 创建一个新的支点模型实例
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parent
      * @param  array  $attributes
@@ -64,6 +71,7 @@ trait AsPivot
 
     /**
      * Create a new pivot model from raw values returned from a query.
+	 * 从查询返回的原始值创建新的pivot模型
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parent
      * @param  array  $attributes
@@ -84,6 +92,7 @@ trait AsPivot
 
     /**
      * Set the keys for a save update query.
+	 * 为保存更新查询设置键
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
@@ -105,6 +114,7 @@ trait AsPivot
 
     /**
      * Delete the pivot model record from the database.
+	 * 从数据库中删除数据透视模型记录
      *
      * @return int
      */
@@ -129,6 +139,7 @@ trait AsPivot
 
     /**
      * Get the query builder for a delete operation on the pivot.
+	 * 在支点上为删除操作获取查询构建器
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -142,6 +153,7 @@ trait AsPivot
 
     /**
      * Get the table associated with the model.
+	 * 获取与模型相关的表
      *
      * @return string
      */
@@ -158,6 +170,7 @@ trait AsPivot
 
     /**
      * Get the foreign key column name.
+	 * 获取外键列名
      *
      * @return string
      */
@@ -168,6 +181,7 @@ trait AsPivot
 
     /**
      * Get the "related key" column name.
+	 * 获取"相关键"列名
      *
      * @return string
      */
@@ -178,6 +192,7 @@ trait AsPivot
 
     /**
      * Get the "related key" column name.
+	 * 获取"相关键"列名
      *
      * @return string
      */
@@ -204,6 +219,7 @@ trait AsPivot
 
     /**
      * Determine if the pivot model or given attributes has timestamp attributes.
+	 * 确定主模型或给定属性是否具有时间戳属性
      *
      * @param  array|null  $attributes
      * @return bool
@@ -215,6 +231,7 @@ trait AsPivot
 
     /**
      * Get the name of the "created at" column.
+	 * 获取"创建位置"列的名称
      *
      * @return string
      */
@@ -227,6 +244,7 @@ trait AsPivot
 
     /**
      * Get the name of the "updated at" column.
+	 * 获取"更新"列的名称
      *
      * @return string
      */
@@ -239,6 +257,7 @@ trait AsPivot
 
     /**
      * Get the queueable identity for the entity.
+	 * 为实体获取队列标识
      *
      * @return mixed
      */
@@ -280,6 +299,7 @@ trait AsPivot
 
     /**
      * Get a new query to restore multiple models by their queueable IDs.
+	 * 获取一个新的查询,以通过它们的行将id来恢复多个模型
      *
      * @param  int[]|string[]  $ids
      * @return \Illuminate\Database\Eloquent\Builder
@@ -308,6 +328,7 @@ trait AsPivot
 
     /**
      * Unset all the loaded relations for the instance.
+	 * 取消为实例加载的所有关系的设置
      *
      * @return $this
      */

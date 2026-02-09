@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，会话，中间件，身份验证会话
+ */
 
 namespace Illuminate\Session\Middleware;
 
@@ -10,6 +13,7 @@ class AuthenticateSession
 {
     /**
      * The authentication factory implementation.
+	 * 身份验证工厂实现。
      *
      * @var \Illuminate\Contracts\Auth\Factory
      */
@@ -17,6 +21,7 @@ class AuthenticateSession
 
     /**
      * Create a new middleware instance.
+	 * 创建新的中间件实例
      *
      * @param  \Illuminate\Contracts\Auth\Factory  $auth
      * @return void
@@ -28,6 +33,7 @@ class AuthenticateSession
 
     /**
      * Handle an incoming request.
+	 * 处理传入请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -79,6 +85,7 @@ class AuthenticateSession
 
     /**
      * Log the user out of the application.
+	 * 将用户从应用程序中注销
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void

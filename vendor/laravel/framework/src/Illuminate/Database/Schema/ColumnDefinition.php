@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，列定义
+ */
 
 namespace Illuminate\Database\Schema;
 

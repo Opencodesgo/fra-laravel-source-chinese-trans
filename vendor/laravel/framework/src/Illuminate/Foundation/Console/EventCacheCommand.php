@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，事件缓存命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -9,6 +12,7 @@ class EventCacheCommand extends Command
 {
     /**
      * The name and signature of the console command.
+	 * console命令的名称和签名
      *
      * @var string
      */
@@ -16,6 +20,7 @@ class EventCacheCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -23,6 +28,7 @@ class EventCacheCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return mixed
      */

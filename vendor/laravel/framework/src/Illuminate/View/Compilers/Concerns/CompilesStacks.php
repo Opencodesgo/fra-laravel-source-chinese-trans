@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译栈
+ * Illuminate，视图，编译器，关注点，编译栈
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -33,6 +33,7 @@ trait CompilesStacks
 
     /**
      * Compile the end-push statements into valid PHP.
+	 * 将end-push语句编译成有效的PHP
      *
      * @return string
      */
@@ -43,6 +44,7 @@ trait CompilesStacks
 
     /**
      * Compile the prepend statements into valid PHP.
+	 * 将prepend语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string

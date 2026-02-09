@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，Redis标记缓存
+ */
 
 namespace Illuminate\Cache;
 
@@ -6,12 +9,15 @@ class RedisTaggedCache extends TaggedCache
 {
     /**
      * Forever reference key.
+	 * 永久参考键
      *
      * @var string
      */
     const REFERENCE_KEY_FOREVER = 'forever_ref';
+	
     /**
      * Standard reference key.
+	 * 标准参考键
      *
      * @var string
      */
@@ -19,6 +25,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Store an item in the cache.
+	 * 在缓存中存储项
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -38,6 +45,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Increment the value of an item in the cache.
+	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -52,6 +60,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Decrement the value of an item in the cache.
+	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -66,6 +75,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Store an item in the cache indefinitely.
+	 * 将项无限期地存储在缓存中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -80,6 +90,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Remove all items from the cache.
+	 * 从缓存中删除所有项
      *
      * @return bool
      */
@@ -93,6 +104,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Store standard key references into store.
+	 * 将标准键引用存储到存储中
      *
      * @param  string  $namespace
      * @param  string  $key
@@ -105,6 +117,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Store forever key references into store.
+	 * 将关键引用永久存储到存储中
      *
      * @param  string  $namespace
      * @param  string  $key
@@ -117,6 +130,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Store a reference to the cache key against the reference key.
+	 * 根据引用键存储对缓存键的引用
      *
      * @param  string  $namespace
      * @param  string  $key
@@ -134,6 +148,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Delete all of the items that were stored forever.
+	 * 删除所有永久存储的项
      *
      * @return void
      */
@@ -144,6 +159,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Delete all standard items.
+	 * 删除所有标准项
      *
      * @return void
      */
@@ -154,6 +170,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Find and delete all of the items that were stored against a reference.
+	 * 查找并删除根据引用存储的所有项
      *
      * @param  string  $reference
      * @return void
@@ -169,6 +186,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Delete item keys that have been stored against a reference.
+	 * 查找并删除根据引用存储的所有项
      *
      * @param  string  $referenceKey
      * @return void
@@ -186,6 +204,7 @@ class RedisTaggedCache extends TaggedCache
 
     /**
      * Get the reference key for the segment.
+	 * 获取段的参考键
      *
      * @param  string  $segment
      * @param  string  $suffix

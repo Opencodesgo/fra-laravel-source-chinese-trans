@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，make:event命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -8,6 +11,7 @@ class EventMakeCommand extends GeneratorCommand
 {
     /**
      * The console command name.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -15,6 +19,7 @@ class EventMakeCommand extends GeneratorCommand
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -22,6 +27,7 @@ class EventMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成的类的类型
      *
      * @var string
      */
@@ -29,6 +35,7 @@ class EventMakeCommand extends GeneratorCommand
 
     /**
      * Determine if the class already exists.
+	 * 确定类是否已经存在
      *
      * @param  string  $rawName
      * @return bool
@@ -41,6 +48,7 @@ class EventMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -51,6 +59,7 @@ class EventMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string

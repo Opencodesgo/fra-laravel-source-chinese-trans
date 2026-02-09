@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，语法抽象类
+ */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -15,6 +18,7 @@ abstract class Grammar extends BaseGrammar
 {
     /**
      * If this Grammar supports schema changes wrapped in a transaction.
+	 * 如果这个语法支持在事务中包的模式更改
      *
      * @var bool
      */
@@ -22,6 +26,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * The commands to be executed outside of create or alter command.
+	 * 在创建或alter命令之外执行的命令
      *
      * @var array
      */
@@ -29,6 +34,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Compile a rename column command.
+	 * 编译一个重命名列命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -42,6 +48,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Compile a change column command into a series of SQL statements.
+	 * 将更改列命令编译成一系列SQL语句
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -57,6 +64,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Compile a foreign key command.
+	 * 编译外键命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $command
@@ -67,6 +75,7 @@ abstract class Grammar extends BaseGrammar
         // We need to prepare several of the elements of the foreign key definition
         // before we can create the SQL, such as wrapping the tables and convert
         // an array of columns to comma-delimited strings for the SQL queries.
+		// 我们需要准备外键定义的几个元素在我们创建SQL前，例如包装表和转换用于SQL查询的以逗号分隔的字符串的列数组。
         $sql = sprintf('alter table %s add constraint %s ',
             $this->wrapTable($blueprint),
             $this->wrap($command->index)
@@ -97,6 +106,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Compile the blueprint's column definitions.
+	 * 编译蓝图的列定义
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @return array
@@ -130,6 +140,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Create the column definition for a generated, computed column type.
+	 * 为生成的、计算的列类型创建列定义。
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return void
@@ -178,6 +189,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Get all of the commands with a given name.
+	 * 获取具有给定名称的所有命令
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  string  $name
@@ -206,6 +218,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Wrap a table in keyword identifiers.
+	 * 用关键字标识符包装表
      *
      * @param  mixed  $table
      * @return string
@@ -219,6 +232,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Wrap a value in keyword identifiers.
+	 * 将值包装在关键字标识符中
      *
      * @param  \Illuminate\Database\Query\Expression|string  $value
      * @param  bool  $prefixAlias
@@ -250,6 +264,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Create an empty Doctrine DBAL TableDiff from the Blueprint.
+	 * 从蓝图中创建一个空的Doctrine DBAL TableDiff
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Doctrine\DBAL\Schema\AbstractSchemaManager  $schema
@@ -266,6 +281,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Get the fluent commands for the grammar.
+	 * 获得流利的语法命令
      *
      * @return array
      */
@@ -276,6 +292,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Check if this Grammar supports schema changes wrapped in a transaction.
+	 * 检查此语法是否支持封装在事务中的模式更改
      *
      * @return bool
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译授权
+ * Illuminate，视图，编译器，关注点，编译授权
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -57,6 +57,7 @@ trait CompilesAuthorizations
 
     /**
      * Compile the else-cannot statements into valid PHP.
+	 * 将else-cannot语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -89,6 +90,7 @@ trait CompilesAuthorizations
 
     /**
      * Compile the end-cannot statements into valid PHP.
+	 * 将end-cannot语句编译成有效的PHP
      *
      * @return string
      */

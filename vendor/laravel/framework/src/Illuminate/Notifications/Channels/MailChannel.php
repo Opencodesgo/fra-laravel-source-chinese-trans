@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，通知，通道，电子邮件通道
+ */
 
 namespace Illuminate\Notifications\Channels;
 
@@ -14,6 +17,7 @@ class MailChannel
 {
     /**
      * The mailer implementation.
+	 * 邮件收发机实现
      *
      * @var \Illuminate\Contracts\Mail\Factory
      */
@@ -21,6 +25,7 @@ class MailChannel
 
     /**
      * The markdown implementation.
+	 * markdown实现
      *
      * @var \Illuminate\Mail\Markdown
      */
@@ -28,6 +33,7 @@ class MailChannel
 
     /**
      * Create a new mail channel instance.
+	 * 创建一个邮件通道实例
      *
      * @param  \Illuminate\Contracts\Mail\Factory  $mailer
      * @param  \Illuminate\Mail\Markdown  $markdown
@@ -41,6 +47,7 @@ class MailChannel
 
     /**
      * Send the given notification.
+	 * 发送给定的通知
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -68,6 +75,7 @@ class MailChannel
 
     /**
      * Get the mailer Closure for the message.
+	 * 获取邮件的邮件闭包
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -83,6 +91,7 @@ class MailChannel
 
     /**
      * Build the notification's view.
+	 * 构建通知视图
      *
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message
      * @return string|array
@@ -123,6 +132,7 @@ class MailChannel
 
     /**
      * Build the mail message.
+	 * 构建邮件消息
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  mixed  $notifiable
@@ -149,6 +159,7 @@ class MailChannel
 
     /**
      * Address the mail message.
+	 * 邮件消息的地址
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  mixed  $notifiable
@@ -197,6 +208,7 @@ class MailChannel
 
     /**
      * Get the recipients of the given message.
+	 * 获取给定消息的收件人
      *
      * @param  mixed  $notifiable
      * @param  \Illuminate\Notifications\Notification  $notification
@@ -218,6 +230,7 @@ class MailChannel
 
     /**
      * Add the attachments to the message.
+	 * 向邮件添加附件
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message
@@ -236,6 +249,7 @@ class MailChannel
 
     /**
      * Run the callbacks for the message.
+	 * 运行消息的回调
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message

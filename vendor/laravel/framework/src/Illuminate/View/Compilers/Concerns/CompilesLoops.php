@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，编译器，编译循环
+ * Illuminate，视图，编译器，关注点，编译循环
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -17,6 +17,7 @@ trait CompilesLoops
 
     /**
      * Compile the for-else statements into valid PHP.
+	 * 将for-else语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -40,6 +41,7 @@ trait CompilesLoops
 
     /**
      * Compile the for-else-empty and empty statements into valid PHP.
+	 * 将for-else-empty和empty语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -57,6 +59,7 @@ trait CompilesLoops
 
     /**
      * Compile the end-for-else statements into valid PHP.
+	 * 将end-for-else语句编译成有效的PHP
      *
      * @return string
      */
@@ -67,6 +70,7 @@ trait CompilesLoops
 
     /**
      * Compile the end-empty statements into valid PHP.
+	 * 将end-empty语句编译成有效的PHP
      *
      * @return string
      */
@@ -77,6 +81,7 @@ trait CompilesLoops
 
     /**
      * Compile the for statements into valid PHP.
+	 * 将for语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -88,6 +93,7 @@ trait CompilesLoops
 
     /**
      * Compile the for-each statements into valid PHP.
+	 * 将for-each语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -109,6 +115,7 @@ trait CompilesLoops
 
     /**
      * Compile the break statements into valid PHP.
+	 * 将break语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -126,6 +133,7 @@ trait CompilesLoops
 
     /**
      * Compile the continue statements into valid PHP.
+	 * 将continue语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -143,6 +151,7 @@ trait CompilesLoops
 
     /**
      * Compile the end-for statements into valid PHP.
+	 * 将end-for语句编译成有效的PHP
      *
      * @return string
      */
@@ -153,6 +162,7 @@ trait CompilesLoops
 
     /**
      * Compile the end-for-each statements into valid PHP.
+	 * 将end-for-each语句编译成有效的PHP
      *
      * @return string
      */

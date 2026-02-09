@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，认证，访问，授权异常
+ */
 
 namespace Illuminate\Auth\Access;
 
@@ -9,6 +12,7 @@ class AuthorizationException extends Exception
 {
     /**
      * The response from the gate.
+	 * 从大门的响应
      *
      * @var \Illuminate\Auth\Access\Response
      */
@@ -16,6 +20,7 @@ class AuthorizationException extends Exception
 
     /**
      * Create a new authorization exception instance.
+	 * 创建新的授权异常实例
      *
      * @param  string|null  $message
      * @param  mixed  $code
@@ -31,6 +36,7 @@ class AuthorizationException extends Exception
 
     /**
      * Get the response from the gate.
+	 * 得到大门的回应
      *
      * @return \Illuminate\Auth\Access\Response
      */
@@ -41,6 +47,7 @@ class AuthorizationException extends Exception
 
     /**
      * Set the response from the gate.
+	 * 设置大门的响应
      *
      * @param  \Illuminate\Auth\Access\Response  $response
      * @return $this
@@ -54,6 +61,7 @@ class AuthorizationException extends Exception
 
     /**
      * Create a deny response object from this exception.
+	 * 从此异常创建一个拒绝响应对象
      *
      * @return \Illuminate\Auth\Access\Response
      */

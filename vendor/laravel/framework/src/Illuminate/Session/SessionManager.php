@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Session会话，会话管理器
+ */
 
 namespace Illuminate\Session;
 
@@ -8,6 +11,7 @@ class SessionManager extends Manager
 {
     /**
      * Call a custom driver creator.
+	 * 调用自定义驱动创建者
      *
      * @param  string  $driver
      * @return mixed
@@ -244,6 +248,7 @@ class SessionManager extends Manager
 
     /**
      * Set the default session driver name.
+	 * 设置默认的会话驱动程序名称
      *
      * @param  string  $name
      * @return void

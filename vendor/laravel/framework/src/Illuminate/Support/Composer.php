@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，Composer
+ */
 
 namespace Illuminate\Support;
 
@@ -10,6 +13,7 @@ class Composer
 {
     /**
      * The filesystem instance.
+	 * 文件系统实例
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -24,6 +28,7 @@ class Composer
 
     /**
      * Create a new Composer manager instance.
+	 * 创建新的Composer管理器实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @param  string|null  $workingPath
@@ -76,6 +81,7 @@ class Composer
 
     /**
      * Get the PHP binary.
+	 * 得到PHP类
      *
      * @return string
      */
@@ -97,6 +103,7 @@ class Composer
 
     /**
      * Set the working path used by the class.
+	 * 设置类使用的工作路径
      *
      * @param  string  $path
      * @return $this

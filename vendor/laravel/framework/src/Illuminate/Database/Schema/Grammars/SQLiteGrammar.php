@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，SQLite语法
+ */
 
 namespace Illuminate\Database\Schema\Grammars;
 
@@ -13,6 +16,7 @@ class SQLiteGrammar extends Grammar
 {
     /**
      * The possible column modifiers.
+	 * 可能的列修饰符
      *
      * @var array
      */
@@ -20,6 +24,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * The columns available as serials.
+	 * 作为序列可用的列
      *
      * @var array
      */
@@ -851,6 +856,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Get the SQL for an auto-increment column modifier.
+	 * 获取用于自动增量列修饰符的SQL
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  \Illuminate\Support\Fluent  $column

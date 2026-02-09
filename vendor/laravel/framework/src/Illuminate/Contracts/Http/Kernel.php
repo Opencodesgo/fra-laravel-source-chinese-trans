@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，契约，Http，内核
+ * Illuminate，契约，Http，Kernel内核
  */
 
 namespace Illuminate\Contracts\Http;

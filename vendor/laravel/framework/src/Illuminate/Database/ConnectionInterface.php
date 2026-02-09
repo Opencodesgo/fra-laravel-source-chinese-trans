@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，连接接口
+ * Illuminate，数据库，连接接口
  */
 
 namespace Illuminate\Database;
@@ -11,6 +11,7 @@ interface ConnectionInterface
 {
     /**
      * Begin a fluent query against a database table.
+	 * 开始对数据库表进行流畅的查询
      *
      * @param  \Closure|\Illuminate\Database\Query\Builder|string  $table
      * @param  string|null  $as
@@ -20,6 +21,7 @@ interface ConnectionInterface
 
     /**
      * Get a new raw query expression.
+	 * 获取一个新的原始查询表达式
      *
      * @param  mixed  $value
      * @return \Illuminate\Database\Query\Expression
@@ -28,6 +30,7 @@ interface ConnectionInterface
 
     /**
      * Run a select statement and return a single result.
+	 * 运行select语句并返回单个结果
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -38,6 +41,7 @@ interface ConnectionInterface
 
     /**
      * Run a select statement against the database.
+	 * 对数据库运行select语句
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -48,6 +52,7 @@ interface ConnectionInterface
 
     /**
      * Run a select statement against the database and returns a generator.
+	 * 在数据库中运行select语句并返回一个生成器
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -58,6 +63,7 @@ interface ConnectionInterface
 
     /**
      * Run an insert statement against the database.
+	 * 在数据库中运行一个插入语句
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -67,6 +73,7 @@ interface ConnectionInterface
 
     /**
      * Run an update statement against the database.
+	 * 对数据库运行一个更新语句
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -119,6 +126,7 @@ interface ConnectionInterface
 
     /**
      * Execute a Closure within a transaction.
+	 * 在事务中执行关闭
      *
      * @param  \Closure  $callback
      * @param  int  $attempts
@@ -130,6 +138,7 @@ interface ConnectionInterface
 
     /**
      * Start a new database transaction.
+	 * 启动一个新的数据库事务
      *
      * @return void
      */
@@ -137,6 +146,7 @@ interface ConnectionInterface
 
     /**
      * Commit the active database transaction.
+	 * 提交活动的数据库事务
      *
      * @return void
      */
@@ -144,6 +154,7 @@ interface ConnectionInterface
 
     /**
      * Rollback the active database transaction.
+	 * 回滚活动数据库事务
      *
      * @return void
      */
@@ -151,6 +162,7 @@ interface ConnectionInterface
 
     /**
      * Get the number of active transactions.
+	 * 获取活动事务的数量
      *
      * @return int
      */
@@ -158,6 +170,7 @@ interface ConnectionInterface
 
     /**
      * Execute the given callback in "dry run" mode.
+	 * 在"dry run"模式中执行给定的回调
      *
      * @param  \Closure  $callback
      * @return array

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，支持，数组
+ */
 
 use Illuminate\Contracts\Support\DeferringDisplayableValue;
 use Illuminate\Contracts\Support\Htmlable;

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，Eloquent，关系，属于许多人
+ */
 
 namespace Illuminate\Database\Eloquent\Relations;
 
@@ -16,6 +19,7 @@ class BelongsToMany extends Relation
 
     /**
      * The intermediate table for the relation.
+	 * 关系的中间表
      *
      * @var string
      */
@@ -23,6 +27,7 @@ class BelongsToMany extends Relation
 
     /**
      * The foreign key of the parent model.
+	 * 父模型的外键
      *
      * @var string
      */
@@ -30,6 +35,7 @@ class BelongsToMany extends Relation
 
     /**
      * The associated key of the relation.
+	 * 关系的相关关键
      *
      * @var string
      */
@@ -37,6 +43,7 @@ class BelongsToMany extends Relation
 
     /**
      * The key name of the parent model.
+	 * 父模型的关键名称
      *
      * @var string
      */
@@ -44,6 +51,7 @@ class BelongsToMany extends Relation
 
     /**
      * The key name of the related model.
+	 * 相关模型的关键名称
      *
      * @var string
      */
@@ -51,6 +59,7 @@ class BelongsToMany extends Relation
 
     /**
      * The "name" of the relationship.
+	 * 关系的"名称"
      *
      * @var string
      */
@@ -58,6 +67,7 @@ class BelongsToMany extends Relation
 
     /**
      * The pivot table columns to retrieve.
+	 * 要检索的主表列
      *
      * @var array
      */
@@ -86,6 +96,7 @@ class BelongsToMany extends Relation
 
     /**
      * The default values for the pivot columns.
+	 * 主列的默认值
      *
      * @var array
      */
@@ -93,6 +104,7 @@ class BelongsToMany extends Relation
 
     /**
      * Indicates if timestamps are available on the pivot table.
+	 * 指示在主表上有时间戳
      *
      * @var bool
      */
@@ -100,6 +112,7 @@ class BelongsToMany extends Relation
 
     /**
      * The custom pivot table column for the created_at timestamp.
+	 * 为created_at timestamp的自定义主表列
      *
      * @var string
      */
@@ -128,6 +141,7 @@ class BelongsToMany extends Relation
 
     /**
      * The count of self joins.
+	 * The count of self joins.
      *
      * @var int
      */
@@ -135,6 +149,7 @@ class BelongsToMany extends Relation
 
     /**
      * Create a new belongs to many relationship instance.
+	 * 创建一个新的属于许多关系实例
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -161,6 +176,7 @@ class BelongsToMany extends Relation
 
     /**
      * Attempt to resolve the intermediate table name from the given string.
+	 * 尝试从给定的字符串解析中间的表名
      *
      * @param  string  $table
      * @return string
@@ -186,6 +202,7 @@ class BelongsToMany extends Relation
 
     /**
      * Set the base constraints on the relation query.
+	 * 设置关系查询的基本约束
      *
      * @return void
      */
@@ -252,6 +269,7 @@ class BelongsToMany extends Relation
 
     /**
      * Initialize the relation on a set of models.
+	 * 初始化一组模型的关系
      *
      * @param  array  $models
      * @param  string  $relation
@@ -268,6 +286,7 @@ class BelongsToMany extends Relation
 
     /**
      * Match the eagerly loaded results to their parents.
+	 * 把急切的结果与他们的父母相匹配
      *
      * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
@@ -294,6 +313,7 @@ class BelongsToMany extends Relation
 
     /**
      * Build model dictionary keyed by the relation's foreign key.
+	 * 建立模型字典,由关系的外键键
      *
      * @param  \Illuminate\Database\Eloquent\Collection  $results
      * @return array
@@ -314,6 +334,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the class being used for pivot models.
+	 * 使类被用于pivot模型
      *
      * @return string
      */
@@ -324,6 +345,7 @@ class BelongsToMany extends Relation
 
     /**
      * Specify the custom pivot model to use for the relationship.
+	 * 指定用于关系的自定义主模型
      *
      * @param  string  $class
      * @return $this
@@ -337,6 +359,7 @@ class BelongsToMany extends Relation
 
     /**
      * Specify the custom pivot accessor to use for the relationship.
+	 * 指定自定义的主访问器或用于关系
      *
      * @param  string  $accessor
      * @return $this
@@ -350,6 +373,7 @@ class BelongsToMany extends Relation
 
     /**
      * Set a where clause for a pivot table column.
+	 * 为主表列设置where子句
      *
      * @param  string  $column
      * @param  mixed  $operator
@@ -366,6 +390,7 @@ class BelongsToMany extends Relation
 
     /**
      * Set a "where between" clause for a pivot table column.
+	 * 为主表列设置"where…"子句
      *
      * @param  string  $column
      * @param  array  $values
@@ -446,6 +471,7 @@ class BelongsToMany extends Relation
 
     /**
      * Set a where clause for a pivot table column.
+	 * 为主表列设置where子句
      *
      * In addition, new pivot records will receive this value.
      *
@@ -633,6 +659,7 @@ class BelongsToMany extends Relation
 
     /**
      * Find a related model by its primary key.
+	 * 通过主键找到相关模型
      *
      * @param  mixed  $id
      * @param  array  $columns
@@ -724,6 +751,7 @@ class BelongsToMany extends Relation
 
     /**
      * Execute the query and get the first result or throw an exception.
+	 * 执行查询并获得第一个结果或抛出异常
      *
      * @param  array  $columns
      * @return \Illuminate\Database\Eloquent\Model|static
@@ -833,6 +861,7 @@ class BelongsToMany extends Relation
 
     /**
      * Paginate the given query into a simple paginator.
+	 * 将给定的查询分页成一个简单的分页器
      *
      * @param  int|null  $perPage
      * @param  array  $columns
@@ -851,6 +880,7 @@ class BelongsToMany extends Relation
 
     /**
      * Chunk the results of the query.
+	 * 删除查询的结果
      *
      * @param  int  $count
      * @param  callable  $callback
@@ -869,6 +899,7 @@ class BelongsToMany extends Relation
 
     /**
      * Chunk the results of a query by comparing numeric IDs.
+	 * 通过比较数字id来将查询的结果块
      *
      * @param  int  $count
      * @param  callable  $callback
@@ -913,6 +944,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get a lazy collection for the given query.
+	 * 为给定的查询获取一个懒惰的集合
      *
      * @return \Illuminate\Support\LazyCollection
      */
@@ -971,6 +1003,7 @@ class BelongsToMany extends Relation
 
     /**
      * If we're touching the parent model, touch.
+	 * 如果我们接触到父模型,触摸
      *
      * @return void
      */
@@ -987,6 +1020,7 @@ class BelongsToMany extends Relation
 
     /**
      * Determine if we should touch the parent on sync.
+	 * 确定我们是否应该在同步上触摸父器
      *
      * @return bool
      */
@@ -1097,6 +1131,7 @@ class BelongsToMany extends Relation
 
     /**
      * Create an array of new instances of the related models.
+	 * 创建相关模型的新实例数组
      *
      * @param  iterable  $records
      * @param  array  $joinings
@@ -1117,6 +1152,7 @@ class BelongsToMany extends Relation
 
     /**
      * Add the constraints for a relationship query.
+	 * 添加关系查询的约束
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -1136,6 +1172,7 @@ class BelongsToMany extends Relation
 
     /**
      * Add the constraints for a relationship query on the same table.
+	 * 在同一个表中添加关系查询的约束
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -1157,6 +1194,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the key for comparing against the parent key in "has" query.
+	 * 在"有"查询中获取与父键的比较键
      *
      * @return string
      */
@@ -1167,6 +1205,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get a relationship join table hash.
+	 * 让关系加入表哈希
      *
      * @return string
      */
@@ -1177,6 +1216,7 @@ class BelongsToMany extends Relation
 
     /**
      * Specify that the pivot table has creation and update timestamps.
+	 * 指定主表创建和更新时间戳
      *
      * @param  mixed  $createdAt
      * @param  mixed  $updatedAt
@@ -1194,6 +1234,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the name of the "created at" column.
+	 * 获取"创建在"列的名称
      *
      * @return string
      */
@@ -1214,6 +1255,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the foreign key for the relation.
+	 * 获取关系的外键
      *
      * @return string
      */
@@ -1224,6 +1266,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the fully qualified foreign key for the relation.
+	 * 获得完全合格的外键密钥
      *
      * @return string
      */
@@ -1234,6 +1277,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the "related key" for the relation.
+	 * 获取相关的"相关键"
      *
      * @return string
      */
@@ -1254,6 +1298,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the parent key for the relationship.
+	 * 获取关系的父键
      *
      * @return string
      */
@@ -1264,6 +1309,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the fully qualified parent key name for the relation.
+	 * 获得相关的完全合格的父键名称
      *
      * @return string
      */
@@ -1274,6 +1320,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the related key for the relationship.
+	 * 获取相关的关键关系
      *
      * @return string
      */
@@ -1284,6 +1331,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the intermediate table for the relationship.
+	 * 得到关系的中间表
      *
      * @return string
      */
@@ -1294,6 +1342,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the relationship name for the relationship.
+	 * 获得关系的关系名称
      *
      * @return string
      */
@@ -1304,6 +1353,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the name of the pivot accessor for this relationship.
+	 * 获取该关系的主访问器的名称
      *
      * @return string
      */
@@ -1314,6 +1364,7 @@ class BelongsToMany extends Relation
 
     /**
      * Get the pivot columns for this relationship.
+	 * 得到这段关系的主列
      *
      * @return array
      */

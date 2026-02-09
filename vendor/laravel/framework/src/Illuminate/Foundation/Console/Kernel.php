@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，内核
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -21,6 +24,7 @@ class Kernel implements KernelContract
 {
     /**
      * The application implementation.
+	 * 应用实现
      *
      * @var \Illuminate\Contracts\Foundation\Application
      */
@@ -28,6 +32,7 @@ class Kernel implements KernelContract
 
     /**
      * The event dispatcher implementation.
+	 * 事件分派器实现
      *
      * @var \Illuminate\Contracts\Events\Dispatcher
      */
@@ -56,6 +61,7 @@ class Kernel implements KernelContract
 
     /**
      * The bootstrap classes for the application.
+	 * 应用的引导类
      *
      * @var array
      */
@@ -116,6 +122,7 @@ class Kernel implements KernelContract
 
     /**
      * Run the console application.
+	 * 运行控制台应用
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface|null  $output
@@ -321,6 +328,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the Artisan application instance.
+	 * 获取Artisan应用程序实例
      *
      * @return \Illuminate\Console\Application
      */
@@ -368,6 +376,7 @@ class Kernel implements KernelContract
 
     /**
      * Render the given exception.
+	 * 呈现给定异常
      *
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @param  \Throwable  $e

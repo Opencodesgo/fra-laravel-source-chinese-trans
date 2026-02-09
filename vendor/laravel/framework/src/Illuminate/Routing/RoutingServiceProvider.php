@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，路由，路由服务提供者
+ */
 
 namespace Illuminate\Routing;
 
@@ -18,6 +21,7 @@ class RoutingServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -34,6 +38,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register the router instance.
+	 * 注册路由器实例
      *
      * @return void
      */
@@ -46,6 +51,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register the URL generator service.
+	 * 注册URL生成器服务
      *
      * @return void
      */
@@ -57,6 +63,8 @@ class RoutingServiceProvider extends ServiceProvider
             // The URL generator needs the route collection that exists on the router.
             // Keep in mind this is an object, so we're passing by references here
             // and all the registered routes will be available to the generator.
+			// URL生成器需要路由器上存在的路由集合。
+			// 记住这是一个对象，所以我们在这里传递引用。
             $app->instance('routes', $routes);
 
             return new UrlGenerator(
@@ -70,6 +78,8 @@ class RoutingServiceProvider extends ServiceProvider
             // Next we will set a few service resolvers on the URL generator so it can
             // get the information it needs to function. This just provides some of
             // the convenience features to this URL generator like "signed" URLs.
+			// 接下来，我们将在URL生成器上设置一些服务解析器，以便它可以获取运行所需的信息。
+			// 这只是提供了这个URL生成器的一些便利特性，比如"签名"URL。
             $url->setSessionResolver(function () {
                 return $this->app['session'] ?? null;
             });
@@ -81,6 +91,8 @@ class RoutingServiceProvider extends ServiceProvider
             // If the route collection is "rebound", for example, when the routes stay
             // cached for the application, we will need to rebind the routes on the
             // URL generator instance so it has the latest version of the routes.
+			// 如果路由采集是"反弹"，例如，当路由保留缓存时，
+			// 我们需要重新绑定路由器生成实例，以便他有最新版本的路由。
             $app->rebinding('routes', function ($app, $routes) {
                 $app['url']->setRoutes($routes);
             });
@@ -91,6 +103,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Get the URL generator request rebinder.
+	 * 获取URL生成器请求重新绑定器
      *
      * @return \Closure
      */
@@ -103,6 +116,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register the Redirector service.
+	 * 注册重定向服务
      *
      * @return void
      */
@@ -114,6 +128,8 @@ class RoutingServiceProvider extends ServiceProvider
             // If the session is set on the application instance, we'll inject it into
             // the redirector instance. This allows the redirect responses to allow
             // for the quite convenient "with" methods that flash to the session.
+			// 如果会话设置在应用实例上，我们将把它注入重定向实例。
+			// 这允许重定向响应对于非常方便的"with"方法。
             if (isset($app['session.store'])) {
                 $redirector->setSession($app['session.store']);
             }
@@ -124,6 +140,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register a binding for the PSR-7 request implementation.
+	 * 为PSR-7请求实现注册绑定
      *
      * @return void
      */
@@ -143,6 +160,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register a binding for the PSR-7 response implementation.
+	 * 为PSR-7响应实现注册绑定
      *
      * @return void
      */
@@ -159,6 +177,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register the response factory implementation.
+	 * 注册响应工厂实现
      *
      * @return void
      */
@@ -171,6 +190,7 @@ class RoutingServiceProvider extends ServiceProvider
 
     /**
      * Register the controller dispatcher.
+	 * 注册控制器调度器
      *
      * @return void
      */

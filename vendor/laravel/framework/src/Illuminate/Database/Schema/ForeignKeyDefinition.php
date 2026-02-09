@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，语法，外键定义
+ */
 
 namespace Illuminate\Database\Schema;
 
@@ -16,6 +19,7 @@ class ForeignKeyDefinition extends Fluent
 {
     /**
      * Indicate that updates should cascade.
+	 * 指示更新应该级联
      *
      * @return $this
      */
@@ -26,6 +30,7 @@ class ForeignKeyDefinition extends Fluent
 
     /**
      * Indicate that deletes should cascade.
+	 * 表明删除应该是级联
      *
      * @return $this
      */
@@ -36,6 +41,7 @@ class ForeignKeyDefinition extends Fluent
 
     /**
      * Indicate that deletes should set the foreign key value to null.
+	 * 指示删除应该将外键值设置为空
      *
      * @return $this
      */

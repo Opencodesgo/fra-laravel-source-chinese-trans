@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，storage:link命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -10,6 +13,7 @@ class StorageLinkCommand extends Command
 {
     /**
      * The console command signature.
+	 * 控制台命令签名
      *
      * @var string
      */
@@ -17,6 +21,7 @@ class StorageLinkCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令描述
      *
      * @var string
      */
@@ -24,6 +29,7 @@ class StorageLinkCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行控制台命令
      *
      * @return void
      */
@@ -48,6 +54,7 @@ class StorageLinkCommand extends Command
 
     /**
      * Get the symbolic links that are configured for the application.
+	 * 获取为应用程序配置的符号链接
      *
      * @return array
      */
@@ -59,6 +66,7 @@ class StorageLinkCommand extends Command
 
     /**
      * Get the relative path to the target.
+	 * 获取到目标的相对路径
      *
      * @param  string  $link
      * @param  string  $target

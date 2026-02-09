@@ -13,6 +13,7 @@ use Throwable;
 
 /**
  * This extended pipeline catches any exceptions that occur during each slice.
+ * 这个扩展管道捕获每个切片期间发生的任何异常。
  *
  * The exceptions are converted to HTTP responses for proper middleware handling.
  */
@@ -20,6 +21,7 @@ class Pipeline extends BasePipeline
 {
     /**
      * Handles the value returned from each pipe before passing it to the next.
+	 * 处理从每个管道返回的值，然后将其传递给下一个管道。
      *
      * @param  mixed  $carry
      * @return mixed
@@ -33,6 +35,7 @@ class Pipeline extends BasePipeline
 
     /**
      * Handle the given exception.
+	 * 处理给定的异常
      *
      * @param  mixed  $passable
      * @param  \Throwable  $e

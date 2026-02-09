@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，异常，处理程序
+ */
 
 namespace Illuminate\Foundation\Exceptions;
 

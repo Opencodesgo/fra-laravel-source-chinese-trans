@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，连接器，Postgres连接器
+ */
 
 namespace Illuminate\Database\Connectors;
 
@@ -8,6 +11,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 {
     /**
      * The default PDO connection options.
+	 * 默认PDO连接器选项
      *
      * @var array
      */
@@ -20,6 +24,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Establish a database connection.
+	 * 建立数据库连接
      *
      * @param  array  $config
      * @return \PDO
@@ -54,6 +59,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Set the connection character set and collation.
+	 * 设置连接字符集和排序规则
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -70,6 +76,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Set the timezone on the connection.
+	 * 设置连接的时区
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -86,6 +93,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Set the schema on the connection.
+	 * 设置连接模式
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -102,6 +110,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Format the schema for the DSN.
+	 * 为DSN格式化模式
      *
      * @param  array|string  $schema
      * @return string
@@ -117,6 +126,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Set the schema on the connection.
+	 * 在连接上设置模式
      *
      * @param  \PDO  $connection
      * @param  array  $config
@@ -133,6 +143,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Create a DSN string from a configuration.
+	 * 从配置中创建DSN字符串
      *
      * @param  array  $config
      * @return string
@@ -160,6 +171,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Add the SSL options to the DSN.
+	 * 将SSL选项添加到DSN
      *
      * @param  string  $dsn
      * @param  array  $config
@@ -178,6 +190,7 @@ class PostgresConnector extends Connector implements ConnectorInterface
 
     /**
      * Configure the synchronous_commit setting.
+	 * 配置synchronous_commit设置
      *
      * @param  \PDO  $connection
      * @param  array  $config

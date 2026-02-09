@@ -1,6 +1,6 @@
 <?php
 /**
- * 视图，关注点，管理组件
+ * Illuminate，视图，关注点，管理组件
  */
 
 namespace Illuminate\View\Concerns;

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，调度，指令构建器
+ */
 
 namespace Illuminate\Console\Scheduling;
 
@@ -9,6 +12,7 @@ class CommandBuilder
 {
     /**
      * Build the command for the given event.
+	 * 为给定事件构建命令
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @return string
@@ -24,6 +28,7 @@ class CommandBuilder
 
     /**
      * Build the command for running the event in the foreground.
+	 * 构建用于在前台运行事件的命令
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @return string
@@ -39,6 +44,7 @@ class CommandBuilder
 
     /**
      * Build the command for running the event in the background.
+	 * 构建用于在后台运行事件的命令
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @return string
@@ -63,6 +69,7 @@ class CommandBuilder
 
     /**
      * Finalize the event's command syntax with the correct user.
+	 * 使用正确的用户确定事件的命令语法
      *
      * @param  \Illuminate\Console\Scheduling\Event  $event
      * @param  string  $command

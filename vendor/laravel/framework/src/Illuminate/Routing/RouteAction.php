@@ -15,6 +15,7 @@ class RouteAction
 {
     /**
      * Parse the given action into an array.
+	 * 解析给定动作为数组
      *
      * @param  string  $uri
      * @param  mixed  $action
@@ -25,6 +26,8 @@ class RouteAction
         // If no action is passed in right away, we assume the user will make use of
         // fluent routing. In that case, we set a default closure, to be executed
         // if the user never explicitly sets an action to handle the given uri.
+		// 如果没有立即传入操作，我们假定用户将使用流利的路由。
+		// 因此，我们设置了要执行的默认闭包。
         if (is_null($action)) {
             return static::missingAction($uri);
         }
@@ -55,6 +58,7 @@ class RouteAction
 
     /**
      * Get an action for a route that has no action.
+	 * 为没有动作的路由获取一个动作
      *
      * @param  string  $uri
      * @return array
@@ -70,6 +74,7 @@ class RouteAction
 
     /**
      * Find the callable in an action array.
+	 * 在动作数组中查找可调用对象
      *
      * @param  array  $action
      * @return callable
@@ -83,6 +88,7 @@ class RouteAction
 
     /**
      * Make an action for an invokable controller.
+	 * 为可调用控制器创建一个动作
      *
      * @param  string  $action
      * @return string

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，会话，控制台，创建会话表，需要根据实际修改
+ */
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -8,6 +11,7 @@ class CreateSessionsTable extends Migration
 {
     /**
      * Run the migrations.
+	 * 运行迁移
      *
      * @return void
      */
@@ -25,6 +29,7 @@ class CreateSessionsTable extends Migration
 
     /**
      * Reverse the migrations.
+	 * 反转迁移
      *
      * @return void
      */

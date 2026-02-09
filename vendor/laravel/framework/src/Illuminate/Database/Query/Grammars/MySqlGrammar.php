@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，数据库，查询，语法，MySql语法
+ */
 
 namespace Illuminate\Database\Query\Grammars;
 
@@ -9,6 +12,7 @@ class MySqlGrammar extends Grammar
 {
     /**
      * The grammar specific operators.
+	 * 语法特定的操作符
      *
      * @var array
      */
@@ -16,6 +20,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Add a "where null" clause to the query.
+	 * 在查询中添加一个"where null"子句
      *
      * @param  string|array  $columns
      * @param  string  $boolean
@@ -53,6 +58,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile an insert ignore statement into SQL.
+	 * 将插入忽略语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -94,6 +100,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile the random statement into SQL.
+	 * 将随机语句编译成SQL
      *
      * @param  string  $seed
      * @return string
@@ -105,6 +112,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile the lock into SQL.
+	 * 编译锁至SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  bool|string  $value
@@ -201,6 +209,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Prepare the bindings for an update statement.
+	 * 为更新语句准备绑定
      *
      * Booleans, integers, and doubles are inserted into JSON updates as raw values.
      *
@@ -258,6 +267,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Wrap the given JSON selector.
+	 * 包装给定的JSON选择器
      *
      * @param  string  $value
      * @return string
@@ -271,6 +281,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Wrap the given JSON selector for boolean values.
+	 * 将给定的JSON选择器包装为布尔值
      *
      * @param  string  $value
      * @return string

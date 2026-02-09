@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，视图，视图
+ */
 
 namespace Illuminate\Contracts\View;
 
@@ -8,6 +11,7 @@ interface View extends Renderable
 {
     /**
      * Get the name of the view.
+	 * 获取视图的名称
      *
      * @return string
      */
@@ -15,6 +19,7 @@ interface View extends Renderable
 
     /**
      * Add a piece of data to the view.
+	 * 向视图添加一段数据
      *
      * @param  string|array  $key
      * @param  mixed  $value
@@ -24,6 +29,7 @@ interface View extends Renderable
 
     /**
      * Get the array of view data.
+	 * 获取视图数据数组
      *
      * @return array
      */

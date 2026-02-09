@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，邮件，电子邮件服务提供者
+ */
 
 namespace Illuminate\Mail;
 
@@ -9,6 +12,7 @@ class MailServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -20,6 +24,7 @@ class MailServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Illuminate mailer instance.
+	 * 注册点高邮件实例
      *
      * @return void
      */
@@ -36,6 +41,7 @@ class MailServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Markdown renderer instance.
+	 * 注册Markdown渲染器实例
      *
      * @return void
      */
@@ -59,6 +65,7 @@ class MailServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Get the services provided by the provider.
+	 * 得到提供者提供的服务
      *
      * @return array
      */

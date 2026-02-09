@@ -19,6 +19,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Begin creating a new file fake.
+	 * 开始创建一个新的文件fake
      *
      * @return \Illuminate\Http\Testing\FileFactory
      */
@@ -29,6 +30,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Store the uploaded file on a filesystem disk.
+	 * 将上传的文件存储在文件系统磁盘上
      *
      * @param  string  $path
      * @param  array|string  $options
@@ -41,6 +43,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Store the uploaded file on a filesystem disk with public visibility.
+	 * 将上传的文件存储在具有公共可见性的文件系统磁盘上
      *
      * @param  string  $path
      * @param  array|string  $options
@@ -57,6 +60,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Store the uploaded file on a filesystem disk with public visibility.
+	 * 将上传的文件存储在具有公共可见性的文件系统磁盘上
      *
      * @param  string  $path
      * @param  string  $name
@@ -74,6 +78,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Store the uploaded file on a filesystem disk.
+	 * 将上传的文件存储在文件系统磁盘上
      *
      * @param  string  $path
      * @param  string  $name
@@ -93,6 +98,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Get the contents of the uploaded file.
+	 * 获取上传文件的内容
      *
      * @return bool|string
      *
@@ -109,6 +115,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Get the file's extension supplied by the client.
+	 * 获取客户端提供的文件扩展名
      *
      * @return string
      */
@@ -119,6 +126,7 @@ class UploadedFile extends SymfonyUploadedFile
 
     /**
      * Create a new file instance from a base instance.
+	 * 从基本实例创建新的文件实例
      *
      * @param  \Symfony\Component\HttpFoundation\File\UploadedFile  $file
      * @param  bool  $test

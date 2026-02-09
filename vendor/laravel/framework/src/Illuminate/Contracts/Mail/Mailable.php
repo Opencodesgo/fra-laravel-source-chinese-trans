@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，契约，邮件，可邮寄的
+ */
 
 namespace Illuminate\Contracts\Mail;
 
@@ -8,6 +11,7 @@ interface Mailable
 {
     /**
      * Send the message using the given mailer.
+	 * 使用给定的邮件发送器发送消息
      *
      * @param  \Illuminate\Contracts\Mail\Factory|\Illuminate\Contracts\Mail\Mailer  $mailer
      * @return void
@@ -16,6 +20,7 @@ interface Mailable
 
     /**
      * Queue the given message.
+	 * 将给定的消息排队
      *
      * @param  \Illuminate\Contracts\Queue\Factory  $queue
      * @return mixed
@@ -24,6 +29,7 @@ interface Mailable
 
     /**
      * Deliver the queued message after the given delay.
+	 * 在给定的延迟之后交付排队消息
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  \Illuminate\Contracts\Queue\Factory  $queue
@@ -33,6 +39,7 @@ interface Mailable
 
     /**
      * Set the recipients of the message.
+	 * 设置邮件的收件人
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -42,6 +49,7 @@ interface Mailable
 
     /**
      * Set the recipients of the message.
+	 * 设置邮件的收件人
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -51,6 +59,7 @@ interface Mailable
 
     /**
      * Set the recipients of the message.
+	 * 设置邮件的收件人
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -60,6 +69,7 @@ interface Mailable
 
     /**
      * Set the locale of the message.
+	 * 设置消息的区域设置
      *
      * @param  string  $locale
      * @return $this
@@ -68,6 +78,7 @@ interface Mailable
 
     /**
      * Set the name of the mailer that should be used to send the message.
+	 * 设置应用于发送邮件的邮件器的名称
      *
      * @param  string  $mailer
      * @return $this

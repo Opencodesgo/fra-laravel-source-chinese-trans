@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，容器，上下文绑定构建器
+ */
 
 namespace Illuminate\Container;
 
@@ -9,6 +12,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 {
     /**
      * The underlying container instance.
+	 * 底层容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -16,6 +20,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 
     /**
      * The concrete instance.
+	 * 具体实例
      *
      * @var string|array
      */
@@ -23,6 +28,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 
     /**
      * The abstract target.
+	 * 抽象目标
      *
      * @var string
      */
@@ -30,6 +36,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 
     /**
      * Create a new contextual binding builder.
+	 * 创建一个新的上下文绑定构建器
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @param  string|array  $concrete
@@ -43,6 +50,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 
     /**
      * Define the abstract target that depends on the context.
+	 * 定义依赖于上下文的抽象目标
      *
      * @param  string  $abstract
      * @return $this
@@ -56,6 +64,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 
     /**
      * Define the implementation for the contextual binding.
+	 * 定义上下文绑定的实现
      *
      * @param  \Closure|string|array  $implementation
      * @return void
@@ -69,6 +78,7 @@ class ContextualBindingBuilder implements ContextualBindingBuilderContract
 
     /**
      * Define tagged services to be used as the implementation for the contextual binding.
+	 * 定义标记的服务，用作上下文绑定的实现。
      *
      * @param  string  $tag
      * @return void

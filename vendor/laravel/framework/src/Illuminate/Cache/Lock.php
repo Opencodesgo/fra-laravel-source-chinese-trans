@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，缓存，锁
+ */
 
 namespace Illuminate\Cache;
 
@@ -13,6 +16,7 @@ abstract class Lock implements LockContract
 
     /**
      * The name of the lock.
+	 * 锁的名称
      *
      * @var string
      */
@@ -20,6 +24,7 @@ abstract class Lock implements LockContract
 
     /**
      * The number of seconds the lock should be maintained.
+	 * 应该维护锁的秒数
      *
      * @var int
      */
@@ -27,6 +32,7 @@ abstract class Lock implements LockContract
 
     /**
      * The scope identifier of this lock.
+	 * 此锁的作用域标识符
      *
      * @var string
      */
@@ -34,6 +40,7 @@ abstract class Lock implements LockContract
 
     /**
      * The number of milliseconds to wait before re-attempting to acquire a lock while blocking.
+	 * 在阻塞时重新尝试获取锁之前等待的毫秒数
      *
      * @var int
      */
@@ -41,6 +48,7 @@ abstract class Lock implements LockContract
 
     /**
      * Create a new lock instance.
+	 * 创建新的锁实例
      *
      * @param  string  $name
      * @param  int  $seconds
@@ -60,6 +68,7 @@ abstract class Lock implements LockContract
 
     /**
      * Attempt to acquire the lock.
+	 * 尝试获取锁
      *
      * @return bool
      */
@@ -67,6 +76,7 @@ abstract class Lock implements LockContract
 
     /**
      * Release the lock.
+	 * 释放锁
      *
      * @return bool
      */
@@ -74,6 +84,7 @@ abstract class Lock implements LockContract
 
     /**
      * Returns the owner value written into the driver for this lock.
+	 * 返回写入此锁的驱动程序的所有者值
      *
      * @return string
      */
@@ -81,6 +92,7 @@ abstract class Lock implements LockContract
 
     /**
      * Attempt to acquire the lock.
+	 * 尝试获取锁
      *
      * @param  callable|null  $callback
      * @return mixed
@@ -102,6 +114,7 @@ abstract class Lock implements LockContract
 
     /**
      * Attempt to acquire the lock for the given number of seconds.
+	 * 尝试在给定的秒数内获取锁
      *
      * @param  int  $seconds
      * @param  callable|null  $callback
@@ -134,6 +147,7 @@ abstract class Lock implements LockContract
 
     /**
      * Returns the current owner of the lock.
+	 * 返回锁的当前所有者
      *
      * @return string
      */
@@ -144,6 +158,7 @@ abstract class Lock implements LockContract
 
     /**
      * Determines whether this lock is allowed to release the lock in the driver.
+	 * 确定是否允许此锁释放驱动程序中的锁
      *
      * @return bool
      */
@@ -154,6 +169,7 @@ abstract class Lock implements LockContract
 
     /**
      * Specify the number of milliseconds to sleep in between blocked lock aquisition attempts.
+	 * 指定被阻塞的锁获取尝试之间的睡眠毫秒数
      *
      * @param  int  $milliseconds
      * @return $this

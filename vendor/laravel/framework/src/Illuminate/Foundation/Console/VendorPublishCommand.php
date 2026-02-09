@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，供应商发布命令
+ */
 
 namespace Illuminate\Foundation\Console;
 
@@ -14,6 +17,7 @@ class VendorPublishCommand extends Command
 {
     /**
      * The filesystem instance.
+	 * 文件系统实例 
      *
      * @var \Illuminate\Filesystem\Filesystem
      */
@@ -21,6 +25,7 @@ class VendorPublishCommand extends Command
 
     /**
      * The provider to publish.
+	 * 要发布的提供者
      *
      * @var string
      */
@@ -28,6 +33,7 @@ class VendorPublishCommand extends Command
 
     /**
      * The tags to publish.
+	 * 要发布的标签
      *
      * @var array
      */
@@ -35,6 +41,7 @@ class VendorPublishCommand extends Command
 
     /**
      * The console command signature.
+	 * 控制台命令签名
      *
      * @var string
      */
@@ -45,6 +52,7 @@ class VendorPublishCommand extends Command
 
     /**
      * The console command description.
+	 * 控制台命令名称
      *
      * @var string
      */
@@ -52,6 +60,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Create a new command instance.
+	 * 创建一个新的命令实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @return void
@@ -65,6 +74,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Execute the console command.
+	 * 执行console命令
      *
      * @return void
      */
@@ -120,6 +130,7 @@ class VendorPublishCommand extends Command
 
     /**
      * The choices available via the prompt.
+	 * 通过提示符提供的选项
      *
      * @return array
      */
@@ -134,6 +145,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Parse the answer that was given via the prompt.
+	 * 解析通过提示给出的答案
      *
      * @param  string  $choice
      * @return void
@@ -151,6 +163,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Publishes the assets for a tag.
+	 * 发布标记的资产
      *
      * @param  string  $tag
      * @return mixed
@@ -172,6 +185,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Get all of the paths to publish.
+	 * 获取所有要发布的路径
      *
      * @param  string  $tag
      * @return array
@@ -253,6 +267,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Create the directory to house the published files if needed.
+	 * 如果需要，创建目录来存放发布的文件。
      *
      * @param  string  $directory
      * @return void
@@ -266,6 +281,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Write a status message to the console.
+	 * 向控制台写入状态消息
      *
      * @param  string  $from
      * @param  string  $to

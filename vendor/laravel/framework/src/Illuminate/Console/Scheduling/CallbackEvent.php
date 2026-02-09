@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，控制台，调度，回调事件
+ */
 
 namespace Illuminate\Console\Scheduling;
 
@@ -11,6 +14,7 @@ class CallbackEvent extends Event
 {
     /**
      * The callback to call.
+	 * 要调用的回调
      *
      * @var string
      */
@@ -18,6 +22,7 @@ class CallbackEvent extends Event
 
     /**
      * The parameters to pass to the method.
+	 * 传递给方法的参数
      *
      * @var array
      */
@@ -25,6 +30,7 @@ class CallbackEvent extends Event
 
     /**
      * Create a new event instance.
+	 * 创建新的事件实例
      *
      * @param  \Illuminate\Console\Scheduling\EventMutex  $mutex
      * @param  string  $callback
@@ -50,6 +56,7 @@ class CallbackEvent extends Event
 
     /**
      * Run the given event.
+	 * 运行给定的事件
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return mixed
@@ -88,6 +95,7 @@ class CallbackEvent extends Event
 
     /**
      * Clear the mutex for the event.
+	 * 清除事件的互斥锁
      *
      * @return void
      */
@@ -100,6 +108,7 @@ class CallbackEvent extends Event
 
     /**
      * Do not allow the event to overlap each other.
+	 * 不要让事件相互重叠
      *
      * @param  int  $expiresAt
      * @return $this
@@ -125,6 +134,7 @@ class CallbackEvent extends Event
 
     /**
      * Allow the event to only run on one server for each cron expression.
+	 * 允许事件只在每个cron表达式上运行一个服务器
      *
      * @return $this
      *
@@ -145,6 +155,7 @@ class CallbackEvent extends Event
 
     /**
      * Get the mutex name for the scheduled command.
+	 * 获取计划命令的互斥对象名称
      *
      * @return string
      */
@@ -155,6 +166,7 @@ class CallbackEvent extends Event
 
     /**
      * Get the summary of the event for display.
+	 * 获取要显示的事件摘要
      *
      * @return string
      */

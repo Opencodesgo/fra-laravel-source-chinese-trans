@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，Session会话，空会话处理程序
+ */
 
 namespace Illuminate\Session;
 

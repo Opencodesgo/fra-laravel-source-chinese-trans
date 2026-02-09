@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，队列，压缩，管理器
+ */
 
 namespace Illuminate\Queue\Capsule;
 
@@ -17,6 +20,7 @@ class Manager
 
     /**
      * The queue manager instance.
+	 * 队列管理器实例
      *
      * @var \Illuminate\Queue\QueueManager
      */
@@ -24,6 +28,7 @@ class Manager
 
     /**
      * Create a new queue capsule manager.
+	 * 创建新的队列压缩管理器
      *
      * @param  \Illuminate\Container\Container|null  $container
      * @return void
@@ -35,6 +40,7 @@ class Manager
         // Once we have the container setup, we will setup the default configuration
         // options in the container "config" bindings. This just makes this queue
         // manager behave correctly since all the correct binding are in place.
+		// 容器设置完成后，我们将设置默认配置容器"config"绑定中的选项。
         $this->setupDefaultConfiguration();
 
         $this->setupManager();
@@ -44,6 +50,7 @@ class Manager
 
     /**
      * Setup the default queue configuration options.
+	 * 设置默认队列配置选项
      *
      * @return void
      */
@@ -54,6 +61,7 @@ class Manager
 
     /**
      * Build the queue manager instance.
+	 * 构建队列管理器实例
      *
      * @return void
      */
@@ -64,6 +72,7 @@ class Manager
 
     /**
      * Register the default connectors that the component ships with.
+	 * 注册组件附带的默认连接器
      *
      * @return void
      */
@@ -76,6 +85,7 @@ class Manager
 
     /**
      * Get a connection instance from the global manager.
+	 * 从全局管理器获取连接实例
      *
      * @param  string|null  $connection
      * @return \Illuminate\Contracts\Queue\Queue
@@ -87,6 +97,7 @@ class Manager
 
     /**
      * Push a new job onto the queue.
+	 * 将新作业推送到队列中
      *
      * @param  string  $job
      * @param  mixed  $data
@@ -101,6 +112,7 @@ class Manager
 
     /**
      * Push a new an array of jobs onto the queue.
+	 * 将一个新的作业数组推入队列
      *
      * @param  array  $jobs
      * @param  mixed  $data
@@ -115,6 +127,7 @@ class Manager
 
     /**
      * Push a new job onto the queue after a delay.
+	 * 在延迟后将新作业推入队列
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string  $job
@@ -130,6 +143,7 @@ class Manager
 
     /**
      * Get a registered connection instance.
+	 * 获取已注册的连接实例
      *
      * @param  string|null  $name
      * @return \Illuminate\Contracts\Queue\Queue
@@ -141,6 +155,7 @@ class Manager
 
     /**
      * Register a connection with the manager.
+	 * 注册与管理器的连接
      *
      * @param  array  $config
      * @param  string  $name
@@ -153,6 +168,7 @@ class Manager
 
     /**
      * Get the queue manager instance.
+	 * 获取队列管理器实例
      *
      * @return \Illuminate\Queue\QueueManager
      */
@@ -163,6 +179,7 @@ class Manager
 
     /**
      * Pass dynamic instance methods to the manager.
+	 * 将动态实例方法传递给管理器
      *
      * @param  string  $method
      * @param  array  $parameters
@@ -175,6 +192,7 @@ class Manager
 
     /**
      * Dynamically pass methods to the default connection.
+	 * 动态地将方法传递给默认连接
      *
      * @param  string  $method
      * @param  array  $parameters

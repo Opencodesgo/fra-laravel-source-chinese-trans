@@ -1,6 +1,6 @@
 <?php
 /**
- * 数据库，连接
+ * Illuminate，数据库，连接解析器接口
  */
 
 namespace Illuminate\Database;
@@ -9,6 +9,7 @@ interface ConnectionResolverInterface
 {
     /**
      * Get a database connection instance.
+	 * 获取数据库连接实例
      *
      * @param  string|null  $name
      * @return \Illuminate\Database\ConnectionInterface
@@ -17,6 +18,7 @@ interface ConnectionResolverInterface
 
     /**
      * Get the default connection name.
+	 * 获取默认连接名称
      *
      * @return string
      */
@@ -24,6 +26,7 @@ interface ConnectionResolverInterface
 
     /**
      * Set the default connection name.
+	 * 设置默认连接名称
      *
      * @param  string  $name
      * @return void

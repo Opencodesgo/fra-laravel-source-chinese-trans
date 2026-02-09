@@ -11,6 +11,7 @@ class MiddlewareNameResolver
 {
     /**
      * Resolve the middleware name to a class name(s) preserving passed parameters.
+	 * 将中间件名称解析为保留传递参数的类名
      *
      * @param  \Closure|string  $name
      * @param  array  $map
@@ -22,6 +23,8 @@ class MiddlewareNameResolver
         // When the middleware is simply a Closure, we will return this Closure instance
         // directly so that Closures can be registered as middleware inline, which is
         // convenient on occasions when the developers are experimenting with them.
+		// 当中间件只是一个Closure时，我们将直接返回这个Closure实例。
+		// 将闭包注册为内联中间件，即在开发人员进行实验的时候很方便。
         if ($name instanceof Closure) {
             return $name;
         }
@@ -33,6 +36,7 @@ class MiddlewareNameResolver
         // If the middleware is the name of a middleware group, we will return the array
         // of middlewares that belong to the group. This allows developers to group a
         // set of middleware under single keys that can be conveniently referenced.
+		// 如果中间件是中间件组的名称，我们将返回属于组的数组。
         if (isset($middlewareGroups[$name])) {
             return static::parseMiddlewareGroup($name, $map, $middlewareGroups);
         }
@@ -47,6 +51,7 @@ class MiddlewareNameResolver
 
     /**
      * Parse the middleware group and format it for usage.
+	 * 解析中间件组并对其进行格式化以供使用
      *
      * @param  string  $name
      * @param  array  $map
