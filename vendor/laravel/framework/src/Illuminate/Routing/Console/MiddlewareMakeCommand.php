@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，路由，控制台，中间件Make命令
+ * Illuminate，路由，控制台，make:middleware 中间件制造命令
  */
 
 namespace Illuminate\Routing\Console;

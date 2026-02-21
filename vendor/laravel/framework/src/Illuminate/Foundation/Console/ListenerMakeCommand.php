@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:listener命令
+ * Illuminate，基础，控制台，make:listener 命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -29,6 +29,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成的类的类型
      *
      * @var string
      */
@@ -36,6 +37,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
     /**
      * Build the class with the given name.
+	 * 用给定的名称构建类
      *
      * @param  string  $name
      * @return string
@@ -63,6 +65,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -81,6 +84,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
     /**
      * Determine if the class already exists.
+	 * 确定类是否已经存在
      *
      * @param  string  $rawName
      * @return bool
@@ -92,6 +96,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -103,6 +108,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
+	 * 获取控制台命令选项
      *
      * @return array
      */

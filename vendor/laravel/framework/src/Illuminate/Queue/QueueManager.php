@@ -26,6 +26,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * The array of resolved queue connections.
+	 * 已解析队列连接的数组
      *
      * @var array
      */
@@ -33,6 +34,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * The array of resolved queue connectors.
+	 * 已解析队列连接器的数组
      *
      * @var array
      */
@@ -40,6 +42,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Create a new queue manager instance.
+	 * 创建一个新的队列管理器实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @return void
@@ -51,6 +54,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the before job event.
+	 * 为before作业事件注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -62,6 +66,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the after job event.
+	 * 为after job事件注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -73,6 +78,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the exception occurred job event.
+	 * 为异常发生的作业事件注册事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -84,6 +90,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the daemon queue loop.
+	 * 为守护进程队列循环注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -95,6 +102,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the failed job event.
+	 * 为失败的作业事件注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -106,6 +114,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Register an event listener for the daemon queue stopping.
+	 * 为守护进程队列停止注册一个事件侦听器
      *
      * @param  mixed  $callback
      * @return void
@@ -117,6 +126,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Determine if the driver is connected.
+	 * 确定驱动程序是否已连接
      *
      * @param  string|null  $name
      * @return bool
@@ -128,6 +138,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Resolve a queue connection instance.
+	 * 解析队列连接实例
      *
      * @param  string|null  $name
      * @return \Illuminate\Contracts\Queue\Queue
@@ -139,6 +150,7 @@ class QueueManager implements FactoryContract, MonitorContract
         // If the connection has not been resolved yet we will resolve it now as all
         // of the connections are resolved when they are actually needed so we do
         // not make any unnecessary connection to the various queue end-points.
+		// 如果连接尚未解决，我们现在将解决它。
         if (! isset($this->connections[$name])) {
             $this->connections[$name] = $this->resolve($name);
 
@@ -150,6 +162,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Resolve a queue connection.
+	 * 解析队列连接
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Queue\Queue
@@ -165,6 +178,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Get the connector for a given driver.
+	 * 获取给定驱动程序的连接器
      *
      * @param  string  $driver
      * @return \Illuminate\Queue\Connectors\ConnectorInterface
@@ -182,6 +196,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Add a queue connection resolver.
+	 * 添加队列连接解析器
      *
      * @param  string  $driver
      * @param  \Closure  $resolver
@@ -194,6 +209,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Add a queue connection resolver.
+	 * 添加队列连接解析器
      *
      * @param  string  $driver
      * @param  \Closure  $resolver
@@ -206,6 +222,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Get the queue connection configuration.
+	 * 获取队列连接配置
      *
      * @param  string  $name
      * @return array
@@ -221,6 +238,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Get the name of the default queue connection.
+	 * 获取默认队列连接的名称
      *
      * @return string
      */
@@ -231,6 +249,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Set the name of the default queue connection.
+	 * 设置默认队列连接的名称
      *
      * @param  string  $name
      * @return void
@@ -242,6 +261,7 @@ class QueueManager implements FactoryContract, MonitorContract
 
     /**
      * Get the full name for the given connection.
+	 * 获取给定连接的全名
      *
      * @param  string|null  $connection
      * @return string

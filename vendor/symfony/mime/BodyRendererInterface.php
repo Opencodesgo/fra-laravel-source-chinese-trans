@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime，主体渲染器接口
+ */
+
 /*
  * This file is part of the Symfony package.
  *

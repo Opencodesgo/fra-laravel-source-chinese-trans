@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，格式化，输出格式化程序样式接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\Console\Formatter;
 
 /**
  * Formatter style interface for defining styles.
+ * 用于定义样式的格式化程序样式接口
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */

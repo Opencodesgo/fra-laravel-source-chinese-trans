@@ -11,7 +11,7 @@
 | The first thing we will do is create a new Laravel application instance
 | which serves as the "glue" for all the components of Laravel, and is
 | the IoC container for the system binding all of the various parts.
-| 第一步我们将创建新的应用实例作为所有组件的"胶合"，
+| 第一步我们将创建新的应用实例作为所有组件的"粘合剂"，
 | 并用于绑定所有不同部分的系统的IoC容器。
 |
 */
@@ -33,16 +33,19 @@ $app = new Illuminate\Foundation\Application(
 |
 */
 
+// 绑定Kernel内核
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
 );
 
+// 绑定控制台Kernel内核
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
     App\Console\Kernel::class
 );
 
+// 绑定异常处理
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class

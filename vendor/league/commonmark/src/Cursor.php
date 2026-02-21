@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，游标
+ */
 
 declare(strict_types=1);
 
@@ -94,6 +97,7 @@ class Cursor
 
     /**
      * Returns the position of the next character which is not a space (or tab)
+	 * 返回下一个非空格(或制表符)字符的位置
      *
      * @return int
      */

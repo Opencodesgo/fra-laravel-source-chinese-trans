@@ -1,4 +1,7 @@
 <?php
+/**
+ * 配置，CORS 跨域资源共享
+ */
 
 return [
 
@@ -10,6 +13,7 @@ return [
     | Here you may configure your settings for cross-origin resource sharing
     | or "CORS". This determines what cross-origin operations may execute
     | in web browsers. You are free to adjust these settings as needed.
+	| 这里你可以配置cross-origin。
     |
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |

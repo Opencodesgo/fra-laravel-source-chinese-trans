@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，刷新数据库
+ */
 
 namespace Illuminate\Foundation\Testing;
 
@@ -8,6 +11,7 @@ trait RefreshDatabase
 {
     /**
      * Define hooks to migrate the database before and after each test.
+	 * 定义钩子在每次测试前后迁移数据库
      *
      * @return void
      */
@@ -20,6 +24,7 @@ trait RefreshDatabase
 
     /**
      * Determine if an in-memory database is being used.
+	 * 确定是否正在使用内存中的数据库
      *
      * @return bool
      */
@@ -32,6 +37,7 @@ trait RefreshDatabase
 
     /**
      * Refresh the in-memory database.
+	 * 刷新内存中的数据库
      *
      * @return void
      */
@@ -44,6 +50,7 @@ trait RefreshDatabase
 
     /**
      * The parameters that should be used when running "migrate".
+	 * 运行"migrate"时应该使用的参数
      *
      * @return array
      */
@@ -54,6 +61,7 @@ trait RefreshDatabase
 
     /**
      * Refresh a conventional test database.
+	 * 刷新常规测试数据库
      *
      * @return void
      */
@@ -72,6 +80,7 @@ trait RefreshDatabase
 
     /**
      * The parameters that should be used when running "migrate:fresh".
+	 * 运行"migrate:fresh"时应该使用的参数
      *
      * @return array
      */
@@ -85,6 +94,7 @@ trait RefreshDatabase
 
     /**
      * Begin a database transaction on the testing database.
+	 * 在测试数据库上启动数据库事务
      *
      * @return void
      */
@@ -116,6 +126,7 @@ trait RefreshDatabase
 
     /**
      * The database connections that should have transactions.
+	 * 应该有事务的数据库连接
      *
      * @return array
      */
@@ -127,6 +138,7 @@ trait RefreshDatabase
 
     /**
      * Determine if views should be dropped when refreshing the database.
+	 * 在刷新数据库时,确定是否应该删除视图
      *
      * @return bool
      */
@@ -138,6 +150,7 @@ trait RefreshDatabase
 
     /**
      * Determine if types should be dropped when refreshing the database.
+	 * 确定在刷新数据库时是否应该删除类型
      *
      * @return bool
      */

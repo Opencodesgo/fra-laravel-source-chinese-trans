@@ -67,6 +67,7 @@ abstract class Facade
 
     /**
      * Initiate a partial mock on the facade.
+	 * 在facade上初始化部分模拟
      *
      * @return \Mockery\MockInterface
      */
@@ -83,6 +84,7 @@ abstract class Facade
 
     /**
      * Initiate a mock expectation on the facade.
+	 * 在facade上初始化一个模拟期望
      *
      * @return \Mockery\Expectation
      */
@@ -99,6 +101,7 @@ abstract class Facade
 
     /**
      * Create a fresh mock instance for the given class.
+	 * 为给定的类创建一个新的模拟实例
      *
      * @return \Mockery\MockInterface
      */
@@ -126,6 +129,7 @@ abstract class Facade
 
     /**
      * Determines whether a mock is set as the instance of the facade.
+	 * 确定是否将模拟设置为facade的实例
      *
      * @return bool
      */
@@ -152,6 +156,7 @@ abstract class Facade
 
     /**
      * Hotswap the underlying instance behind the facade.
+	 * 热换facade后面的底层实例
      *
      * @param  mixed  $instance
      * @return void
@@ -167,6 +172,7 @@ abstract class Facade
 
     /**
      * Get the root object behind the facade.
+	 * 获取facade后面的根对象
      *
      * @return mixed
      */
@@ -177,6 +183,7 @@ abstract class Facade
 
     /**
      * Get the registered name of the component.
+	 * 获取组件的注册名称
      *
      * @return string
      *
@@ -189,6 +196,7 @@ abstract class Facade
 
     /**
      * Resolve the facade root instance from the container.
+	 * 从容器中解析facade根实例
      *
      * @param  object|string  $name
      * @return mixed

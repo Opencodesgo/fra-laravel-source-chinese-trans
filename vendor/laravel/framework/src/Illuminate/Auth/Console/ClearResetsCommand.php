@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，认证，控制台，清除复位命令
+ * Illuminate，认证，控制台，auth:clear-resets 清除复位命令
  */
 
 namespace Illuminate\Auth\Console;
@@ -23,7 +23,7 @@ class ClearResetsCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Flush expired password reset tokens';
+    protected $description = 'Flush expired password reset tokens';		#清除过期的密码重置令牌
 
     /**
      * Execute the console command.

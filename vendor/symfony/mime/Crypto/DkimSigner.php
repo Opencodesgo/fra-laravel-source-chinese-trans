@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Mime，加密，Dkim 签名者
+ */
 
 /*
  * This file is part of the Symfony package.

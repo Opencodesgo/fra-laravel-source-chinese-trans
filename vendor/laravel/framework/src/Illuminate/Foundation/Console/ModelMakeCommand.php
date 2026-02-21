@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:model命令
+ * Illuminate，基础，控制台，make:model 模型生成命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -29,6 +29,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 *生成的类的类型
      *
      * @var string
      */
@@ -73,6 +74,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Create a model factory for the model.
+	 * 为模型创建一个模型工厂
      *
      * @return void
      */
@@ -88,6 +90,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Create a migration file for the model.
+	 * 为模型创建一个迁移文件
      *
      * @return void
      */
@@ -107,6 +110,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Create a seeder file for the model.
+	 * 为模型创建一个种子文件
      *
      * @return void
      */
@@ -121,6 +125,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Create a controller for the model.
+	 * 为模型创建一个控制器
      *
      * @return void
      */
@@ -139,6 +144,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -151,6 +157,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Resolve the fully-qualified path to the stub.
+	 * 解析到存根的全限定路径
      *
      * @param  string  $stub
      * @return string
@@ -164,6 +171,7 @@ class ModelMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
+	 * 获取控制台命令选项
      *
      * @return array
      */

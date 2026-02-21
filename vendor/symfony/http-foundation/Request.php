@@ -1,11 +1,10 @@
 <?php
 /**
- * Symfony，http基础，请求
+ * Symfony，Component，HttpFoundation，请求
  */
 
 /*
  * This file is part of the Symfony package.
- * 该文件是Symfony包的一部分
  *
  * (c) Fabien Potencier <fabien@symfony.com>
  *
@@ -33,6 +32,7 @@ class_exists(ServerBag::class);
 
 /**
  * Request represents an HTTP request.
+ * Request表示HTTP请求
  *
  * The methods dealing with URL accept / return a raw path (% encoded):
  *   * getBasePath
@@ -88,6 +88,7 @@ class Request
 
     /**
      * Custom parameters.
+	 * 自定义参数
      *
      * @var ParameterBag
      */
@@ -95,6 +96,7 @@ class Request
 
     /**
      * Request body parameters ($_POST).
+	 * 请求主体参数($_POST)
      *
      * @var InputBag
      */
@@ -102,6 +104,7 @@ class Request
 
     /**
      * Query string parameters ($_GET).
+	 * 查询字符串参数($_GET)
      *
      * @var InputBag
      */
@@ -109,6 +112,7 @@ class Request
 
     /**
      * Server and execution environment parameters ($_SERVER).
+	 * 服务器和执行环境参数($_SERVER)
      *
      * @var ServerBag
      */
@@ -236,6 +240,7 @@ class Request
     /**
      * Names for headers that can be trusted when
      * using trusted proxies.
+	 * 可信任的标头名称当使用可信代理。
      *
      * The FORWARDED header is the standard as of rfc7239.
      *
@@ -270,6 +275,7 @@ class Request
 
     /**
      * Sets the parameters for this request.
+	 * 设置此请求的参数
      *
      * This method also re-initializes all properties.
      *
@@ -306,6 +312,7 @@ class Request
 
     /**
      * Creates a new request with values from PHP's super globals.
+	 * 创建一个新请求用PHP的超全局变量
      *
      * @return static
      */
@@ -325,6 +332,7 @@ class Request
 
     /**
      * Creates a Request based on a given URI and configuration.
+	 * 基于给定的URI和配置创建请求
      *
      * The information contained in the URI always take precedence
      * over the other information (server and parameters).
@@ -449,6 +457,7 @@ class Request
 
     /**
      * Sets a callable able to create a Request instance.
+	 * 设置一个可调用对象来创建一个Request实例
      *
      * This is mainly useful when you need to override the Request class
      * to keep BC with an existing system. It should not be used for any
@@ -1196,6 +1205,7 @@ class Request
 
     /**
      * Returns the host name.
+	 * 返回主机名
      *
      * This method can read the client host name from the "X-Forwarded-Host" header
      * when trusted proxies were set via "setTrustedProxies()".
@@ -1260,6 +1270,7 @@ class Request
 
     /**
      * Sets the request method.
+	 * 设置请求方法
      */
     public function setMethod(string $method)
     {

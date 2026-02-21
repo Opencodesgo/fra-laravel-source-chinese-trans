@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，关注点，管理翻译
+ * Illuminate，视图，问题，管理翻译
  */
 
 namespace Illuminate\View\Concerns;
@@ -31,6 +31,7 @@ trait ManagesTranslations
 
     /**
      * Render the current translation.
+	 * 渲染当前的翻译
      *
      * @return string
      */

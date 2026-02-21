@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，查询，语法，SqlServer语法
+ * Illuminate，数据库，查询，语法，Sql Server 语法
  */
 
 namespace Illuminate\Database\Query\Grammars;
@@ -39,6 +39,7 @@ class SqlServerGrammar extends Grammar
         // If an offset is present on the query, we will need to wrap the query in
         // a big "ANSI" offset syntax block. This is very nasty compared to the
         // other database systems but is necessary for implementing features.
+		// 如果查询中存在偏移量，则需要将查询封装在。
         if (is_null($query->columns)) {
             $query->columns = ['*'];
         }
@@ -100,6 +101,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a "where date" clause.
+	 * 编译一个"where date"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -114,6 +116,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a "where time" clause.
+	 * 编写一个"where time"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -143,6 +146,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Prepare the binding for a "JSON contains" statement.
+	 * 为"JSON contains"语句准备绑定
      *
      * @param  mixed  $binding
      * @return string
@@ -154,6 +158,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a "JSON length" statement into SQL.
+	 * 将"JSON长度"语句编译成SQL
      *
      * @param  string  $column
      * @param  string  $operator
@@ -180,6 +185,7 @@ class SqlServerGrammar extends Grammar
         // An ORDER BY clause is required to make this offset query work, so if one does
         // not exist we'll just create a dummy clause to trick the database and so it
         // does not complain about the queries for not having an "order by" clause.
+		// 要使这个偏移量查询工作，需要一个ORDER BY子句，因此不存在，我们将创建一个虚拟子句来欺骗数据库。
         if (empty($components['orders'])) {
             $components['orders'] = 'order by (select 0)';
         }
@@ -187,6 +193,7 @@ class SqlServerGrammar extends Grammar
         // We need to add the row number to the query so we can compare it to the offset
         // and limit values given for the statements. So we will add an expression to
         // the "select" that will give back the row numbers on each of the records.
+		// 我们需要将行号添加到查询中，以便将其与偏移量进行比较。
         $components['columns'] .= $this->compileOver($components['orders']);
 
         unset($components['orders']);
@@ -194,6 +201,7 @@ class SqlServerGrammar extends Grammar
         // Next we need to calculate the constraints that should be placed on the query
         // to get the right offset and limit from our query but if there is no limit
         // set we will just handle the offset only since that is all that matters.
+		// 接下来，我们需要计算应该放在查询上的约束。
         $sql = $this->concatenate($components);
 
         return $this->compileTableExpression($sql, $query);
@@ -228,6 +236,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the limit / offset row constraint for a query.
+	 * 为查询编译限制/偏移行约束
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -247,6 +256,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile a delete statement without joins into SQL.
+	 * 编译一个没有连接的delete语句到SQL中
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -264,6 +274,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the random statement into SQL.
+	 * 将随机语句编译成SQL
      *
      * @param  string  $seed
      * @return string
@@ -275,6 +286,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the "limit" portions of the query.
+	 * 编译查询的"limit"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $limit
@@ -287,6 +299,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the "offset" portions of the query.
+	 * 编译查询的"偏移"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  int  $offset
@@ -312,6 +325,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Wrap a union subquery in parentheses.
+	 * 将联合子查询包装在括号中
      *
      * @param  string  $sql
      * @return string
@@ -387,6 +401,7 @@ class SqlServerGrammar extends Grammar
 
     /**
      * Compile the SQL statement to execute a savepoint rollback.
+	 * 编译SQL语句以执行保存点回滚
      *
      * @param  string  $name
      * @return string

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，记录器通过
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -18,6 +21,7 @@ use Symfony\Component\HttpKernel\Log\Logger;
 
 /**
  * Registers the default logger if necessary.
+ * 必要时注册默认日志记录器
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */

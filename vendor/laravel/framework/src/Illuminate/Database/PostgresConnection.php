@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，Postgres连接
+ * Illuminate，数据库，Postgres 连接
  */
 
 namespace Illuminate\Database;

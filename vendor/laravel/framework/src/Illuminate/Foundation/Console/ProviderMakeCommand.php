@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:provider命令
+ * Illuminate，基础，控制台，make:provider 提供者生成命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -27,6 +27,7 @@ class ProviderMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 获取控制台命令选项
      *
      * @var string
      */
@@ -34,6 +35,7 @@ class ProviderMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取控制台命令选项
      *
      * @return string
      */

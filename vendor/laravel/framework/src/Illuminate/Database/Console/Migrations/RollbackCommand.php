@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，工作台，迁移，回滚命令
+ * Illuminate，数据库，工作台，迁移，migrate:rollback 回滚命令
  */
 
 namespace Illuminate\Database\Console\Migrations;

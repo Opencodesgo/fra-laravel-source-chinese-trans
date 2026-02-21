@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:channel命令
+ * Illuminate，基础，控制台，make:channel 生成通道命令
  */
 
 namespace Illuminate\Foundation\Console;

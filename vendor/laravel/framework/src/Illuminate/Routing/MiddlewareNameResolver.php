@@ -44,6 +44,7 @@ class MiddlewareNameResolver
         // Finally, when the middleware is simply a string mapped to a class name the
         // middleware name will get parsed into the full class name and parameters
         // which may be run using the Pipeline which accepts this string format.
+		// 最后，当中间件只是一个映射到类名的字符串时中间件名称将被解析为完整的类名称和参数。
         [$name, $parameters] = array_pad(explode(':', $name, 2), 2, null);
 
         return ($map[$name] ?? $name).(! is_null($parameters) ? ':'.$parameters : '');
@@ -66,6 +67,7 @@ class MiddlewareNameResolver
             // If the middleware is another middleware group we will pull in the group and
             // merge its middleware into the results. This allows groups to conveniently
             // reference other groups without needing to repeat all their middlewares.
+			// 如果中间件是另一个中间件组，我们将拉入组并将其中间件合并到结果中。
             if (isset($middlewareGroups[$middleware])) {
                 $results = array_merge($results, static::parseMiddlewareGroup(
                     $middleware, $map, $middlewareGroups
@@ -81,6 +83,7 @@ class MiddlewareNameResolver
             // If this middleware is actually a route middleware, we will extract the full
             // class name out of the middleware list now. Then we'll add the parameters
             // back onto this class' name so the pipeline will properly extract them.
+			// 如果这个中间件实际上是一个路由中间件，我们将提取完整的类名现在从中间件列表中删除。
             if (isset($map[$middleware])) {
                 $middleware = $map[$middleware];
             }

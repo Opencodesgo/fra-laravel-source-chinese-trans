@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，工作台，迁移，刷新命令
+ * Illuminate，数据库，工作台，迁移，migrate:refresh 刷新命令
  */
 
 namespace Illuminate\Database\Console\Migrations;
@@ -52,6 +52,7 @@ class RefreshCommand extends Command
         // If the "step" option is specified it means we only want to rollback a small
         // number of migrations before migrating again. For example, the user might
         // only rollback and remigrate the latest four migrations instead of all.
+		// 如果指定了"step"选项，则表示我们只想回滚一个小的再次迁移前的迁移次数。
         $step = $this->input->getOption('step') ?: 0;
 
         if ($step > 0) {

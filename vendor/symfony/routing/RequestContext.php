@@ -2,6 +2,7 @@
 
 /*
  * This file is part of the Symfony package.
+ * 该文件是Symfony包的一部分
  *
  * (c) Fabien Potencier <fabien@symfony.com>
  *
@@ -15,6 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Holds information about the current request.
+ * 保存有关当前请求的信息。
  *
  * This class implements a fluent interface.
  *

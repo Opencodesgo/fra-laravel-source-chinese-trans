@@ -68,6 +68,7 @@ class AuthenticateSession
 
     /**
      * Store the user's current password hash in the session.
+	 * 将用户的当前密码散列存储在会话中
      *
      * @param  \Illuminate\Http\Request  $request
      * @return void

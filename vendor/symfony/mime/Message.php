@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime，信息
+ */
+
 /*
  * This file is part of the Symfony package.
  *

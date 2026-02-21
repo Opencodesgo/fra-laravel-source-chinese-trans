@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace DummyNamespace;
 
@@ -13,6 +16,7 @@ class DummyClass extends Mailable
 
     /**
      * Create a new message instance.
+	 * 创建一个新的消息实例
      *
      * @return void
      */
@@ -23,6 +27,7 @@ class DummyClass extends Mailable
 
     /**
      * Build the message.
+	 * 构建信息
      *
      * @return $this
      */

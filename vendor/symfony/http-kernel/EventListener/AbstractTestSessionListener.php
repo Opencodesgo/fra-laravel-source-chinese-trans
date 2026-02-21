@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，抽象测试会话监听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -23,6 +26,7 @@ trigger_deprecation('symfony/http-kernel', '5.4', '"%s" is deprecated use "%s" i
 
 /**
  * TestSessionListener.
+ * 抽象测试会话监听器
  *
  * Saves session in test environment.
  *

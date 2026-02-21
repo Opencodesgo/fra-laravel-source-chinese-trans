@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，事件调度器，事件调度
+ */
 
 /*
  * This file is part of the Symfony package.

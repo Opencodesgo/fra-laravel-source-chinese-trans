@@ -1,4 +1,7 @@
 <?php
+/**
+ * TijsVerkoyen，CssToInlineStyles，Css，属性，处理程序
+ */
 
 namespace TijsVerkoyen\CssToInlineStyles\Css\Property;
 

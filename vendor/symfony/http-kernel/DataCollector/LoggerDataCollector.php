@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，数据采集，记录器数据采集器
+ */
 
 /*
  * This file is part of the Symfony package.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，邮件，传输，Mailgun传输
+ * Illuminate，邮件，传输，Mailgun 传输
  */
 
 namespace Illuminate\Mail\Transport;

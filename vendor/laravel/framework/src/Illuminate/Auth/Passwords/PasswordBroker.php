@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，认证，通知，密码代理
+ * Illuminate，认证，密码，密码代理
  */
 
 namespace Illuminate\Auth\Passwords;
@@ -56,7 +56,7 @@ class PasswordBroker implements PasswordBrokerContract
         // First we will check to see if we found a user at the given credentials and
         // if we did not we will redirect back to this current URI with a piece of
         // "flash" data in the session to indicate to the developers the errors.
-		// 首先，我们将检查是否在给定凭据和上找到了用户。
+		// 首先，我们将检查是否在给定凭据上找到了用户。
         $user = $this->getUser($credentials);
 
         if (is_null($user)) {
@@ -70,6 +70,7 @@ class PasswordBroker implements PasswordBrokerContract
         // Once we have the reset token, we are ready to send the message out to this
         // user with a link to reset their password. We will then redirect back to
         // the current URI having nothing set in the session to indicate errors.
+		// 一旦我们有了重置令牌，我们就准备好将消息发送到这个带有重置密码链接的用户。
         $user->sendPasswordResetNotification(
             $this->tokens->create($user)
         );

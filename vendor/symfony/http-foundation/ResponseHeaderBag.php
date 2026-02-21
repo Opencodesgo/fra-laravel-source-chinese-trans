@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，响应头包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * ResponseHeaderBag is a container for Response HTTP headers.
+ * ResponseHeaderBag是HTTP响应头的容器
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -44,6 +48,7 @@ class ResponseHeaderBag extends HeaderBag
 
     /**
      * Returns the headers, with original capitalizations.
+	 * 返回带有原始大写字母的标头
      *
      * @return array
      */
@@ -209,6 +214,7 @@ class ResponseHeaderBag extends HeaderBag
 
     /**
      * Returns an array with all cookies.
+	 * 返回一个包含所有cookie的数组
      *
      * @return Cookie[]
      *

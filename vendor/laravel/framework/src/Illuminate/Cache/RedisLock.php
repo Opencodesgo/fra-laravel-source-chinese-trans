@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，缓存，Redis锁
+ * Illuminate，缓存，Redis 锁
  */
 
 namespace Illuminate\Cache;
@@ -9,7 +9,7 @@ class RedisLock extends Lock
 {
     /**
      * The Redis factory implementation.
-	 * Redis工厂实现
+	 * Redis 工厂实现
      *
      * @var \Illuminate\Redis\Connections\Connection
      */

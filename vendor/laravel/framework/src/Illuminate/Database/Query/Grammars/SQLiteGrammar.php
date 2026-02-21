@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，查询，语法，SQLite语法
+ * Illuminate，数据库，查询，语法，SQLite 语法
  */
 
 namespace Illuminate\Database\Query\Grammars;
@@ -63,6 +63,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "where day" clause.
+	 * 编写一个"where day"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -75,6 +76,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "where month" clause.
+	 * 编写"where month"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -87,6 +89,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "where year" clause.
+	 * 编写一个"where year"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -99,6 +102,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "where time" clause.
+	 * 编写一个"where time"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $where
@@ -127,6 +131,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile a "JSON length" statement into SQL.
+	 * 将"JSON length"语句编译成SQL
      *
      * @param  string  $column
      * @param  string  $operator
@@ -142,6 +147,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile an update statement into SQL.
+	 * 将update语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -158,6 +164,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile an insert ignore statement into SQL.
+	 * 将插入忽略语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -170,6 +177,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile the columns for an update statement.
+	 * 编译更新语句的列
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -225,6 +233,7 @@ class SQLiteGrammar extends Grammar
 
     /**
      * Compile an update statement with joins or limit into SQL.
+	 * 将带有连接或限制的更新语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，属性，属性包接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * Attributes store.
+ * 存储属性
  *
  * @author Drak <drak@zikula.org>
  */
@@ -22,6 +26,7 @@ interface AttributeBagInterface extends SessionBagInterface
 {
     /**
      * Checks if an attribute is defined.
+	 * 检查是否定义了属性
      *
      * @return bool
      */
@@ -29,6 +34,7 @@ interface AttributeBagInterface extends SessionBagInterface
 
     /**
      * Returns an attribute.
+	 * 返回一个属性
      *
      * @param mixed $default The default value if not found
      *
@@ -38,6 +44,7 @@ interface AttributeBagInterface extends SessionBagInterface
 
     /**
      * Sets an attribute.
+	 * 设置属性
      *
      * @param mixed $value
      */
@@ -45,6 +52,7 @@ interface AttributeBagInterface extends SessionBagInterface
 
     /**
      * Returns attributes.
+	 * 返回属性
      *
      * @return array<string, mixed>
      */
@@ -54,6 +62,7 @@ interface AttributeBagInterface extends SessionBagInterface
 
     /**
      * Removes an attribute.
+	 * 移除属性
      *
      * @return mixed The removed value or null when it does not exist
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，广播，广播员，Redis广播
+ * Illuminate，广播，广播员，Redis 广播
  */
 
 namespace Illuminate\Broadcasting\Broadcasters;

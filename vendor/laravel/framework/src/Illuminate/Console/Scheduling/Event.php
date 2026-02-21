@@ -445,6 +445,7 @@ class Event
 
     /**
      * E-mail the results of the scheduled operation.
+	 * 通过电子邮件发送预定操作的结果
      *
      * @param  array|mixed  $addresses
      * @param  bool  $onlyIfOutputExists
@@ -465,6 +466,7 @@ class Event
 
     /**
      * E-mail the results of the scheduled operation if it produces output.
+	 * 如果计划操作产生输出，则通过电子邮件发送该操作的结果。
      *
      * @param  array|mixed  $addresses
      * @return $this
@@ -478,6 +480,7 @@ class Event
 
     /**
      * E-mail the results of the scheduled operation if it fails.
+	 * 如果计划操作失败，则通过电子邮件发送其结果。
      *
      * @param  array|mixed  $addresses
      * @return $this
@@ -508,6 +511,7 @@ class Event
 
     /**
      * E-mail the output of the event to the recipients.
+	 * 将事件的输出通过电子邮件发送给收件人
      *
      * @param  \Illuminate\Contracts\Mail\Mailer  $mailer
      * @param  array  $addresses
@@ -581,6 +585,7 @@ class Event
 
     /**
      * Register a callback to ping a given URL after the job runs if the given condition is true.
+	 * 如果给定的条件为真，则在作业运行后注册一个回调来ping给定的URL。
      *
      * @param  bool  $value
      * @param  string  $url
@@ -635,6 +640,7 @@ class Event
 
     /**
      * State that the command should run in background.
+	 * 声明该命令应该在后台运行
      *
      * @return $this
      */
@@ -647,6 +653,7 @@ class Event
 
     /**
      * Set which user the command should run as.
+	 * 设置命令应该作为哪个用户运行
      *
      * @param  string  $user
      * @return $this
@@ -674,6 +681,7 @@ class Event
 
     /**
      * State that the command should run even in maintenance mode.
+	 * 说明该命令即使在维护模式下也应该运行
      *
      * @return $this
      */
@@ -735,6 +743,7 @@ class Event
 
     /**
      * Register a callback to further filter the schedule.
+	 * 注册回调以进一步筛选计划
      *
      * @param  \Closure|bool  $callback
      * @return $this
@@ -750,6 +759,7 @@ class Event
 
     /**
      * Register a callback to be called before the operation.
+	 * 在操作之前注册一个回调函数
      *
      * @param  \Closure  $callback
      * @return $this
@@ -775,6 +785,7 @@ class Event
 
     /**
      * Register a callback to be called after the operation.
+	 * 注册一个在操作之后调用的回调函数
      *
      * @param  \Closure  $callback
      * @return $this
@@ -834,6 +845,7 @@ class Event
 
     /**
      * Register a callback to be called if the operation fails.
+	 * 注册一个回调函数，以便在操作失败时调用。
      *
      * @param  \Closure  $callback
      * @return $this
@@ -849,6 +861,7 @@ class Event
 
     /**
      * Register a callback that uses the output if the operation fails.
+	 * 注册一个回调函数，在操作失败时使用输出。
      *
      * @param  \Closure  $callback
      * @param  bool  $onlyIfOutputExists

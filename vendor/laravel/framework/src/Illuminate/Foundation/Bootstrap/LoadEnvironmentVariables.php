@@ -110,7 +110,7 @@ class LoadEnvironmentVariables
     {
         $output = (new ConsoleOutput)->getErrorOutput();
 
-        $output->writeln('The environment file is invalid!');
+        $output->writeln('The environment file is invalid!');		#环境文件无效！
         $output->writeln($e->getMessage());
 
         exit(1);

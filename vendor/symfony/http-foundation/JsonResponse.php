@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Json响应
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * Response represents an HTTP response in JSON format.
+ * Response 表示JSON格式的HTTP响应
  *
  * Note that this class does not force the returned JSON content to be an
  * object. It is however recommended that you do return an object as it
@@ -56,6 +60,7 @@ class JsonResponse extends Response
 
     /**
      * Factory method for chainability.
+	 * 可链性的工厂方法
      *
      * Example:
      *
@@ -198,6 +203,7 @@ class JsonResponse extends Response
 
     /**
      * Updates the content and headers according to the JSON data and callback.
+	 * 根据JSON数据和回调更新内容和标头
      *
      * @return $this
      */

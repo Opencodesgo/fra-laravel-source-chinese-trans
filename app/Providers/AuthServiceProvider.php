@@ -22,7 +22,7 @@ class AuthServiceProvider extends ServiceProvider
 
     /**
      * Register any authentication / authorization services.
-	 * 注册任何身份验证服务
+	 * 注册任何身份验证/授权服务
      *
      * @return void
      */

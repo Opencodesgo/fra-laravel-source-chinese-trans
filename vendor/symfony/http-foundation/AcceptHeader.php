@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，接收头
+ */
 
 /*
  * This file is part of the Symfony package.

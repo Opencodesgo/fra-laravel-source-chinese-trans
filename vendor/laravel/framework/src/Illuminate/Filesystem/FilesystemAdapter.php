@@ -265,6 +265,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Store the uploaded file on the disk with a given name.
+	 * 将上传的文件以给定的名称存储在磁盘上
      *
      * @param  string  $path
      * @param  \Illuminate\Http\File|\Illuminate\Http\UploadedFile|string  $file
@@ -340,6 +341,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Append to a file.
+	 * 附加行到一个文件
      *
      * @param  string  $path
      * @param  string  $data
@@ -357,6 +359,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Delete the file at a given path.
+	 * 删除指定路径下的文件
      *
      * @param  string|array  $paths
      * @return bool
@@ -382,6 +385,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Copy a file to a new location.
+	 * 将文件复制到新位置
      *
      * @param  string  $from
      * @param  string  $to
@@ -443,6 +447,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get the URL for the file at the given path.
+	 * 获取给定路径下文件的URL
      *
      * @param  string  $path
      * @return string
@@ -509,6 +514,7 @@ class FilesystemAdapter implements CloudFilesystemContract
         // If an explicit base URL has been set on the disk configuration then we will use
         // it as the base URL instead of the default path. This allows the developer to
         // have full control over the base path for this filesystem's generated URLs.
+		// 如果在磁盘配置上设置了显式的基本URL，那么我们将使用它作为基础URL，而不是默认路径。
         if (! is_null($url = $this->driver->getConfig()->get('url'))) {
             return $this->concatPathToUrl($url, $adapter->getPathPrefix().$path);
         }
@@ -520,6 +526,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get the URL for the file at the given path.
+	 * 获取给定路径下文件的URL
      *
      * @param  string  $path
      * @return string
@@ -547,6 +554,7 @@ class FilesystemAdapter implements CloudFilesystemContract
         // If an explicit base URL has been set on the disk configuration then we will use
         // it as the base URL instead of the default path. This allows the developer to
         // have full control over the base path for this filesystem's generated URLs.
+		// 如果在磁盘配置上设置了显式的基本URL，那么我们将使用它作为基础URL，而不是默认路径。
         if ($config->has('url')) {
             return $this->concatPathToUrl($config->get('url'), $path);
         }
@@ -566,6 +574,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get a temporary URL for the file at the given path.
+	 * 获取给定路径下文件的临时URL
      *
      * @param  string  $path
      * @param  \DateTimeInterface  $expiration
@@ -593,6 +602,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get a temporary URL for the file at the given path.
+	 * 获取给定路径下文件的临时URL
      *
      * @param  \League\Flysystem\AwsS3v3\AwsS3Adapter  $adapter
      * @param  string  $path
@@ -616,6 +626,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Concatenate a path to a URL.
+	 * 将路径连接到URL
      *
      * @param  string  $url
      * @param  string  $path
@@ -628,6 +639,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get an array of all files in a directory.
+	 * 获取目录中所有文件的数组
      *
      * @param  string|null  $directory
      * @param  bool  $recursive
@@ -642,6 +654,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get all of the files from the given directory (recursive).
+	 * 从给定的目录(递归)获取所有文件
      *
      * @param  string|null  $directory
      * @return array
@@ -668,6 +681,7 @@ class FilesystemAdapter implements CloudFilesystemContract
 
     /**
      * Get all (recursive) of the directories within a given directory.
+	 * 获取给定目录中的所有（递归）目录
      *
      * @param  string|null  $directory
      * @return array

@@ -64,6 +64,7 @@ class ServeCommand extends Command
 
     /**
      * Get the full server command.
+	 * 获取完整的服务器命令
      *
      * @return string
      */
@@ -79,6 +80,7 @@ class ServeCommand extends Command
 
     /**
      * Get the host for the command.
+	 * 获取命令的主机
      *
      * @return string
      */

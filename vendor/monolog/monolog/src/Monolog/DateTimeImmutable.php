@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，DateTime 不可变
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -15,6 +19,7 @@ use DateTimeZone;
 
 /**
  * Overrides default json encoding of date time objects
+ * 覆盖日期时间对象的默认json编码
  *
  * @author Menno Holtkamp
  * @author Jordi Boggiano <j.boggiano@seld.be>
@@ -32,6 +37,7 @@ class DateTimeImmutable extends \DateTimeImmutable implements \JsonSerializable
 
         // if you like to use a custom time to pass to Logger::addRecord directly,
         // call modify() or setTimestamp() on this instance to change the date after creating it
+		// 如果你想使用自定义时间直接传递给 Logger::addRecord。
         parent::__construct('now', $timezone);
     }
 

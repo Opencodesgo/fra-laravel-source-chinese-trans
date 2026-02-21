@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，Github风味的Markdown转换器
+ */
 
 /*
  * This file is part of the league/commonmark package.

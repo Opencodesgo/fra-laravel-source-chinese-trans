@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，storage:link命令
+ * Illuminate，基础，控制台，storage:link 存储链路命令
  */
 
 namespace Illuminate\Foundation\Console;

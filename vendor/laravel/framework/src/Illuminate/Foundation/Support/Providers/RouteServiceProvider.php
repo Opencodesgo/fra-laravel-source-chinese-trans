@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，支持，提供者，路由服务提供者
+ */
 
 namespace Illuminate\Foundation\Support\Providers;
 
@@ -16,6 +19,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * The controller namespace for the application.
+	 * 应用程序的控制器名称空间
      *
      * @var string|null
      */
@@ -23,6 +27,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
+	 * 引导任何应用程序服务
      *
      * @return void
      */
@@ -44,6 +49,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Set the root controller namespace for the application.
+	 * 为应用程序设置根控制器名称空间
      *
      * @return void
      */
@@ -56,6 +62,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Determine if the application routes are cached.
+	 * 确定是否缓存了应用程序路由
      *
      * @return bool
      */
@@ -66,6 +73,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Load the cached routes for the application.
+	 * 为应用程序加载缓存的路由
      *
      * @return void
      */
@@ -78,6 +86,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Load the application routes.
+	 * 加载应用程序路由
      *
      * @return void
      */
@@ -90,6 +99,7 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Pass dynamic methods onto the router instance.
+	 * 将动态方法传递到路由器实例
      *
      * @param  string  $method
      * @param  array  $parameters

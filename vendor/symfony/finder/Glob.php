@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，发现者，Glob
+ */
+
 /*
  * This file is part of the Symfony package.
  *

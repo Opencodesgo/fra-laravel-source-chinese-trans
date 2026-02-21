@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Line 格式化器
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -15,6 +19,7 @@ use Monolog\Utils;
 
 /**
  * Formats incoming records into a one-line string
+ * 将传入的记录格式化为一行字符串
  *
  * This is especially useful for logging to files
  *

@@ -199,6 +199,7 @@ class ResponseFactory implements FactoryContract
 
     /**
      * Return the raw contents of a binary file.
+	 * 返回二进制文件的原始内容
      *
      * @param  \SplFileInfo|string  $file
      * @param  array  $headers

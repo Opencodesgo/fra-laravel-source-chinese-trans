@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，数据接口
+ */
 
 /*
  * This file is part of the league/commonmark package.
@@ -13,6 +16,7 @@ namespace League\CommonMark;
 
 /**
  * Interface for a service which converts CommonMark to HTML.
+ * 用于将CommonMark转换为HTML的服务的接口
  *
  * @deprecated ConverterInterface is deprecated since league/commonmark 1.4, use MarkdownConverterInterface instead
  */

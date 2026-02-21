@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，错误处理器
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -16,6 +20,7 @@ use Psr\Log\LogLevel;
 
 /**
  * Monolog error handler
+ * Monolog错误处理者
  *
  * A facility to enable logging of runtime errors, exceptions and fatal errors.
  *
@@ -58,6 +63,7 @@ class ErrorHandler
 
     /**
      * Registers a new ErrorHandler for a given Logger
+	 * 为给定的Logger注册一个新的ErrorHandler
      *
      * By default it will handle errors, exceptions and fatal errors
      *

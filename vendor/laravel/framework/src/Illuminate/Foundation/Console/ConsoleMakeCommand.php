@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:command命令
+ * Illuminate，基础，控制台，make:command 控制台生成命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -29,6 +29,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成的类类型
      *
      * @var string
      */
@@ -36,6 +37,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Replace the class name for the given stub.
+	 * 替换给定存根的类名
      *
      * @param  string  $stub
      * @param  string  $name
@@ -50,6 +52,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -64,6 +67,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -75,6 +79,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command arguments.
+	 * 获取控制台命令参数
      *
      * @return array
      */
@@ -87,6 +92,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
+	 * 获取控制台命令选项
      *
      * @return array
      */

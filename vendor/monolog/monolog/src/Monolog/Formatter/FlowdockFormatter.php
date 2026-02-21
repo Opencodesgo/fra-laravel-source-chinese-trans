@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Flowdock 格式化
+ */
+
 /*
  * This file is part of the Monolog package.
  *

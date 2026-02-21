@@ -76,6 +76,7 @@ class CallQueuedHandler
 
     /**
      * Dispatch the given job / command through its specified middleware.
+	 * 通过指定的中间件调度给定的作业/命令
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $command
@@ -94,6 +95,7 @@ class CallQueuedHandler
 
     /**
      * Resolve the handler for the given command.
+	 * 解析给定命令的处理程序
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $command
@@ -112,6 +114,7 @@ class CallQueuedHandler
 
     /**
      * Set the job instance of the given class if necessary.
+	 * 如果需要，设置给定类的作业实例。
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $instance
@@ -128,6 +131,7 @@ class CallQueuedHandler
 
     /**
      * Ensure the next job in the chain is dispatched if applicable.
+	 * 确保链中的下一个作业被调度(如果适用)
      *
      * @param  mixed  $command
      * @return void

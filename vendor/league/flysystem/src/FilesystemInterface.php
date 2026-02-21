@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，文件系统接口
+ */
 
 namespace League\Flysystem;
 
@@ -8,6 +11,7 @@ interface FilesystemInterface
 {
     /**
      * Check whether a file exists.
+	 * 检查文件是否存在
      *
      * @param string $path
      *
@@ -17,6 +21,7 @@ interface FilesystemInterface
 
     /**
      * Read a file.
+	 * 读取文件
      *
      * @param string $path The path to the file.
      *
@@ -28,6 +33,7 @@ interface FilesystemInterface
 
     /**
      * Retrieves a read-stream for a path.
+	 * 检索路径的读流
      *
      * @param string $path The path to the file.
      *
@@ -39,6 +45,7 @@ interface FilesystemInterface
 
     /**
      * List contents of a directory.
+	 * 列出目录的内容
      *
      * @param string $directory The directory to list.
      * @param bool   $recursive Whether to list recursively.
@@ -275,6 +282,7 @@ interface FilesystemInterface
 
     /**
      * Register a plugin.
+	 * 注册一个插件
      *
      * @param PluginInterface $plugin The plugin to register.
      *

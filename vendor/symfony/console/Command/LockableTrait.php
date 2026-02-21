@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，命令，命令核心类
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -19,6 +22,7 @@ use Symfony\Component\Lock\Store\SemaphoreStore;
 
 /**
  * Basic lock feature for commands.
+ * 命令的基本锁特性
  *
  * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */

@@ -139,6 +139,7 @@ abstract class GeneratorCommand extends Command
         // First we need to ensure that the given name is not a reserved word within the PHP
         // language and that the class name will actually be valid. If it is not valid we
         // can error now and prevent from polluting the filesystem using invalid files.
+		// 首先，我们需要确保给定的名称不是PHP中的保留字。
         if ($this->isReservedName($this->getNameInput())) {
             $this->error('The name "'.$this->getNameInput().'" is reserved by PHP.');
 
@@ -152,6 +153,7 @@ abstract class GeneratorCommand extends Command
         // Next, We will check to see if the class already exists. If it does, we don't want
         // to create the class and overwrite the user's code. So, we will bail out so the
         // code is untouched. Otherwise, we will continue generating this class' files.
+		// 接下来，我们将检查类是否已经存在。
         if ((! $this->hasOption('force') ||
              ! $this->option('force')) &&
              $this->alreadyExists($this->getNameInput())) {
@@ -163,6 +165,7 @@ abstract class GeneratorCommand extends Command
         // Next, we will generate the path to the location where this class' file should get
         // written. Then, we will build the class and make the proper replacements on the
         // stub files so that it gets the correctly formatted namespace and class name.
+		// 接下来，我们将生成该类文件所在位置的路径。
         $this->makeDirectory($path);
 
         $this->files->put($path, $this->sortImports($this->buildClass($name)));
@@ -234,6 +237,7 @@ abstract class GeneratorCommand extends Command
 
     /**
      * Build the directory for the class if necessary.
+	 * 如有必要，为类构建目录。
      *
      * @param  string  $path
      * @return string

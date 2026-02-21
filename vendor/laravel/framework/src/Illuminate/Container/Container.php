@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，容器，Container容器，重要类
+ * Illuminate，容器，Container容器核心类，重要类
  */
 
 namespace Illuminate\Container;
@@ -467,6 +467,7 @@ class Container implements ArrayAccess, ContainerContract
         // We'll check to determine if this type has been bound before, and if it has
         // we will fire the rebound callbacks registered with the container and it
         // can be updated with consuming classes that have gotten resolved here.
+		// 我们将检查这个类型之前是否被绑定过，如果有我们将触发在容器中注册的反弹回调。
         $this->instances[$abstract] = $instance;
 
         if ($isBound) {
@@ -641,7 +642,7 @@ class Container implements ArrayAccess, ContainerContract
 
     /**
      * Call the given Closure / class@method and inject its dependencies.
-	 * 调用给定的Closure / class@method并注入它的依赖项
+	 * 调用给定的 Closure/class@method 并注入它的依赖项
      *
      * @param  callable|string  $callback
      * @param  array<string, mixed>  $parameters
@@ -961,6 +962,7 @@ class Container implements ArrayAccess, ContainerContract
             // If the class is null, it means the dependency is a string or some other
             // primitive type which we can not resolve since it is not a class and
             // we will just bomb out with an error since we have no-where to go.
+			// 如果类为空，则意味着依赖项是字符串或其他类型。
             $result = is_null(Util::getParameterClassName($dependency))
                             ? $this->resolvePrimitive($dependency)
                             : $this->resolveClass($dependency);

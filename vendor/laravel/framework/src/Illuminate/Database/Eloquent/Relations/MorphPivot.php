@@ -15,6 +15,7 @@ class MorphPivot extends Pivot
 	 * 多态关系的类型
      *
      * Explicitly define this so it's not included in saved attributes.
+	 * 显式地定义它，使它不包含在保存的属性中。
      *
      * @var string
      */
@@ -25,6 +26,7 @@ class MorphPivot extends Pivot
 	 * 多态关系的值
      *
      * Explicitly define this so it's not included in saved attributes.
+	 * 显式地定义它，使它不包含在保存的属性中。
      *
      * @var string
      */
@@ -85,6 +87,7 @@ class MorphPivot extends Pivot
 
     /**
      * Set the morph class for the pivot.
+	 * 为枢轴设置变形类
      *
      * @param  string  $morphClass
      * @return \Illuminate\Database\Eloquent\Relations\MorphPivot
@@ -98,6 +101,7 @@ class MorphPivot extends Pivot
 
     /**
      * Get the queueable identity for the entity.
+	 * 获取实体的可排队标识
      *
      * @return mixed
      */

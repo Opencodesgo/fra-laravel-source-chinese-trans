@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Psr，日志，Log，记录器感知特性
+ */
+
 namespace Psr\Log;
 
 /**
@@ -9,6 +13,7 @@ trait LoggerAwareTrait
 {
     /**
      * The logger instance.
+	 * 日志程序实例
      *
      * @var LoggerInterface|null
      */

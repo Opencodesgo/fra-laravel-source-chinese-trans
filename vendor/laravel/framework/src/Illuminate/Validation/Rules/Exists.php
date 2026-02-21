@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，验证，规则，存在
+ */
 
 namespace Illuminate\Validation\Rules;
 
@@ -8,6 +11,7 @@ class Exists
 
     /**
      * Convert the rule to a validation string.
+	 * 将规则转换为验证字符串
      *
      * @return string
      */

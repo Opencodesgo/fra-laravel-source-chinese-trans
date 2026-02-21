@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，注册语言环境感知服务通行证
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -18,6 +21,7 @@ use Symfony\Component\DependencyInjection\Reference;
 
 /**
  * Register all services that have the "kernel.locale_aware" tag into the listener.
+ * 注册所有具有"内核"的服务。Locale_aware标记放入侦听器。
  *
  * @author Pierre Bobiet <pierrebobiet@gmail.com>
  */

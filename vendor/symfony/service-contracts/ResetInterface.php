@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Contracts，服务，重置接口
+ */
 
 /*
  * This file is part of the Symfony package.

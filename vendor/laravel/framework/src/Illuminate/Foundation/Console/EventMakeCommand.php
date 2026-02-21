@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:event命令
+ * Illuminate，基础，控制台，make:event 事件生成命令
  */
 
 namespace Illuminate\Foundation\Console;

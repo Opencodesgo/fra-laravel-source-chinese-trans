@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，任务，Beanstalkd任务
+ * Illuminate，队列，作业，Beanstalkd 作业
  */
 
 namespace Illuminate\Queue\Jobs;
@@ -30,7 +30,7 @@ class BeanstalkdJob extends Job implements JobContract
 
     /**
      * Create a new job instance.
-	 * 创建新的任务实例
+	 * 创建新的作业实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  \Pheanstalk\Pheanstalk  $pheanstalk
@@ -92,7 +92,7 @@ class BeanstalkdJob extends Job implements JobContract
 
     /**
      * Get the number of times the job has been attempted.
-	 * 获取该任务被尝试的次数
+	 * 获取该作业被尝试的次数
      *
      * @return int
      */
@@ -105,7 +105,7 @@ class BeanstalkdJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
-	 * 获取任务标识符
+	 * 获取作业标识符
      *
      * @return int
      */
@@ -116,6 +116,7 @@ class BeanstalkdJob extends Job implements JobContract
 
     /**
      * Get the raw body string for the job.
+	 * 获取作业的原始主体字符串
      *
      * @return string
      */

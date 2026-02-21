@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，命令，命令核心类
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -27,6 +30,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Base class for all commands.
+ * 所有命令基本类
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

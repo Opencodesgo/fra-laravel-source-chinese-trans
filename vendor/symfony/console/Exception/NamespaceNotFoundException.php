@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，异常，命名空间未找到异常
+ */
 
 /*
  * This file is part of the Symfony package.

@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，配置
+ */
 
 namespace League\Flysystem;
 
@@ -16,6 +19,7 @@ class Config
 
     /**
      * Constructor.
+	 * 构造函数
      *
      * @param array $settings
      */

@@ -1,6 +1,7 @@
 <?php
 /**
- * Illuminate，数据库，SqlServer连接
+ * Illuminate，数据库，Sql Server 连接
+ * Doctrine\DBAL\Driver\PDOSqlsrv\Driver 驱动不存在，需要自行安装
  */
 
 namespace Illuminate\Database;
@@ -47,6 +48,7 @@ class SqlServerConnection extends Connection
             // If we catch an exception, we will roll back so nothing gets messed
             // up in the database. Then we'll re-throw the exception so it can
             // be handled how the developer sees fit for their applications.
+			// 如果我们捕捉到一个异常，我们将回滚，这样就不会出错。
             catch (Throwable $e) {
                 $this->getPdo()->exec('ROLLBACK TRAN');
 

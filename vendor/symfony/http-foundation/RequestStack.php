@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，请求栈
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Request stack that controls the lifecycle of requests.
+ * 控制请求生命周期的请求堆栈
  *
  * @author Benjamin Eberlei <kontakt@beberlei.de>
  */
@@ -28,6 +32,7 @@ class RequestStack
 
     /**
      * Pushes a Request on the stack.
+	 * 推送请求至堆栈上
      *
      * This method should generally not be called directly as the stack
      * management should be taken care of by the application itself.
@@ -39,6 +44,7 @@ class RequestStack
 
     /**
      * Pops the current request from the stack.
+	 * 从堆栈中弹出当前请求
      *
      * This operation lets the current request go out of scope.
      *
@@ -114,6 +120,7 @@ class RequestStack
 
     /**
      * Gets the current session.
+	 * 获取当前会话
      *
      * @throws SessionNotFoundException
      */

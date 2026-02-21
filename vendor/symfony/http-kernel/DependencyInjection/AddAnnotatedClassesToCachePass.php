@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，向缓存传递添加带注释的类
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -20,6 +23,7 @@ use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Sets the classes to compile in the cache for the container.
+ * 在容器的缓存中设置要编译的类
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -54,6 +58,7 @@ class AddAnnotatedClassesToCachePass implements CompilerPassInterface
 
     /**
      * Expands the given class patterns using a list of existing classes.
+	 * 使用现有类的列表展开给定的类模式
      *
      * @param array $patterns The class patterns to expand
      * @param array $classes  The existing classes to match against the patterns

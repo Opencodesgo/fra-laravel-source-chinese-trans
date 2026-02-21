@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，Json响应
+ * Illuminate，Http，Json 响应
  */
 
 namespace Illuminate\Http;

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，会话接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\Storage\MetadataBag;
 
 /**
  * Interface for the session.
+ * 会话接口
  *
  * @author Drak <drak@zikula.org>
  */
@@ -22,6 +26,7 @@ interface SessionInterface
 {
     /**
      * Starts the session storage.
+	 * 启动会话存储
      *
      * @return bool
      *
@@ -31,6 +36,7 @@ interface SessionInterface
 
     /**
      * Returns the session ID.
+	 * 返回会话ID
      *
      * @return string
      */
@@ -43,6 +49,7 @@ interface SessionInterface
 
     /**
      * Returns the session name.
+	 * 返回会话名称
      *
      * @return string
      */
@@ -55,6 +62,7 @@ interface SessionInterface
 
     /**
      * Invalidates the current session.
+	 * 使当前会话无效
      *
      * Clears all session attributes and flashes and regenerates the
      * session and deletes the old session from persistence.
@@ -140,6 +148,7 @@ interface SessionInterface
 
     /**
      * Checks if the session was started.
+	 * 检查会话是否已启动
      *
      * @return bool
      */
@@ -152,6 +161,7 @@ interface SessionInterface
 
     /**
      * Gets a bag instance by name.
+	 * 按名称获取包实例
      *
      * @return SessionBagInterface
      */
@@ -159,6 +169,7 @@ interface SessionInterface
 
     /**
      * Gets session meta.
+	 * 获取会话元数据
      *
      * @return MetadataBag
      */

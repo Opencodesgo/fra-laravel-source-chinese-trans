@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，认证，通知，数据库令牌存储库
+ * Illuminate，认证，密码，数据库令牌存储库
  */
 
 namespace Illuminate\Auth\Passwords;

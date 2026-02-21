@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，可配置的扩展
+ */
 
 /*
  * This file is part of the Symfony package.

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，头工具包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * HTTP header utility functions.
+ * HTTP报头实用函数
  *
  * @author Christian Schmidt <github@chsc.dk>
  */

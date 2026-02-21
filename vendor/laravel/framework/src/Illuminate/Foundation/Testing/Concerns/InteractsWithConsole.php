@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，问题，与控制台交互
+ */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -10,6 +13,7 @@ trait InteractsWithConsole
 {
     /**
      * Indicates if the console output should be mocked.
+	 * 指示是否应该嘲笑控制台输出
      *
      * @var bool
      */
@@ -17,6 +21,7 @@ trait InteractsWithConsole
 
     /**
      * All of the expected output lines.
+	 * 所有预期的输出行
      *
      * @var array
      */
@@ -24,6 +29,7 @@ trait InteractsWithConsole
 
     /**
      * All of the expected ouput tables.
+	 * 所有预期的ouput表
      *
      * @var array
      */
@@ -31,6 +37,7 @@ trait InteractsWithConsole
 
     /**
      * All of the expected questions.
+	 * 所有的预期问题
      *
      * @var array
      */
@@ -38,6 +45,7 @@ trait InteractsWithConsole
 
     /**
      * All of the expected choice questions.
+	 * 所有预期的选择问题
      *
      * @var array
      */
@@ -45,6 +53,7 @@ trait InteractsWithConsole
 
     /**
      * Call artisan command and return code.
+	 * 调用artisan命令和返回代码
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -61,6 +70,7 @@ trait InteractsWithConsole
 
     /**
      * Disable mocking the console output.
+	 * 禁用模拟控制台输出
      *
      * @return $this
      */

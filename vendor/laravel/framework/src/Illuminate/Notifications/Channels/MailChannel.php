@@ -114,6 +114,7 @@ class MailChannel
 
     /**
      * Get additional meta-data to pass along with the view data.
+	 * 获取与视图数据一起传递的附加元数据
      *
      * @param  \Illuminate\Notifications\Notification  $notification
      * @return array
@@ -188,6 +189,7 @@ class MailChannel
 
     /**
      * Add the "from" and "reply to" addresses to the message.
+	 * 在邮件中添加"发件人"和"回复"地址
      *
      * @param  \Illuminate\Mail\Message  $mailMessage
      * @param  \Illuminate\Notifications\Messages\MailMessage  $message

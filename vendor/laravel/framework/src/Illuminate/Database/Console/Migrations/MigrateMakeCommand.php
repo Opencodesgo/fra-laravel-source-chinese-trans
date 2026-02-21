@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，工作台，迁移，迁移Make命令
+ * Illuminate，数据库，工作台，迁移，make:migration 迁移Make命令
  */
 
 namespace Illuminate\Database\Console\Migrations;
@@ -85,6 +85,7 @@ class MigrateMakeCommand extends BaseCommand
         // If no table was given as an option but a create option is given then we
         // will use the "create" option as the table name. This allows the devs
         // to pass a table name into this option as a short-cut for creating.
+		// 如果没有表作为一个选项，但一个创建选项给出，然后我们将使用"create"选项作为表名。
         if (! $table && is_string($create)) {
             $table = $create;
 
@@ -94,6 +95,7 @@ class MigrateMakeCommand extends BaseCommand
         // Next, we will attempt to guess the table name if this the migration has
         // "create" in the name. This will allow us to provide a convenient way
         // of creating migrations that create new tables for the application.
+		// 接下来，我们将尝试猜测迁移中是名称中有"create"。
         if (! $table) {
             [$table, $create] = TableGuesser::guess($name);
         }

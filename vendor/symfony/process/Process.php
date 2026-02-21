@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，进程，进程核心类
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -86,6 +89,7 @@ class Process implements \IteratorAggregate
 
     /**
      * Exit codes translation table.
+	 * 退出代码翻译表
      *
      * User-defined errors must use exit codes in the 64-113 range.
      */

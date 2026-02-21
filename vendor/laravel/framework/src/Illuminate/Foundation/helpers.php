@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，别名加载器
+ * Illuminate，基础，帮助函数
  */
 
 use Illuminate\Container\Container;
@@ -27,6 +27,7 @@ use Symfony\Component\HttpFoundation\Response;
 if (! function_exists('abort')) {
     /**
      * Throw an HttpException with the given data.
+	 * 使用给定的数据抛出一个HttpException
      *
      * @param  \Symfony\Component\HttpFoundation\Response|\Illuminate\Contracts\Support\Responsable|int  $code
      * @param  string  $message
@@ -51,6 +52,7 @@ if (! function_exists('abort')) {
 if (! function_exists('abort_if')) {
     /**
      * Throw an HttpException with the given data if the given condition is true.
+	 * 如果给定的条件是真实的,则向给定的数据抛出一个HttpException
      *
      * @param  bool  $boolean
      * @param  \Symfony\Component\HttpFoundation\Response|\Illuminate\Contracts\Support\Responsable|int  $code
@@ -72,6 +74,7 @@ if (! function_exists('abort_if')) {
 if (! function_exists('abort_unless')) {
     /**
      * Throw an HttpException with the given data unless the given condition is true.
+	 * 除非给定的条件是正确的,否则将使用给定的数据抛出一个HttpException
      *
      * @param  bool  $boolean
      * @param  \Symfony\Component\HttpFoundation\Response|\Illuminate\Contracts\Support\Responsable|int  $code
@@ -93,6 +96,7 @@ if (! function_exists('abort_unless')) {
 if (! function_exists('action')) {
     /**
      * Generate the URL to a controller action.
+	 * 生成控制器动作的URL
      *
      * @param  string|array  $name
      * @param  mixed  $parameters
@@ -108,6 +112,7 @@ if (! function_exists('action')) {
 if (! function_exists('app')) {
     /**
      * Get the available container instance.
+	 * 获取可用的容器实例
      *
      * @param  string|null  $abstract
      * @param  array  $parameters
@@ -126,6 +131,7 @@ if (! function_exists('app')) {
 if (! function_exists('app_path')) {
     /**
      * Get the path to the application folder.
+	 * 获取应用文件夹的路径
      *
      * @param  string  $path
      * @return string
@@ -139,6 +145,7 @@ if (! function_exists('app_path')) {
 if (! function_exists('asset')) {
     /**
      * Generate an asset path for the application.
+	 * 为应用程序生成一个资产路径
      *
      * @param  string  $path
      * @param  bool|null  $secure
@@ -153,6 +160,7 @@ if (! function_exists('asset')) {
 if (! function_exists('auth')) {
     /**
      * Get the available auth instance.
+	 * 获取可用的验证实例
      *
      * @param  string|null  $guard
      * @return \Illuminate\Contracts\Auth\Factory|\Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
@@ -170,6 +178,7 @@ if (! function_exists('auth')) {
 if (! function_exists('back')) {
     /**
      * Create a new redirect response to the previous location.
+	 * 创建到前一个位置的新重定向响应
      *
      * @param  int  $status
      * @param  array  $headers
@@ -185,6 +194,7 @@ if (! function_exists('back')) {
 if (! function_exists('base_path')) {
     /**
      * Get the path to the base of the install.
+	 * 获取到安装基础的路径
      *
      * @param  string  $path
      * @return string
@@ -198,6 +208,7 @@ if (! function_exists('base_path')) {
 if (! function_exists('bcrypt')) {
     /**
      * Hash the given value against the bcrypt algorithm.
+	 * 根据bcrypt算法对给定值进行散列
      *
      * @param  string  $value
      * @param  array  $options
@@ -212,6 +223,7 @@ if (! function_exists('bcrypt')) {
 if (! function_exists('broadcast')) {
     /**
      * Begin broadcasting an event.
+	 * 开始广播事件
      *
      * @param  mixed|null  $event
      * @return \Illuminate\Broadcasting\PendingBroadcast
@@ -225,8 +237,10 @@ if (! function_exists('broadcast')) {
 if (! function_exists('cache')) {
     /**
      * Get / set the specified cache value.
+	 * 获取/设置指定的cache值
      *
      * If an array is passed, we'll assume you want to put to the cache.
+	 * 如果传递了一个数组，我们将假定您希望将其放入缓存中。
      *
      * @param  dynamic  key|key,default|data,expiration|null
      * @return mixed|\Illuminate\Cache\CacheManager
@@ -258,8 +272,10 @@ if (! function_exists('cache')) {
 if (! function_exists('config')) {
     /**
      * Get / set the specified configuration value.
+	 * 获取/设置指定的配置值
      *
      * If an array is passed as the key, we will assume you want to set an array of values.
+	 * 如果传递一个数组作为键，我们将假设您想要设置一个值数组。
      *
      * @param  array|string|null  $key
      * @param  mixed  $default
@@ -282,6 +298,7 @@ if (! function_exists('config')) {
 if (! function_exists('config_path')) {
     /**
      * Get the configuration path.
+	 * 获取配置路径
      *
      * @param  string  $path
      * @return string
@@ -295,6 +312,7 @@ if (! function_exists('config_path')) {
 if (! function_exists('cookie')) {
     /**
      * Create a new cookie instance.
+	 * 创建一个新的cookie实例
      *
      * @param  string|null  $name
      * @param  string|null  $value
@@ -322,6 +340,7 @@ if (! function_exists('cookie')) {
 if (! function_exists('csrf_field')) {
     /**
      * Generate a CSRF token form field.
+	 * 生成CSRF令牌表单字段
      *
      * @return \Illuminate\Support\HtmlString
      */
@@ -334,6 +353,7 @@ if (! function_exists('csrf_field')) {
 if (! function_exists('csrf_token')) {
     /**
      * Get the CSRF token value.
+	 * 获取CSRF令牌值
      *
      * @return string
      *
@@ -354,6 +374,7 @@ if (! function_exists('csrf_token')) {
 if (! function_exists('database_path')) {
     /**
      * Get the database path.
+	 * 获取数据库路径
      *
      * @param  string  $path
      * @return string
@@ -367,6 +388,7 @@ if (! function_exists('database_path')) {
 if (! function_exists('decrypt')) {
     /**
      * Decrypt the given value.
+	 * 解密给定的值
      *
      * @param  string  $value
      * @param  bool  $unserialize
@@ -381,6 +403,7 @@ if (! function_exists('decrypt')) {
 if (! function_exists('dispatch')) {
     /**
      * Dispatch a job to its appropriate handler.
+	 * 将作业分派给适当的处理程序
      *
      * @param  mixed  $job
      * @return \Illuminate\Foundation\Bus\PendingDispatch
@@ -398,6 +421,7 @@ if (! function_exists('dispatch')) {
 if (! function_exists('dispatch_now')) {
     /**
      * Dispatch a command to its appropriate handler in the current process.
+	 * 将命令分派给当前进程中相应的处理程序
      *
      * @param  mixed  $job
      * @param  mixed  $handler
@@ -412,6 +436,7 @@ if (! function_exists('dispatch_now')) {
 if (! function_exists('elixir')) {
     /**
      * Get the path to a versioned Elixir file.
+	 * 获取版本化Elixir文件的路径
      *
      * @param  string  $file
      * @param  string  $buildDirectory
@@ -454,6 +479,7 @@ if (! function_exists('elixir')) {
 if (! function_exists('encrypt')) {
     /**
      * Encrypt the given value.
+	 * 加密给定的值
      *
      * @param  mixed  $value
      * @param  bool  $serialize
@@ -468,6 +494,7 @@ if (! function_exists('encrypt')) {
 if (! function_exists('event')) {
     /**
      * Dispatch an event and call the listeners.
+	 * 发送一个事件并调用侦听器
      *
      * @param  string|object  $event
      * @param  mixed  $payload
@@ -483,6 +510,7 @@ if (! function_exists('event')) {
 if (! function_exists('factory')) {
     /**
      * Create a model factory builder for a given class and amount.
+	 * 为给定的类和数量创建一个模型工厂生成器
      *
      * @param  string  $class
      * @param  int  $amount
@@ -503,6 +531,7 @@ if (! function_exists('factory')) {
 if (! function_exists('info')) {
     /**
      * Write some information to the log.
+	 * 将一些信息写入日志
      *
      * @param  string  $message
      * @param  array  $context
@@ -517,6 +546,7 @@ if (! function_exists('info')) {
 if (! function_exists('logger')) {
     /**
      * Log a debug message to the logs.
+	 * 将调试消息记录到日志中
      *
      * @param  string|null  $message
      * @param  array  $context
@@ -535,6 +565,7 @@ if (! function_exists('logger')) {
 if (! function_exists('logs')) {
     /**
      * Get a log driver instance.
+	 * 获取日志驱动程序实例
      *
      * @param  string|null  $driver
      * @return \Illuminate\Log\LogManager|\Psr\Log\LoggerInterface
@@ -548,6 +579,7 @@ if (! function_exists('logs')) {
 if (! function_exists('method_field')) {
     /**
      * Generate a form field to spoof the HTTP verb used by forms.
+	 * 生成一个表单字段来欺骗表单使用的HTTP谓词
      *
      * @param  string  $method
      * @return \Illuminate\Support\HtmlString
@@ -561,6 +593,7 @@ if (! function_exists('method_field')) {
 if (! function_exists('mix')) {
     /**
      * Get the path to a versioned Mix file.
+	 * 获取版本化Mix文件的路径
      *
      * @param  string  $path
      * @param  string  $manifestDirectory
@@ -577,6 +610,7 @@ if (! function_exists('mix')) {
 if (! function_exists('now')) {
     /**
      * Create a new Carbon instance for the current time.
+	 * 为当前时间创建一个新的Carbon实例
      *
      * @param  \DateTimeZone|string|null  $tz
      * @return \Illuminate\Support\Carbon
@@ -590,6 +624,7 @@ if (! function_exists('now')) {
 if (! function_exists('old')) {
     /**
      * Retrieve an old input item.
+	 * 检索旧的输入项
      *
      * @param  string|null  $key
      * @param  mixed  $default
@@ -604,6 +639,7 @@ if (! function_exists('old')) {
 if (! function_exists('policy')) {
     /**
      * Get a policy instance for a given class.
+	 * 获取给定类的策略实例
      *
      * @param  object|string  $class
      * @return mixed
@@ -619,6 +655,7 @@ if (! function_exists('policy')) {
 if (! function_exists('public_path')) {
     /**
      * Get the path to the public folder.
+	 * 获取公共文件夹的路径
      *
      * @param  string  $path
      * @return string
@@ -632,6 +669,7 @@ if (! function_exists('public_path')) {
 if (! function_exists('redirect')) {
     /**
      * Get an instance of the redirector.
+	 * 获取重定向器的实例
      *
      * @param  string|null  $to
      * @param  int  $status
@@ -652,6 +690,7 @@ if (! function_exists('redirect')) {
 if (! function_exists('report')) {
     /**
      * Report an exception.
+	 * 报告异常
      *
      * @param  \Throwable  $exception
      * @return void
@@ -665,6 +704,7 @@ if (! function_exists('report')) {
 if (! function_exists('request')) {
     /**
      * Get an instance of the current request or an input item from the request.
+	 * 获取当前请求的实例或来自请求的输入项
      *
      * @param  array|string|null  $key
      * @param  mixed  $default
@@ -689,6 +729,7 @@ if (! function_exists('request')) {
 if (! function_exists('rescue')) {
     /**
      * Catch a potential exception and return a default value.
+	 * 捕获潜在异常并返回默认值
      *
      * @param  callable  $callback
      * @param  mixed  $rescue
@@ -712,6 +753,7 @@ if (! function_exists('rescue')) {
 if (! function_exists('resolve')) {
     /**
      * Resolve a service from the container.
+	 * 从容器解析服务
      *
      * @param  string  $name
      * @param  array  $parameters
@@ -726,6 +768,7 @@ if (! function_exists('resolve')) {
 if (! function_exists('resource_path')) {
     /**
      * Get the path to the resources folder.
+	 * 获取资源文件夹的路径
      *
      * @param  string  $path
      * @return string
@@ -739,6 +782,7 @@ if (! function_exists('resource_path')) {
 if (! function_exists('response')) {
     /**
      * Return a new response from the application.
+	 * 从应用程序返回一个新的响应
      *
      * @param  \Illuminate\View\View|string|array|null  $content
      * @param  int  $status
@@ -760,6 +804,7 @@ if (! function_exists('response')) {
 if (! function_exists('route')) {
     /**
      * Generate the URL to a named route.
+	 * 生成指定路由的URL
      *
      * @param  array|string  $name
      * @param  mixed  $parameters
@@ -775,6 +820,7 @@ if (! function_exists('route')) {
 if (! function_exists('secure_asset')) {
     /**
      * Generate an asset path for the application.
+	 * 为应用程序生成一个资产路径
      *
      * @param  string  $path
      * @return string
@@ -788,6 +834,7 @@ if (! function_exists('secure_asset')) {
 if (! function_exists('secure_url')) {
     /**
      * Generate a HTTPS url for the application.
+	 * 为应用程序生成一个HTTPS url
      *
      * @param  string  $path
      * @param  mixed  $parameters
@@ -802,8 +849,10 @@ if (! function_exists('secure_url')) {
 if (! function_exists('session')) {
     /**
      * Get / set the specified session value.
+	 * 获取/设置指定的会话值
      *
      * If an array is passed as the key, we will assume you want to set an array of values.
+	 * 如果传递一个数组作为键，我们将假设您想要设置一个值数组。
      *
      * @param  array|string|null  $key
      * @param  mixed  $default
@@ -826,6 +875,7 @@ if (! function_exists('session')) {
 if (! function_exists('storage_path')) {
     /**
      * Get the path to the storage folder.
+	 * 获取存储文件夹的路径
      *
      * @param  string  $path
      * @return string
@@ -839,6 +889,7 @@ if (! function_exists('storage_path')) {
 if (! function_exists('today')) {
     /**
      * Create a new Carbon instance for the current date.
+	 * 为当前日期创建一个新的Carbon实例
      *
      * @param  \DateTimeZone|string|null  $tz
      * @return \Illuminate\Support\Carbon
@@ -852,6 +903,7 @@ if (! function_exists('today')) {
 if (! function_exists('trans')) {
     /**
      * Translate the given message.
+	 * 翻译给定的消息
      *
      * @param  string|null  $key
      * @param  array  $replace
@@ -871,6 +923,7 @@ if (! function_exists('trans')) {
 if (! function_exists('trans_choice')) {
     /**
      * Translates the given message based on a count.
+	 * 根据计数翻译给定的消息
      *
      * @param  string  $key
      * @param  \Countable|int|array  $number
@@ -887,6 +940,7 @@ if (! function_exists('trans_choice')) {
 if (! function_exists('__')) {
     /**
      * Translate the given message.
+	 * 翻译给定的信息
      *
      * @param  string|null  $key
      * @param  array  $replace
@@ -906,6 +960,7 @@ if (! function_exists('__')) {
 if (! function_exists('url')) {
     /**
      * Generate a url for the application.
+	 * 为应用程序生成一个url
      *
      * @param  string|null  $path
      * @param  mixed  $parameters
@@ -925,6 +980,7 @@ if (! function_exists('url')) {
 if (! function_exists('validator')) {
     /**
      * Create a new Validator instance.
+	 * 创建一个新的验证器实例
      *
      * @param  array  $data
      * @param  array  $rules
@@ -947,6 +1003,7 @@ if (! function_exists('validator')) {
 if (! function_exists('view')) {
     /**
      * Get the evaluated view contents for the given view.
+	 * 获取给定视图的值视图内容
      *
      * @param  string|null  $view
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $data

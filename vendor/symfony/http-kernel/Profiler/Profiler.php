@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，分析器，分析器核心类
+ */
 
 /*
  * This file is part of the Symfony package.

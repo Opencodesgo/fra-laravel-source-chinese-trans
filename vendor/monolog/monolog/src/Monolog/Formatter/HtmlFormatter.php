@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Html 格式化
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -16,6 +20,7 @@ use Monolog\Utils;
 
 /**
  * Formats incoming records into an HTML table
+ * 将传入的记录格式化为HTML表
  *
  * This is especially useful for html email logging
  *

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，会话，控制台，会话表命令
+ * Illuminate，会话，控制台，session:table 会话表命令
  */
 
 namespace Illuminate\Session\Console;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，Redis队列
+ * Illuminate，队列，Redis 队列
  */
 
 namespace Illuminate\Queue;
@@ -38,6 +38,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * The expiration time of a job.
+	 * 作业的过期时间
      *
      * @var int|null
      */
@@ -45,6 +46,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * The maximum number of seconds to block for a job.
+	 * 阻塞作业的最大秒数
      *
      * @var int|null
      */
@@ -72,6 +74,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the size of the queue.
+	 * 获取队列的大小
      *
      * @param  string|null  $queue
      * @return int
@@ -87,6 +90,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue.
+	 * 将新作业推送到队列中
      *
      * @param  object|string  $job
      * @param  mixed  $data
@@ -100,6 +104,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a raw payload onto the queue.
+	 * 将原始有效负载推入队列
      *
      * @param  string  $payload
      * @param  string|null  $queue
@@ -118,6 +123,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue after a delay.
+	 * 在延迟后将新作业推入队列
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  object|string  $job
@@ -132,6 +138,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Push a raw job onto the queue after a delay.
+	 * 在延迟后将原始作业推入队列
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string  $payload
@@ -149,6 +156,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Create a payload string from the given job and data.
+	 * 根据给定的作业和数据创建有效负载字符串
      *
      * @param  string  $job
      * @param  string  $queue
@@ -165,6 +173,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Pop the next job off of the queue.
+	 * 将下一个作业从队列中弹出
      *
      * @param  string|null  $queue
      * @return \Illuminate\Contracts\Queue\Job|null
@@ -189,6 +198,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Migrate any delayed or expired jobs onto the primary queue.
+	 * 将任何延迟或过期的作业迁移到主队列
      *
      * @param  string  $queue
      * @return void
@@ -204,6 +214,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Migrate the delayed jobs that are ready to the regular queue.
+	 * 将已准备好的延迟作业迁移到常规队列
      *
      * @param  string  $from
      * @param  string  $to
@@ -218,6 +229,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Retrieve the next job from the queue.
+	 * 从队列中检索下一个作业
      *
      * @param  string  $queue
      * @param  bool  $block
@@ -246,6 +258,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Delete a reserved job from the queue.
+	 * 从队列中删除保留的作业
      *
      * @param  string  $queue
      * @param  \Illuminate\Queue\Jobs\RedisJob  $job
@@ -258,6 +271,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Delete a reserved job from the reserved queue and release it.
+	 * 从预留队列中删除预留作业并释放
      *
      * @param  string  $queue
      * @param  \Illuminate\Queue\Jobs\RedisJob  $job
@@ -276,6 +290,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get a random ID string.
+	 * 获取一个随机ID字符串
      *
      * @return string
      */
@@ -286,6 +301,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the queue or return the default.
+	 * 获取队列或返回默认值
      *
      * @param  string|null  $queue
      * @return string
@@ -297,6 +313,7 @@ class RedisQueue extends Queue implements QueueContract
 
     /**
      * Get the connection for the queue.
+	 * 获取队列的连接
      *
      * @return \Illuminate\Redis\Connections\Connection
      */

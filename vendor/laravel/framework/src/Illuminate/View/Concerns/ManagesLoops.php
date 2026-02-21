@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，关注点，管理循环
+ * Illuminate，视图，问题，管理循环
  */
 
 namespace Illuminate\View\Concerns;
@@ -47,6 +47,7 @@ trait ManagesLoops
 
     /**
      * Increment the top loop's indices.
+	 * 增加顶部循环的索引
      *
      * @return void
      */
@@ -67,6 +68,7 @@ trait ManagesLoops
 
     /**
      * Pop a loop from the top of the loop stack.
+	 * 从循环堆栈的顶部弹出一个循环
      *
      * @return void
      */
@@ -77,6 +79,7 @@ trait ManagesLoops
 
     /**
      * Get an instance of the last loop in the stack.
+	 * 获取堆栈中最后一个循环的实例
      *
      * @return \stdClass|null
      */

@@ -22,7 +22,7 @@ class Handler extends ExceptionHandler
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
-	 * 不会为验证异常而闪现的输入列表
+	 * 不会为验证异常而显示的输入列表
      *
      * @var array
      */

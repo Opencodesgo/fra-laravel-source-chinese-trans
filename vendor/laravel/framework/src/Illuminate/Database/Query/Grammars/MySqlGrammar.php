@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，查询，语法，MySql语法
+ * Illuminate，数据库，查询，语法，MySql 语法
  */
 
 namespace Illuminate\Database\Query\Grammars;
@@ -40,6 +40,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Add a "where not null" clause to the query.
+	 * 在查询中添加"where not null"子句
      *
      * @param  string|array  $columns
      * @param  string  $boolean
@@ -71,6 +72,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile a "JSON contains" statement into SQL.
+	 * 将"JSON contains"语句编译成SQL
      *
      * @param  string  $column
      * @param  string  $value
@@ -85,6 +87,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile a "JSON length" statement into SQL.
+	 * 将"JSON length"语句编译成SQL
      *
      * @param  string  $column
      * @param  string  $operator
@@ -129,6 +132,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile an insert statement into SQL.
+	 * 将插入语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -145,6 +149,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile the columns for an update statement.
+	 * 编译更新语句的列
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -163,6 +168,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Prepare a JSON column being updated using the JSON_SET function.
+	 * 使用JSON_SET函数准备要更新的JSON列
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -185,6 +191,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile an update statement without joins into SQL.
+	 * 编译一个没有连接的update语句到SQL中
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -230,6 +237,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Compile a delete query that does not use joins.
+	 * 编译一个不使用连接的删除查询
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $table
@@ -243,6 +251,7 @@ class MySqlGrammar extends Grammar
         // When using MySQL, delete statements may contain order by statements and limits
         // so we will compile both of those here. Once we have finished compiling this
         // we will return the completed SQL statement so it will be executed for us.
+		// 使用MySQL时，delete语句可能包含order by语句和limits。
         if (! empty($query->orders)) {
             $sql .= ' '.$this->compileOrders($query, $query->orders);
         }
@@ -256,6 +265,7 @@ class MySqlGrammar extends Grammar
 
     /**
      * Wrap a single string in keyword identifiers.
+	 * 在关键字标识符中包装单个字符串
      *
      * @param  string  $value
      * @return string

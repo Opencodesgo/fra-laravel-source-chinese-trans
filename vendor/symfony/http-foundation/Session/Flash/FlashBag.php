@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，Flash，Flash包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation\Session\Flash;
 
 /**
  * FlashBag flash message container.
+ * FlashBag闪光信息容器
  *
  * @author Drak <drak@zikula.org>
  */

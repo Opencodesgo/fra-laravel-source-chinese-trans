@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，代理，抽象代理
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -18,6 +21,7 @@ abstract class AbstractProxy
 {
     /**
      * Flag if handler wraps an internal PHP session handler (using \SessionHandler).
+	 * 标志如果处理程序包装内部PHP会话处理程序(使用\SessionHandler)
      *
      * @var bool
      */
@@ -30,6 +34,7 @@ abstract class AbstractProxy
 
     /**
      * Gets the session.save_handler name.
+	 * 获取会话。save_handler名字。
      *
      * @return string|null
      */
@@ -104,6 +109,7 @@ abstract class AbstractProxy
 
     /**
      * Sets the session name.
+	 * 设置会话名称
      *
      * @throws \LogicException
      */

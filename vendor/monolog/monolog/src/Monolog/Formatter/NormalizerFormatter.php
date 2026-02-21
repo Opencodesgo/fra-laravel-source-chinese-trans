@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Normalizer 格式化器
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -17,6 +21,7 @@ use Throwable;
 
 /**
  * Normalizes incoming records to remove objects/resources so it's easier to dump to various targets
+ * 规范化传入记录以删除对象/资源，以便更容易转储到各种目标。
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  */

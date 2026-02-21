@@ -43,6 +43,7 @@ class RouteParameterBinder
         // If the route has a regular expression for the host part of the URI, we will
         // compile that and get the parameter matches for this domain. We will then
         // merge them into this parameters array so that this array is completed.
+		// 如果路由有URI的主机部分的正则表达式，我们将编译它并获取此域的参数匹配。
         if (! is_null($this->route->compiled->getHostRegex())) {
             $parameters = $this->bindHostParameters(
                 $request, $parameters

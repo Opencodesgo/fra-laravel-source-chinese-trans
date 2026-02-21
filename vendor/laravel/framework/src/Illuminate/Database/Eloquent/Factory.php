@@ -157,6 +157,7 @@ class Factory implements ArrayAccess
 
     /**
      * Define a callback to run after creating a model with given state.
+	 * 定义一个回调，以便在创建具有给定状态的模型后运行。
      *
      * @param  string  $class
      * @param  string  $state

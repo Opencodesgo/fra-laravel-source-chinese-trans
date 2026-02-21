@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，工作进行选项
+ * Illuminate，队列，工作进程选项
  */
 
 namespace Illuminate\Queue;
@@ -9,6 +9,7 @@ class WorkerOptions
 {
     /**
      * The number of seconds before a released job will be available.
+	 * 在释放的作业可用之前的秒数
      *
      * @var int
      */
@@ -16,6 +17,7 @@ class WorkerOptions
 
     /**
      * The maximum amount of RAM the worker may consume.
+	 * 工作线程可能消耗的最大RAM量
      *
      * @var int
      */
@@ -23,6 +25,7 @@ class WorkerOptions
 
     /**
      * The maximum number of seconds a child worker may run.
+	 * 子线程可以运行的最大秒数
      *
      * @var int
      */
@@ -30,6 +33,7 @@ class WorkerOptions
 
     /**
      * The number of seconds to wait in between polling the queue.
+	 * 轮询队列之间等待的秒数
      *
      * @var int
      */
@@ -37,6 +41,7 @@ class WorkerOptions
 
     /**
      * The maximum amount of times a job may be attempted.
+	 * 可以尝试作业的最大次数
      *
      * @var int
      */
@@ -44,6 +49,7 @@ class WorkerOptions
 
     /**
      * Indicates if the worker should run in maintenance mode.
+	 * 指示工作线程是否应在维护模式下运行
      *
      * @var bool
      */
@@ -51,6 +57,7 @@ class WorkerOptions
 
     /**
      * Indicates if the worker should stop when queue is empty.
+	 * 指示当队列为空时，工作线程是否应该停止。
      *
      * @var bool
      */

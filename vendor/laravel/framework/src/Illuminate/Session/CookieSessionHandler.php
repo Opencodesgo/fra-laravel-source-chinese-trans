@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Session会话，Cookie会话处理程序
+ * Illuminate，Session会话，Cookie 会话处理程序
  */
 
 namespace Illuminate\Session;
@@ -40,6 +40,7 @@ class CookieSessionHandler implements SessionHandlerInterface
 
     /**
      * Create a new cookie driven handler instance.
+	 * 创建一个新的cookie驱动处理程序实例
      *
      * @param  \Illuminate\Contracts\Cookie\QueueingFactory  $cookie
      * @param  int  $minutes

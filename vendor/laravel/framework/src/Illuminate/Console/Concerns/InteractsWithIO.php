@@ -195,6 +195,7 @@ trait InteractsWithIO
 
     /**
      * Prompt the user for input but hide the answer from the console.
+	 * 提示用户输入，但在控制台中隐藏答案。
      *
      * @param  string  $question
      * @param  bool  $fallback
@@ -258,6 +259,7 @@ trait InteractsWithIO
 
     /**
      * Write a string as information output.
+	 * 写一个字符串作为信息输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -270,6 +272,7 @@ trait InteractsWithIO
 
     /**
      * Write a string as standard output.
+	 * 写一个字符串作为标准输出
      *
      * @param  string  $string
      * @param  string|null  $style
@@ -285,6 +288,7 @@ trait InteractsWithIO
 
     /**
      * Write a string as comment output.
+	 * 写一个字符串作为注释输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -297,6 +301,7 @@ trait InteractsWithIO
 
     /**
      * Write a string as question output.
+	 * 写一个字符串作为问题输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -309,6 +314,7 @@ trait InteractsWithIO
 
     /**
      * Write a string as error output.
+	 * 写一个字符串作为错误输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -321,6 +327,7 @@ trait InteractsWithIO
 
     /**
      * Write a string as warning output.
+	 * 写一个字符串作为警告输出
      *
      * @param  string  $string
      * @param  int|string|null  $verbosity
@@ -357,6 +364,7 @@ trait InteractsWithIO
 
     /**
      * Set the input interface implementation.
+	 * 设置输入接口实现
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @return void
@@ -368,6 +376,7 @@ trait InteractsWithIO
 
     /**
      * Set the output interface implementation.
+	 * 设置输出接口实现
      *
      * @param  \Illuminate\Console\OutputStyle  $output
      * @return void
@@ -391,6 +400,7 @@ trait InteractsWithIO
 
     /**
      * Get the verbosity level in terms of Symfony's OutputInterface level.
+	 * 根据Symfony的OutputInterface级别获取冗长级别
      *
      * @param  string|int|null  $level
      * @return int

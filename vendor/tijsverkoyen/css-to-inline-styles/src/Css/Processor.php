@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * TijsVerkoyen，Css，Css到内联样式
+ */
+
 namespace TijsVerkoyen\CssToInlineStyles\Css;
 
 use TijsVerkoyen\CssToInlineStyles\Css\Rule\Processor as RuleProcessor;

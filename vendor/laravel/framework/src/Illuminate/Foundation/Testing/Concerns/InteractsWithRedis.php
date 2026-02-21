@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，问题，与Redis交互
+ */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -11,6 +14,7 @@ trait InteractsWithRedis
 {
     /**
      * Indicate connection failed if redis is not available.
+	 * 如果redis不可用,则表示连接失败
      *
      * @var bool
      */
@@ -18,6 +22,7 @@ trait InteractsWithRedis
 
     /**
      * Redis manager instance.
+	 * Redis manager 实例
      *
      * @var \Illuminate\Redis\RedisManager[]
      */
@@ -25,6 +30,7 @@ trait InteractsWithRedis
 
     /**
      * Setup redis connection.
+	 * 安装redis连接
      *
      * @return void
      */
@@ -73,6 +79,7 @@ trait InteractsWithRedis
 
     /**
      * Teardown redis connection.
+	 * 关闭redis连接
      *
      * @return void
      */
@@ -87,6 +94,7 @@ trait InteractsWithRedis
 
     /**
      * Get redis driver provider.
+	 * 获得redis驱动程序提供商
      *
      * @return array
      */
@@ -100,6 +108,7 @@ trait InteractsWithRedis
 
     /**
      * Run test if redis is available.
+	 * 如果redis可用，运行测试。
      *
      * @param  callable  $callback
      * @return void

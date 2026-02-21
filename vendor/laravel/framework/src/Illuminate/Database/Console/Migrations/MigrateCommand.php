@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，工作台，迁移，基本命令
+ * Illuminate，数据库，工作台，迁移，migrate 迁移命令
  */
 
 namespace Illuminate\Database\Console\Migrations;
@@ -84,6 +84,7 @@ class MigrateCommand extends BaseCommand
             // Finally, if the "seed" option has been given, we will re-run the database
             // seed task to re-populate the database, which is convenient when adding
             // a migration and a seed at the same time, as it is only this command.
+			// 最后，如果给出了"seed"选项，我们将重新运行数据库。
             if ($this->option('seed') && ! $this->option('pretend')) {
                 $this->call('db:seed', ['--force' => true]);
             }

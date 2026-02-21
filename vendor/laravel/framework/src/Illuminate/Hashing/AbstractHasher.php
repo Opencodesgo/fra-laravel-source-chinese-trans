@@ -9,6 +9,7 @@ abstract class AbstractHasher
 {
     /**
      * Get information about the given hashed value.
+	 * 获取关于给定哈罗德值的信息
      *
      * @param  string  $hashedValue
      * @return array
@@ -20,6 +21,7 @@ abstract class AbstractHasher
 
     /**
      * Check the given plain value against a hash.
+	 * 检查给定的极值与散列
      *
      * @param  string  $value
      * @param  string  $hashedValue

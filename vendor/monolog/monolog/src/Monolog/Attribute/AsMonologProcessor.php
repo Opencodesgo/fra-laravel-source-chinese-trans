@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，属性，作为 Monolog 处理员
+ */
+
 /*
  * This file is part of the Monolog package.
  *

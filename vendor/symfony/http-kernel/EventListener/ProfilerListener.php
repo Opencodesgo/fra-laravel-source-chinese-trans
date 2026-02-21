@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，分析器侦听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -25,6 +28,7 @@ use Symfony\Component\HttpKernel\Profiler\Profiler;
 
 /**
  * ProfilerListener collects data for the current request by listening to the kernel events.
+ * ProfilerListener 通过侦听内核事件来收集当前请求的数据
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *

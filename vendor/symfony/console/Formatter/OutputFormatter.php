@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，格式化，输出格式化
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use function Symfony\Component\String\b;
 
 /**
  * Formatter class for console output.
+ * 用于控制台输出的格式化程序类
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  * @author Roland Franssen <franssen.roland@gmail.com>

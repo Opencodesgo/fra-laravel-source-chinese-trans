@@ -1,4 +1,7 @@
 <?php
+/**
+ * 配置，视图
+ */
 
 return [
 
@@ -10,6 +13,7 @@ return [
     | Most templating systems load templates from disk. Here you may specify
     | an array of paths that should be checked for your views. Of course
     | the usual Laravel view path has already been registered for you.
+	| 大多数模板系统从磁盘加载模板。
     |
     */
 
@@ -25,6 +29,7 @@ return [
     | This option determines where all the compiled Blade templates will be
     | stored for your application. Typically, this is within the storage
     | directory. However, as usual, you are free to change this value.
+	| 这个选项决定了所有将被编译为您的应用程序存储Blade模板。
     |
     */
 

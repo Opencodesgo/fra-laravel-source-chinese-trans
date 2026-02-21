@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，路由，控制台，控制器Make命令
+ * Illuminate，路由，控制台，make:controller 控制器制造命令
  */
 
 namespace Illuminate\Routing\Console;
@@ -98,6 +98,7 @@ class ControllerMakeCommand extends GeneratorCommand
 	 * 用给定的名称构建类
      *
      * Remove the base controller import if we are already in base namespace.
+	 * 如果我们已经在基命名空间中，请删除基控制器导入。
      *
      * @param  string  $name
      * @return string

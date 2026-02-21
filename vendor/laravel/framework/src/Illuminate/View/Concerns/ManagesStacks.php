@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，关注点，管理栈
+ * Illuminate，视图，问题，管理栈
  */
 
 namespace Illuminate\View\Concerns;
@@ -27,6 +27,7 @@ trait ManagesStacks
 
     /**
      * The stack of in-progress push sections.
+	 * 正在进行的push段的堆栈
      *
      * @var array
      */
@@ -34,6 +35,7 @@ trait ManagesStacks
 
     /**
      * Start injecting content into a push section.
+	 * 开始向推送部分注入内容
      *
      * @param  string  $section
      * @param  string  $content
@@ -52,6 +54,7 @@ trait ManagesStacks
 
     /**
      * Stop injecting content into a push section.
+	 * 停止向推送部分注入内容
      *
      * @return string
      *
@@ -70,6 +73,7 @@ trait ManagesStacks
 
     /**
      * Append content to a given push section.
+	 * 将内容附加到给定的推送部分
      *
      * @param  string  $section
      * @param  string  $content
@@ -90,6 +94,7 @@ trait ManagesStacks
 
     /**
      * Start prepending content into a push section.
+	 * 开始将内容添加到推送部分
      *
      * @param  string  $section
      * @param  string  $content
@@ -108,6 +113,7 @@ trait ManagesStacks
 
     /**
      * Stop prepending content into a push section.
+	 * 停止在推送部分添加内容
      *
      * @return string
      *
@@ -126,6 +132,7 @@ trait ManagesStacks
 
     /**
      * Prepend content to a given stack.
+	 * 将内容预放到给定的堆栈中
      *
      * @param  string  $section
      * @param  string  $content

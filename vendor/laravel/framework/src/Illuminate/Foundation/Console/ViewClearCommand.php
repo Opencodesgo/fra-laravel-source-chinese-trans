@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，视图清除命令
+ * Illuminate，基础，控制台，view:clear 视图清除命令
  */
 
 namespace Illuminate\Foundation\Console;

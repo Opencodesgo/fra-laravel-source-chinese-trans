@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，控制器元数据，元数据工厂接口
+ */
 
 /*
  * This file is part of the Symfony package.

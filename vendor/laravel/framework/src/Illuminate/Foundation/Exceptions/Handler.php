@@ -43,6 +43,7 @@ class Handler implements ExceptionHandlerContract
 {
     /**
      * The container implementation.
+	 * 容器实现
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -50,6 +51,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * A list of the exception types that are not reported.
+	 * 未报告的异常类型列表
      *
      * @var array
      */
@@ -57,6 +59,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * A list of the internal exception types that should not be reported.
+	 * 不应报告的内部异常类型列表
      *
      * @var array
      */
@@ -73,6 +76,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * A list of the inputs that are never flashed for validation exceptions.
+	 * 一个从未出现过验证异常的输入列表
      *
      * @var array
      */
@@ -83,6 +87,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Create a new exception handler instance.
+	 * 创建一个新的异常处理实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -94,6 +99,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Report or log an exception.
+	 * 报告或记录一个异常
      *
      * @param  \Throwable  $e
      * @return void
@@ -130,6 +136,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Determine if the exception should be reported.
+	 * 确定是否应该报告异常
      *
      * @param  \Throwable  $e
      * @return bool
@@ -141,6 +148,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Determine if the exception is in the "do not report" list.
+	 * 确定是否在"do not report"列表中出现异常
      *
      * @param  \Throwable  $e
      * @return bool
@@ -156,6 +164,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Get the default exception context variables for logging.
+	 * 为日志记录获取默认的异常上下文变量
      *
      * @param  \Throwable  $e
      * @return array
@@ -167,6 +176,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Get the default context variables for logging.
+	 * 获取日志记录的默认上下文变量
      *
      * @return array
      */
@@ -184,6 +194,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Render an exception into an HTTP response.
+	 * 在HTTP响应中呈现异常
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable  $e
@@ -216,6 +227,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Prepare exception for rendering.
+	 * 准备异常
      *
      * @param  \Throwable  $e
      * @return \Throwable
@@ -237,6 +249,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Convert an authentication exception into a response.
+	 * 将身份验证异常转换为响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Auth\AuthenticationException  $exception
@@ -251,6 +264,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Create a response object from the given validation exception.
+	 * 从给定的验证异常创建响应对象
      *
      * @param  \Illuminate\Validation\ValidationException  $e
      * @param  \Illuminate\Http\Request  $request
@@ -269,6 +283,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Convert a validation exception into a response.
+	 * 将验证异常转换为响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Validation\ValidationException  $exception
@@ -283,6 +298,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Convert a validation exception into a JSON response.
+	 * 将验证异常转换为JSON响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Illuminate\Validation\ValidationException  $exception
@@ -298,6 +314,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Prepare a response for the given exception.
+	 * 准备对给定异常的响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable  $e
@@ -320,6 +337,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Create a Symfony response for the given exception.
+	 * 为给定的异常创建一个Symfony响应
      *
      * @param  \Throwable  $e
      * @return \Symfony\Component\HttpFoundation\Response
@@ -335,6 +353,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Get the response content for the given exception.
+	 * 获取给定异常的响应内容
      *
      * @param  \Throwable  $e
      * @return string
@@ -352,6 +371,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Render an exception to a string using "Whoops".
+	 * 使用"Whoops"来渲染字符串异常
      *
      * @param  \Throwable  $e
      * @return string
@@ -369,6 +389,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Get the Whoops handler for the application.
+	 * 获取应用程序的Whoops处理程序
      *
      * @return \Whoops\Handler\Handler
      */
@@ -383,6 +404,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Render an exception to a string using Symfony.
+	 * 在使用Symfony的字符串中呈现异常
      *
      * @param  \Throwable  $e
      * @param  bool  $debug
@@ -397,6 +419,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Render the given HttpException.
+	 * 呈现给定的HttpException
      *
      * @param  \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
      * @return \Symfony\Component\HttpFoundation\Response
@@ -417,6 +440,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Register the error template hint paths.
+	 * 注册错误模板提示路径
      *
      * @return void
      */
@@ -431,6 +455,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Get the view used to render HTTP exceptions.
+	 * 获取用于呈现HTTP异常的视图
      *
      * @param  \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
      * @return string
@@ -442,6 +467,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Map the given exception into an Illuminate response.
+	 * 将给定的异常映射到照明响应中
      *
      * @param  \Symfony\Component\HttpFoundation\Response  $response
      * @param  \Throwable  $e
@@ -464,6 +490,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Prepare a JSON response for the given exception.
+	 * 为给定的异常准备JSON响应
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Throwable  $e
@@ -481,6 +508,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Convert the given exception to an array.
+	 * 将给定的异常转换为数组
      *
      * @param  \Throwable  $e
      * @return array
@@ -502,6 +530,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Render an exception to the console.
+	 * 向控制台呈现异常
      *
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @param  \Throwable  $e
@@ -514,6 +543,7 @@ class Handler implements ExceptionHandlerContract
 
     /**
      * Determine if the given exception is an HTTP exception.
+	 * 确定给定的异常是否为HTTP异常
      *
      * @param  \Throwable  $e
      * @return bool

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:observer命令
+ * Illuminate，基础，控制台，make:observer 观察者制造命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -29,6 +29,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成的类的类型
      *
      * @var string
      */
@@ -36,6 +37,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * Build the class with the given name.
+	 * 用给定的名称构建类
      *
      * @param  string  $name
      * @return string
@@ -51,6 +53,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -63,6 +66,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * Replace the model for the given stub.
+	 * 替换给定存根的模型
      *
      * @param  string  $stub
      * @param  string  $model
@@ -95,6 +99,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -106,6 +111,7 @@ class ObserverMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command arguments.
+	 * 获取控制台命令参数
      *
      * @return array
      */

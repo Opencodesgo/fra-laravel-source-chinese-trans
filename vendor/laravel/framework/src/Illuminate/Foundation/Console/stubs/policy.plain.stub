@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace {{ namespace }};
 
@@ -11,6 +14,7 @@ class {{ class }}
 
     /**
      * Create a new policy instance.
+	 * 创建一个新的策略实例
      *
      * @return void
      */

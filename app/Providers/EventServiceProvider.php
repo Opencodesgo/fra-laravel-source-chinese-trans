@@ -26,6 +26,7 @@ class EventServiceProvider extends ServiceProvider
 
     /**
      * Register any events for your application.
+	 * 为应用注册任何事件
      *
      * @return void
      */

@@ -44,7 +44,7 @@ class AuthServiceProvider extends ServiceProvider
             // we will set a variable in the application indicating such. This helps us
             // know that we need to set any queued cookies in the after event later.
 			// 一旦验证服务实际上被开发人员请求了，我们将在应用程序中设置一个变量。
-			// 我将帮助我们知道我们需要在以后的事件中设置任何排队的cookie。
+			// 这将帮助我们知道我们需要在以后的事件中设置任何排队的cookie。
             $app['auth.loaded'] = true;
 
             return new AuthManager($app);

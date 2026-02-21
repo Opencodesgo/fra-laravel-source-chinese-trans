@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，契约，队列，任务
+ * Illuminate，契约，队列，作业
  */
 
 namespace Illuminate\Contracts\Queue;
@@ -9,7 +9,7 @@ interface Job
 {
     /**
      * Get the UUID of the job.
-	 * 获取任务的UUID
+	 * 获取作业的UUID
      *
      * @return string|null
      */
@@ -17,7 +17,7 @@ interface Job
 
     /**
      * Get the job identifier.
-	 * 获取任务标识符
+	 * 获取作业标识符
      *
      * @return string
      */
@@ -25,7 +25,7 @@ interface Job
 
     /**
      * Get the decoded body of the job.
-	 * 得到任务的解密主体
+	 * 得到作业的解密主体
      *
      * @return array
      */
@@ -33,7 +33,7 @@ interface Job
 
     /**
      * Fire the job.
-	 * 触发任务
+	 * 触发作业
      *
      * @return void
      */
@@ -41,9 +41,10 @@ interface Job
 
     /**
      * Release the job back into the queue.
-	 * 将任务释放回队列
+	 * 将作业释放回队列
      *
      * Accepts a delay specified in seconds.
+	 * 接受以秒为单位指定的延迟
      *
      * @param  int  $delay
      * @return void

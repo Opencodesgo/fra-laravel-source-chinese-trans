@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Cookie，Cookie值前缀
+ * Illuminate，Cookie，Cookie 值前缀
  */
 
 namespace Illuminate\Cookie;

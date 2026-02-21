@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法，语法抽象类
+ * Illuminate，数据库，模式，语法，语法抽象类
  */
 
 namespace Illuminate\Database\Schema\Grammars;
@@ -84,6 +84,7 @@ abstract class Grammar extends BaseGrammar
         // Once we have the initial portion of the SQL statement we will add on the
         // key name, table name, and referenced columns. These will complete the
         // main portion of the SQL statement and this SQL will almost be done.
+		// 一旦我们有了SQL语句的初始部分，我们将添加键名，表名，和引用列。
         $sql .= sprintf('foreign key (%s) references %s (%s)',
             $this->columnize($command->columns),
             $this->wrapTable($command->on),
@@ -93,6 +94,7 @@ abstract class Grammar extends BaseGrammar
         // Once we have the basic foreign key creation statement constructed we can
         // build out the syntax for what should happen on an update or delete of
         // the affected columns, which will get something like "cascade", etc.
+		// 一旦构造了基本的外键创建语句，就可以更新或删除时应该发生的情况构建语法。
         if (! is_null($command->onDelete)) {
             $sql .= " on delete {$command->onDelete}";
         }
@@ -119,6 +121,7 @@ abstract class Grammar extends BaseGrammar
             // Each of the column types have their own compiler functions which are tasked
             // with turning the column definition into its SQL format for this platform
             // used by the connection. The column's modifiers are compiled and added.
+			// 每种列类型都有自己的编译器函数。
             $sql = $this->wrap($column).' '.$this->getType($column);
 
             $columns[] = $this->addModifiers($sql, $blueprint, $column);
@@ -129,6 +132,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Get the SQL for the column data type.
+	 * 获取列数据类型的SQL
      *
      * @param  \Illuminate\Support\Fluent  $column
      * @return string
@@ -154,6 +158,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Add the column modifiers to the definition.
+	 * 将列修饰符添加到定义中
      *
      * @param  string  $sql
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
@@ -173,6 +178,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Get the primary key command if it exists on the blueprint.
+	 * 如果蓝图上存在主键命令，则获取主键命令。
      *
      * @param  \Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  string  $name
@@ -204,6 +210,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Add a prefix to an array of values.
+	 * 向值数组添加前缀
      *
      * @param  string  $prefix
      * @param  array  $values
@@ -247,6 +254,7 @@ abstract class Grammar extends BaseGrammar
 
     /**
      * Format a value so that it can be used in "default" clauses.
+	 * 格式化一个值，以便它可以在"default"子句中使用。
      *
      * @param  mixed  $value
      * @return string

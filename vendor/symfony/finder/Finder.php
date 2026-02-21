@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，发现者，发现者核心类
+ */
+
 /*
  * This file is part of the Symfony package.
  *
@@ -26,6 +30,7 @@ use Symfony\Component\Finder\Iterator\SortableIterator;
 
 /**
  * Finder allows to build rules to find files and directories.
+ * Finder允许构建查找文件和目录的规则
  *
  * It is a thin wrapper around several specialized iterator classes.
  *
@@ -74,6 +79,7 @@ class Finder implements \IteratorAggregate, \Countable
 
     /**
      * Creates a new Finder.
+	 * 创建一个新的Finder
      *
      * @return static
      */
@@ -84,6 +90,7 @@ class Finder implements \IteratorAggregate, \Countable
 
     /**
      * Restricts the matching to directories only.
+	 * 仅将匹配限制为目录
      *
      * @return $this
      */
@@ -96,6 +103,7 @@ class Finder implements \IteratorAggregate, \Countable
 
     /**
      * Restricts the matching to files only.
+	 * 只对文件进行匹配
      *
      * @return $this
      */
@@ -108,6 +116,7 @@ class Finder implements \IteratorAggregate, \Countable
 
     /**
      * Adds tests for the directory depth.
+	 * 为目录深度添加测试
      *
      * Usage:
      *
@@ -786,6 +795,7 @@ class Finder implements \IteratorAggregate, \Countable
 
     /**
      * Normalizes given directory names by removing trailing slashes.
+	 * 通过删除尾斜杠来规范化给定的目录名
      *
      * Excluding: (s)ftp:// or ssh2.(s)ftp:// wrapper
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，特征，大规模
+ * Illuminate，支持，特征，Capsule 管理特性
  */
 
 namespace Illuminate\Support\Traits;
@@ -12,6 +12,7 @@ trait CapsuleManagerTrait
 {
     /**
      * The current globally used instance.
+	 * 当前全局使用的实例
      *
      * @var object
      */
@@ -19,6 +20,7 @@ trait CapsuleManagerTrait
 
     /**
      * The container instance.
+	 * 容器实例
      *
      * @var \Illuminate\Contracts\Container\Container
      */
@@ -26,6 +28,7 @@ trait CapsuleManagerTrait
 
     /**
      * Setup the IoC container instance.
+	 * 设置IoC容器实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void
@@ -41,6 +44,7 @@ trait CapsuleManagerTrait
 
     /**
      * Make this capsule instance available globally.
+	 * 使这个胶囊实例全局可用
      *
      * @return void
      */
@@ -51,6 +55,7 @@ trait CapsuleManagerTrait
 
     /**
      * Get the IoC container instance.
+	 * 获取IoC容器实例
      *
      * @return \Illuminate\Contracts\Container\Container
      */
@@ -61,6 +66,7 @@ trait CapsuleManagerTrait
 
     /**
      * Set the IoC container instance.
+	 * 设置IoC容器实例
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void

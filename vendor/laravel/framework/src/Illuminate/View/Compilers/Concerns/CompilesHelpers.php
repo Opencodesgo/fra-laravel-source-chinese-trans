@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，编译器，关注点，编译帮助
+ * Illuminate，视图，编译器，问题，编译帮助
  */
 
 namespace Illuminate\View\Compilers\Concerns;

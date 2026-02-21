@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，元数据的包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * Metadata container.
+ * 元数据的容器
  *
  * Adds metadata to the session.
  *
@@ -84,6 +88,7 @@ class MetadataBag implements SessionBagInterface
 
     /**
      * Gets the lifetime that the session cookie was set with.
+	 * 获取会话cookie所设置的生存期
      *
      * @return int
      */

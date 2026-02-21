@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，异常，未经授权的Http异常
+ */
 
 /*
  * This file is part of the Symfony package.

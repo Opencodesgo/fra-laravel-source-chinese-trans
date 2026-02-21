@@ -46,6 +46,7 @@ class Message
 
     /**
      * Add a "from" address to the message.
+	 * 在消息中添加"发件人"地址
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -60,6 +61,7 @@ class Message
 
     /**
      * Set the "sender" of the message.
+	 * 设置消息的"发送者"
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -74,6 +76,7 @@ class Message
 
     /**
      * Set the "return path" of the message.
+	 * 设置消息的"返回路径"
      *
      * @param  string  $address
      * @return $this
@@ -107,6 +110,7 @@ class Message
 
     /**
      * Add a carbon copy to the message.
+	 * 在邮件中添加一份复写件
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -126,6 +130,7 @@ class Message
 
     /**
      * Add a blind carbon copy to the message.
+	 * 在邮件中添加一份副本
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -145,6 +150,7 @@ class Message
 
     /**
      * Add a reply to address to the message.
+	 * 在邮件中添加回复地址
      *
      * @param  string|array  $address
      * @param  string|null  $name
@@ -261,6 +267,7 @@ class Message
 
     /**
      * Embed a file in the message and get the CID.
+	 * 在消息中嵌入一个文件并获取CID
      *
      * @param  string  $file
      * @return string
@@ -278,6 +285,7 @@ class Message
 
     /**
      * Embed in-memory data in the message and get the CID.
+	 * 在消息中嵌入内存数据并获得CID
      *
      * @param  string  $data
      * @param  string  $name
@@ -312,6 +320,7 @@ class Message
         // If an alternative name was given as an option, we will set that on this
         // attachment so that it will be downloaded with the desired names from
         // the developer, otherwise the default file names will get assigned.
+		// 如果提供了替代名称作为选项，我们将在此设置附件，以便它将从开发者下载所需的名称。
         if (isset($options['as'])) {
             $attachment->setFilename($options['as']);
         }

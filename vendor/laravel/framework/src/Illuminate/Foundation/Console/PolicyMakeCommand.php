@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:policy命令
+ * Illuminate，基础，控制台，make:policy 策略制定命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -29,6 +29,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * The type of class being generated.
+	 * 生成的类的类型
      *
      * @var string
      */
@@ -36,6 +37,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Build the class with the given name.
+	 * 用给定的名称构建类
      *
      * @param  string  $name
      * @return string
@@ -53,6 +55,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Replace the User model namespace.
+	 * 替换User模型名称空间
      *
      * @param  string  $stub
      * @return string
@@ -74,6 +77,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Get the model for the guard's user provider.
+	 * 为守卫的用户提供程序
      *
      * @return string|null
      */
@@ -90,6 +94,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Replace the model for the given stub.
+	 * 替换给定存根的模型
      *
      * @param  string  $stub
      * @param  string  $model
@@ -138,6 +143,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Get the stub file for the generator.
+	 * 获取生成器的存根文件
      *
      * @return string
      */
@@ -150,6 +156,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Resolve the fully-qualified path to the stub.
+	 * 解析存根的全限定路径
      *
      * @param  string  $stub
      * @return string
@@ -163,6 +170,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string

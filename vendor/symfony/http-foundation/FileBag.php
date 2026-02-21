@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，文件包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * FileBag is a container for uploaded files.
+ * FileBag是上传文件的容器
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Bulat Shakirzyanov <mallluhuct@gmail.com>
@@ -64,6 +68,7 @@ class FileBag extends ParameterBag
 
     /**
      * Converts uploaded files to UploadedFile instances.
+	 * 将上传的文件转换为UploadedFile实例
      *
      * @param array|UploadedFile $file A (multi-dimensional) array of uploaded file information
      *

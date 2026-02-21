@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，文件，文件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use Symfony\Component\Mime\MimeTypes;
 
 /**
  * A file in the file system.
+ * 文件系统中的文件
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -24,6 +28,7 @@ class File extends \SplFileInfo
 {
     /**
      * Constructs a new file from the given path.
+	 * 从给定路径构造一个新文件
      *
      * @param string $path      The path to the file
      * @param bool   $checkPath Whether to check the path or not
@@ -41,6 +46,7 @@ class File extends \SplFileInfo
 
     /**
      * Returns the extension based on the mime type.
+	 * 返回基于mime类型的扩展名
      *
      * If the mime type is unknown, returns null.
      *
@@ -63,6 +69,7 @@ class File extends \SplFileInfo
 
     /**
      * Returns the mime type of the file.
+	 * 返回文件的mime类型
      *
      * The mime type is guessed using a MimeTypeGuesserInterface instance,
      * which uses finfo_file() then the "file" system binary,
@@ -83,6 +90,7 @@ class File extends \SplFileInfo
 
     /**
      * Moves the file to a new location.
+	 * 将文件移动到新位置
      *
      * @return self
      *
@@ -138,6 +146,7 @@ class File extends \SplFileInfo
 
     /**
      * Returns locale independent base name of the given path.
+	 * 返回给定路径的独立于区域设置的基名
      *
      * @return string
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，编译器，关注点，编译条件
+ * Illuminate，视图，编译器，问题，编译条件
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -19,6 +19,7 @@ trait CompilesConditionals
 
     /**
      * Compile the if-auth statements into valid PHP.
+	 * 将if-auth语句编译成有效的PHP
      *
      * @param  string|null  $guard
      * @return string
@@ -32,6 +33,7 @@ trait CompilesConditionals
 
     /**
      * Compile the else-auth statements into valid PHP.
+	 * 将else-auth语句编译成有效的PHP
      *
      * @param  string|null  $guard
      * @return string
@@ -79,6 +81,7 @@ trait CompilesConditionals
 
     /**
      * Compile the production statements into valid PHP.
+	 * 将生成语句编译成有效的PHP
      *
      * @return string
      */
@@ -89,6 +92,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-production statements into valid PHP.
+	 * 将最终生成的语句编译成有效的PHP
      *
      * @return string
      */
@@ -99,6 +103,7 @@ trait CompilesConditionals
 
     /**
      * Compile the if-guest statements into valid PHP.
+	 * 将if-guest语句编译成有效的PHP
      *
      * @param  string|null  $guard
      * @return string
@@ -112,6 +117,7 @@ trait CompilesConditionals
 
     /**
      * Compile the else-guest statements into valid PHP.
+	 * 将else-guest语句编译成有效的PHP
      *
      * @param  string|null  $guard
      * @return string
@@ -125,6 +131,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-guest statements into valid PHP.
+	 * 将end-guest语句编译成有效的PHP
      *
      * @return string
      */
@@ -135,6 +142,7 @@ trait CompilesConditionals
 
     /**
      * Compile the has-section statements into valid PHP.
+	 * 将has-section语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -146,6 +154,7 @@ trait CompilesConditionals
 
     /**
      * Compile the section-missing statements into valid PHP.
+	 * 将缺少节的语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -181,6 +190,7 @@ trait CompilesConditionals
 
     /**
      * Compile the else-if statements into valid PHP.
+	 * 将else-if语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -192,6 +202,7 @@ trait CompilesConditionals
 
     /**
      * Compile the else statements into valid PHP.
+	 * 将else语句编译成有效的PHP
      *
      * @return string
      */
@@ -202,6 +213,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-if statements into valid PHP.
+	 * 将end-if语句编译成有效的PHP
      *
      * @return string
      */
@@ -212,6 +224,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-unless statements into valid PHP.
+	 * 将end-unless语句编译成有效的PHP
      *
      * @return string
      */
@@ -222,6 +235,7 @@ trait CompilesConditionals
 
     /**
      * Compile the if-isset statements into valid PHP.
+	 * 将if-isset语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -233,6 +247,7 @@ trait CompilesConditionals
 
     /**
      * Compile the end-isset statements into valid PHP.
+	 * 将end-isset语句编译成有效的PHP
      *
      * @return string
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，片段渲染器通道
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -20,6 +23,7 @@ use Symfony\Component\HttpKernel\Fragment\FragmentRendererInterface;
 
 /**
  * Adds services tagged kernel.fragment_renderer as HTTP content rendering strategies.
+ * 添加标记为 kernel.fragment_renderer 的服务作为HTTP内容呈现策略
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

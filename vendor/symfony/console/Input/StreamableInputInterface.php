@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Input，流式的输入接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -21,6 +24,7 @@ interface StreamableInputInterface extends InputInterface
 {
     /**
      * Sets the input stream to read from when interacting with the user.
+	 * 设置与用户交互时要读取的输入流
      *
      * This is mainly useful for testing purpose.
      *

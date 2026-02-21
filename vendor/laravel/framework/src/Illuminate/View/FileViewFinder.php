@@ -178,6 +178,7 @@ class FileViewFinder implements ViewFinderInterface
 
     /**
      * Prepend a location to the finder.
+	 * 将位置添加到查找器
      *
      * @param  string  $location
      * @return void

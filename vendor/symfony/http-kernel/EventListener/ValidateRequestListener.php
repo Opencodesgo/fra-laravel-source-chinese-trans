@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，ValidateRequest 侦听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,12 +20,13 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Validates Requests.
+ * 验证请求
  *
  * @author Magnus Nordlander <magnus@fervo.se>
  *
  * @final
  */
-class ValidateRequestListener implements EventSubscriberInterface
+class   implements EventSubscriberInterface
 {
     /**
      * Performs the validation.

@@ -35,6 +35,7 @@ class RouteAction
         // If the action is already a Closure instance, we will just set that instance
         // as the "uses" property, because there is nothing else we need to do when
         // it is available. Otherwise we will need to find it in the action list.
+		// 如果动作已经是一个Closure实例，我们将设置该实例。
         if (Reflector::isCallable($action, true)) {
             return ! is_array($action) ? ['uses' => $action] : [
                 'uses' => $action[0].'@'.$action[1],
@@ -45,6 +46,7 @@ class RouteAction
         // If no "uses" property has been set, we will dig through the array to find a
         // Closure instance within this list. We will set the first Closure we come
         // across into the "uses" property that will get fired off by this route.
+		// 如果没有设置"uses"属性，我们将在数组中查找此列表中的闭包实例。
         elseif (! isset($action['uses'])) {
             $action['uses'] = static::findCallable($action);
         }

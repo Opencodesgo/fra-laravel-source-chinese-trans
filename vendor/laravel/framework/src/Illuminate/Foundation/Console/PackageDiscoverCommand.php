@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，package:discover命令
+ * Illuminate，基础，控制台，package:discover 包发现命令
  */
 
 namespace Illuminate\Foundation\Console;

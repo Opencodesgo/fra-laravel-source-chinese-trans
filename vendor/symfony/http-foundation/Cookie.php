@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Cookie
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * Represents a cookie.
+ * 表示一个cookie
  *
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>
  */
@@ -40,6 +44,7 @@ class Cookie
 
     /**
      * Creates cookie from raw header string.
+	 * 从原始报头字符串创建cookie
      *
      * @return static
      */
@@ -113,6 +118,7 @@ class Cookie
 
     /**
      * Creates a cookie copy with a new value.
+	 * 创建一个具有新值的cookie副本
      *
      * @return static
      */
@@ -126,6 +132,7 @@ class Cookie
 
     /**
      * Creates a cookie copy with a new domain that the cookie is available to.
+	 * 创建具有可用于该cookie的新域的cookie副本
      *
      * @return static
      */
@@ -139,6 +146,7 @@ class Cookie
 
     /**
      * Creates a cookie copy with a new time the cookie expires.
+	 * 使用新的cookie过期时间创建一个cookie副本
      *
      * @param int|string|\DateTimeInterface $expire
      *
@@ -154,6 +162,7 @@ class Cookie
 
     /**
      * Converts expires formats to a unix timestamp.
+	 * 将过期格式转换为unix时间戳
      *
      * @param int|string|\DateTimeInterface $expire
      */

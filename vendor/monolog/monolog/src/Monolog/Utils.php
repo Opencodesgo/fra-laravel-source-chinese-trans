@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，常用工具
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -41,6 +45,7 @@ final class Utils
 
     /**
      * Makes sure if a relative path is passed in it is turned into an absolute path
+	 * 确保传入的相对路径被转换为绝对路径
      *
      * @param string $streamUrl stream URL or path without protocol
      */
@@ -69,6 +74,7 @@ final class Utils
 
     /**
      * Return the JSON representation of a value
+	 * 返回值的JSON表示形式
      *
      * @param  mixed             $data
      * @param  int               $encodeFlags  flags to pass to json encode, defaults to DEFAULT_JSON_FLAGS
@@ -101,6 +107,7 @@ final class Utils
 
     /**
      * Handle a json_encode failure.
+	 * 处理json_encode失败
      *
      * If the failure is due to invalid string encoding, try to clean the
      * input and encode again. If the second encoding attempt fails, the
@@ -161,6 +168,7 @@ final class Utils
 
     /**
      * Throws an exception according to a given code with a customized message
+	 * 根据给定的代码抛出一个自定义的消息
      *
      * @param  int               $code return code of json_last_error function
      * @param  mixed             $data data that was meant to be encoded

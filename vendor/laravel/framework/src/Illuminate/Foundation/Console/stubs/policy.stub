@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace {{ namespace }};
 
@@ -12,6 +15,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can view any models.
+	 * 确定用户是否可以查看任何模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @return mixed
@@ -23,6 +27,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can view the model.
+	 * 确定用户是否可以查看模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
@@ -35,6 +40,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can create models.
+	 * 确定用户是否可以创建模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @return mixed
@@ -46,6 +52,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can update the model.
+	 * 确定用户是否可以更新模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
@@ -58,6 +65,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can delete the model.
+	 * 确定用户是否可以删除模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
@@ -70,6 +78,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can restore the model.
+	 * 确定用户是否可以恢复模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
@@ -82,6 +91,7 @@ class {{ class }}
 
     /**
      * Determine whether the user can permanently delete the model.
+	 * 确定用户是否可以永久删除该模型
      *
      * @param  \{{ namespacedUserModel }}  $user
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}

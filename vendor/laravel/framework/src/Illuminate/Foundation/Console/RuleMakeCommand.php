@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:rule命令
+ * Illuminate，基础，控制台，make:rule 规则生成命令
  */
 
 namespace Illuminate\Foundation\Console;

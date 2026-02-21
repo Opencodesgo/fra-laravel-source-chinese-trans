@@ -96,6 +96,7 @@ abstract class Relation
         // When resetting the relation where clause, we want to shift the first element
         // off of the bindings, leaving only the constraints that the developers put
         // as "extra" on the relationships, and not original relation constraints.
+		// 当重置where子句的关系时，我们想要移动在绑定之外第一个元素。
         try {
             return $callback();
         } finally {
@@ -174,6 +175,7 @@ abstract class Relation
 
     /**
      * Touch all of the related models for the relationship.
+	 * 触摸关系的所有相关模型
      *
      * @return void
      */
@@ -190,6 +192,7 @@ abstract class Relation
 
     /**
      * Run a raw update against the base query.
+	 * 对基本查询运行原始更新
      *
      * @param  array  $attributes
      * @return int
@@ -201,6 +204,7 @@ abstract class Relation
 
     /**
      * Add the constraints for a relationship count query.
+	 * 为关系计数查询添加约束
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -215,8 +219,10 @@ abstract class Relation
 
     /**
      * Add the constraints for an internal relationship existence query.
+	 * 为内部关系存在性查询添加约束
      *
      * Essentially, these queries compare on column names like whereColumn.
+	 * 本质上，这些查询比较的是像whereColumn这样的列名。
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -258,6 +264,7 @@ abstract class Relation
 
     /**
      * Get the base query builder driving the Eloquent builder.
+	 * 获取驱动Eloquent构建器的基本查询构建器
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -301,6 +308,7 @@ abstract class Relation
 
     /**
      * Get the name of the "created at" column.
+	 * 获取"created at"列的名称
      *
      * @return string
      */
@@ -311,6 +319,7 @@ abstract class Relation
 
     /**
      * Get the name of the "updated at" column.
+	 * 获取"updated at"列的名称
      *
      * @return string
      */
@@ -321,6 +330,7 @@ abstract class Relation
 
     /**
      * Get the name of the related model's "updated at" column.
+	 * 获取相关模型的"updated at"列的名称
      *
      * @return string
      */
@@ -331,6 +341,7 @@ abstract class Relation
 
     /**
      * Get the name of the "where in" method for eager loading.
+	 * 获取即时加载的"where in"方法的名称
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  string  $key
@@ -366,6 +377,7 @@ abstract class Relation
 
     /**
      * Builds a table-keyed array from model class names.
+	 * 根据模型类名构建表键数组
      *
      * @param  string[]|null  $models
      * @return array|null
@@ -383,6 +395,7 @@ abstract class Relation
 
     /**
      * Get the model associated with a custom polymorphic type.
+	 * 获取与自定义多态类型相关联的模型
      *
      * @param  string  $alias
      * @return string|null

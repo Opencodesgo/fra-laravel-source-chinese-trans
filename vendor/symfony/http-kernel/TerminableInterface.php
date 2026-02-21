@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，Http 有期限的接口
+ */
 
 /*
  * This file is part of the Symfony package.

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime，消息转换器
+ */
+
 /*
  * This file is part of the Symfony package.
  *

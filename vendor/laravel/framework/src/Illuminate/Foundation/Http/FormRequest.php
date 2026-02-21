@@ -61,6 +61,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
 
     /**
      * The key to be used for the view error bag.
+	 * 用于视图错误包的键
      *
      * @var string
      */
@@ -120,6 +121,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
 
     /**
      * Get data to be validated from the request.
+	 * 从请求中获取要验证的数据
      *
      * @return array
      */
@@ -146,6 +148,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
 
     /**
      * Get the URL to redirect to on a validation error.
+	 * 获取验证错误时要重定向到的URL
      *
      * @return string
      */

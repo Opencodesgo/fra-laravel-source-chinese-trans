@@ -91,6 +91,7 @@ class UrlWindow
         // If the current page is very close to the beginning of the page range, we will
         // just render the beginning of the page range, followed by the last 2 of the
         // links in this list, since we will not have room to create a full slider.
+		// 如果当前页面非常接近页面范围的开始，我们将仅呈现页面范围的开始部分。
         if ($this->currentPage() <= $window) {
             return $this->getSliderTooCloseToBeginning($window, $onEachSide);
         }
@@ -98,6 +99,7 @@ class UrlWindow
         // If the current page is close to the ending of the page range we will just get
         // this first couple pages, followed by a larger window of these ending pages
         // since we're too close to the end of the list to create a full on slider.
+		// 如果当前页面接近页面范围的末尾，我们将得到前几页，然后是一个更大的窗口，里面是这些结束页。
         elseif ($this->currentPage() > ($this->lastPage() - $window)) {
             return $this->getSliderTooCloseToEnding($window, $onEachSide);
         }
@@ -105,11 +107,13 @@ class UrlWindow
         // If we have enough room on both sides of the current page to build a slider we
         // will surround it with both the beginning and ending caps, with this window
         // of pages in the middle providing a Google style sliding paginator setup.
+		// 如果我们在当前页面的两边都有足够的空间来构建一个滑块，我们将用开始和结束的大写字母包围它。
         return $this->getFullSlider($onEachSide);
     }
 
     /**
      * Get the slider of URLs when too close to beginning of window.
+	 * 当太接近窗口开始时，获取url的滑动条。
      *
      * @param  int  $window
      * @param  int  $onEachSide
@@ -126,6 +130,7 @@ class UrlWindow
 
     /**
      * Get the slider of URLs when too close to ending of window.
+	 * 当太接近窗口结束时获取url的滑动条
      *
      * @param  int  $window
      * @param  int  $onEachSide
@@ -147,6 +152,7 @@ class UrlWindow
 
     /**
      * Get the slider of URLs when a full slider can be made.
+	 * 当一个完整的滑块可以制作时，获取url的滑块。
      *
      * @param  int  $onEachSide
      * @return array
@@ -162,6 +168,7 @@ class UrlWindow
 
     /**
      * Get the page range for the current page window.
+	 * 获取当前页窗口的页范围
      *
      * @param  int  $onEachSide
      * @return array
@@ -176,6 +183,7 @@ class UrlWindow
 
     /**
      * Get the starting URLs of a pagination slider.
+	 * 获取分页滑块的起始url
      *
      * @return array
      */
@@ -186,6 +194,7 @@ class UrlWindow
 
     /**
      * Get the ending URLs of a pagination slider.
+	 * 获取分页滑块的结束url
      *
      * @return array
      */

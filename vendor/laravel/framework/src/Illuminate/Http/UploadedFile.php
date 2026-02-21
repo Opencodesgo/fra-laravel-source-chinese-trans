@@ -1,6 +1,7 @@
 <?php
 /**
  * Illuminate，Http，上传文件
+ * 从 Symfony\Component\HttpFoundation\File\UploadedFile 继承
  */
 
 namespace Illuminate\Http;

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，会话常用工具
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation\Session;
 
 /**
  * Session utility functions.
+ * 会话实用功能
  *
  * @author Nicolas Grekas <p@tchwork.com>
  * @author Rémon van de Kamp <rpkamp@gmail.com>
@@ -24,6 +28,7 @@ final class SessionUtils
     /**
      * Finds the session header amongst the headers that are to be sent, removes it, and returns
      * it so the caller can process it further.
+	 * 在要发送的标头中找到会话标头，并将其删除。
      */
     public static function popSessionCookie(string $sessionName, string $sessionId): ?string
     {

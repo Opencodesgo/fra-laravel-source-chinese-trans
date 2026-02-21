@@ -1,10 +1,13 @@
 <?php
+/**
+ * 资源，语言，分页
+ */
 
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pagination Language Lines
+    | Pagination Language Lines 	分页语言行
     |--------------------------------------------------------------------------
     |
     | The following language lines are used by the paginator library to build

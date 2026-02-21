@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，别名加载器
+ * Illuminate，基础，Composer脚本
  */
 
 namespace Illuminate\Foundation;
@@ -11,6 +11,7 @@ class ComposerScripts
 {
     /**
      * Handle the post-install Composer event.
+	 * 处理安装后的Composer事件
      *
      * @param  \Composer\Script\Event  $event
      * @return void
@@ -24,6 +25,7 @@ class ComposerScripts
 
     /**
      * Handle the post-update Composer event.
+	 * 处理更新后的Composer事件
      *
      * @param  \Composer\Script\Event  $event
      * @return void
@@ -37,6 +39,7 @@ class ComposerScripts
 
     /**
      * Handle the post-autoload-dump Composer event.
+	 * 处理自动加载转储后的Composer事件
      *
      * @param  \Composer\Script\Event  $event
      * @return void
@@ -50,6 +53,7 @@ class ComposerScripts
 
     /**
      * Clear the cached Laravel bootstrapping files.
+	 * 清除缓存的Laravel引导文件
      *
      * @return void
      */

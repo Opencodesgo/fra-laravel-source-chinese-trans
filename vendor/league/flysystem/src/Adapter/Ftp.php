@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，适配器，Ftp
+ */
 
 namespace League\Flysystem\Adapter;
 
@@ -66,6 +69,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Set the transfer mode.
+	 * 设置传输模式
      *
      * @param int $mode
      *
@@ -80,6 +84,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Set if Ssl is enabled.
+	 * 设置是否启用Ssl
      *
      * @param bool $ssl
      *
@@ -94,6 +99,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Set if passive mode should be used.
+	 * 设置是否使用被动模式
      *
      * @param bool $passive
      */
@@ -128,6 +134,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Connect to the FTP server.
+	 * 连接FTP服务器
      */
     public function connect()
     {
@@ -157,6 +164,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Set the connection to UTF-8 mode.
+	 * 设置连接为UTF-8模式
      */
     protected function setUtf8Mode()
     {
@@ -172,6 +180,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Set the connections to passive mode.
+	 * 设置连接为被动模式
      *
      * @throws ConnectionRuntimeException
      */
@@ -190,6 +199,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Set the connection root.
+	 * 设置连接根
      */
     protected function setConnectionRoot()
     {
@@ -209,6 +219,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Login.
+	 * 登陆
      *
      * @throws ConnectionRuntimeException
      */
@@ -363,6 +374,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Create a directory.
+	 * 创建目录
      *
      * @param string   $directory
      * @param resource $connection
@@ -531,6 +543,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Check if the connection is open.
+	 * 检查连接是否打开
      *
      * @return bool
      *
@@ -553,6 +566,7 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * The ftp_rawlist function with optional escaping.
+	 * 带有可选转义的ftp_rawlist函数
      *
      * @param string $options
      * @param string $path

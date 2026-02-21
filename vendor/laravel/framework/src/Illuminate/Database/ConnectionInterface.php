@@ -83,6 +83,7 @@ interface ConnectionInterface
 
     /**
      * Run a delete statement against the database.
+	 * 对数据库运行delete语句
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -92,6 +93,7 @@ interface ConnectionInterface
 
     /**
      * Execute an SQL statement and return the boolean result.
+	 * 执行SQL语句并返回布尔结果
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -101,6 +103,7 @@ interface ConnectionInterface
 
     /**
      * Run an SQL statement and get the number of rows affected.
+	 * 运行一条SQL语句，获取受影响的行数。
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -110,6 +113,7 @@ interface ConnectionInterface
 
     /**
      * Run a raw, unprepared query against the PDO connection.
+	 * 对PDO连接运行一个未准备的原始查询
      *
      * @param  string  $query
      * @return bool
@@ -118,6 +122,7 @@ interface ConnectionInterface
 
     /**
      * Prepare the query bindings for execution.
+	 * 准备执行查询绑定
      *
      * @param  array  $bindings
      * @return array

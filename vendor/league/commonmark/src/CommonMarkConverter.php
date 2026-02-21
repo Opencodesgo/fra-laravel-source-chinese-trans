@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，通用标记变换器
+ */
 
 /*
  * This file is part of the league/commonmark package.
@@ -16,11 +19,13 @@ namespace League\CommonMark;
 
 /**
  * Converts CommonMark-compatible Markdown to HTML.
+ * 将commonmark兼容的Markdown转换为HTML
  */
 class CommonMarkConverter extends MarkdownConverter
 {
     /**
      * The currently-installed version.
+	 * 当前安装的版本
      *
      * This might be a typical `x.y.z` version, or `x.y-dev`.
      *
@@ -31,6 +36,7 @@ class CommonMarkConverter extends MarkdownConverter
 
     /**
      * Create a new commonmark converter instance.
+	 * 创建一个新的公共标记转换器实例
      *
      * @param array<string, mixed>      $config
      * @param EnvironmentInterface|null $environment

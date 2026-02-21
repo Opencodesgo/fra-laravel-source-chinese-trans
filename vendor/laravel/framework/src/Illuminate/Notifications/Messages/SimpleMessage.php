@@ -52,6 +52,7 @@ class SimpleMessage
 
     /**
      * The "outro" lines of the notification.
+	 * 通知的"outo"行
      *
      * @var array
      */
@@ -59,6 +60,7 @@ class SimpleMessage
 
     /**
      * The text / label for the action.
+	 * 操作的文本/标签
      *
      * @var string
      */
@@ -74,6 +76,7 @@ class SimpleMessage
 
     /**
      * The name of the mailer that should send the notification.
+	 * 应发送通知的邮件发件人的名称
      *
      * @var string
      */
@@ -81,6 +84,7 @@ class SimpleMessage
 
     /**
      * Indicate that the notification gives information about a successful operation.
+	 * 指示通知提供有关成功操作的信息
      *
      * @return $this
      */
@@ -106,6 +110,7 @@ class SimpleMessage
 
     /**
      * Set the "level" of the notification (success, error, etc.).
+	 * 设置通知的"级别"(成功、错误等)
      *
      * @param  string  $level
      * @return $this
@@ -161,6 +166,7 @@ class SimpleMessage
 
     /**
      * Add a line of text to the notification.
+	 * 向通知添加一行文本
      *
      * @param  mixed  $line
      * @return $this
@@ -172,6 +178,7 @@ class SimpleMessage
 
     /**
      * Add a line of text to the notification.
+	 * 向通知添加一行文本
      *
      * @param  mixed  $line
      * @return $this
@@ -211,6 +218,7 @@ class SimpleMessage
 
     /**
      * Configure the "call to action" button.
+	 * 配置"动作召唤"按钮
      *
      * @param  string  $text
      * @param  string  $url

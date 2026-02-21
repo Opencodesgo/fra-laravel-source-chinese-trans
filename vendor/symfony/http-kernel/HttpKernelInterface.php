@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，Http 内核接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * HttpKernelInterface handles a Request to convert it to a Response.
+ * HttpKernelInterface 处理请求并将其转换为响应
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

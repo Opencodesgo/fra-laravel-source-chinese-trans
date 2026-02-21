@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，注册
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -39,6 +43,7 @@ class Registry
 {
     /**
      * List of all loggers in the registry (by named indexes)
+	 * 注册中心中所有记录器的列表(按命名索引)
      *
      * @var Logger[]
      */
@@ -66,6 +71,7 @@ class Registry
 
     /**
      * Checks if such logging channel exists by name or instance
+	 * 通过名称或实例检查是否存在这样的日志通道
      *
      * @param string|Logger $logger Name or logger instance
      */
@@ -82,6 +88,7 @@ class Registry
 
     /**
      * Removes instance from registry by name or instance
+	 * 按名称或实例从注册表中删除实例
      *
      * @param string|Logger $logger Name or logger instance
      */
@@ -106,6 +113,7 @@ class Registry
 
     /**
      * Gets Logger instance from the registry
+	 * 从注册中心获取Logger实例
      *
      * @param  string                    $name Name of the requested Logger instance
      * @throws \InvalidArgumentException If named Logger instance is not in the registry
@@ -121,6 +129,7 @@ class Registry
 
     /**
      * Gets Logger instance from the registry via static method call
+	 * 通过静态方法调用从注册中心获取Logger实例
      *
      * @param  string                    $name      Name of the requested Logger instance
      * @param  mixed[]                   $arguments Arguments passed to static method call

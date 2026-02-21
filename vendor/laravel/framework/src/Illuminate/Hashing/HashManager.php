@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，哈希，哈希抽象类
+ * Illuminate，哈希，哈希管理器
  */
 
 namespace Illuminate\Hashing;
@@ -23,6 +23,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Create an instance of the Argon2i hash Driver.
+	 * 创建Argon2i哈希驱动程序的实例
      *
      * @return \Illuminate\Hashing\ArgonHasher
      */
@@ -33,6 +34,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Create an instance of the Argon2id hash Driver.
+	 * 创建Argon2id哈希驱动程序的实例
      *
      * @return \Illuminate\Hashing\Argon2IdHasher
      */
@@ -43,6 +45,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Get information about the given hashed value.
+	 * 获取关于给定哈罗德值的信息
      *
      * @param  string  $hashedValue
      * @return array
@@ -54,6 +57,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Hash the given value.
+	 * 哈希给定的值
      *
      * @param  string  $value
      * @param  array  $options
@@ -66,6 +70,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Check the given plain value against a hash.
+	 * 检查给定的对哈希的极值
      *
      * @param  string  $value
      * @param  string  $hashedValue
@@ -79,6 +84,7 @@ class HashManager extends Manager implements Hasher
 
     /**
      * Check if the given hash has been hashed using the given options.
+	 * 检查给定的哈希是否使用给定的选项被哈希
      *
      * @param  string  $hashedValue
      * @param  array  $options

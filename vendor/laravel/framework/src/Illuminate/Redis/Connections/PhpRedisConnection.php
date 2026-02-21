@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Redis，连接，PhpRedis连接
+ * Illuminate，Redis，连接，Php Redis 连接
  */
 
 namespace Illuminate\Redis\Connections;
@@ -311,6 +311,7 @@ class PhpRedisConnection extends Connection implements ConnectionContract
 
     /**
      * Find the union between sets and store in a new set.
+	 * 找到集合之间的并集并存储在一个新集合中
      *
      * @param  string  $output
      * @param  array  $keys
@@ -510,6 +511,7 @@ class PhpRedisConnection extends Connection implements ConnectionContract
 
     /**
      * Subscribe to a set of given channels for messages.
+	 * 为消息订阅一组给定的通道
      *
      * @param  array|string  $channels
      * @param  \Closure  $callback

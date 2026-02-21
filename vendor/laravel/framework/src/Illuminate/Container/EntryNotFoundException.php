@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，容器，绑定方法，条目未找到异常
+ * Illuminate，容器，条目未找到异常, 待完善类
  */
 
 namespace Illuminate\Container;

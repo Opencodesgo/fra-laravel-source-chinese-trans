@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，样式，Symfony 样式
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -58,6 +61,7 @@ class SymfonyStyle extends OutputStyle
 
     /**
      * Formats a message as a block of text.
+	 * 将消息格式化为文本块
      *
      * @param string|array $messages The message to write in the block
      */

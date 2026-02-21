@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，缓存清除器，Psr6 缓存清除器
+ */
 
 /*
  * This file is part of the Symfony package.

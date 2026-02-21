@@ -1,10 +1,13 @@
 <?php
+/**
+ * 资源，语言，验证
+ */
 
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | Validation Language Lines 	验证语言行
     |--------------------------------------------------------------------------
     |
     | The following language lines contain the default error messages used by

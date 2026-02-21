@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，进程，Php可执行文件查找器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\Process;
 
 /**
  * An executable finder specifically designed for the PHP executable.
+ * 专门为PHP可执行文件设计的可执行对象
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>

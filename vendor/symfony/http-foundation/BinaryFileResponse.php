@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，二进制文件响应
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -78,6 +81,7 @@ class BinaryFileResponse extends Response
 
     /**
      * Sets the file to stream.
+	 * 将文件设置为流
      *
      * @param \SplFileInfo|string $file The file to stream
      *

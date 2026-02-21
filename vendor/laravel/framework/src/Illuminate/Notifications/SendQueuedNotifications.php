@@ -118,6 +118,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Call the failed method on the notification instance.
+	 * 在通知实例上调用失败的方法
      *
      * @param  \Throwable  $e
      * @return void
@@ -131,6 +132,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Get the retry delay for the notification.
+	 * 获取通知的重试延迟
      *
      * @return mixed
      */
@@ -145,6 +147,7 @@ class SendQueuedNotifications implements ShouldQueue
 
     /**
      * Get the expiration for the notification.
+	 * 获取通知的过期时间
      *
      * @return mixed
      */

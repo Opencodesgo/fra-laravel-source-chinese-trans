@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法，生成器
+ * Illuminate，数据库，模式，生成器
  */
 
 namespace Illuminate\Database\Schema;
@@ -168,6 +168,7 @@ class Builder
 
     /**
      * Create a new table on the schema.
+	 * 在模式上创建一个新表
      *
      * @param  string  $table
      * @param  \Closure  $callback
@@ -368,6 +369,7 @@ class Builder
 
     /**
      * Get the database connection instance.
+	 * 获取数据库连接实例
      *
      * @return \Illuminate\Database\Connection
      */
@@ -378,6 +380,7 @@ class Builder
 
     /**
      * Set the database connection instance.
+	 * 设置数据库连接实例
      *
      * @param  \Illuminate\Database\Connection  $connection
      * @return $this

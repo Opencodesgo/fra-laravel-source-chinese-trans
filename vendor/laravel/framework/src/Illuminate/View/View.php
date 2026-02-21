@@ -238,6 +238,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
 
     /**
      * Parse the given errors into an appropriate value.
+	 * 将给定的错误解析为适当的值
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
      * @return \Illuminate\Support\MessageBag

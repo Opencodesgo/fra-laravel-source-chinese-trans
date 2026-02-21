@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，日志，调试日志接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -22,6 +25,7 @@ interface DebugLoggerInterface
 {
     /**
      * Returns an array of logs.
+	 * 调试日志接口
      *
      * A log is an array with the following mandatory keys:
      * timestamp, message, priority, and priorityName.

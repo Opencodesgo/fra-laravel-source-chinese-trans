@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，异常，Http响应异常
+ * Illuminate，Http，异常，Http 响应异常
  */
 
 namespace Illuminate\Http\Exceptions;

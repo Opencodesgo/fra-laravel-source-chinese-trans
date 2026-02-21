@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，文件未发现异常
+ */
 
 namespace League\Flysystem;
 
@@ -13,6 +16,7 @@ class FileNotFoundException extends Exception
 
     /**
      * Constructor.
+	 * 构造方法
      *
      * @param string     $path
      * @param int        $code
@@ -27,6 +31,7 @@ class FileNotFoundException extends Exception
 
     /**
      * Get the path which was not found.
+	 * 获取未找到的路径
      *
      * @return string
      */

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime多用途互联网邮件扩展，Email
+ */
+
 /*
  * This file is part of the Symfony package.
  *
@@ -250,8 +254,10 @@ class Email extends Message
 
     /**
      * Sets the priority of this message.
+	 * 设置此消息的优先级
      *
      * The value is an integer where 1 is the highest priority and 5 is the lowest.
+	 * 整数形式，优先级为1最高，优先级为5最低。
      *
      * @return $this
      */
@@ -268,9 +274,11 @@ class Email extends Message
 
     /**
      * Get the priority of this message.
+	 * 获取此消息的优先级
      *
      * The returned value is an integer where 1 is the highest priority and 5
      * is the lowest.
+	 * 返回值为整数，其中1为最高优先级，5为最低优先级。
      */
     public function getPriority(): int
     {

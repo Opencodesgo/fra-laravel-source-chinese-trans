@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，异常，不支持的媒体类型 Http 异常
+ */
 
 /*
  * This file is part of the Symfony package.

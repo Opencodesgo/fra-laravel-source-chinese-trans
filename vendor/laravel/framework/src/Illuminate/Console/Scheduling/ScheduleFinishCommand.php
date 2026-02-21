@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，控制台，调度，Schedule完成命令
+ * Illuminate，控制台，调度，schedule:finish 计划完成命令
  */
 
 namespace Illuminate\Console\Scheduling;

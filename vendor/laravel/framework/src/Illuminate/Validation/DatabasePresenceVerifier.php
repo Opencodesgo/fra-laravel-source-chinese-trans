@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，验证，闭包验证规则
+ * Illuminate，验证，数据库状态验证器
  */
 
 namespace Illuminate\Validation;
@@ -13,6 +13,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 {
     /**
      * The database connection instance.
+	 * 数据库连接实例
      *
      * @var \Illuminate\Database\ConnectionResolverInterface
      */
@@ -20,6 +21,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * The database connection to use.
+	 * 要使用的数据库连接
      *
      * @var string
      */
@@ -27,6 +29,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Create a new database presence verifier.
+	 * 创建一个新的数据库状态验证器
      *
      * @param  \Illuminate\Database\ConnectionResolverInterface  $db
      * @return void
@@ -38,6 +41,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Count the number of objects in a collection having the given value.
+	 * 计算集合中具有给定值的对象的数量
      *
      * @param  string  $collection
      * @param  string  $column
@@ -60,6 +64,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Count the number of objects in a collection with the given values.
+	 * 对集合中具有给定值的对象数量进行计数
      *
      * @param  string  $collection
      * @param  string  $column
@@ -76,6 +81,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Add the given conditions to the query.
+	 * 将给定条件添加到查询中
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $conditions
@@ -98,6 +104,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Add a "where" clause to the given query.
+	 * 向给定查询添加"where"子句
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  string  $key
@@ -119,6 +126,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Get a query builder for the given table.
+	 * 获取给定表的查询生成器
      *
      * @param  string  $table
      * @return \Illuminate\Database\Query\Builder
@@ -130,6 +138,7 @@ class DatabasePresenceVerifier implements DatabasePresenceVerifierInterface
 
     /**
      * Set the connection to be used.
+	 * 设置要使用的连接
      *
      * @param  string  $connection
      * @return void

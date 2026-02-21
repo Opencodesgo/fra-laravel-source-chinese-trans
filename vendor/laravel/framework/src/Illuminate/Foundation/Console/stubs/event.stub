@@ -30,6 +30,7 @@ class DummyClass
 
     /**
      * Get the channels the event should broadcast on.
+	 * 获取事件应该播放的频道
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */

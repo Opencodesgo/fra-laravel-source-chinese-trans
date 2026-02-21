@@ -15,6 +15,7 @@ $uri = urldecode(
 // built-in PHP web server. This provides a convenient way to test a Laravel
 // application without having installed a "real" web server software here.
 // 此文件允许我们从内置的PHP web服务器模拟Apache的"mod_rewrite"功能。
+// 这提供了一种方便的不安装"真实"web服务器软件测试应用程序的方法。
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
     return false;
 }

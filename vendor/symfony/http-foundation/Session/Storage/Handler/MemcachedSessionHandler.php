@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，处理者，Memcached 会话处理程序
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -35,6 +38,7 @@ class MemcachedSessionHandler extends AbstractSessionHandler
 
     /**
      * Constructor.
+	 * 构造方法
      *
      * List of available options:
      *  * prefix: The prefix to use for the memcached keys in order to avoid collision
@@ -125,6 +129,7 @@ class MemcachedSessionHandler extends AbstractSessionHandler
 
     /**
      * Return a Memcached instance.
+	 * 返回一个 Memcached 实例
      *
      * @return \Memcached
      */

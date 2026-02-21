@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Mime，加密，Mime 加密
+ */
 
 /*
  * This file is part of the Symfony package.

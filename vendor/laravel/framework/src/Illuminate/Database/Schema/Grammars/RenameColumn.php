@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法，重命名列
+ * Illuminate，数据库，模式，语法，重命名列
  */
 
 namespace Illuminate\Database\Schema\Grammars;

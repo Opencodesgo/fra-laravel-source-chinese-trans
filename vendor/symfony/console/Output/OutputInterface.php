@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Output，输出接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 
 /**
  * OutputInterface is the interface implemented by all Output classes.
+ * OutputInterface 是由所有Output类实现的接口。
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -32,6 +36,7 @@ interface OutputInterface
 
     /**
      * Writes a message to the output.
+	 * 将消息写入输出
      *
      * @param string|iterable $messages The message as an iterable of strings or a single string
      * @param bool            $newline  Whether to add a newline
@@ -41,6 +46,7 @@ interface OutputInterface
 
     /**
      * Writes a message to the output and adds a newline at the end.
+	 * 将消息写入输出并在末尾添加换行符
      *
      * @param string|iterable $messages The message as an iterable of strings or a single string
      * @param int             $options  A bitmask of options (one of the OUTPUT or VERBOSITY constants), 0 is considered the same as self::OUTPUT_NORMAL | self::VERBOSITY_NORMAL
@@ -49,6 +55,7 @@ interface OutputInterface
 
     /**
      * Sets the verbosity of the output.
+	 * 设置输出的详细程度
      */
     public function setVerbosity(int $level);
 

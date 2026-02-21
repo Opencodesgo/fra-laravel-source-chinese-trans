@@ -40,6 +40,7 @@ class Kernel implements KernelContract
 
     /**
      * The Artisan application instance.
+	 * Artisan应用实例
      *
      * @var \Illuminate\Console\Application|null
      */
@@ -47,6 +48,7 @@ class Kernel implements KernelContract
 
     /**
      * The Artisan commands provided by the application.
+	 * 应用程序提供的Artisan命令
      *
      * @var array
      */
@@ -54,6 +56,7 @@ class Kernel implements KernelContract
 
     /**
      * Indicates if the Closure commands have been loaded.
+	 * 指示是否加载了关闭命令
      *
      * @var bool
      */
@@ -77,6 +80,7 @@ class Kernel implements KernelContract
 
     /**
      * Create a new console kernel instance.
+	 * 创建一个新的控制台内核实例
      *
      * @param  \Illuminate\Contracts\Foundation\Application  $app
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
@@ -98,6 +102,7 @@ class Kernel implements KernelContract
 
     /**
      * Define the application's command schedule.
+	 * 定义应用程序的命令时间表
      *
      * @return void
      */
@@ -112,6 +117,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the name of the cache store that should manage scheduling mutexes.
+	 * 获取应该管理调度互斥锁的缓存存储的名称
      *
      * @return string
      */
@@ -145,6 +151,7 @@ class Kernel implements KernelContract
 
     /**
      * Terminate the application.
+	 * 终止应用程序
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  int  $status
@@ -157,6 +164,7 @@ class Kernel implements KernelContract
 
     /**
      * Define the application's command schedule.
+	 * 定义应用程序的命令时间表
      *
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
@@ -168,6 +176,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the timezone that should be used by default for scheduled events.
+	 * 获取应该在默认情况下使用的时区
      *
      * @return \DateTimeZone|string|null
      */
@@ -180,6 +189,7 @@ class Kernel implements KernelContract
 
     /**
      * Register the Closure based commands for the application.
+	 * 为应用程序注册关闭的命令
      *
      * @return void
      */
@@ -190,6 +200,7 @@ class Kernel implements KernelContract
 
     /**
      * Register a Closure based command with the application.
+	 * 向应用程序注册一个基于闭包的命令
      *
      * @param  string  $signature
      * @param  \Closure  $callback
@@ -208,6 +219,7 @@ class Kernel implements KernelContract
 
     /**
      * Register all of the commands in the given directory.
+	 * 在给定目录中注册所有命令
      *
      * @param  array|string  $paths
      * @return void
@@ -244,6 +256,7 @@ class Kernel implements KernelContract
 
     /**
      * Register the given command with the console application.
+	 * 用控制台应用程序注册给定的命令
      *
      * @param  \Symfony\Component\Console\Command\Command  $command
      * @return void
@@ -255,6 +268,7 @@ class Kernel implements KernelContract
 
     /**
      * Run an Artisan console command by name.
+	 * 按名称运行一个Artisan控制台命令
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -272,6 +286,7 @@ class Kernel implements KernelContract
 
     /**
      * Queue the given console command.
+	 * 将给定的控制台命令排队
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -284,6 +299,7 @@ class Kernel implements KernelContract
 
     /**
      * Get all of the commands registered with the console.
+	 * 获取控制台注册的所有命令
      *
      * @return array
      */
@@ -296,6 +312,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the output for the last run command.
+	 * 获取最后一个运行命令的输出
      *
      * @return string
      */
@@ -308,6 +325,7 @@ class Kernel implements KernelContract
 
     /**
      * Bootstrap the application for artisan commands.
+	 * 为artisan命令引导应用程序
      *
      * @return void
      */
@@ -344,6 +362,7 @@ class Kernel implements KernelContract
 
     /**
      * Set the Artisan application instance.
+	 * 设置Artisan应用实例
      *
      * @param  \Illuminate\Console\Application  $artisan
      * @return void
@@ -355,6 +374,7 @@ class Kernel implements KernelContract
 
     /**
      * Get the bootstrap classes for the application.
+	 * 获取应用程序的引导类
      *
      * @return array
      */
@@ -365,6 +385,7 @@ class Kernel implements KernelContract
 
     /**
      * Report the exception to the exception handler.
+	 * 报告异常处理程序的异常
      *
      * @param  \Throwable  $e
      * @return void

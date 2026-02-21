@@ -1,17 +1,19 @@
 <?php
 /**
- * Illuminate，验证，闭包验证规则
+ * Illuminate，验证，当解决时验证 Trait
  */
 
 namespace Illuminate\Validation;
 
 /**
  * Provides default implementation of ValidatesWhenResolved contract.
+ * 提供ValidatesWhenResolved合约的默认实现
  */
 trait ValidatesWhenResolvedTrait
 {
     /**
      * Validate the class instance.
+	 * 验证类实例
      *
      * @return void
      */
@@ -34,6 +36,7 @@ trait ValidatesWhenResolvedTrait
 
     /**
      * Prepare the data for validation.
+	 * 为验证准备数据
      *
      * @return void
      */
@@ -44,6 +47,7 @@ trait ValidatesWhenResolvedTrait
 
     /**
      * Get the validator instance for the request.
+	 * 获取请求的验证器实例
      *
      * @return \Illuminate\Validation\Validator
      */
@@ -54,6 +58,7 @@ trait ValidatesWhenResolvedTrait
 
     /**
      * Handle a passed validation attempt.
+	 * 处理通过的验证尝试
      *
      * @return void
      */
@@ -64,6 +69,7 @@ trait ValidatesWhenResolvedTrait
 
     /**
      * Handle a failed validation attempt.
+	 * 处理失败的验证尝试
      *
      * @param  \Illuminate\Validation\Validator  $validator
      * @return void
@@ -77,6 +83,7 @@ trait ValidatesWhenResolvedTrait
 
     /**
      * Determine if the request passes the authorization check.
+	 * 确定请求是否通过授权检查
      *
      * @return bool
      */
@@ -91,6 +98,7 @@ trait ValidatesWhenResolvedTrait
 
     /**
      * Handle a failed authorization attempt.
+	 * 处理失败的授权尝试
      *
      * @return void
      *

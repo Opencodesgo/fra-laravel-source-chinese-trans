@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，MongoDb 会话处理程序
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -18,6 +21,7 @@ use MongoDB\Collection;
 
 /**
  * Session handler using the mongodb/mongodb package and MongoDB driver extension.
+ * 会话处理程序使用 mongodb/mongodb 包和 mongodb 驱动扩展
  *
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
  *

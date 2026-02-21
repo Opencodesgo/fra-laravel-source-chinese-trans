@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，关注，与异常处理交互
+ */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -12,6 +15,7 @@ trait InteractsWithExceptionHandling
 {
     /**
      * The original exception handler.
+	 * 原始异常处理程序
      *
      * @var \Illuminate\Contracts\Debug\ExceptionHandler|null
      */
@@ -19,6 +23,7 @@ trait InteractsWithExceptionHandling
 
     /**
      * Restore exception handling.
+	 * 恢复异常处理
      *
      * @return $this
      */
@@ -33,6 +38,7 @@ trait InteractsWithExceptionHandling
 
     /**
      * Only handle the given exceptions via the exception handler.
+	 * 只通过异常处理程序处理给定的异常
      *
      * @param  array  $exceptions
      * @return $this
@@ -44,6 +50,7 @@ trait InteractsWithExceptionHandling
 
     /**
      * Only handle validation exceptions via the exception handler.
+	 * 只有通过异常处理程序来处理验证异常
      *
      * @return $this
      */
@@ -54,6 +61,7 @@ trait InteractsWithExceptionHandling
 
     /**
      * Disable exception handling for the test.
+	 * 禁用异常处理测试
      *
      * @param  array  $except
      * @return $this
@@ -71,6 +79,7 @@ trait InteractsWithExceptionHandling
 
             /**
              * Create a new class instance.
+			 * 创建新的类实例
              *
              * @param  \Illuminate\Contracts\Debug\ExceptionHandler  $originalHandler
              * @param  array  $except
@@ -84,6 +93,7 @@ trait InteractsWithExceptionHandling
 
             /**
              * Report or log an exception.
+			 * 报告或记录异常
              *
              * @param  \Throwable  $e
              * @return void
@@ -97,6 +107,7 @@ trait InteractsWithExceptionHandling
 
             /**
              * Determine if the exception should be reported.
+			 * 确定是否应该报告异常
              *
              * @param  \Throwable  $e
              * @return bool
@@ -108,6 +119,7 @@ trait InteractsWithExceptionHandling
 
             /**
              * Render an exception into an HTTP response.
+			 * 将异常呈现到HTTP响应中
              *
              * @param  \Illuminate\Http\Request  $request
              * @param  \Throwable  $e
@@ -134,6 +146,7 @@ trait InteractsWithExceptionHandling
 
             /**
              * Render an exception to the console.
+			 * 向控制台呈现一个异常
              *
              * @param  \Symfony\Component\Console\Output\OutputInterface  $output
              * @param  \Throwable  $e

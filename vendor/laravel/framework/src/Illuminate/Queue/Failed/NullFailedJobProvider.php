@@ -35,7 +35,7 @@ class NullFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Get a single failed job.
-	 * 找一份失败的工作
+	 * 得到一个失败的作业
      *
      * @param  mixed  $id
      * @return object|null

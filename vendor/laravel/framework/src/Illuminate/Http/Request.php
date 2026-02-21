@@ -363,6 +363,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
 	 * 这个方法属于Symfony HttpFoundation，在使用Laravel时通常不需要。
      *
      * Instead, you may use the "input" method.
+	 * 相反，您可以使用"输入"方法。
      *
      * @param  string  $key
      * @param  mixed  $default
@@ -580,7 +581,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
 
     /**
      * Get a unique fingerprint for the request / route / IP address.
-	 * 获取请求/路由/ IP地址的唯一指纹
+	 * 获取请求/路由/IP地址的唯一指纹
      *
      * @return string
      *

@@ -54,6 +54,7 @@ trait AsPivot
         // The pivot model is a "dynamic" model since we will set the tables dynamically
         // for the instance. This allows it work for any intermediate tables for the
         // many to many relationship that are defined by this developer's classes.
+		// 数据透视模型是一个"动态"模型，因为我们将为实例动态地设置表。
         $instance->setConnection($parent->getConnectionName())
             ->setTable($table)
             ->forceFill($attributes)
@@ -62,6 +63,7 @@ trait AsPivot
         // We store off the parent instance so we will access the timestamp column names
         // for the model, since the pivot model timestamps aren't easily configurable
         // from the developer's point of view. We can use the parents to get these.
+		// 我们存储父实例，以便访问模型的时间戳列名，由于pivot模型时间戳不容易配置。
         $instance->pivotParent = $parent;
 
         $instance->exists = $exists;
@@ -203,6 +205,7 @@ trait AsPivot
 
     /**
      * Set the key names for the pivot model instance.
+	 * 设置pivot模型实例的键名
      *
      * @param  string  $foreignKey
      * @param  string  $relatedKey
@@ -276,6 +279,7 @@ trait AsPivot
 
     /**
      * Get a new query to restore one or more models by their queueable IDs.
+	 * 获取一个新查询，根据可排队id还原一个或多个模型。
      *
      * @param  int[]|string[]|string  $ids
      * @return \Illuminate\Database\Eloquent\Builder

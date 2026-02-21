@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，魔术师，Amqp Caster
+ */
 
 /*
  * This file is part of the Symfony package.

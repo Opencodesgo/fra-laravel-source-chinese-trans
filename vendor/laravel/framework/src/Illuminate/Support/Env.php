@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，Env环境
+ * Illuminate，支持，Env 环境
  */
 
 namespace Illuminate\Support;

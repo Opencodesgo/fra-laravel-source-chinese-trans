@@ -19,6 +19,7 @@ trait InteractsWithQueue
 
     /**
      * Get the number of times the job has been attempted.
+	 * 获取该任务被尝试的次数
      *
      * @return int
      */

@@ -81,7 +81,7 @@ class TokenGuard implements Guard
         // If we've already retrieved the user for the current request we can just
         // return it back immediately. We do not want to fetch the user data on
         // every call to this method because that would be tremendously slow.
-		// 如果我们已经为当前请求检索了用户，我们就可以马上还回去。
+		// 如果我们已经为当前请求检索了用户，我们就可以立即恢复。
 		// 我们不希望每次调用这个方法获取用户数据，因为那样会非常慢。
         if (! is_null($this->user)) {
             return $this->user;

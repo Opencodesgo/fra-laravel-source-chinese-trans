@@ -1,4 +1,7 @@
 <?php
+/**
+ * Psr，日志，Log，记录器特征
+ */
 
 namespace Psr\Log;
 
@@ -14,6 +17,7 @@ trait LoggerTrait
 {
     /**
      * System is unusable.
+	 * 系统不可用
      *
      * @param string $message
      * @param array  $context

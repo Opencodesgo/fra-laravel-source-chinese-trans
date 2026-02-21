@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，HTTP缓存，存储
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -19,6 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Store implements all the logic for storing cache metadata (Request and Response headers).
+ * Store实现存储缓存元数据(请求和响应标头)的所有逻辑。
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

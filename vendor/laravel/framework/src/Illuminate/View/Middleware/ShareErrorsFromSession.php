@@ -52,6 +52,7 @@ class ShareErrorsFromSession
         // Putting the errors in the view for every view allows the developer to just
         // assume that some errors are always available, which is convenient since
         // they don't have to continually run checks for the presence of errors.
+		// 将错误放在每个视图的视图中允许开发人员。
 
         return $next($request);
     }

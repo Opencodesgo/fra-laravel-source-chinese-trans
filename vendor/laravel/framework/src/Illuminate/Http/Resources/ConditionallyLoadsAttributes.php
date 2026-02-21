@@ -218,6 +218,7 @@ trait ConditionallyLoadsAttributes
 
     /**
      * Execute a callback if the given pivot table with a custom accessor has been loaded.
+	 * 如果给定的pivot表带有自定义访问器,则执行回调
      *
      * @param  string  $accessor
      * @param  string  $table

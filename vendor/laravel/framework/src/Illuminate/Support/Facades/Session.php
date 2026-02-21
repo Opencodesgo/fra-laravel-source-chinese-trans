@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，门面，Session会话
+ * Illuminate，支持，门面，Session 会话
  */
 
 namespace Illuminate\Support\Facades;

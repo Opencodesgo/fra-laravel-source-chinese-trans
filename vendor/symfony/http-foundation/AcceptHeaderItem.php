@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，接收报头
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * Represents an Accept-* header item.
+ * 表示 Accept-* 报头项
  *
  * @author Jean-François Simon <contact@jfsimon.fr>
  */
@@ -33,6 +37,7 @@ class AcceptHeaderItem
 
     /**
      * Builds an AcceptHeaderInstance instance from a string.
+	 * 从字符串构建一个 AcceptHeaderInstance 实例
      *
      * @return self
      */
@@ -48,6 +53,7 @@ class AcceptHeaderItem
 
     /**
      * Returns header value's string representation.
+	 * 返回报头值的字符串表示形式
      *
      * @return string
      */
@@ -161,6 +167,7 @@ class AcceptHeaderItem
 
     /**
      * Set an attribute.
+	 * 设置属性
      *
      * @return $this
      */

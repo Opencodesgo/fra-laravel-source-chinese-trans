@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，调试处理程序监听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -22,6 +25,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Configures errors and exceptions handlers.
+ * 配置错误和异常处理程序
  *
  * @author Nicolas Grekas <p@tchwork.com>
  *

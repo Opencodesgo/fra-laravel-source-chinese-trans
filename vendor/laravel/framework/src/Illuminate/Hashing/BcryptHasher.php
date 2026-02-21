@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，哈希，哈希抽象类
+ * Illuminate，哈希，Bcrypt 哈希
  */
 
 namespace Illuminate\Hashing;
@@ -20,6 +20,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Indicates whether to perform an algorithm check.
+	 * 指示是否执行算法检查
      *
      * @var bool
      */
@@ -27,6 +28,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Create a new hasher instance.
+	 * 创建新的哈希实例
      *
      * @param  array  $options
      * @return void
@@ -39,6 +41,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Hash the given value.
+	 * 哈希给定值
      *
      * @param  string  $value
      * @param  array  $options
@@ -61,6 +64,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Check the given plain value against a hash.
+	 * 检查给定的极值与散列
      *
      * @param  string  $value
      * @param  string  $hashedValue
@@ -80,6 +84,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Check if the given hash has been hashed using the given options.
+	 * 检查给定的哈希是否使用给定的选项被哈希
      *
      * @param  string  $hashedValue
      * @param  array  $options
@@ -94,6 +99,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Set the default password work factor.
+	 * 设置默认密码工作因子
      *
      * @param  int  $rounds
      * @return $this
@@ -107,6 +113,7 @@ class BcryptHasher extends AbstractHasher implements HasherContract
 
     /**
      * Extract the cost value from the options array.
+	 * 从选项数组提取成本值
      *
      * @param  array  $options
      * @return int

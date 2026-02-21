@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，读取接口
+ */
 
 namespace League\Flysystem;
 
@@ -6,6 +9,7 @@ interface ReadInterface
 {
     /**
      * Check whether a file exists.
+	 * 检查文件是否存在
      *
      * @param string $path
      *
@@ -15,6 +19,7 @@ interface ReadInterface
 
     /**
      * Read a file.
+	 * 读取文件
      *
      * @param string $path
      *

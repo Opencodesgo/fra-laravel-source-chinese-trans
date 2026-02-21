@@ -1,6 +1,6 @@
 <?php
 /**
- * App，Http，内核
+ * App，Http，Kernel 内核
  */
 
 namespace App\Http;
@@ -14,6 +14,7 @@ class Kernel extends HttpKernel
 	 * 应用的全局HTTP中间件堆栈
      *
      * These middleware are run during every request to your application.
+	 * 这些中间件在对应用程序的每次请求期间运行
      *
      * @var array
      */

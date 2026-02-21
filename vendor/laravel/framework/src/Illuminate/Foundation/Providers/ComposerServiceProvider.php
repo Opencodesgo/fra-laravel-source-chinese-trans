@@ -13,6 +13,7 @@ class ComposerServiceProvider extends ServiceProvider implements DeferrableProvi
 {
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -25,6 +26,7 @@ class ComposerServiceProvider extends ServiceProvider implements DeferrableProvi
 
     /**
      * Get the services provided by the provider.
+	 * 获取提供者提供的服务
      *
      * @return array
      */

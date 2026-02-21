@@ -52,6 +52,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
             // Once we have an instance of the queue manager, we will register the various
             // resolvers for the queue connectors. These connectors are responsible for
             // creating the classes that accept queue configs and instantiate queues.
+			// 一旦我们有了队列管理器的实例，我们将注册各种队列连接器的解析器。
             return tap(new QueueManager($app), function ($manager) {
                 $this->registerConnectors($manager);
             });
@@ -73,6 +74,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the connectors on the queue manager.
+	 * 在队列管理器上注册连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -86,6 +88,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Null queue connector.
+	 * 注册空队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -99,6 +102,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Sync queue connector.
+	 * 注册同步队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -112,6 +116,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the database queue connector.
+	 * 注册数据库队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -125,6 +130,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Redis queue connector.
+	 * 注册Redis队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -138,6 +144,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Beanstalkd queue connector.
+	 * 注册beanstald队列连接器
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -151,6 +158,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Register the Amazon SQS queue connector.
+	 * 
      *
      * @param  \Illuminate\Queue\QueueManager  $manager
      * @return void
@@ -234,6 +242,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Create a new DynamoDb failed job provider.
+	 * 创建一个新的DynamoDb失败作业提供程序
      *
      * @param  array  $config
      * @return \Illuminate\Queue\Failed\DynamoDbFailedJobProvider
@@ -261,6 +270,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 
     /**
      * Configure Opis Closure signing for security.
+	 * 为安全性配置Opis闭包签名
      *
      * @return void
      */

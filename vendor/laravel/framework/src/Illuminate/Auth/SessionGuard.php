@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，认证，Session会话守卫
+ * Illuminate，认证，Session 会话守卫
  */
 
 namespace Illuminate\Auth;
@@ -36,6 +36,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
 	 * 守卫名称，典型会话
      *
      * Corresponds to guard name in authentication configuration.
+	 * 与认证配置中的守卫名称对应
      *
      * @var string
      */
@@ -191,6 +192,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
         // pull the user data on that cookie which serves as a remember cookie on
         // the application. Once we have a user we can return it to the caller.
 		// 如果用户为空，但是我们可以尝试解密一个"召回者"cookie。
+		// 我们可以尝试将用户数据拉到作为记忆cookie的cookie上。
         $this->recallAttempted = true;
 
         $this->viaRemember = ! is_null($user = $this->provider->retrieveByToken(
@@ -826,7 +828,7 @@ class SessionGuard implements StatefulGuard, SupportsBasicAuth
     public function getCookieJar()
     {
         if (! isset($this->cookie)) {
-            throw new RuntimeException('Cookie jar has not been set.');
+            throw new RuntimeException('Cookie jar has not been set.');			#Cookie压缩没有设置
         }
 
         return $this->cookie;

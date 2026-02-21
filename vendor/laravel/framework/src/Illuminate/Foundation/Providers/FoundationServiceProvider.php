@@ -78,6 +78,7 @@ class FoundationServiceProvider extends AggregateServiceProvider
 
     /**
      * Register the "hasValidSignature" macro on the request.
+	 * 在请求上注册"hasValidSignature"宏
      *
      * @return void
      */

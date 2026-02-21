@@ -21,7 +21,7 @@ class OutputStyle extends SymfonyStyle
 
     /**
      * Create a new Console OutputStyle instance.
-	 * 创建一个新的控制台OutputStyle实例
+	 * 创建一个新的控制台 OutputStyle 实例
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output

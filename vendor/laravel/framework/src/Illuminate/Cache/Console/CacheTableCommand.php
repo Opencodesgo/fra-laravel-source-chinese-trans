@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，缓存，控制台，缓存表命令
+ * Illuminate，缓存，控制台，cache:table 缓存表命令
  */
 
 namespace Illuminate\Cache\Console;
@@ -25,7 +25,7 @@ class CacheTableCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Create a migration for the cache database table';
+    protected $description = 'Create a migration for the cache database table';		#为缓存数据库表创建迁移
 
     /**
      * The filesystem instance.

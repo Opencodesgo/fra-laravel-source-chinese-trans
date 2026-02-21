@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，HTTP缓存，响应缓存策略
+ */
 
 /*
  * This file is part of the Symfony package.

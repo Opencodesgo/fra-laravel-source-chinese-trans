@@ -599,6 +599,7 @@ class Filesystem
             // As we spin through items, we will check to see if the current file is actually
             // a directory or a file. When it is actually a directory we will need to call
             // back into this function recursively to keep copying these nested folders.
+			// 在遍历项时，我们将检查当前文件是否实际存在。
             $target = $destination.'/'.$item->getBasename();
 
             if ($item->isDir()) {
@@ -654,6 +655,7 @@ class Filesystem
             // If the item is just a file, we can go ahead and delete it since we're
             // just looping through and waxing all of the files in this directory
             // and calling directories recursively, so we delete the real path.
+			// 如果项目只是一个文件，我们可以继续并删除它，因为我们循环遍历并删除这个目录中的所有文件。
             else {
                 $this->delete($item->getPathname());
             }

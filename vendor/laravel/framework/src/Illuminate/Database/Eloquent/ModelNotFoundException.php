@@ -28,6 +28,7 @@ class ModelNotFoundException extends RuntimeException
 
     /**
      * Set the affected Eloquent model and instance ids.
+	 * 设置受影响的Eloquent模型和实例id
      *
      * @param  string  $model
      * @param  int|array  $ids

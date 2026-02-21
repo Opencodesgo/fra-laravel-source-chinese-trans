@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，不支持异常
+ */
 
 namespace League\Flysystem;
 
@@ -9,6 +12,7 @@ class NotSupportedException extends RuntimeException implements FilesystemExcept
 {
     /**
      * Create a new exception for a link.
+	 * 为链接创建一个新的异常
      *
      * @param SplFileInfo $file
      *
@@ -23,6 +27,7 @@ class NotSupportedException extends RuntimeException implements FilesystemExcept
 
     /**
      * Create a new exception for a link.
+	 * 为链接创建一个新的异常
      *
      * @param string $systemType
      *

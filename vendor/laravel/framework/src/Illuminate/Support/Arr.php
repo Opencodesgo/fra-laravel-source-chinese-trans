@@ -260,7 +260,7 @@ class Arr
         }
 
         foreach ($keys as $key) {
-            // if the exact key exists in the top-level, remove it
+            // if the exact key exists in the top-level, remove it	如果顶层中存在确切的键，则删除它
             if (static::exists($array, $key)) {
                 unset($array[$key]);
 
@@ -269,7 +269,7 @@ class Arr
 
             $parts = explode('.', $key);
 
-            // clean up before each pass
+            // clean up before each pass	每次通过前进行清理
             $array = &$original;
 
             while (count($parts) > 1) {
@@ -397,6 +397,7 @@ class Arr
 	 * 确定数组是否是关联的
      *
      * An array is "associative" if it doesn't have sequential numerical keys beginning with zero.
+	 * 如果数组没有以零开头的顺序数字键，则该数组是"关联的"。
      *
      * @param  array  $array
      * @return bool
@@ -410,6 +411,7 @@ class Arr
 
     /**
      * Get a subset of the items from the given array.
+	 * 从给定数组中获取项的子集
      *
      * @param  array  $array
      * @param  array|string  $keys
@@ -441,6 +443,7 @@ class Arr
             // If the key is "null", we will just append the value to the array and keep
             // looping. Otherwise we will key the array using the value of the key we
             // received from the developer. Then we'll return the final array form.
+			// 从给定数组中获取项的子集。
             if (is_null($key)) {
                 $results[] = $itemValue;
             } else {
@@ -459,6 +462,7 @@ class Arr
 
     /**
      * Explode the "value" and "key" arguments passed to "pluck".
+	 * 爆炸传递给"pluck"的"value"和"key"参数
      *
      * @param  string|array  $value
      * @param  string|array|null  $key
@@ -581,6 +585,7 @@ class Arr
             // If the key doesn't exist at this depth, we will just create an empty array
             // to hold the next value, allowing us to create the arrays to hold final
             // values at the correct depth. Then we'll keep digging into the array.
+			// 如果键在这个深度不存在，我们将创建一个空数组。
             if (! isset($array[$key]) || ! is_array($array[$key])) {
                 $array[$key] = [];
             }

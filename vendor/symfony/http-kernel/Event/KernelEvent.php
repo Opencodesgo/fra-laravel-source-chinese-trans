@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，内核事件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Base class for events dispatched in the HttpKernel component.
+ * 在 HttpKernel 组件中调度的事件的基类
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -39,6 +43,7 @@ class KernelEvent extends Event
 
     /**
      * Returns the kernel in which this event was thrown.
+	 * 返回引发此事件的内核
      *
      * @return HttpKernelInterface
      */
@@ -49,6 +54,7 @@ class KernelEvent extends Event
 
     /**
      * Returns the request the kernel is currently processing.
+	 * 返回内核当前正在处理的请求
      *
      * @return Request
      */
@@ -78,6 +84,7 @@ class KernelEvent extends Event
 
     /**
      * Checks if this is a master request.
+	 * 检查这是否是一个主请求
      *
      * @return bool
      *

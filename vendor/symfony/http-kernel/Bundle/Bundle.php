@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，属性，捆绑，捆绑
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -19,6 +22,7 @@ use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 /**
  * An implementation of BundleInterface that adds a few conventions for DependencyInjection extensions.
+ * BundleInterface的实现，它为DependencyInjection扩展添加了一些约定。
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

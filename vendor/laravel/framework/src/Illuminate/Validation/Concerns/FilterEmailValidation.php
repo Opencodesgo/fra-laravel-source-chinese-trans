@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，验证，问题，过滤邮件验证
+ */
 
 namespace Illuminate\Validation\Concerns;
 
@@ -9,6 +12,7 @@ class FilterEmailValidation implements EmailValidation
 {
     /**
      * The flags to pass to the filter_var function.
+	 * 传递给filter_var函数的标志
      *
      * @var int|null
      */
@@ -16,6 +20,7 @@ class FilterEmailValidation implements EmailValidation
 
     /**
      * Create a new validation instance.
+	 * 创建新的验证实例
      *
      * @param  int  $flags
      * @return void
@@ -27,6 +32,7 @@ class FilterEmailValidation implements EmailValidation
 
     /**
      * Create a new instance which allows any unicode characters in local-part.
+	 * 创建一个允许local-part中任意unicode字符的新实例
      *
      * @return static
      */
@@ -37,6 +43,7 @@ class FilterEmailValidation implements EmailValidation
 
     /**
      * Returns true if the given email is valid.
+	 * 如果给定的电子邮件有效，则返回true。
      *
      * @param  string  $email
      * @param  \Egulias\EmailValidator\EmailLexer  $emailLexer
@@ -51,6 +58,7 @@ class FilterEmailValidation implements EmailValidation
 
     /**
      * Returns the validation error.
+	 * 返回验证错误
      *
      * @return \Egulias\EmailValidator\Exception\InvalidEmail|null
      */
@@ -61,6 +69,7 @@ class FilterEmailValidation implements EmailValidation
 
     /**
      * Returns the validation warnings.
+	 * 返回验证警告
      *
      * @return \Egulias\EmailValidator\Warning\Warning[]
      */

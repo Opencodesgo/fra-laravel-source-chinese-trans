@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，SQLite连接
+ * Illuminate，数据库，SQLite 连接
  */
 
 namespace Illuminate\Database;

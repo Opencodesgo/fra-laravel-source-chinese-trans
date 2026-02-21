@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，请求匹配器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * RequestMatcher compares a pre-defined set of checks against a Request instance.
+ * RequestMatcher将预定义的检查集与请求实例进行比较
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -74,6 +78,7 @@ class RequestMatcher implements RequestMatcherInterface
 
     /**
      * Adds a check for the HTTP scheme.
+	 * 添加对HTTP方案的检查
      *
      * @param string|string[]|null $scheme An HTTP scheme or an array of HTTP schemes
      */
@@ -84,6 +89,7 @@ class RequestMatcher implements RequestMatcherInterface
 
     /**
      * Adds a check for the URL host name.
+	 * 添加对URL主机名的检查
      */
     public function matchHost(?string $regexp)
     {

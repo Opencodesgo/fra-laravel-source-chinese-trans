@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，属性，捆绑，捆绑接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
 /**
  * BundleInterface.
+ * 捆绑接口
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

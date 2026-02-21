@@ -14,10 +14,15 @@ class IndexController extends BaseController
 {
     
 	public function index() {
+		echo '==========================<br/>';
 		echo 'Laravel Version: 7.30.7<br/>';
+		echo 'Frame PHP Version: 7.2 -- 8.0<br/>';
+		echo 'Frame Start Date: 2020-03-03<br/>';
+		echo 'Frame End Date: 2021-03-03<br/>';
+		echo '==========================<br/>';
 		echo 'PHP Version: 7.4<br/>';
 		echo 'Start Date: 2025-05-21<br/>';
-		echo 'Date: 2020-03-03';
+		echo '==========================<br/>';
 	}
 	
 }

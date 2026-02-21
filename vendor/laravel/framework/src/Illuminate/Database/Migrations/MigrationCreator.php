@@ -80,6 +80,7 @@ class MigrationCreator
         // Next, we will fire any hooks that are supposed to fire after a migration is
         // created. Once that is done we'll be ready to return the full path to the
         // migration file so it can be used however it's needed by the developer.
+		// 接下来，我们将触发所有应该在迁移完成后触发的钩子。
         $this->firePostCreateHooks($table);
 
         return $path;
@@ -156,6 +157,7 @@ class MigrationCreator
         // Here we will replace the table place-holders with the table specified by
         // the developer, which is useful for quickly creating a tables creation
         // or update migration from the console instead of typing it manually.
+		// 指定的表替换表占位符。
         if (! is_null($table)) {
             $stub = str_replace(
                 ['DummyTable', '{{ table }}', '{{table}}'],

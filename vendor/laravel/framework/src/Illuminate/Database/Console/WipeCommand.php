@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，控制台，清除命令
+ * Illuminate，数据库，控制台，db:wipe 清除命令
  */
 
 namespace Illuminate\Database\Console;

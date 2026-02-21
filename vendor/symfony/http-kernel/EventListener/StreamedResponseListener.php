@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，流响应侦听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -28,6 +31,7 @@ class StreamedResponseListener implements EventSubscriberInterface
 {
     /**
      * Filters the Response.
+	 * 过滤响应
      */
     public function onKernelResponse(ResponseEvent $event)
     {

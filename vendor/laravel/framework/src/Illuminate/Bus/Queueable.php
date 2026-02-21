@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，总线，可排队的：
+ * Illuminate，总线，可排队的：指某事物或任务可以被添加到队列中等待处理
  */
 
 namespace Illuminate\Bus;

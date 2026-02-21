@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，可重置的服务通行证
+ */
 
 /*
  * This file is part of the Symfony package.

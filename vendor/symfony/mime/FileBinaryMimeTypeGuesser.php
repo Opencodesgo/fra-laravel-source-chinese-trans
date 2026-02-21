@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime，文件二进制Mime类型猜测器
+ */
+
 /*
  * This file is part of the Symfony package.
  *
@@ -16,6 +20,7 @@ use Symfony\Component\Mime\Exception\LogicException;
 
 /**
  * Guesses the MIME type with the binary "file" (only available on *nix).
+ * 用二进制“文件”猜测MIME类型(仅在*nix上可用)
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

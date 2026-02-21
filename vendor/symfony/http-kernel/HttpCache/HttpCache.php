@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，HTTP缓存，HTTP 缓存
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -25,6 +28,7 @@ use Symfony\Component\HttpKernel\TerminableInterface;
 
 /**
  * Cache provides HTTP caching.
+ * Cache 提供HTTP缓存
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

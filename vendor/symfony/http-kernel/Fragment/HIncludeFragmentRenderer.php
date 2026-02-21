@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，片段，H包含片段渲染器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -19,6 +22,7 @@ use Twig\Environment;
 
 /**
  * Implements the Hinclude rendering strategy.
+ * 实现Hinclude呈现策略
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

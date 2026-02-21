@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，Uri 签名者
+ */
 
 /*
  * This file is part of the Symfony package.

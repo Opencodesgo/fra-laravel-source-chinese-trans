@@ -1,6 +1,6 @@
 <?php
 /**
- * 用户模型
+ * app，用户
  */
 
 namespace App;

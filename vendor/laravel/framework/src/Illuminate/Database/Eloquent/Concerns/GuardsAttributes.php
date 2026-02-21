@@ -191,6 +191,7 @@ trait GuardsAttributes
         // If the key is in the "fillable" array, we can of course assume that it's
         // a fillable attribute. Otherwise, we will check the guarded array when
         // we need to determine if the attribute is black-listed on the model.
+		// 如果键在"可填充"数组中，我们当然可以假设它是可填充属性。
         if (in_array($key, $this->getFillable())) {
             return true;
         }
@@ -198,6 +199,7 @@ trait GuardsAttributes
         // If the attribute is explicitly listed in the "guarded" array then we can
         // return false immediately. This means this attribute is definitely not
         // fillable and there is no point in going any further in this method.
+		// 如果该属性显式地列在"guarded"数组中，那么我们可以立即返回false。
         if ($this->isGuarded($key)) {
             return false;
         }

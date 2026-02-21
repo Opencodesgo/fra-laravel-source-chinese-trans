@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，服务恢复元件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Contracts\Service\ResetInterface;
 
 /**
  * Resets provided services.
+ * 重置提供的服务
  *
  * @author Alexander M. Turek <me@derrabus.de>
  * @author Nicolas Grekas <p@tchwork.com>

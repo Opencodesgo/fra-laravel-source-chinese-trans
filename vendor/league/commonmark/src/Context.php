@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，上下文
+ */
 
 /*
  * This file is part of the league/commonmark package.
@@ -20,6 +23,7 @@ use League\CommonMark\Reference\ReferenceParser;
 
 /**
  * Maintains the current state of the Markdown parser engine
+ * 维护Markdown解析器引擎的当前状态
  */
 class Context implements ContextInterface
 {

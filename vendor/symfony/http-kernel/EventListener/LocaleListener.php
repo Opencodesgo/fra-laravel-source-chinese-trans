@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，地点监听者
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -22,6 +25,7 @@ use Symfony\Component\Routing\RequestContextAwareInterface;
 
 /**
  * Initializes the locale based on the current request.
+ * 根据当前请求初始化语言环境
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *

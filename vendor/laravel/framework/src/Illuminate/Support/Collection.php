@@ -687,6 +687,7 @@ class Collection implements ArrayAccess, Enumerable
 	 * 在条目上运行字典映射
      *
      * The callback should return an associative array with a single key/value pair.
+	 * 回调函数应该返回一个具有单个键/值对的关联数组
      *
      * @param  callable  $callback
      * @return static
@@ -717,6 +718,7 @@ class Collection implements ArrayAccess, Enumerable
 	 * 在每个项目上运行一个关联映射
      *
      * The callback should return an associative array with a single key/value pair.
+	 * 回调函数应该返回一个具有单个键/值对的关联数组
      *
      * @param  callable  $callback
      * @return static
@@ -1203,6 +1205,7 @@ class Collection implements ArrayAccess, Enumerable
         // Once we have sorted all of the keys in the array, we will loop through them
         // and grab the corresponding model so we can set the underlying items list
         // to the sorted version. Then we'll just return the collection instance.
+		// 一旦对数组中的所有键进行了排序，就循环遍历他们并获取相应的模型，以便我们可以设置基础项目列表。
         foreach (array_keys($results) as $key) {
             $results[$key] = $this->items[$key];
         }

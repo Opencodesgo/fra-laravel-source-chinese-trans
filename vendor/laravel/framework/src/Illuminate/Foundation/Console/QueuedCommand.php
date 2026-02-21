@@ -16,6 +16,7 @@ class QueuedCommand implements ShouldQueue
 
     /**
      * The data to pass to the Artisan command.
+	 * 传递给 Artisan 命令的数据
      *
      * @var array
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Input，字符串输入
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\Console\Exception\InvalidArgumentException;
 
 /**
  * StringInput represents an input provided as a string.
+ * StringInput 表示作为字符串提供的输入
  *
  * Usage:
  *
@@ -40,6 +44,7 @@ class StringInput extends ArgvInput
 
     /**
      * Tokenizes a string.
+	 * 标记字符串
      *
      * @throws InvalidArgumentException When unable to parse input (should never happen)
      */

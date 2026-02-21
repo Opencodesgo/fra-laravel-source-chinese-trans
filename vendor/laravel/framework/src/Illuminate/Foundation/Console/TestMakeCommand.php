@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:test命令
+ * Illuminate，基础，控制台，make:test 命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -49,6 +49,7 @@ class TestMakeCommand extends GeneratorCommand
 
     /**
      * Resolve the fully-qualified path to the stub.
+	 * 解析存根的全限定路径
      *
      * @param  string  $stub
      * @return string
@@ -76,6 +77,7 @@ class TestMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认命名空间
      *
      * @param  string  $rootNamespace
      * @return string

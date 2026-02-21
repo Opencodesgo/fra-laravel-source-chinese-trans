@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，连接器，Sqs连接器
+ * Illuminate，队列，连接器，Sqs 连接器
  */
 
 namespace Illuminate\Queue\Connectors;

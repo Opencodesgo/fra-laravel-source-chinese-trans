@@ -17,7 +17,7 @@ class JobProcessing
 
     /**
      * The job instance.
-	 * 任务实例
+	 * 作业实例
      *
      * @var \Illuminate\Contracts\Queue\Job
      */

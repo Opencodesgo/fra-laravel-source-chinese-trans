@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，连接器，MySql连接
+ * Illuminate，数据库，连接器，MySql 连接器
  */
 
 namespace Illuminate\Database\Connectors;
@@ -117,6 +117,7 @@ class MySqlConnector extends Connector implements ConnectorInterface
 	 * 从配置中创建DSN字符串
      *
      * Chooses socket or host/port based on the 'unix_socket' config value.
+	 * 根据'unix_socket'配置值选择套接字或主机/端口
      *
      * @param  array  $config
      * @return string

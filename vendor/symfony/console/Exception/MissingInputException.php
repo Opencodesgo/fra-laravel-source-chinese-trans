@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，异常，缺失输入异常
+ */
 
 /*
  * This file is part of the Symfony package.

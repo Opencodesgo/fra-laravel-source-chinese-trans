@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Input，输入参数
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -356,6 +359,7 @@ class ArgvInput extends Input
 
     /**
      * Returns a stringified representation of the args passed to the command.
+	 * 返回传递给命令的参数的字符串化表示形式
      *
      * @return string
      */

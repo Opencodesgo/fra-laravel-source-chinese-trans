@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，寄存器控制器参数定位器通过
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -29,6 +32,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * Creates the service-locators required by ServiceValueResolver.
+ * 创建 ServiceValueResolver 所需的服务定位器
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */

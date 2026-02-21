@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，错误处理器，Throwable 工具包
+ */
 
 /*
  * This file is part of the Symfony package.

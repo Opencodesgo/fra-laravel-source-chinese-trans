@@ -109,8 +109,10 @@ class MorphTo extends BelongsTo
 
     /**
      * Get the results of the relationship.
+	 * 得到关系的结果
      *
      * Called via eager load method of Eloquent query builder.
+	 * 通过Eloquent查询生成器的急切加载方法调用
      *
      * @return mixed
      */
@@ -334,6 +336,7 @@ class MorphTo extends BelongsTo
 
     /**
      * Replay stored macro calls on the actual related instance.
+	 * 在实际相关实例上重播存储的宏调用
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder

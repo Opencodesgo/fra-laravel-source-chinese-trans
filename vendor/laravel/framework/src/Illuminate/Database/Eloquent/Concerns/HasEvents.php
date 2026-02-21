@@ -17,6 +17,7 @@ trait HasEvents
 	 * 模型的事件映射
      *
      * Allows for object-based events for native Eloquent events.
+	 * 允许原生Eloquent事件的基于对象的事件
      *
      * @var array
      */
@@ -27,6 +28,7 @@ trait HasEvents
 	 * 用户公开的可观察事件
      *
      * These are extra user-defined events observers may subscribe to.
+	 * 这些是观察者可以订阅的额外用户定义事件
      *
      * @var array
      */
@@ -190,6 +192,7 @@ trait HasEvents
         // First, we will get the proper method to call on the event dispatcher, and then we
         // will attempt to fire a custom, object based event for the given event. If that
         // returns a result we can return that result, or we'll call the string events.
+		//首先，我们将获得在事件调度程序上调用的适当方法，然后我们将尝试为给定事件触发一个自定义的、基于对象的事件。
         $method = $halt ? 'until' : 'dispatch';
 
         $result = $this->filterModelEventResults(

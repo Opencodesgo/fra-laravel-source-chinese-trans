@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，问题，与数据库交互
+ */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -14,6 +17,7 @@ trait InteractsWithDatabase
 {
     /**
      * Assert that a given where condition exists in the database.
+	 * 断言在数据库中存在条件的情况下
      *
      * @param  string  $table
      * @param  array  $data
@@ -31,6 +35,7 @@ trait InteractsWithDatabase
 
     /**
      * Assert that a given where condition does not exist in the database.
+	 * 断言在数据库中不存在条件的情况下
      *
      * @param  string  $table
      * @param  array  $data
@@ -50,6 +55,7 @@ trait InteractsWithDatabase
 
     /**
      * Assert the count of table entries.
+	 * 断言表项的计数
      *
      * @param  string  $table
      * @param  int  $count
@@ -67,6 +73,7 @@ trait InteractsWithDatabase
 
     /**
      * Assert the given record has been deleted.
+	 * 断言给定的记录已被删除
      *
      * @param  \Illuminate\Database\Eloquent\Model|string  $table
      * @param  array  $data
@@ -86,6 +93,7 @@ trait InteractsWithDatabase
 
     /**
      * Assert the given record has been "soft deleted".
+	 * 断言给定的记录已经"软删除"
      *
      * @param  \Illuminate\Database\Eloquent\Model|string  $table
      * @param  array  $data
@@ -108,6 +116,7 @@ trait InteractsWithDatabase
 
     /**
      * Determine if the argument is a soft deletable model.
+	 * 确定参数是否是一个软的可折叠模型
      *
      * @param  mixed  $model
      * @return bool
@@ -120,6 +129,7 @@ trait InteractsWithDatabase
 
     /**
      * Get the database connection.
+	 * 得到数据库连接
      *
      * @param  string|null  $connection
      * @return \Illuminate\Database\Connection
@@ -135,6 +145,7 @@ trait InteractsWithDatabase
 
     /**
      * Seed a given database connection.
+	 * 种子一个给定的数据库连接
      *
      * @param  array|string  $class
      * @return $this

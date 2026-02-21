@@ -124,6 +124,7 @@ class RouteCollection extends AbstractRouteCollection
 	 * 刷新名称查找表
      *
      * This is done in case any names are fluently defined or if routes are overwritten.
+	 * 这样做是为了防止任何名称被流利地定义或路由被覆盖
      *
      * @return void
      */

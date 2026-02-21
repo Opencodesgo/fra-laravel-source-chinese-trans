@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，事件缓存命令
+ * Illuminate，基础，控制台，event:cache 事件缓存命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -46,6 +46,7 @@ class EventCacheCommand extends Command
 
     /**
      * Get all of the events and listeners configured for the application.
+	 * 获取为应用程序配置的所有事件和侦听器
      *
      * @return array
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，帮助，表格样式
+ *
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\Console\Exception\LogicException;
 
 /**
  * Defines the styles for a Table.
+ * 定义表的样式
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Саша Стаменковић <umpirsky@gmail.com>

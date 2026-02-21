@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，会话，控制台，创建会话表，需要根据实际修改
+ * Illuminate，会话，控制台，存根，创建会话表
  */
 
 use Illuminate\Database\Migrations\Migration;

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，异常，控制器不返回响应异常
+ */
 
 /*
  * This file is part of the Symfony package.

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，抽象会话监听器
+ */
 
 /*
  * This file is part of the Symfony package.

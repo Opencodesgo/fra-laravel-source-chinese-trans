@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，会话存储接口
+ */
+ 
 /*
  * This file is part of the Symfony package.
  *
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * StorageInterface.
+ * 各类存储器接口
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Drak <drak@zikula.org>
@@ -32,6 +36,7 @@ interface SessionStorageInterface
 
     /**
      * Checks if the session is started.
+	 * 检查会话是否启动
      *
      * @return bool
      */
@@ -63,6 +68,7 @@ interface SessionStorageInterface
 
     /**
      * Regenerates id that represents this storage.
+	 * 重新生成表示此存储的id
      *
      * This method must invoke session_regenerate_id($destroy) unless
      * this interface is used for a storage object designed for unit
@@ -121,6 +127,7 @@ interface SessionStorageInterface
 
     /**
      * Registers a SessionBagInterface for use.
+	 * 注册一个 SessionBagInterface 供使用
      */
     public function registerBag(SessionBagInterface $bag);
 

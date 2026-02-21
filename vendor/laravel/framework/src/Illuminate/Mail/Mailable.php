@@ -225,6 +225,7 @@ class Mailable implements MailableContract, Renderable
 
     /**
      * Deliver the queued message after the given delay.
+	 * 在给定的延迟之后交付排队消息
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  \Illuminate\Contracts\Queue\Factory  $queue
@@ -646,6 +647,7 @@ class Mailable implements MailableContract, Renderable
 	 * 设置邮件的收件人
      *
      * All recipients are stored internally as [['name' => ?, 'address' => ?]]
+	 * 所有收件人在内部存储为[['name' => ?]， 'address' => ？]]
      *
      * @param  object|array|string  $address
      * @param  string|null  $name
@@ -909,6 +911,7 @@ class Mailable implements MailableContract, Renderable
 
     /**
      * Set the name of the mailer that should send the message.
+	 * 设置应该发送邮件的邮件发件人的名称
      *
      * @param  string  $mailer
      * @return $this

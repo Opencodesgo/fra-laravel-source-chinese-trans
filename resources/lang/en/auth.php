@@ -1,10 +1,13 @@
 <?php
+/**
+ * 资源，语言，认证
+ */
 
 return [
 
     /*
     |--------------------------------------------------------------------------
-    | Authentication Language Lines
+    | Authentication Language Lines 	认证语言行
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various

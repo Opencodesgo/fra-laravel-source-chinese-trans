@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，契约，Redis，连接
+ * Illuminate，契约，Redis，连接器
  */
 
 namespace Illuminate\Contracts\Redis;

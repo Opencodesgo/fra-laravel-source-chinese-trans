@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，测试会话监听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -18,6 +21,7 @@ trigger_deprecation('symfony/http-kernel', '5.4', '"%s" is deprecated, use "%s" 
 
 /**
  * Sets the session in the request.
+ * 设置请求中的会话
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *

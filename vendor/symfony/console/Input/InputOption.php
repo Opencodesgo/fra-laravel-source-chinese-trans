@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Input，输入选项
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\Console\Exception\LogicException;
 
 /**
  * Represents a command line option.
+ * 表示命令行选项
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

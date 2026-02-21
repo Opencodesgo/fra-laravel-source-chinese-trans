@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，缓存取暖器，缓存取暖器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpKernel\CacheWarmer;
 
 /**
  * Abstract cache warmer that knows how to write a file to the cache.
+ * 抽象缓存加热器，它知道如何将文件写入缓存。
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

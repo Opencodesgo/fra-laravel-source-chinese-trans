@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，Markdown转换接口
+ */
 
 /*
  * This file is part of the league/commonmark package.
@@ -13,11 +16,13 @@ namespace League\CommonMark;
 
 /**
  * Interface for a service which converts Markdown to HTML.
+ * 用于将Markdown转换为HTML的服务的接口
  */
 interface MarkdownConverterInterface
 {
     /**
      * Converts Markdown to HTML.
+	 * 转换Markdown为HTML
      *
      * @param string $markdown
      *

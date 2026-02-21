@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Input，输入接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\Console\Exception\RuntimeException;
 
 /**
  * InputInterface is the interface implemented by all input classes.
+ * InputInterface 是由所有输入类实现的接口。
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -30,6 +34,7 @@ interface InputInterface
 
     /**
      * Returns true if the raw parameters (not parsed) contain a value.
+	 * 如果原始参数(未解析)包含值，则返回true。
      *
      * This method is to be used to introspect the input parameters
      * before they have been validated. It must be used carefully.
@@ -45,6 +50,7 @@ interface InputInterface
 
     /**
      * Returns the value of a raw option (not parsed).
+	 * 返回原始选项的值(未解析)
      *
      * This method is to be used to introspect the input parameters
      * before they have been validated. It must be used carefully.
@@ -114,6 +120,7 @@ interface InputInterface
 
     /**
      * Returns the option value for a given option name.
+	 * 返回给定选项名称的选项值
      *
      * @return mixed
      *
@@ -146,6 +153,8 @@ interface InputInterface
 
     /**
      * Sets the input interactivity.
+	 * 设置输入交互性
+	 *
      */
     public function setInteractive(bool $interactive);
 }

@@ -281,6 +281,7 @@ class Str
             // Asterisks are translated into zero-or-more regular expression wildcards
             // to make it convenient to check if the strings starts with the given
             // pattern such as "library/*", making any string check convenient.
+			// 星号被转换成零个或多个正则表达式通配符。
             $pattern = str_replace('\*', '.*', $pattern);
 
             if (preg_match('#^'.$pattern.'\z#u', $value) === 1) {
@@ -400,6 +401,7 @@ class Str
 
     /**
      * Pad both sides of a string with another.
+	 * 在绳子的两边垫上另一根
      *
      * @param  string  $value
      * @param  int  $length
@@ -413,6 +415,7 @@ class Str
 
     /**
      * Pad the left side of a string with another.
+	 * 用另一根绳子填充绳子的左边
      *
      * @param  string  $value
      * @param  int  $length
@@ -426,6 +429,7 @@ class Str
 
     /**
      * Pad the right side of a string with another.
+	 * 用另一根绳子填满绳子的右侧
      *
      * @param  string  $value
      * @param  int  $length
@@ -637,17 +641,21 @@ class Str
         $title = $language ? static::ascii($title, $language) : $title;
 
         // Convert all dashes/underscores into separator
+		// 将所有破折号/下划线转换为分隔符
         $flip = $separator === '-' ? '_' : '-';
 
         $title = preg_replace('!['.preg_quote($flip).']+!u', $separator, $title);
 
         // Replace @ with the word 'at'
+		// 用单词'at'替换@
         $title = str_replace('@', $separator.'at'.$separator, $title);
 
         // Remove all characters that are not the separator, letters, numbers, or whitespace.
+		// 删除除分隔符、字母、数字或空格以外的所有字符。
         $title = preg_replace('![^'.preg_quote($separator).'\pL\pN\s]+!u', '', static::lower($title));
 
         // Replace all separator characters and whitespace by a single separator
+		// 用单个分隔符替换所有分隔符和空格
         $title = preg_replace('!['.preg_quote($separator).'\s]+!u', $separator, $title);
 
         return trim($title, $separator);
@@ -777,6 +785,7 @@ class Str
 
     /**
      * Generate a time-ordered UUID (version 4).
+	 * 生成一个按时间排序的UUID（版本4）
      *
      * @return \Ramsey\Uuid\UuidInterface
      */

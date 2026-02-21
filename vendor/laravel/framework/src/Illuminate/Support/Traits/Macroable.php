@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，特征，大规模
+ * Illuminate，支持，特征，宏指令
  */
 
 namespace Illuminate\Support\Traits;
@@ -71,6 +71,7 @@ trait Macroable
 
     /**
      * Dynamically handle calls to the class.
+	 * 动态处理对类的调用
      *
      * @param  string  $method
      * @param  array  $parameters

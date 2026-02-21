@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，控制台，重启命令
+ * Illuminate，队列，控制台，queue:restart 重启命令
  */
 
 namespace Illuminate\Queue\Console;

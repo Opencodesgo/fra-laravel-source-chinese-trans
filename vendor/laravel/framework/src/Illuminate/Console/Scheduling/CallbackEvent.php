@@ -44,7 +44,7 @@ class CallbackEvent extends Event
     {
         if (! is_string($callback) && ! Reflector::isCallable($callback)) {
             throw new InvalidArgumentException(
-                'Invalid scheduled callback event. Must be a string or callable.'
+                'Invalid scheduled callback event. Must be a string or callable.'	#无效的计划回调事件。必须是字符串或可调用对象。
             );
         }
 

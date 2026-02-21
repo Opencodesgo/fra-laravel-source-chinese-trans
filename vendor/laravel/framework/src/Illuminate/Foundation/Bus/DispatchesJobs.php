@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，总线，分派工作
+ * Illuminate，基础，总线，分派作业
  */
 
 namespace Illuminate\Foundation\Bus;

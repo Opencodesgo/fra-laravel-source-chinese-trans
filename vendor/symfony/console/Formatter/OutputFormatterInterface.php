@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，格式化，输出格式化接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\Console\Formatter;
 
 /**
  * Formatter interface for console output.
+ * 用于控制台输出的格式化程序接口
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */

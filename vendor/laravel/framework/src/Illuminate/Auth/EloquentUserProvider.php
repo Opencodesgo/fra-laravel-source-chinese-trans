@@ -23,7 +23,7 @@ class EloquentUserProvider implements UserProvider
 
     /**
      * The Eloquent user model.
-	 * Eloquent用户模型
+	 * Eloquent 用户模型
      *
      * @var string
      */

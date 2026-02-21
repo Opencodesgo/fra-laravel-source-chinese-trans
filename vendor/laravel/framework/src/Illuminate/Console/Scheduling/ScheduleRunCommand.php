@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，控制台，调度，调度运行命令
+ * Illuminate，控制台，调度，schedule:run 调度运行命令
  */
 
 namespace Illuminate\Console\Scheduling;

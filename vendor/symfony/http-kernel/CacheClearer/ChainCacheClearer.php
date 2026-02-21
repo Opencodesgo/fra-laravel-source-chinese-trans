@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，缓存清除器，链缓存清理器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpKernel\CacheClearer;
 
 /**
  * ChainCacheClearer.
+ * 链缓存清理器
  *
  * @author Dustin Dobervich <ddobervich@gmail.com>
  *

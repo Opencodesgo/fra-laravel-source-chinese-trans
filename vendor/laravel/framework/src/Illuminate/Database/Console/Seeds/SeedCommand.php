@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，控制台，播种机，种子命令
+ * Illuminate，数据库，控制台，播种机，db:seed 种子命令
  */
 
 namespace Illuminate\Database\Console\Seeds;

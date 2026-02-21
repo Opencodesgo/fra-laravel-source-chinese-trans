@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，移除空控制器参数定位器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
  * Removes empty service-locators registered for ServiceValueResolver.
+ * 移除为 ServiceValueResolver 注册的空服务定位器
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */

@@ -31,7 +31,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * The session store instance.
-	 * session存储实例
+	 * session 存储实例
      *
      * @var \Illuminate\Session\Store
      */
@@ -134,6 +134,7 @@ class RedirectResponse extends BaseRedirectResponse
 
     /**
      * Flash a container of errors to the session.
+	 * 将一个错误容器刷到会话中
      *
      * @param  \Illuminate\Contracts\Support\MessageProvider|array|string  $provider
      * @param  string  $key

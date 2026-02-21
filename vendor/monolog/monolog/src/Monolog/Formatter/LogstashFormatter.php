@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Logstash 格式化器
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -13,6 +17,7 @@ namespace Monolog\Formatter;
 
 /**
  * Serializes a log message to Logstash Event Format
+ * 将日志消息序列化为Logstash事件格式
  *
  * @see https://www.elastic.co/products/logstash
  * @see https://github.com/elastic/logstash/blob/master/logstash-core/src/main/java/org/logstash/Event.java

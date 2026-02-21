@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，优化命令
+ * Illuminate，基础，控制台，optimize 优化命令
  */
 
 namespace Illuminate\Foundation\Console;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，路由，控制台，存根，需要根据需要修改
+ * Illuminate，路由，控制台，存根，需要根据实际修改
  */
 
 namespace {{ namespace }};
@@ -24,6 +24,7 @@ class {{ class }} extends Controller
 
     /**
      * Store a newly created resource in storage.
+	 * 将新创建的资源存储在存储器中
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -35,6 +36,7 @@ class {{ class }} extends Controller
 
     /**
      * Display the specified resource.
+	 * 显示指定的资源
      *
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response

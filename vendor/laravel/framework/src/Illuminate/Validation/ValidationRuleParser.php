@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，验证，闭包验证规则
+ * Illuminate，验证，验证规则解析器
  */
 
 namespace Illuminate\Validation;
@@ -16,6 +16,7 @@ class ValidationRuleParser
 {
     /**
      * The data being validated.
+	 * 被验证的数据
      *
      * @var array
      */
@@ -23,6 +24,7 @@ class ValidationRuleParser
 
     /**
      * The implicit attributes.
+	 * 隐式属性
      *
      * @var array
      */
@@ -30,6 +32,7 @@ class ValidationRuleParser
 
     /**
      * Create a new validation rule parser.
+	 * 创建一个新的验证规则解析器
      *
      * @param  array  $data
      * @return void
@@ -41,6 +44,7 @@ class ValidationRuleParser
 
     /**
      * Parse the human-friendly rules into a full rules array for the validator.
+	 * 将对人类友好的规则解析为验证器的完整规则数组
      *
      * @param  array  $rules
      * @return \stdClass
@@ -59,6 +63,7 @@ class ValidationRuleParser
 
     /**
      * Explode the rules into an array of explicit rules.
+	 * 将规则分解为显式规则数组
      *
      * @param  array  $rules
      * @return array
@@ -80,6 +85,7 @@ class ValidationRuleParser
 
     /**
      * Explode the explicit rule into an array if necessary.
+	 * 必要时将显式规则分解为一个数组
      *
      * @param  mixed  $rule
      * @return array
@@ -97,6 +103,7 @@ class ValidationRuleParser
 
     /**
      * Prepare the given rule for the Validator.
+	 * 为Validator准备给定的规则
      *
      * @param  mixed  $rule
      * @return mixed
@@ -119,6 +126,7 @@ class ValidationRuleParser
 
     /**
      * Define a set of rules that apply to each element in an array attribute.
+	 * 定义一组适用于数组属性中的每个元素的规则
      *
      * @param  array  $results
      * @param  string  $attribute
@@ -146,6 +154,7 @@ class ValidationRuleParser
 
     /**
      * Merge additional rules into a given attribute(s).
+	 * 将其他规则合并到给定的属性中
      *
      * @param  array  $results
      * @param  string|array  $attribute
@@ -169,6 +178,7 @@ class ValidationRuleParser
 
     /**
      * Merge additional rules into a given attribute.
+	 * 将附加规则合并为给定属性
      *
      * @param  array  $results
      * @param  string  $attribute
@@ -188,6 +198,7 @@ class ValidationRuleParser
 
     /**
      * Extract the rule name and parameters from a rule.
+	 * 从规则中提取规则名称和参数
      *
      * @param  array|string  $rules
      * @return array
@@ -211,6 +222,7 @@ class ValidationRuleParser
 
     /**
      * Parse an array based rule.
+	 * 解析一个基于数组的规则
      *
      * @param  array  $rules
      * @return array
@@ -222,6 +234,7 @@ class ValidationRuleParser
 
     /**
      * Parse a string based rule.
+	 * 解析基于字符串的规则
      *
      * @param  string  $rules
      * @return array
@@ -233,6 +246,7 @@ class ValidationRuleParser
         // The format for specifying validation rules and parameters follows an
         // easy {rule}:{parameters} formatting convention. For instance the
         // rule "Max:3" states that the value may only be three letters.
+		// 指定验证规则和参数的格式遵循。
         if (strpos($rules, ':') !== false) {
             [$rules, $parameter] = explode(':', $rules, 2);
 
@@ -244,6 +258,7 @@ class ValidationRuleParser
 
     /**
      * Parse a parameter list.
+	 * 解析参数列表
      *
      * @param  string  $rule
      * @param  string  $parameter
@@ -262,6 +277,7 @@ class ValidationRuleParser
 
     /**
      * Normalizes a rule so that we can accept short types.
+	 * 规范化一个规则，以便我们可以接受短类型。
      *
      * @param  string  $rule
      * @return string

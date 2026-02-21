@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，任务，Sync同步任务
+ * Illuminate，队列，作业，Sync 同步作业
  */
 
 namespace Illuminate\Queue\Jobs;
@@ -12,7 +12,7 @@ class SyncJob extends Job implements JobContract
 {
     /**
      * The class name of the job.
-	 * 任务类名
+	 * 作业类名
      *
      * @var string
      */
@@ -20,6 +20,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * The queue message data.
+	 * 队列消息数据
      *
      * @var string
      */
@@ -27,7 +28,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Create a new job instance.
-	 * 创建新的任务实例
+	 * 创建新的作业实例
      *
      * @param  \Illuminate\Container\Container  $container
      * @param  string  $payload
@@ -45,6 +46,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Release the job back into the queue.
+	 * 将作业释放回队列
      *
      * @param  int  $delay
      * @return void
@@ -56,6 +58,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Get the number of times the job has been attempted.
+	 * 获取该作业被尝试的次数
      *
      * @return int
      */
@@ -66,7 +69,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
-	 * 得到任务标识符
+	 * 得到作业标识符
      *
      * @return string
      */
@@ -77,6 +80,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Get the raw body string for the job.
+	 * 获取工作的原始主体字符串
      *
      * @return string
      */
@@ -87,7 +91,7 @@ class SyncJob extends Job implements JobContract
 
     /**
      * Get the name of the queue the job belongs to.
-	 * 获取任务所属队列的名称
+	 * 获取作业所属队列的名称
      *
      * @return string
      */

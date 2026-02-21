@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，文件包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * Http utility functions.
+ * Http 实用函数
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -22,6 +26,7 @@ class IpUtils
 
     /**
      * This class should not be instantiated.
+	 * 这个类不应该被实例化
      */
     private function __construct()
     {
@@ -29,6 +34,7 @@ class IpUtils
 
     /**
      * Checks if an IPv4 or IPv6 address is contained in the list of given IPs or subnets.
+	 * 检查给定的ip或子网列表中是否包含IPv4或IPv6地址
      *
      * @param string|array $ips List of IPs or subnets (can be a string if only a single one)
      *

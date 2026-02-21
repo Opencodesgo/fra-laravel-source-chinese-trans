@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * League，Flysystem，适配器，Ftp适配器抽象类
+ */
+
 namespace League\Flysystem\Adapter;
 
 use DateTime;
@@ -78,6 +82,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
 
     /**
      * True to enable timestamps for FTP servers that return unix-style listings.
+	 * 为启用返回unix风格列表的FTP服务器的时间戳
      *
      * @var bool
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，控制台，命令重试
+ * Illuminate，队列，控制台，queue:retry 重试命令
  */
 
 namespace Illuminate\Queue\Console;
@@ -111,6 +111,7 @@ class RetryCommand extends Command
 	 * 重置负载尝试
      *
      * Applicable to Redis jobs which store attempts in their payload.
+	 * 适用于在负载中存储尝试的Redis作业
      *
      * @param  string  $payload
      * @return string

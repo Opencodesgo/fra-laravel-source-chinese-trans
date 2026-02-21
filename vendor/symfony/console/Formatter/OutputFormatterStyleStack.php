@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，格式化，输出格式化程序样式堆栈
+ */
 
 /*
  * This file is part of the Symfony package.

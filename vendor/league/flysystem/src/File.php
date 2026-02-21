@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，文件核心类
+ */
 
 namespace League\Flysystem;
 
@@ -9,6 +12,7 @@ class File extends Handler
 {
     /**
      * Check whether the file exists.
+	 * 检查文件是否存在
      *
      * @return bool
      */
@@ -19,6 +23,7 @@ class File extends Handler
 
     /**
      * Read the file.
+	 * 读取文件内容
      *
      * @return string|false file contents
      */

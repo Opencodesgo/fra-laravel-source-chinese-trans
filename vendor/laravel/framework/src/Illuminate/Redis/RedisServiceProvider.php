@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Redis，Redis服务提供者
+ * Illuminate，Redis，Redis 服务提供者
  */
 
 namespace Illuminate\Redis;

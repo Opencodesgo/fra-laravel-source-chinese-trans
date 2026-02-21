@@ -83,6 +83,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Set the constraints for an eager load of the relation.
+	 * 为关系的即时加载设置约束
      *
      * @param  array  $models
      * @return void
@@ -111,6 +112,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Add the constraints for a relationship count query.
+	 * 为关系计数查询添加约束
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -126,6 +128,7 @@ class MorphToMany extends BelongsToMany
 
     /**
      * Get the pivot models that are currently attached.
+	 * 获取当前附加的枢轴模型
      *
      * @return \Illuminate\Support\Collection
      */
@@ -177,6 +180,7 @@ class MorphToMany extends BelongsToMany
 	 * 得到关系的主列
      *
      * "pivot_" is prefixed at each column for easy removal later.
+	 * "pivot_"在每一列前加上前缀，以便稍后删除。
      *
      * @return array
      */

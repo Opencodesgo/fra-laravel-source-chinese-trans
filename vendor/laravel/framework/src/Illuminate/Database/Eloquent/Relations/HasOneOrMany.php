@@ -118,6 +118,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Match the eagerly loaded results to their single parents.
+	 * 将急切加载的结果与他们的单亲父母相匹配
      *
      * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
@@ -131,6 +132,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Match the eagerly loaded results to their many parents.
+	 * 将急切加载的结果与他们的许多父母相匹配
      *
      * @param  array  $models
      * @param  \Illuminate\Database\Eloquent\Collection  $results
@@ -159,6 +161,7 @@ abstract class HasOneOrMany extends Relation
         // Once we have the dictionary we can simply spin through the parent models to
         // link them up with their children using the keyed dictionary to make the
         // matching very convenient and easy work. Then we'll just return them.
+		// 有了字典之后，我们可以简单地通过父模型旋转到把他们的孩子联系起来,用那只键字典来做。
         foreach ($models as $model) {
             if (isset($dictionary[$key = $model->getAttribute($this->localKey)])) {
                 $model->setRelation(
@@ -242,6 +245,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the first related record matching the attributes or create it.
+	 * 获取匹配属性的第一个相关记录，或者创建它。
      *
      * @param  array  $attributes
      * @param  array  $values
@@ -275,6 +279,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Attach a model instance to the parent model.
+	 * 将模型实例附加到父模型
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return \Illuminate\Database\Eloquent\Model|false
@@ -288,6 +293,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Attach a collection of models to the parent instance.
+	 * 将模型集合附加到父实例
      *
      * @param  iterable  $models
      * @return iterable
@@ -349,6 +355,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Add the constraints for a relationship query.
+	 * 为关系查询添加约束
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -366,6 +373,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Add the constraints for a relationship query on the same table.
+	 * 为同一表上的关系查询添加约束
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Builder  $parentQuery
@@ -396,6 +404,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the key for comparing against the parent key in "has" query.
+	 * 获取用于与"has"查询中的父键进行比较的键
      *
      * @return string
      */
@@ -406,6 +415,7 @@ abstract class HasOneOrMany extends Relation
 
     /**
      * Get the key value of the parent's local key.
+	 * 获取父节点本地键的键值
      *
      * @return mixed
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * TijsVerkoyen，CssToInlineStyles，Css，Rule，处理程序
+ */
 
 namespace TijsVerkoyen\CssToInlineStyles\Css\Rule;
 

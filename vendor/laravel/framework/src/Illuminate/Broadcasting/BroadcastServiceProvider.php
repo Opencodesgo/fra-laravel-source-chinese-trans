@@ -35,7 +35,7 @@ class BroadcastServiceProvider extends ServiceProvider implements DeferrableProv
 
     /**
      * Get the services provided by the provider.
-	 * 获取提供者提供的服务
+	 * 得到提供者提供的服务
      *
      * @return array
      */

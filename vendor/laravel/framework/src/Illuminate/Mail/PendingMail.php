@@ -37,7 +37,7 @@ class PendingMail
 
     /**
      * The "cc" recipients of the message.
-	 * 邮件的"抄送"收件人
+	 * 邮件的"cc"收件人
      *
      * @var array
      */
@@ -45,6 +45,7 @@ class PendingMail
 
     /**
      * The "bcc" recipients of the message.
+	 * 消息的"bcc"收件人
      *
      * @var array
      */
@@ -64,6 +65,7 @@ class PendingMail
 
     /**
      * Set the locale of the message.
+	 * 设置消息的区域设置
      *
      * @param  string  $locale
      * @return $this

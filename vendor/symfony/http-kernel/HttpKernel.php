@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，Http 内核
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -45,6 +48,7 @@ class_exists(KernelEvents::class);
 
 /**
  * HttpKernel notifies events to convert a Request object to a Response one.
+ * HttpKernel 通知事件将 Request 对象转换为 Response 对象
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

@@ -155,7 +155,7 @@ trait ResponseTrait
 
     /**
      * Throws the response in a HttpResponseException instance.
-	 * 在HttpResponseException实例中抛出响应
+	 * 在 HttpResponseException 实例中抛出响应
      *
      * @return void
      *

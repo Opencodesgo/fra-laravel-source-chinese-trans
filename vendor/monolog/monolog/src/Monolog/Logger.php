@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，日志记录器
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -35,11 +39,13 @@ class Logger implements LoggerInterface, ResettableInterface
 {
     /**
      * Detailed debug information
+	 * 详细的调试信息
      */
     public const DEBUG = 100;
 
     /**
      * Interesting events
+	 * 有趣的事件
      *
      * Examples: User logs in, SQL logs.
      */
@@ -47,11 +53,13 @@ class Logger implements LoggerInterface, ResettableInterface
 
     /**
      * Uncommon events
+	 * 不常见的事件
      */
     public const NOTICE = 250;
 
     /**
      * Exceptional occurrences that are not errors
+	 * 不属于错误的异常情况
      *
      * Examples: Use of deprecated APIs, poor use of an API,
      * undesirable things that are not necessarily wrong.

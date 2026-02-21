@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，总线，调度器
+ * Illuminate，总线，调度程序
  */
 
 namespace Illuminate\Bus;

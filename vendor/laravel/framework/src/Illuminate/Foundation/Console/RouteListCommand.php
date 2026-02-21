@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，route:list命令
+ * Illuminate，基础，控制台，route:list 路由列表命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -113,6 +113,7 @@ class RouteListCommand extends Command
 
     /**
      * Get the route information for a given route.
+	 * 获取路由信息
      *
      * @param  \Illuminate\Routing\Route  $route
      * @return array
@@ -146,6 +147,7 @@ class RouteListCommand extends Command
 
     /**
      * Remove unnecessary columns from the routes.
+	 * 从路由中删除不必要的列
      *
      * @param  array  $routes
      * @return array
@@ -191,6 +193,7 @@ class RouteListCommand extends Command
 
     /**
      * Filter the route by URI and / or name.
+	 * 通过URI和/或名称过滤路由
      *
      * @param  array  $route
      * @return array|null
@@ -208,6 +211,7 @@ class RouteListCommand extends Command
 
     /**
      * Get the table headers for the visible columns.
+	 * 获取可见列的表头
      *
      * @return array
      */
@@ -218,6 +222,7 @@ class RouteListCommand extends Command
 
     /**
      * Get the column names to show (lowercase table headers).
+	 * 获取列名(小写表头)
      *
      * @return array
      */

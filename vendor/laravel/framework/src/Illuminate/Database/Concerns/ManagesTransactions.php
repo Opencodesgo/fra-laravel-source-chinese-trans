@@ -82,7 +82,7 @@ trait ManagesTransactions
         // On a deadlock, MySQL rolls back the entire transaction so we can't just
         // retry the query. We have to throw this exception all the way out and
         // let the developer handle it in another way. We will decrement too.
-		// 
+		// 在死锁中，MySQL回滚整个事务，所以我们不能只是重试查询。
         if ($this->causedByConcurrencyError($e) &&
             $this->transactions > 1) {
             $this->transactions--;
@@ -93,6 +93,7 @@ trait ManagesTransactions
         // If there was an exception we will rollback this transaction and then we
         // can check if we have exceeded the maximum attempt count for this and
         // if we haven't we will return and try this query again in our loop.
+		// 如果出现异常，我们将回滚此事务，然后我们可以检查我们是否已经超过了这个和的最大尝试数。
         $this->rollBack();
 
         if ($this->causedByConcurrencyError($e) &&
@@ -250,6 +251,7 @@ trait ManagesTransactions
         // Next, we will actually perform this rollback within this database and fire the
         // rollback event. We will also set the current transaction level to the given
         // level that was passed into this method so it will be right from here out.
+		// 接下来，我们将在这个数据库中实际执行这个回滚，并触发回滚事件。
         try {
             $this->performRollBack($toLevel);
         } catch (Throwable $e) {

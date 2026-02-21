@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，异常，先决条件 Http 异常
+ */
 
 /*
  * This file is part of the Symfony package.

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，片段侦听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -20,6 +23,7 @@ use Symfony\Component\HttpKernel\UriSigner;
 
 /**
  * Handles content fragments represented by special URIs.
+ * 处理由特殊 URIs 表示的内容片段
  *
  * All URL paths starting with /_fragment are handled as
  * content fragments by this listener.

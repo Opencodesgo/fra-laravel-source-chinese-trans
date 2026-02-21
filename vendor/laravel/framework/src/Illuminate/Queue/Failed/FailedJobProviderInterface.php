@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，失败，失败的作业提供程序接口
+ * Illuminate，队列，失败，失败的作业提供者接口
  */
 
 namespace Illuminate\Queue\Failed;
@@ -21,7 +21,7 @@ interface FailedJobProviderInterface
 
     /**
      * Get a list of all of the failed jobs.
-	 * 获取所有失败任务的列表
+	 * 获取所有失败作业的列表
      *
      * @return array
      */

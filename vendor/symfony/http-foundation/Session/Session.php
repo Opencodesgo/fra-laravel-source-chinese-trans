@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，Session会话核心类
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -127,6 +130,7 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
 
     /**
      * Returns an iterator for attributes.
+	 * 返回属性的迭代器
      *
      * @return \ArrayIterator<string, mixed>
      */
@@ -138,6 +142,7 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
 
     /**
      * Returns the number of attributes.
+	 * 返回属性的数目
      *
      * @return int
      */
@@ -275,6 +280,7 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
 
     /**
      * Gets the attributebag interface.
+	 * 获取attributebag接口
      *
      * Note that this method was added to help with IDE autocompletion.
      */

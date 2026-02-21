@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，错误处理器，错误处理器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -25,6 +28,7 @@ use Symfony\Component\ErrorHandler\Exception\SilencedErrorContext;
 
 /**
  * A generic ErrorHandler for the PHP engine.
+ * PHP引擎的通用ErrorHandler
  *
  * Provides five bit fields that control how errors are handled:
  * - thrownErrors: errors thrown as \ErrorException

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，本机会话存储
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -24,6 +27,7 @@ class_exists(SessionHandlerProxy::class);
 
 /**
  * This provides a base class for session attribute storage.
+ * 这为会话属性存储提供了一个基类
  *
  * @author Drak <drak@zikula.org>
  */
@@ -62,6 +66,7 @@ class NativeSessionStorage implements SessionStorageInterface
     /**
      * Depending on how you want the storage driver to behave you probably
      * want to override this constructor entirely.
+	 * 这取决于您希望存储驱动程序如何运行
      *
      * List of options for $options array with their defaults.
      *
@@ -481,6 +486,7 @@ class NativeSessionStorage implements SessionStorageInterface
 
     /**
      * Load the session with attributes.
+	 * 用属性加载会话
      *
      * After starting the session, PHP retrieves the session from whatever handlers
      * are set to (either PHP's internal, or a custom save handler set with session_set_save_handler()).

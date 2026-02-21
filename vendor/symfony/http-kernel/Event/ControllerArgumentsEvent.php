@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，控制器参数事件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Allows filtering of controller arguments.
+ * 允许过滤控制器参数
  *
  * You can call getController() to retrieve the controller and getArguments
  * to retrieve the current arguments. With setArguments() you can replace

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，响应事件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 /**
  * Allows to filter a Response object.
+ * 允许过滤响应对象
  *
  * You can call getResponse() to retrieve the current response. With
  * setResponse() you can set a new response that will be returned to the

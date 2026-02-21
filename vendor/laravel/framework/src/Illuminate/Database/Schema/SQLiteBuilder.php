@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法，SQLite生成器
+ * Illuminate，数据库，模式，SQLite 生成器
  */
 
 namespace Illuminate\Database\Schema;

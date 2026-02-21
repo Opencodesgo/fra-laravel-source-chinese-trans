@@ -163,6 +163,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Set the global to address and name.
+	 * 将全局变量设置为地址和名称
      *
      * @param  string  $address
      * @param  string|null  $name
@@ -211,6 +212,7 @@ class Mailer implements MailerContract, MailQueueContract
 
     /**
      * Send a new message with only an HTML part.
+	 * 发送只包含HTML部分的新消息
      *
      * @param  string  $html
      * @param  mixed  $callback

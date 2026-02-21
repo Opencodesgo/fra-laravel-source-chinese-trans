@@ -267,6 +267,7 @@ trait HasRelationships
         // If no name is provided, we will use the backtrace to get the function name
         // since that is most likely the name of the polymorphic interface. We can
         // use that to get both the class and foreign key that will be utilized.
+		// 如果没有提供名称，我们将使用回溯来获取函数名称。
         $name = $name ?: $this->guessBelongsToRelation();
 
         [$type, $id] = $this->getMorphs(
@@ -276,6 +277,7 @@ trait HasRelationships
         // If the type value is null it is probably safe to assume we're eager loading
         // the relationship. In this case we'll just pass in a dummy query where we
         // need to remove any eager loads that may already be defined on a model.
+		// 如果类型值为空,那么假设我们是急切的加载,可能是安全的。
         return is_null($class = $this->{$type}) || $class === ''
                     ? $this->morphEagerTo($name, $type, $id, $ownerKey)
                     : $this->morphInstanceTo($class, $name, $type, $id, $ownerKey);
@@ -466,6 +468,7 @@ trait HasRelationships
         // Here we will gather up the morph type and ID for the relationship so that we
         // can properly query the intermediate table of a relation. Finally, we will
         // get the table and create the relationship instances for the developers.
+		// 在这里，我们将收集关系的变形类型和ID，以便我们能正确查询关系的中间表。
         [$type, $id] = $this->getMorphs($name, $type, $id);
 
         $table = $instance->getTable();
@@ -510,6 +513,7 @@ trait HasRelationships
         // If no relationship name was passed, we will pull backtraces to get the
         // name of the calling function. We will use that function name as the
         // title of this relation since that is a great convention to apply.
+		// 如果没有传递关系名称，我们将拉回追溯以获取主叫函数的名称。
         if (is_null($relation)) {
             $relation = $this->guessBelongsToManyRelation();
         }
@@ -517,6 +521,7 @@ trait HasRelationships
         // First, we'll need to determine the foreign key and "other key" for the
         // relationship. Once we have determined the keys we'll make the query
         // instances as well as the relationship instances we need for this.
+		// 首先，我们需要确定外键并关联"其他键"表示。
         $instance = $this->newRelatedInstance($related);
 
         $foreignPivotKey = $foreignPivotKey ?: $this->getForeignKey();
@@ -526,6 +531,7 @@ trait HasRelationships
         // If no table name was provided, we can guess it by concatenating the two
         // models using underscores in alphabetical order. The two model names
         // are transformed to snake case from their default CamelCase also.
+		// 如果没有提供表名，我们可以通过连接这两个表名来猜测使用按字母顺序排列的模型。
         if (is_null($table)) {
             $table = $this->joiningTable($related, $instance);
         }
@@ -580,6 +586,7 @@ trait HasRelationships
         // First, we will need to determine the foreign key and "other key" for the
         // relationship. Once we have determined the keys we will make the query
         // instances, as well as the relationship instances we need for these.
+		// 首先，我们需要确定外键
         $instance = $this->newRelatedInstance($related);
 
         $foreignPivotKey = $foreignPivotKey ?: $name.'_id';
@@ -589,6 +596,7 @@ trait HasRelationships
         // Now we're ready to create a new query builder for this related model and
         // the relationship instances for this relation. This relations will set
         // appropriate query constraints then entirely manages the hydrations.
+		// 现在，我们准备为这个相关模型创建一个新的查询构建器。
         if (! $table) {
             $words = preg_split('/(_)/u', $name, -1, PREG_SPLIT_DELIM_CAPTURE);
 
@@ -606,7 +614,7 @@ trait HasRelationships
 
     /**
      * Instantiate a new MorphToMany relationship.
-	 * 实例化一个新的morphmany关系
+	 * 实例化一个新的 MorphToMany 关系
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @param  \Illuminate\Database\Eloquent\Model  $parent
@@ -649,6 +657,7 @@ trait HasRelationships
         // For the inverse of the polymorphic many-to-many relations, we will change
         // the way we determine the foreign and other keys, as it is the opposite
         // of the morph-to-many method since we're figuring out these inverses.
+		// 对于多态多对多关系的逆，我们将进行更改我们确定外键和其他键的方式。
         $relatedPivotKey = $relatedPivotKey ?: $name.'_id';
 
         return $this->morphToMany(
@@ -659,7 +668,7 @@ trait HasRelationships
 
     /**
      * Get the relationship name of the belongsToMany relationship.
-	 * 获取belongsToMany关系的关系名称
+	 * 获取 belongsToMany 关系的关系名称
      *
      * @return string|null
      */
@@ -688,6 +697,7 @@ trait HasRelationships
         // The joining table name, by convention, is simply the snake cased models
         // sorted alphabetically and concatenated with an underscore, so we can
         // just sort the models and join them together to get the table name.
+		// 按照惯例，连接表的名称就是蛇形外壳模型。
         $segments = [
             $instance ? $instance->joiningTableSegment()
                       : Str::snake(class_basename($related)),
@@ -697,6 +707,7 @@ trait HasRelationships
         // Now that we have the model names in an array we can just sort them and
         // use the implode function to join them together with an underscores,
         // which is typically used by convention within the database system.
+		// 现在我们在数组中有了模型名称，我们可以对它们进行排序。
         sort($segments);
 
         return strtolower(implode('_', $segments));

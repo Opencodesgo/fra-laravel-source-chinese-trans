@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，Output，控制台部分输出
+ */
 
 /*
  * This file is part of the Symfony package.

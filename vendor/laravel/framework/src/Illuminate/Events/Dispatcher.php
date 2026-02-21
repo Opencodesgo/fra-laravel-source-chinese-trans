@@ -249,6 +249,7 @@ class Dispatcher implements DispatcherContract
             // If a response is returned from the listener and event halting is enabled
             // we will just return this response, and not call the rest of the event
             // listeners. Otherwise we will add the response on the response list.
+			// 如果从侦听器返回响应并且启用了事件停止。
             if ($halt && ! is_null($response)) {
                 return $response;
             }
@@ -256,6 +257,7 @@ class Dispatcher implements DispatcherContract
             // If a boolean false is returned from a listener, we will stop propagating
             // the event to any further listeners down in the chain, else we keep on
             // looping through the listeners and firing every one in our sequence.
+			// 如果从侦听器返回一个布尔值false，我们将停止传播。
             if ($response === false) {
                 break;
             }
@@ -386,6 +388,7 @@ class Dispatcher implements DispatcherContract
 
     /**
      * Register an event listener with the dispatcher.
+	 * 向调度程序注册事件侦听器
      *
      * @param  \Closure|string  $listener
      * @param  bool  $wildcard

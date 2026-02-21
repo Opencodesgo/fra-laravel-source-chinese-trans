@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，make:resource命令
+ * Illuminate，基础，控制台，make:resource 资源创建命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -65,6 +65,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Determine if the command is generating a resource collection.
+	 * 确定该命令是否正在生成资源集合
      *
      * @return bool
      */
@@ -76,6 +77,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Resolve the fully-qualified path to the stub.
+	 * 解析到存根的全限定路径
      *
      * @param  string  $stub
      * @return string
@@ -89,6 +91,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Get the default namespace for the class.
+	 * 获取类的默认名称空间
      *
      * @param  string  $rootNamespace
      * @return string
@@ -100,6 +103,7 @@ class ResourceMakeCommand extends GeneratorCommand
 
     /**
      * Get the console command options.
+	 * 获取控制台命令选项
      *
      * @return array
      */

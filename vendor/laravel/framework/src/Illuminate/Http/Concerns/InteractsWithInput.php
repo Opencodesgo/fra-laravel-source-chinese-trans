@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，客户端，与输入交互
+ * Illuminate，Http，问题，与输入交互
  */
 
 namespace Illuminate\Http\Concerns;
@@ -275,6 +275,7 @@ trait InteractsWithInput
 
     /**
      * Retrieve an input item from the request.
+	 * 从请求中检索输入项
      *
      * @param  string|null  $key
      * @param  mixed  $default
@@ -292,6 +293,7 @@ trait InteractsWithInput
 	 * 检索作为布尔值的输入
      *
      * Returns true when value is "1", "true", "on", and "yes". Otherwise, returns false.
+	 * 当value为"1"、"true"、"on"和"yes"时返回true。否则，返回false。
      *
      * @param  string|null  $key
      * @param  bool  $default
@@ -361,6 +363,7 @@ trait InteractsWithInput
 
     /**
      * Retrieve a request payload item from the request.
+	 * 从请求中检索请求有效负载项
      *
      * @param  string|null  $key
      * @param  string|array|null  $default

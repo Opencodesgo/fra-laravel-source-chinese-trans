@@ -58,6 +58,7 @@ trait QueriesRelationships
         // Next we will call any given callback as an "anonymous" scope so they can get the
         // proper logical grouping of the where clauses if needed by this Eloquent query
         // builder. Then, we will be ready to finalize and return this query instance.
+		// 接下来，我们将调用任何给定的回调作为"匿名"作用域，以便它们可以获得。
         if ($callback) {
             $hasQuery->callScope($callback);
         }
@@ -72,6 +73,7 @@ trait QueriesRelationships
 	 * 向查询添加嵌套关系count / exists条件
      *
      * Sets up recursive call to whereHas until we finish the nested relation.
+	 * 设置对whereHas的递归调用，直到完成嵌套关系。
      *
      * @param  string  $relations
      * @param  string  $operator
@@ -95,6 +97,7 @@ trait QueriesRelationships
             // In order to nest "has", we need to add count relation constraints on the
             // callback Closure. We'll do this by simply passing the Closure its own
             // reference to itself so it calls itself recursively on each segment.
+			// 为了嵌套"has"，我们需要在上添加计数关系约束。
             count($relations) > 1
                 ? $q->whereHas(array_shift($relations), $closure)
                 : $q->has(array_shift($relations), $operator, $count, 'and', $callback);
@@ -406,6 +409,7 @@ trait QueriesRelationships
             // Here we will get the relationship count query and prepare to add it to the main query
             // as a sub-select. First, we'll get the "has" query and use that to get the relation
             // count query. We will normalize the relation name then append _count as the name.
+			// 这里我们将获得关系计数查询，并准备将其添加到主查询中。
             $query = $relation->getRelationExistenceCountQuery(
                 $relation->getRelated()->newQuery(), $this
             );
@@ -427,6 +431,7 @@ trait QueriesRelationships
             // Finally we will add the proper result column alias to the query and run the subselect
             // statement against the query builder. Then we will return the builder instance back
             // to the developer for further constraint chaining that needs to take place on it.
+			// 最后，我们将向查询添加适当的结果列别名并运行子选择。
             $column = $alias ?? Str::snake($name.'_count');
 
             $this->selectSub($query, $column);
@@ -469,6 +474,7 @@ trait QueriesRelationships
         // Here we have some other query that we want to merge the where constraints from. We will
         // copy over any where constraints on the query as well as remove any global scopes the
         // query might have removed. Then we will return ourselves with the finished merging.
+		// 这里我们有一些其他的查询我们想要合并where约束。
         return $this->withoutGlobalScopes(
             $from->removedScopes()
         )->mergeWheres(

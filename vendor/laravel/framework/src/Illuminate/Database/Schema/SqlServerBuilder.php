@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法，SqlServer建立者
+ * Illuminate，数据库，模式，Sql Server 建立者
  */
 
 namespace Illuminate\Database\Schema;

@@ -77,6 +77,7 @@ abstract class MorphOneOrMany extends HasOneOrMany
 
     /**
      * Set the foreign ID and type for creating a related model.
+	 * 为创建相关模型设置外部ID和类型
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void

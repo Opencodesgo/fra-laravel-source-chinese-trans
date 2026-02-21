@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace {{ namespace }};
 
@@ -10,6 +13,7 @@ class {{ class }}
 
     /**
      * Create a new job instance.
+	 * 创建新的作业实例
      *
      * @return void
      */
@@ -20,6 +24,7 @@ class {{ class }}
 
     /**
      * Execute the job.
+	 * 执行作业
      *
      * @return void
      */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，配置感知特性
+ */
 
 namespace League\Flysystem;
 
@@ -14,6 +17,7 @@ trait ConfigAwareTrait
 
     /**
      * Set the config.
+	 * 设置配置
      *
      * @param Config|array|null $config
      */

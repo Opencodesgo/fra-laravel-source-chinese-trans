@@ -13,6 +13,7 @@ class SerializableClosure extends OpisSerializableClosure
 
     /**
      * Transform the use variables before serialization.
+	 * 在序列化之前转换use变量
      *
      * @param  array  $data  The Closure's use variables
      * @return array

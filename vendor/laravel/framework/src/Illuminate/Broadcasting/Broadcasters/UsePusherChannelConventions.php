@@ -11,7 +11,7 @@ trait UsePusherChannelConventions
 {
     /**
      * Return true if channel is protected by authentication.
-	 * 如果通道受身份验证保护，则返回true
+	 * 如果信道受身份验证保护，则返回true
      *
      * @param  string  $channel
      * @return bool
@@ -23,7 +23,7 @@ trait UsePusherChannelConventions
 
     /**
      * Remove prefix from channel name.
-	 * 从通道名中删除前缀
+	 * 从信道名中删除前缀
      *
      * @param  string  $channel
      * @return string

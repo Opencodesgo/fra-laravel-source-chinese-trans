@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Json 格式化
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -15,6 +19,7 @@ use Throwable;
 
 /**
  * Encodes whatever record data is passed to it as json
+ * 将传递给它的任何记录数据编码为json
  *
  * This can be useful to log to databases or remote APIs
  *

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，别名加载器
+ * Illuminate，基础，混合
  */
 
 namespace Illuminate\Foundation;
@@ -13,6 +13,7 @@ class Mix
 {
     /**
      * Get the path to a versioned Mix file.
+	 * 获取一个版本格式的混合文件的路径
      *
      * @param  string  $path
      * @param  string  $manifestDirectory

@@ -1,6 +1,6 @@
 <?php
 /**
- * Symfony，http基础，响应
+ * Symfony，Component，HttpFoundation，响应
  */
 
 /*
@@ -140,6 +140,7 @@ class Response
 
     /**
      * Status codes translation table.
+	 * 状态码转换表
      *
      * The list of codes is complete according to the
      * {@link https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml Hypertext Transfer Protocol (HTTP) Status Code Registry}

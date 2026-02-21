@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，发现者，配置
+ */
+
 /*
  * This file is part of the Symfony package.
  *

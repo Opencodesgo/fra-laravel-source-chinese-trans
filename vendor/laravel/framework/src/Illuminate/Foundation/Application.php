@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，Application应用
+ * Illuminate，基础，Application 应用
  */
 
 namespace Illuminate\Foundation;
@@ -33,7 +33,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
 {
     /**
      * The Laravel framework version.
-	 * Laravel框架版本
+	 * Laravel 框架版本
      *
      * @var string
      */

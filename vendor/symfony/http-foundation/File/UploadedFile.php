@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，文件，已上传文件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -38,6 +41,7 @@ class UploadedFile extends File
 
     /**
      * Accepts the information of the uploaded file as provided by the PHP global $_FILES.
+	 * 接受PHP全局变量$_FILES提供的上传文件的信息
      *
      * The file object is only created when the uploaded file is valid (i.e. when the
      * isValid() method returns true). Otherwise the only methods that could be called
@@ -49,6 +53,7 @@ class UploadedFile extends File
      *   * getError.
      *
      * Calling any other method on an non-valid instance will cause an unpredictable result.
+	 * 在无效实例上调用任何其他方法都将导致不可预测的结果
      *
      * @param string      $path         The full temporary path to the file
      * @param string      $originalName The original file name of the uploaded file
@@ -72,6 +77,7 @@ class UploadedFile extends File
 
     /**
      * Returns the original file name.
+	 * 返回原始文件名
      *
      * It is extracted from the request from which the file has been uploaded.
      * This should not be considered as a safe value to use for a file name on your servers.
@@ -85,6 +91,7 @@ class UploadedFile extends File
 
     /**
      * Returns the original file extension.
+	 * 返回原始文件扩展名
      *
      * It is extracted from the original file name that was uploaded.
      * This should not be considered as a safe value to use for a file name on your servers.
@@ -98,6 +105,7 @@ class UploadedFile extends File
 
     /**
      * Returns the file mime type.
+	 * 返回文件mime类型
      *
      * The client mime type is extracted from the request from which the file
      * was uploaded, so it should not be considered as a safe value.
@@ -116,6 +124,7 @@ class UploadedFile extends File
 
     /**
      * Returns the extension based on the client mime type.
+	 * 返回基于客户端mime类型的扩展名
      *
      * If the mime type is unknown, returns null.
      *
@@ -142,6 +151,7 @@ class UploadedFile extends File
 
     /**
      * Returns the upload error.
+	 * 返回上传错误
      *
      * If the upload was successful, the constant UPLOAD_ERR_OK is returned.
      * Otherwise one of the other UPLOAD_ERR_XXX constants is returned.
@@ -266,6 +276,7 @@ class UploadedFile extends File
 
     /**
      * Returns an informative upload error message.
+	 * 返回信息丰富的上传错误消息
      *
      * @return string
      */

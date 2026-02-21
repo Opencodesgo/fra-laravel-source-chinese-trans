@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，表达式请求匹配器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 /**
  * ExpressionRequestMatcher uses an expression to match a Request.
+ * ExpressionRequestMatcher使用一个表达式来匹配Request
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

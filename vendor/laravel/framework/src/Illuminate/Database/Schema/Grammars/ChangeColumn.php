@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法，改变列
+ * Illuminate，数据库，模式，语法，改变列
  */
 
 namespace Illuminate\Database\Schema\Grammars;
@@ -88,6 +88,7 @@ class ChangeColumn
             // Here we will spin through each fluent column definition and map it to the proper
             // Doctrine column definitions - which is necessary because Laravel and Doctrine
             // use some different terminology for various column attributes on the tables.
+			// 这里，我们将遍历每个流畅的列定义，并将其映射到适当的列定义。
             foreach ($fluent->getAttributes() as $key => $value) {
                 if (! is_null($option = static::mapFluentOptionToDoctrine($key))) {
                     if (method_exists($column, $method = 'set'.ucfirst($option))) {
@@ -178,6 +179,7 @@ class ChangeColumn
 
     /**
      * Calculate the proper column length to force the Doctrine text type.
+	 * 计算适当的列长度以强制使用Doctrine文本类型
      *
      * @param  string  $type
      * @return int

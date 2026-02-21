@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * League，Flysystem，Filesystem文件系统核心类
+ */
+
 namespace League\Flysystem;
 
 use InvalidArgumentException;
@@ -28,6 +32,7 @@ class Filesystem implements FilesystemInterface
 
     /**
      * Constructor.
+	 * 构造函数
      *
      * @param AdapterInterface $adapter
      * @param Config|array     $config
@@ -40,6 +45,7 @@ class Filesystem implements FilesystemInterface
 
     /**
      * Get the Adapter.
+	 * 获取适配器
      *
      * @return AdapterInterface adapter
      */
@@ -377,6 +383,7 @@ class Filesystem implements FilesystemInterface
 
     /**
      * Assert a file is present.
+	 * 断言文件存在
      *
      * @param string $path path to file
      *
@@ -393,6 +400,7 @@ class Filesystem implements FilesystemInterface
 
     /**
      * Assert a file is absent.
+	 * 断言文件不存在
      *
      * @param string $path path to file
      *

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，应用
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -55,6 +58,7 @@ use Symfony\Contracts\Service\ResetInterface;
 
 /**
  * An Application is the container for a collection of commands.
+ * 应用程序是命令集合的容器
  *
  * It is the main entry point of a Console application.
  *
@@ -129,6 +133,7 @@ class Application implements ResetInterface
 
     /**
      * Runs the current application.
+	 * 运行当前应用
      *
      * @return int 0 if everything went fine, or an error code
      *

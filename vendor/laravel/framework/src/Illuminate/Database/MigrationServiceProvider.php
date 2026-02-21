@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，迁移服务提供商
+ * Illuminate，数据库，迁移服务提供者
  */
 
 namespace Illuminate\Database;
@@ -81,6 +81,7 @@ class MigrationServiceProvider extends ServiceProvider implements DeferrableProv
         // The migrator is responsible for actually running and rollback the migration
         // files in the application. We'll pass in our database connection resolver
         // so the migrator can resolve any of these connections when it needs to.
+		// 迁移器负责实际运行和回滚迁移。
         $this->app->singleton('migrator', function ($app) {
             $repository = $app['migration.repository'];
 

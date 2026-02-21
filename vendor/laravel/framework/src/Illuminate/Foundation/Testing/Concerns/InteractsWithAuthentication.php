@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，关注，与身份验证交互
+ */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -8,6 +11,7 @@ trait InteractsWithAuthentication
 {
     /**
      * Set the currently logged in user for the application.
+	 * 为应用程序设置当前登录的用户
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  string|null  $driver
@@ -20,6 +24,7 @@ trait InteractsWithAuthentication
 
     /**
      * Set the currently logged in user for the application.
+	 * 为应用程序设置当前登录的用户
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  string|null  $driver
@@ -40,6 +45,7 @@ trait InteractsWithAuthentication
 
     /**
      * Assert that the user is authenticated.
+	 * 断言用户是经过身份验证的
      *
      * @param  string|null  $guard
      * @return $this
@@ -53,6 +59,7 @@ trait InteractsWithAuthentication
 
     /**
      * Assert that the user is not authenticated.
+	 * 断言用户没有经过身份验证
      *
      * @param  string|null  $guard
      * @return $this
@@ -66,6 +73,7 @@ trait InteractsWithAuthentication
 
     /**
      * Return true if the user is authenticated, false otherwise.
+	 * 如果用户被验证,则返回true,否则将错误
      *
      * @param  string|null  $guard
      * @return bool
@@ -77,6 +85,7 @@ trait InteractsWithAuthentication
 
     /**
      * Assert that the user is authenticated as the given user.
+	 * 断言用户是作为给定用户进行身份验证的
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  string|null  $guard
@@ -103,6 +112,7 @@ trait InteractsWithAuthentication
 
     /**
      * Assert that the given credentials are valid.
+	 * 断言给定的凭证是有效的
      *
      * @param  array  $credentials
      * @param  string|null  $guard
@@ -119,6 +129,7 @@ trait InteractsWithAuthentication
 
     /**
      * Assert that the given credentials are invalid.
+	 * 断言给定的凭证无效
      *
      * @param  array  $credentials
      * @param  string|null  $guard
@@ -135,6 +146,7 @@ trait InteractsWithAuthentication
 
     /**
      * Return true if the credentials are valid, false otherwise.
+	 * 如果凭证是有效的，则返回true，否则将错误。
      *
      * @param  array  $credentials
      * @param  string|null  $guard

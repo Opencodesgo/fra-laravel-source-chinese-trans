@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，会话侦听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 /**
  * Sets the session in the request.
+ * 设置请求中的会话
  *
  * When the passed container contains a "session_storage" entry which
  * holds a NativeSessionStorage instance, the "cookie_secure" option

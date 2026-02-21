@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，资源，Json，Json资源
+ * Illuminate，Http，资源，Json，Json 资源
  */
 
 namespace Illuminate\Http\Resources\Json;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，查询，语法，Postgres语法
+ * Illuminate，数据库，查询，语法，Postgres 语法
  */
 
 namespace Illuminate\Database\Query\Grammars;
@@ -94,6 +94,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile the "select *" portion of the query.
+	 * 编译查询的"select *"部分
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $columns
@@ -104,6 +105,7 @@ class PostgresGrammar extends Grammar
         // If the query is actually performing an aggregating select, we will let that
         // compiler handle the building of the select clauses, as it will need some
         // more syntax that is best handled by that function to keep things neat.
+		// 如果查询实际上正在执行聚合选择，我们将允许编译器处理select子句的构建。
         if (! is_null($query->aggregate)) {
             return;
         }
@@ -121,6 +123,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a "JSON contains" statement into SQL.
+	 * 将"JSON contains"语句编译成SQL
      *
      * @param  string  $column
      * @param  string  $value
@@ -135,6 +138,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a "JSON length" statement into SQL.
+	 * 将"JSON length"语句编译成SQL
      *
      * @param  string  $column
      * @param  string  $operator
@@ -150,6 +154,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile the lock into SQL.
+	 * 将锁编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  bool|string  $value
@@ -166,6 +171,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile an insert ignore statement into SQL.
+	 * 将插入忽略语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -178,6 +184,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile an insert and get ID statement into SQL.
+	 * 将插入和获取ID语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -191,6 +198,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile an update statement into SQL.
+	 * 将update语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -228,6 +236,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Prepares a JSON column being updated using the JSONB_SET function.
+	 * 使用JSONB_SET函数准备要更新的JSON列
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -246,6 +255,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile an update statement with joins or limit into SQL.
+	 * 将带有连接或限制的更新语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $values
@@ -266,6 +276,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Prepare the bindings for an update statement.
+	 * 为更新语句准备绑定
      *
      * @param  array  $bindings
      * @param  array  $values
@@ -288,6 +299,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a delete statement into SQL.
+	 * 将delete语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -303,6 +315,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a delete statement with joins or limit into SQL.
+	 * 将带有连接或限制的删除语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return string
@@ -320,6 +333,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Compile a truncate table statement into SQL.
+	 * 将截断表语句编译成SQL
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return array
@@ -354,7 +368,8 @@ class PostgresGrammar extends Grammar
     }
 
     /**
-     *Wrap the given JSON selector for boolean values.
+     * Wrap the given JSON selector for boolean values.
+	 * 将给定的JSON选择器包装为布尔值
      *
      * @param  string  $value
      * @return string
@@ -371,6 +386,7 @@ class PostgresGrammar extends Grammar
 
     /**
      * Wrap the given JSON boolean value.
+	 * 包装给定的JSON布尔值
      *
      * @param  string  $value
      * @return string

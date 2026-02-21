@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，模拟阵列会话存储
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * MockArraySessionStorage mocks the session for unit tests.
+ * MockArraySessionStorage 为单元测试模拟会话
  *
  * No PHP session is actually started since a session can be initialized
  * and shutdown only once per PHP execution cycle.
@@ -225,6 +229,7 @@ class MockArraySessionStorage implements SessionStorageInterface
 
     /**
      * Generates a session ID.
+	 * 生成会话ID
      *
      * @return string
      */

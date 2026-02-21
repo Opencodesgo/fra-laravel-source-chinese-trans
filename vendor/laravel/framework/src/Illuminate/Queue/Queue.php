@@ -33,6 +33,7 @@ abstract class Queue
 
     /**
      * The create payload callbacks.
+	 * 创建有效负载回调
      *
      * @var callable[]
      */
@@ -40,6 +41,7 @@ abstract class Queue
 
     /**
      * Push a new job onto the queue.
+	 * 将新作业推送到队列中
      *
      * @param  string  $queue
      * @param  string  $job
@@ -53,6 +55,7 @@ abstract class Queue
 
     /**
      * Push a new job onto the queue after a delay.
+	 * 在延迟后将新作业推入队列
      *
      * @param  string  $queue
      * @param  \DateTimeInterface|\DateInterval|int  $delay
@@ -67,6 +70,7 @@ abstract class Queue
 
     /**
      * Push an array of jobs onto the queue.
+	 * 将一组作业推入队列
      *
      * @param  array  $jobs
      * @param  mixed  $data
@@ -82,6 +86,7 @@ abstract class Queue
 
     /**
      * Create a payload string from the given job and data.
+	 * 根据给定的作业和数据创建有效负载字符串
      *
      * @param  \Closure|string|object  $job
      * @param  string  $queue
@@ -109,6 +114,7 @@ abstract class Queue
 
     /**
      * Create a payload array from the given job and data.
+	 * 根据给定的作业和数据创建有效负载数组
      *
      * @param  string|object  $job
      * @param  string  $queue
@@ -124,6 +130,7 @@ abstract class Queue
 
     /**
      * Create a payload for an object-based queue handler.
+	 * 为基于对象的队列处理程序创建有效负载
      *
      * @param  object  $job
      * @param  string  $queue
@@ -156,6 +163,7 @@ abstract class Queue
 
     /**
      * Get the display name for the given job.
+	 * 获取给定作业的显示名称
      *
      * @param  object  $job
      * @return string
@@ -168,6 +176,7 @@ abstract class Queue
 
     /**
      * Get the retry delay for an object-based queue handler.
+	 * 获取基于对象的队列处理程序的重试延迟
      *
      * @param  mixed  $job
      * @return mixed
@@ -186,6 +195,7 @@ abstract class Queue
 
     /**
      * Get the expiration timestamp for an object-based queue handler.
+	 * 获取基于对象的队列处理程序的过期时间戳
      *
      * @param  mixed  $job
      * @return mixed
@@ -204,6 +214,7 @@ abstract class Queue
 
     /**
      * Create a typical, string based queue payload array.
+	 * 创建一个典型的、基于字符串的队列有效负载数组。
      *
      * @param  string  $job
      * @param  string  $queue
@@ -226,6 +237,7 @@ abstract class Queue
 
     /**
      * Register a callback to be executed when creating job payloads.
+	 * 注册一个回调，以便在创建作业有效负载时执行。
      *
      * @param  callable  $callback
      * @return void
@@ -241,6 +253,7 @@ abstract class Queue
 
     /**
      * Create the given payload using any registered payload hooks.
+	 * 使用任何已注册的有效负载钩子创建给定的有效负载
      *
      * @param  string  $queue
      * @param  array  $payload
@@ -261,6 +274,7 @@ abstract class Queue
 
     /**
      * Get the connection name for the queue.
+	 * 获取队列的连接名称
      *
      * @return string
      */

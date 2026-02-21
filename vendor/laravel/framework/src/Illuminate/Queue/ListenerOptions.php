@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，Beanstalkd队列
+ * Illuminate，队列，监听器选项
  */
 
 namespace Illuminate\Queue;

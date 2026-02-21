@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Mime，依赖注入，添加Mime Type guess Pass
+ */
 
 /*
  * This file is part of the Symfony package.

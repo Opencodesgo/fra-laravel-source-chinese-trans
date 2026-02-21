@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，连接器，SQLite连接器
+ * Illuminate，数据库，连接器，SQLite 连接器
  */
 
 namespace Illuminate\Database\Connectors;
@@ -25,6 +25,7 @@ class SQLiteConnector extends Connector implements ConnectorInterface
         // SQLite supports "in-memory" databases that only last as long as the owning
         // connection does. These are useful for tests or for short lifetime store
         // querying. In-memory databases may only have a single open connection.
+		// SQLite支持"内存中"数据库，这种数据库的存续时间与数据库的存续时间相同。
         if ($config['database'] === ':memory:') {
             return $this->createConnection('sqlite::memory:', $config, $options);
         }

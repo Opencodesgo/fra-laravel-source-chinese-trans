@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，片段，片段渲染器接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -17,6 +20,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerReference;
 
 /**
  * Interface implemented by all rendering strategies.
+ * 由所有呈现策略实现的接口
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

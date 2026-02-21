@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，内核抽象类
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -47,6 +50,7 @@ class_exists(ConfigCache::class);
 
 /**
  * The Kernel is the heart of the Symfony system.
+ * 内核是 Symfony 系统的核心
  *
  * It manages an environment made of bundles.
  *
@@ -280,6 +284,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
 
     /**
      * Gets the application root dir (path of the project's composer file).
+	 * 获取应用程序根目录(项目编写器文件的路径)
      *
      * @return string
      */
@@ -368,6 +373,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
 
     /**
      * Gets the patterns defining the classes to parse and cache for annotations.
+	 * 获取定义要为注释解析和缓存的类的模式
      */
     public function getAnnotatedClassesToCompile(): array
     {

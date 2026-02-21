@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，客户端，与内容类型交互
+ * Illuminate，Http，问题，与文档类型交互
  */
 
 namespace Illuminate\Http\Concerns;

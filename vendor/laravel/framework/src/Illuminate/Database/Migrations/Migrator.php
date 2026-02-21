@@ -179,6 +179,7 @@ class Migrator
         // Once we have the array of migrations, we will spin through them and run the
         // migrations "up" so the changes are made to the databases. We'll then log
         // that the migration was run so we don't repeat it next time we execute.
+		// 有了迁移数组之后，我们将遍历它们并运行"向上"迁移，以便对数据库进行更改。
         foreach ($migrations as $file) {
             $this->runUp($file, $batch, $pretend);
 
@@ -192,7 +193,7 @@ class Migrator
 
     /**
      * Run "up" a migration instance.
-	 * Run "up" a migration instance.
+	 * 运行"up"迁移实例
      *
      * @param  string  $file
      * @param  int  $batch
@@ -204,6 +205,7 @@ class Migrator
         // First we will resolve a "real" instance of the migration class from this
         // migration file name. Once we have the instances we can run the actual
         // command such as "up" or "down", or we can just simulate the action.
+		// 首先，我们将从中解析一个迁移类的"真实"实例。
         $migration = $this->resolve(
             $name = $this->getMigrationName($file)
         );
@@ -223,6 +225,7 @@ class Migrator
         // Once we have run a migrations class, we will log that it was run in this
         // repository so that we don't try to run it next time we do a migration
         // in the application. A migration repository keeps the migrate order.
+		// 一旦我们运行了迁移类，我们将记录它在此运行。
         $this->repository->log($name, $batch);
 
         $this->note("<info>Migrated:</info>  {$name} ({$runTime} seconds)");
@@ -353,6 +356,7 @@ class Migrator
         // Since the getRan method that retrieves the migration name just gives us the
         // migration name, we will format the names into objects with the name as a
         // property on the objects so that we can pass it to the rollback method.
+		// 因为检索迁移名称的getRan方法只给我们提供迁移名称，我们将把名称格式化为对象。
         $migrations = collect($migrations)->map(function ($m) {
             return (object) ['migration' => $m];
         })->all();
@@ -376,6 +380,7 @@ class Migrator
         // First we will get the file name of the migration so we can resolve out an
         // instance of the migration. Once we get an instance we can either run a
         // pretend execution of the migration or we can run the real migration.
+		// 首先，我们将获得迁移的文件名，以便我们可以解析出迁移实例。
         $instance = $this->resolve(
             $name = $this->getMigrationName($file)
         );
@@ -395,6 +400,7 @@ class Migrator
         // Once we have successfully run the migration "down" we will remove it from
         // the migration repository so it will be considered to have not been run
         // by the application then will be able to fire by any later operation.
+		// 一旦我们成功地"向下"运行迁移，我们将从迁移仓库移除它。
         $this->repository->delete($migration);
 
         $this->note("<info>Rolled back:</info>  {$name} ({$runTime} seconds)");
@@ -460,6 +466,7 @@ class Migrator
         // Now that we have the connections we can resolve it and pretend to run the
         // queries against the database returning the array of raw SQL statements
         // that would get fired against the database system for this migration.
+		// 现在我们有了连接，我们可以解析它并假装运行对返回原始SQL语句数组的数据库进行查询。
         $db = $this->resolveConnection(
             $migration->getConnection()
         );
@@ -505,6 +512,7 @@ class Migrator
 
     /**
      * Require in all the migration files in a given path.
+	 * 在给定路径中的所有迁移文件中要求
      *
      * @param  array  $files
      * @return void
@@ -631,6 +639,7 @@ class Migrator
 
     /**
      * Get the migration repository instance.
+	 * 获取迁移存储库实例
      *
      * @return \Illuminate\Database\Migrations\MigrationRepositoryInterface
      */

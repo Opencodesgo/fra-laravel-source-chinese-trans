@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，连接器，Redis连接器
+ * Illuminate，队列，连接器，Redis 连接器
  */
 
 namespace Illuminate\Queue\Connectors;

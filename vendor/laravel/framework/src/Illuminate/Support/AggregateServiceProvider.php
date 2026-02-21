@@ -9,6 +9,7 @@ class AggregateServiceProvider extends ServiceProvider
 {
     /**
      * The provider class names.
+	 * 提供程序类名
      *
      * @var array
      */
@@ -16,6 +17,7 @@ class AggregateServiceProvider extends ServiceProvider
 
     /**
      * An array of the service provider instances.
+	 * 服务提供者实例的数组
      *
      * @var array
      */
@@ -23,6 +25,7 @@ class AggregateServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
+	 * 注册服务提供者
      *
      * @return void
      */
@@ -37,6 +40,7 @@ class AggregateServiceProvider extends ServiceProvider
 
     /**
      * Get the services provided by the provider.
+	 * 获取提供者提供的服务
      *
      * @return array
      */

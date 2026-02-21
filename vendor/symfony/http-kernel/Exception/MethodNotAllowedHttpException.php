@@ -1,7 +1,11 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，异常，不允许方法 Http 异常
+ */
 
 /*
  * This file is part of the Symfony package.
+ * 该文件是Symfony包的一部分
  *
  * (c) Fabien Potencier <fabien@symfony.com>
  *

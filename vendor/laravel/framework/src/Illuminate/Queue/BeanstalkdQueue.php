@@ -1,6 +1,7 @@
 <?php
 /**
- * Illuminate，队列，Beanstalkd队列
+ * Illuminate，队列，Beanstalkd 队列
+ * Pheanstalk\Pheanstalk 需要自己安装
  */
 
 namespace Illuminate\Queue;
@@ -30,6 +31,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * The "time to run" for all pushed jobs.
+	 * 所有被推的工作的"时间到了"
      *
      * @var int
      */
@@ -37,6 +39,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * The maximum number of seconds to block for a job.
+	 * 阻塞作业的最大秒数
      *
      * @var int
      */
@@ -90,6 +93,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Push a raw payload onto the queue.
+	 * 将原始有效负载推入队列
      *
      * @param  string  $payload
      * @param  string|null  $queue
@@ -105,6 +109,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue after a delay.
+	 * 在延迟后将新作业推入队列
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string  $job
@@ -126,6 +131,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Pop the next job off of the queue.
+	 * 将下一个作业从队列中弹出
      *
      * @param  string|null  $queue
      * @return \Illuminate\Contracts\Queue\Job|null
@@ -145,6 +151,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Delete a message from the Beanstalk queue.
+	 * 从Beanstalk队列中删除消息
      *
      * @param  string  $queue
      * @param  string|int  $id
@@ -159,6 +166,7 @@ class BeanstalkdQueue extends Queue implements QueueContract
 
     /**
      * Get the queue or return the default.
+	 * 获取队列或返回默认值
      *
      * @param  string|null  $queue
      * @return string

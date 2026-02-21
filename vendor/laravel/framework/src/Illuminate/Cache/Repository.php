@@ -180,6 +180,7 @@ class Repository implements ArrayAccess, CacheContract
         // If we found a valid value we will fire the "hit" event and return the value
         // back from this function. The "hit" event gives developers an opportunity
         // to listen for every possible cache "hit" throughout this applications.
+		// 如果我们找到了一个有效的值,我们就会触发"hit"事件并返回函数值。
         $this->event(new CacheHit($key, $value));
 
         return $value;

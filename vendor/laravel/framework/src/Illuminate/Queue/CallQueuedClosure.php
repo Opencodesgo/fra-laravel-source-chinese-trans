@@ -34,7 +34,7 @@ class CallQueuedClosure implements ShouldQueue
 
     /**
      * Create a new job instance.
-	 * 创建一个新的任务实例
+	 * 创建一个新的作业实例
      *
      * @param  \Illuminate\Queue\SerializableClosure  $closure
      * @return void
@@ -46,7 +46,7 @@ class CallQueuedClosure implements ShouldQueue
 
     /**
      * Create a new job instance.
-	 * 创建一个新的任务实例
+	 * 创建一个新的作业实例
      *
      * @param  \Closure  $job
      * @return self
@@ -58,7 +58,7 @@ class CallQueuedClosure implements ShouldQueue
 
     /**
      * Execute the job.
-	 * 执行任务
+	 * 执行作业
      *
      * @param  \Illuminate\Contracts\Container\Container  $container
      * @return void

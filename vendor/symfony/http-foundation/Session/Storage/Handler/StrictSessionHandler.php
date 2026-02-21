@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，处理者，严格会话处理程序
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -32,6 +35,7 @@ class StrictSessionHandler extends AbstractSessionHandler
 
     /**
      * Returns true if this handler wraps an internal PHP session save handler using \SessionHandler.
+	 * 如果此处理程序使用\SessionHandler包装内部PHP会话保存处理程序，则返回true。
      *
      * @internal
      */

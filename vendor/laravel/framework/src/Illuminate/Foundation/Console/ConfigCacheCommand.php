@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，config:cache配置缓存命令
+ * Illuminate，基础，控制台，config:cache 配置缓存命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -39,6 +39,7 @@ class ConfigCacheCommand extends Command
 
     /**
      * Create a new config cache command instance.
+	 * 创建一个新的config cache命令实例
      *
      * @param  \Illuminate\Filesystem\Filesystem  $files
      * @return void
@@ -83,6 +84,7 @@ class ConfigCacheCommand extends Command
 
     /**
      * Boot a fresh copy of the application configuration.
+	 * 启动应用程序配置的新副本
      *
      * @return array
      */

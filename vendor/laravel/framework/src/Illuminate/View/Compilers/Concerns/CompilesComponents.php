@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，编译器，关注点，编译组件
+ * Illuminate，视图，编译器，问题，编译组件
  */
 
 namespace Illuminate\View\Compilers\Concerns;
@@ -78,6 +78,7 @@ trait CompilesComponents
 
     /**
      * Compile the end-component statements into valid PHP.
+	 * 将最终组件语句编译成有效的PHP
      *
      * @return string
      */
@@ -96,6 +97,7 @@ trait CompilesComponents
 
     /**
      * Compile the end-component statements into valid PHP.
+	 * 将最终组件语句编译成有效的PHP
      *
      * @return string
      */
@@ -108,6 +110,7 @@ trait CompilesComponents
 
     /**
      * Compile the slot statements into valid PHP.
+	 * 将slot语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -119,6 +122,7 @@ trait CompilesComponents
 
     /**
      * Compile the end-slot statements into valid PHP.
+	 * 将结束槽语句编译成有效的PHP
      *
      * @return string
      */
@@ -129,6 +133,7 @@ trait CompilesComponents
 
     /**
      * Compile the component-first statements into valid PHP.
+	 * 将组件优先语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string
@@ -140,6 +145,7 @@ trait CompilesComponents
 
     /**
      * Compile the end-component-first statements into valid PHP.
+	 * 将end-component-first语句编译成有效的PHP
      *
      * @return string
      */
@@ -150,6 +156,7 @@ trait CompilesComponents
 
     /**
      * Compile the prop statement into valid PHP.
+	 * 将prop语句编译成有效的PHP
      *
      * @param  string  $expression
      * @return string

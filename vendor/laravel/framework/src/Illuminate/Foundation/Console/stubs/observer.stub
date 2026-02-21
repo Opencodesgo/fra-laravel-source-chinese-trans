@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace DummyNamespace;
 
@@ -8,6 +11,7 @@ class DummyClass
 {
     /**
      * Handle the DocDummyModel "created" event.
+	 * 处理DocDummyModel"创建"事件
      *
      * @param  \NamespacedDummyModel  $dummyModel
      * @return void
@@ -19,6 +23,7 @@ class DummyClass
 
     /**
      * Handle the DocDummyModel "updated" event.
+	 * 处理DocDummyModel"更新"事件
      *
      * @param  \NamespacedDummyModel  $dummyModel
      * @return void
@@ -30,6 +35,7 @@ class DummyClass
 
     /**
      * Handle the DocDummyModel "deleted" event.
+	 * 处理DocDummyModel"删除"事件
      *
      * @param  \NamespacedDummyModel  $dummyModel
      * @return void
@@ -41,6 +47,7 @@ class DummyClass
 
     /**
      * Handle the DocDummyModel "restored" event.
+	 * 处理DocDummyModel"恢复"事件
      *
      * @param  \NamespacedDummyModel  $dummyModel
      * @return void
@@ -52,6 +59,7 @@ class DummyClass
 
     /**
      * Handle the DocDummyModel "force deleted" event.
+	 * 处理DocDummyModel"力删除"事件
      *
      * @param  \NamespacedDummyModel  $dummyModel
      * @return void

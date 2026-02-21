@@ -167,6 +167,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
             // The migrations table is responsible for keeping track of which of the
             // migrations have actually run for the application. We'll create the
             // table to hold the migration file's path as well as the batch ID.
+			// 迁移表负责跟踪已经为应用程序实际运行了迁移。
             $table->increments('id');
             $table->string('migration');
             $table->integer('batch');
@@ -199,6 +200,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
     /**
      * Get the connection resolver instance.
+	 * 获取连接解析程序实例
      *
      * @return \Illuminate\Database\ConnectionResolverInterface
      */

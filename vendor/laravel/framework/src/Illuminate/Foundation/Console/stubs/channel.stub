@@ -22,6 +22,7 @@ class DummyClass
 
     /**
      * Authenticate the user's access to the channel.
+	 * 验证用户访问通道
      *
      * @param  \NamespacedDummyUserModel  $user
      * @return array|bool

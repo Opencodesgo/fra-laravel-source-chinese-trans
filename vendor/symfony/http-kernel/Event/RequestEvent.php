@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，依赖注入，控制器参数事件
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Allows to create a response for a request.
+ * 允许为请求创建响应
  *
  * Call setResponse() to set the response that will be returned for the
  * current request. The propagation of this event is stopped as soon as a
@@ -28,6 +32,7 @@ class RequestEvent extends KernelEvent
 
     /**
      * Returns the response object.
+	 * 返回响应对象
      *
      * @return Response|null
      */
@@ -48,6 +53,7 @@ class RequestEvent extends KernelEvent
 
     /**
      * Returns whether a response was set.
+	 * 返回是否设置了响应
      *
      * @return bool
      */

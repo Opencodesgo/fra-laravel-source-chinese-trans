@@ -35,6 +35,7 @@ trait SerializesModels
 
     /**
      * Restore the model after serialization.
+	 * 序列化后恢复模型
      *
      * @return void
      */
@@ -53,6 +54,7 @@ trait SerializesModels
 
     /**
      * Prepare the instance values for serialization.
+	 * 为序列化准备实例值
      *
      * @return array
      */
@@ -93,6 +95,7 @@ trait SerializesModels
 
     /**
      * Restore the model after serialization.
+	 * 序列化后恢复模型
      *
      * @param  array  $values
      * @return array

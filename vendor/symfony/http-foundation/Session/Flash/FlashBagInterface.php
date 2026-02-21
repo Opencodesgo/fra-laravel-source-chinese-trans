@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session，存储，Flash Bag接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Session\SessionBagInterface;
 
 /**
  * FlashBagInterface.
+ * Flash Bag接口
  *
  * @author Drak <drak@zikula.org>
  */
@@ -22,6 +26,7 @@ interface FlashBagInterface extends SessionBagInterface
 {
     /**
      * Adds a flash message for the given type.
+	 * 为给定类型添加flash消息
      *
      * @param mixed $message
      */

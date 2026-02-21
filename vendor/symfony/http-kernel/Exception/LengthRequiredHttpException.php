@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，异常，长度要求 Http 例外
+ */
 
 /*
  * This file is part of the Symfony package.

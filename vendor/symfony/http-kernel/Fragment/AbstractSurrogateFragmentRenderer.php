@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，片段，代理片段渲染器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -19,6 +22,7 @@ use Symfony\Component\HttpKernel\UriSigner;
 
 /**
  * Implements Surrogate rendering strategy.
+ * 实现代理呈现策略
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */

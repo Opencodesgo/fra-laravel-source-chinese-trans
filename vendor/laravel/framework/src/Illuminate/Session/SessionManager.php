@@ -23,6 +23,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the "null" session driver.
+	 * 创建"null"会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -33,6 +34,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the "array" session driver.
+	 * 创建"array"会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -45,6 +47,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the "cookie" session driver.
+	 * 创建"cookie"会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -57,6 +60,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the file session driver.
+	 * 创建文件会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -67,6 +71,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the file session driver.
+	 * 创建文件会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -81,6 +86,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the database session driver.
+	 * 创建数据库会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -97,6 +103,7 @@ class SessionManager extends Manager
 
     /**
      * Get the database connection for the database driver.
+	 * 获取数据库驱动程序的数据库连接
      *
      * @return \Illuminate\Database\Connection
      */
@@ -109,6 +116,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the APC session driver.
+	 * 创建APC会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -119,6 +127,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the Memcached session driver.
+	 * 创建Memcached会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -129,6 +138,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the Redis session driver.
+	 * 创建一个Redis会话驱动程序实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -145,6 +155,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of the DynamoDB session driver.
+	 * 创建DynamoDB会话驱动程序的实例
      *
      * @return \Illuminate\Session\Store
      */
@@ -155,6 +166,7 @@ class SessionManager extends Manager
 
     /**
      * Create an instance of a cache driven driver.
+	 * 创建缓存驱动程序的实例
      *
      * @param  string  $driver
      * @return \Illuminate\Session\Store
@@ -166,6 +178,7 @@ class SessionManager extends Manager
 
     /**
      * Create the cache based session handler instance.
+	 * 创建基于缓存的会话处理程序实例
      *
      * @param  string  $driver
      * @return \Illuminate\Session\CacheBasedSessionHandler
@@ -182,6 +195,7 @@ class SessionManager extends Manager
 
     /**
      * Build the session instance.
+	 * 构建会话实例
      *
      * @param  \SessionHandlerInterface  $handler
      * @return \Illuminate\Session\Store
@@ -195,6 +209,7 @@ class SessionManager extends Manager
 
     /**
      * Build the encrypted session instance.
+	 * 构建加密的会话实例
      *
      * @param  \SessionHandlerInterface  $handler
      * @return \Illuminate\Session\EncryptedStore
@@ -208,6 +223,7 @@ class SessionManager extends Manager
 
     /**
      * Determine if requests for the same session should wait for each to finish before executing.
+	 * 确定对同一会话的请求是否应该等待每个请求完成后再执行
      *
      * @return bool
      */
@@ -218,6 +234,7 @@ class SessionManager extends Manager
 
     /**
      * Get the name of the cache store / driver that should be used to acquire session locks.
+	 * 获取应该用于获取会话锁的缓存存储/驱动程序的名称
      *
      * @return string|null
      */
@@ -228,6 +245,7 @@ class SessionManager extends Manager
 
     /**
      * Get the session configuration.
+	 * 获取会话配置
      *
      * @return array
      */
@@ -238,6 +256,7 @@ class SessionManager extends Manager
 
     /**
      * Get the default session driver name.
+	 * 获取默认会话驱动程序名称
      *
      * @return string
      */

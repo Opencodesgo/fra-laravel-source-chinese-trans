@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，控制台，存根，虚拟类，根据实际使用修改
+ */
 
 namespace DummyNamespace;
 
@@ -13,6 +16,7 @@ class DummyClass extends Notification
 
     /**
      * Create a new notification instance.
+	 * 创建一个新的通知实例
      *
      * @return void
      */
@@ -23,6 +27,7 @@ class DummyClass extends Notification
 
     /**
      * Get the notification's delivery channels.
+	 * 获取通知的发送通道
      *
      * @param  mixed  $notifiable
      * @return array
@@ -34,6 +39,7 @@ class DummyClass extends Notification
 
     /**
      * Get the mail representation of the notification.
+	 * 获取通知的邮件表示
      *
      * @param  mixed  $notifiable
      * @return \Illuminate\Notifications\Messages\MailMessage
@@ -45,6 +51,7 @@ class DummyClass extends Notification
 
     /**
      * Get the array representation of the notification.
+	 * 获取通知的数组表示
      *
      * @param  mixed  $notifiable
      * @return array

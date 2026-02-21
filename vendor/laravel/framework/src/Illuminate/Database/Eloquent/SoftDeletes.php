@@ -116,6 +116,7 @@ trait SoftDeletes
         // If the restoring event does not return false, we will proceed with this
         // restore operation. Otherwise, we bail out so the developer will stop
         // the restore totally. We will clear the deleted timestamp and save.
+		// 如果恢复事件不返回false，我们将继续执行恢复操作。
         if ($this->fireModelEvent('restoring') === false) {
             return false;
         }
@@ -125,6 +126,7 @@ trait SoftDeletes
         // Once we have saved the model, we will fire the "restored" event so this
         // developer will do anything they need to after a restore operation is
         // totally finished. Then we will return the result of the save call.
+		// 保存模型之后，我们将触发"已恢复"事件。
         $this->exists = true;
 
         $result = $this->save();
@@ -159,6 +161,7 @@ trait SoftDeletes
 
     /**
      * Register a "restored" model event callback with the dispatcher.
+	 * 向调度程序注册一个"已恢复的"模型事件回调
      *
      * @param  \Closure|string  $callback
      * @return void

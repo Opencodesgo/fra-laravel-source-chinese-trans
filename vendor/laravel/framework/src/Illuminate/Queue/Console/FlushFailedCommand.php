@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，控制台，刷新失败命令
+ * Illuminate，队列，控制台，queue:flush 刷新失败命令
  */
 
 namespace Illuminate\Queue\Console;
@@ -23,7 +23,7 @@ class FlushFailedCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Flush all of the failed queue jobs';
+    protected $description = 'Flush all of the failed queue jobs';		#清除所有失败的队列作业
 
     /**
      * Execute the console command.

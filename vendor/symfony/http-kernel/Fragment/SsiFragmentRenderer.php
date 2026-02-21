@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，片段，Ssi 片段渲染器
+ */
 
 /*
  * This file is part of the Symfony package.

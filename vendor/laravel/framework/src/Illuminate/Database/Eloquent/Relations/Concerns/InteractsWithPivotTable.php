@@ -33,6 +33,7 @@ trait InteractsWithPivotTable
         // Next, we will determine which IDs should get removed from the join table by
         // checking which of the given ID/records is in the list of current records
         // and removing all of those rows from this "intermediate" joining table.
+		// 接下来，我们将确定应该从连接表中删除哪些ID。
         $detach = array_values(array_intersect(
             $this->newPivotQuery()->pluck($this->relatedPivotKey)->all(),
             array_keys($records)
@@ -47,6 +48,7 @@ trait InteractsWithPivotTable
         // Finally, for all of the records which were not "detached", we'll attach the
         // records into the intermediate table. Then, we will add those attaches to
         // this change list and get ready to return these results to the callers.
+		// 最后，对于所有没有"分离"的记录，我们将记录到中间表。
         $attach = array_diff_key($records, array_flip($detach));
 
         if (count($attach) > 0) {
@@ -58,6 +60,7 @@ trait InteractsWithPivotTable
         // Once we have finished attaching or detaching the records, we will see if we
         // have done any attaching or detaching, and if we have we will touch these
         // relationships if they are configured to touch on any database updates.
+		// 一旦我们完成了对记录的附加或分离，我们将预见未来做过任何连接或分离。
         if ($touch && (count($changes['attached']) ||
                        count($changes['detached']))) {
             $this->touchIfTouching();
@@ -95,6 +98,7 @@ trait InteractsWithPivotTable
         // First we need to attach any of the associated models that are not currently
         // in this joining table. We'll spin through the given IDs, checking to see
         // if they exist in the array of current ones, and if not we will insert.
+		// 首先，我们需要附加任何当前不存在的关联模型。
         $current = $this->getCurrentlyAttachedPivots()
                         ->pluck($this->relatedPivotKey)->all();
 
@@ -105,6 +109,7 @@ trait InteractsWithPivotTable
         // Next, we will take the differences of the currents and given IDs and detach
         // all of the entities that exist in the "current" array but are not in the
         // array of the new IDs given to the method which will complete the sync.
+		// 接下来,我们将考虑电流的差异,给出id和分离。
         if ($detaching && count($detach) > 0) {
             $this->detach($detach);
 
@@ -114,6 +119,7 @@ trait InteractsWithPivotTable
         // Now we are finally ready to attach the new records. Note that we'll disable
         // touching until after the entire operation is complete so we don't fire a
         // ton of touch operations until we are totally done syncing the records.
+		// 现在我们终于准备好附加新记录了。
         $changes = array_merge(
             $changes, $this->attachNew($records, $current, false)
         );
@@ -121,6 +127,7 @@ trait InteractsWithPivotTable
         // Once we have finished attaching or detaching the records, we will see if we
         // have done any attaching or detaching, and if we have we will touch these
         // relationships if they are configured to touch on any database updates.
+		// 一旦我们完成了对记录的附加或分离，我们会看看我们是否做过任何附加或分离。
         if (count($changes['attached']) ||
             count($changes['updated'])) {
             $this->touchIfTouching();
@@ -164,6 +171,7 @@ trait InteractsWithPivotTable
             // If the ID is not in the list of existing pivot IDs, we will insert a new pivot
             // record, otherwise, we will just update this existing record on this joining
             // table, so that the developers will easily update these records pain free.
+			// 如果ID不在现有枢轴ID列表中，我们将插入一个新的枢轴记录。
             if (! in_array($id, $current)) {
                 $this->attach($id, $attributes, $touch);
 
@@ -173,6 +181,7 @@ trait InteractsWithPivotTable
             // Now we'll try to update an existing pivot record with the attributes that were
             // given to the method. If the model is actually updated we will add it to the
             // list of updated pivot records so we return them back out to the consumer.
+			// 现在，我们将尝试使用如下属性更新现有的枢轴记录。
             elseif (count($attributes) > 0 &&
                 $this->updateExistingPivot($id, $attributes, $touch)) {
                 $changes['updated'][] = $this->castKey($id);
@@ -261,6 +270,7 @@ trait InteractsWithPivotTable
             // Here we will insert the attachment records into the pivot table. Once we have
             // inserted the records, we will touch the relationships if necessary and the
             // function will return. We can parse the IDs before inserting the records.
+			// 这里，我们将把附件记录插入数据透视表。
             $this->newPivotStatement()->insert($this->formatAttachRecords(
                 $this->parseIds($id), $attributes
             ));
@@ -308,6 +318,7 @@ trait InteractsWithPivotTable
         // To create the attachment records, we will simply spin through the IDs given
         // and create a new record to insert for each ID. Each ID may actually be a
         // key in the array, with extra attributes to be placed in other columns.
+		// 要创建附件记录，我们只需遍历给定的ID。
         foreach ($ids as $key => $value) {
             $records[] = $this->formatAttachRecord(
                 $key, $value, $attributes, $hasTimestamps
@@ -369,6 +380,7 @@ trait InteractsWithPivotTable
         // If the record needs to have creation and update timestamps, we will make
         // them by calling the parent model's "freshTimestamp" method which will
         // provide us with a fresh timestamp in this model's preferred format.
+		// 如果记录需要创建和更新时间戳，我们将通过调用父模型的"freshTimestamp"方法来获取。
         if ($timed) {
             $record = $this->addTimestampsToAttachment($record);
         }
@@ -443,6 +455,7 @@ trait InteractsWithPivotTable
             // If associated IDs were passed to the method we will only delete those
             // associations, otherwise all of the association ties will be broken.
             // We'll return the numbers of affected rows when we do the deletes.
+			// 如果关联的id被传递给方法，我们将只删除关联。
             if (! is_null($ids)) {
                 $ids = $this->parseIds($ids);
 
@@ -547,6 +560,7 @@ trait InteractsWithPivotTable
 
     /**
      * Get a new pivot statement for a given "other" ID.
+	 * 获取给定"other"ID的新枢轴语句
      *
      * @param  mixed  $id
      * @return \Illuminate\Database\Query\Builder
@@ -583,6 +597,7 @@ trait InteractsWithPivotTable
 
     /**
      * Set the columns on the pivot table to retrieve.
+	 * 设置数据透视表上要检索的列
      *
      * @param  array|mixed  $columns
      * @return $this
@@ -648,6 +663,7 @@ trait InteractsWithPivotTable
 
     /**
      * Cast the given key to convert to primary key type.
+	 * 强制转换给定的键以转换为主键类型
      *
      * @param  mixed  $key
      * @return mixed

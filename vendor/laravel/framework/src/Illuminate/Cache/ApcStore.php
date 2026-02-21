@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，缓存，Apc存储
+ * Illuminate，缓存，Apc 存储
  */
 
 namespace Illuminate\Cache;
@@ -19,6 +19,7 @@ class ApcStore extends TaggableStore
 
     /**
      * A string that should be prepended to keys.
+	 * 应该加在键前的字符串
      *
      * @var string
      */
@@ -56,6 +57,7 @@ class ApcStore extends TaggableStore
 
     /**
      * Store an item in the cache for a given number of seconds.
+	 * 将项存储在缓存中给定的秒数
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -69,6 +71,7 @@ class ApcStore extends TaggableStore
 
     /**
      * Increment the value of an item in the cache.
+	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -81,6 +84,7 @@ class ApcStore extends TaggableStore
 
     /**
      * Decrement the value of an item in the cache.
+	 * 递减缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -93,6 +97,7 @@ class ApcStore extends TaggableStore
 
     /**
      * Store an item in the cache indefinitely.
+	 * 将项无限期地存储在缓存中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -105,6 +110,7 @@ class ApcStore extends TaggableStore
 
     /**
      * Remove an item from the cache.
+	 * 从缓存中删除项
      *
      * @param  string  $key
      * @return bool

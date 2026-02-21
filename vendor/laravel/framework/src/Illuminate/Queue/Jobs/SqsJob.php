@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，任务，Amazon SQS任务
+ * Illuminate，队列，作业，Amazon SQS 作业
  */
 
 namespace Illuminate\Queue\Jobs;
@@ -49,6 +49,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Release the job back into the queue.
+	 * 将作业释放回队列
      *
      * @param  int  $delay
      * @return void
@@ -66,7 +67,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Delete the job from the queue.
-	 * 从队列中删除任务
+	 * 从队列中删除作业
      *
      * @return void
      */
@@ -81,6 +82,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the number of times the job has been attempted.
+	 * 获取该作业被尝试的次数
      *
      * @return int
      */
@@ -91,7 +93,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the job identifier.
-	 * 得到任务标识符
+	 * 得到作业标识符
      *
      * @return string
      */
@@ -102,6 +104,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the raw body string for the job.
+	 * 获取作业的原始主体字符串
      *
      * @return string
      */
@@ -123,7 +126,7 @@ class SqsJob extends Job implements JobContract
 
     /**
      * Get the underlying raw SQS job.
-	 * 获取底层原始SQS任务
+	 * 获取底层原始SQS作业
      *
      * @return array
      */

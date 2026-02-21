@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，MySql连接
+ * Illuminate，数据库，MySql 连接
  */
 
 namespace Illuminate\Database;

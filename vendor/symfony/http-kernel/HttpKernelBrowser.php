@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，Http 内核浏览器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -22,6 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Simulates a browser and makes requests to an HttpKernel instance.
+ * 模拟浏览器并向 HttpKernel 实例发出请求
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *

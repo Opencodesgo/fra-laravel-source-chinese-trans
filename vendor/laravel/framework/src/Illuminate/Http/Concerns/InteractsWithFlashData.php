@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，Http，客户端，与Flash数据交互
+ * Illuminate，Http，问题，与Flash数据交互
  */
 
 namespace Illuminate\Http\Concerns;

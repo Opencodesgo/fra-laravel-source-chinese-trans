@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，供应商发布命令
+ * Illuminate，基础，控制台，vendor:publish 厂商发布命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -74,7 +74,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Execute the console command.
-	 * 执行console命令
+	 * 执行控制台命令
      *
      * @return void
      */
@@ -91,6 +91,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Determine the provider or tag(s) to publish.
+	 * 确定要发布的提供者或标记
      *
      * @return void
      */
@@ -111,6 +112,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Prompt for which provider or tag to publish.
+	 * 提示提供者或标记发布的提示符
      *
      * @return void
      */
@@ -199,6 +201,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Publish the given item from and to the given location.
+	 * 从给定的位置发布给定的项目
      *
      * @param  string  $from
      * @param  string  $to
@@ -217,6 +220,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Publish the file to the given path.
+	 * 将文件发布到给定路径
      *
      * @param  string  $from
      * @param  string  $to
@@ -235,6 +239,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Publish the directory to the given directory.
+	 * 将目录发布到给定的目录
      *
      * @param  string  $from
      * @param  string  $to
@@ -252,6 +257,7 @@ class VendorPublishCommand extends Command
 
     /**
      * Move all the files in the given MountManager.
+	 * 在给定的安装器中移动所有文件
      *
      * @param  \League\Flysystem\MountManager  $manager
      * @return void

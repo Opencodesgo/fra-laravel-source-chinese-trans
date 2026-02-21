@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，属性，命名空间属性包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -95,6 +98,7 @@ class NamespacedAttributeBag extends AttributeBag
 
     /**
      * Resolves a path in attributes property and returns it as a reference.
+	 * 解析attributes属性中的路径并将其作为引用返回
      *
      * This method allows structured namespacing of session attributes.
      *

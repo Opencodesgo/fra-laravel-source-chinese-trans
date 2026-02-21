@@ -70,6 +70,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * All of the available compiler functions.
+	 * 所有可用的编译器函数
      *
      * @var array
      */
@@ -82,6 +83,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Array of opening and closing tags for raw echos.
+	 * 原始回声的开始和结束标记数组
      *
      * @var array
      */
@@ -89,6 +91,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Array of opening and closing tags for regular echos.
+	 * 常规回显的开始和结束标记数组
      *
      * @var array
      */
@@ -96,6 +99,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Array of opening and closing tags for escaped echos.
+	 * 转义回显的开始和结束标记数组
      *
      * @var array
      */
@@ -103,6 +107,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * The "regular" / legacy echo string format.
+	 * "常规"/遗留回显字符串格式
      *
      * @var string
      */
@@ -110,6 +115,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Array of footer lines to be added to template.
+	 * 要添加到模板中的页脚行数组
      *
      * @var array
      */
@@ -117,6 +123,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Array to temporary store the raw blocks found in the template.
+	 * 数组来临时存储在模板中找到的原始块
      *
      * @var array
      */
@@ -124,6 +131,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * The array of class component aliases and their class names.
+	 * 类组件别名及其类名的数组
      *
      * @var array
      */
@@ -131,6 +139,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Indicates if component tags should be compiled.
+	 * 指示是否应该编译组件标记
      *
      * @var bool
      */
@@ -182,6 +191,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Get the open and closing PHP tag tokens from the given string.
+	 * 从给定字符串中获取打开和关闭PHP标记令牌
      *
      * @param  string  $contents
      * @return \Illuminate\Support\Collection
@@ -197,6 +207,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Get the path currently being compiled.
+	 * 获取当前正在编译的路径
      *
      * @return string
      */
@@ -207,6 +218,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Set the path currently being compiled.
+	 * 设置当前正在编译的路径
      *
      * @param  string  $path
      * @return void
@@ -218,6 +230,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Compile the given Blade template contents.
+	 * 编译给定的Blade模板内容
      *
      * @param  string  $value
      * @return string
@@ -229,6 +242,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         // First we will compile the Blade component tags. This is a precompile style
         // step which compiles the component Blade tags into @component directives
         // that may be used by Blade. Then we should call any other precompilers.
+		// 首先，我们将编译Blade组件标签。这是一种预编译样式。
         $value = $this->compileComponentTags(
             $this->compileComments($this->storeUncompiledBlocks($value))
         );
@@ -240,6 +254,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         // Here we will loop through all of the tokens returned by the Zend lexer and
         // parse each one into the corresponding valid PHP. We will then have this
         // template as the correctly rendered PHP that can be rendered natively.
+		// 这里我们将循环遍历Zend词法分析器返回的所有令牌。
         foreach (token_get_all($value) as $token) {
             $result .= is_array($token) ? $this->parseToken($token) : $token;
         }
@@ -251,6 +266,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         // If there are any footer lines that need to get added to a template we will
         // add them here at the end of the template. This gets used mainly for the
         // template inheritance via the extends keyword that should be appended.
+		// 如果有任何页脚行需要添加到模板，我们将添加它们到模板的末尾。
         if (count($this->footer) > 0) {
             $result = $this->addFooters($result);
         }
@@ -260,6 +276,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Store the blocks that do not receive compilation.
+	 * 存储不接受编译的块
      *
      * @param  string  $value
      * @return string
@@ -279,6 +296,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Store the verbatim blocks and replace them with a temporary placeholder.
+	 * 存储逐字块并用临时占位符替换它们
      *
      * @param  string  $value
      * @return string
@@ -292,6 +310,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Store the PHP blocks and replace them with a temporary placeholder.
+	 * 存储PHP块并用临时占位符替换它们
      *
      * @param  string  $value
      * @return string
@@ -305,6 +324,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Store a raw block and return a unique raw placeholder.
+	 * 存储一个原始块并返回一个唯一的原始占位符
      *
      * @param  string  $value
      * @return string
@@ -318,6 +338,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Compile the component tags.
+	 * 编译组件标签
      *
      * @param  string  $value
      * @return string
@@ -335,6 +356,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Replace the raw placeholders with the original code stored in the raw blocks.
+	 * 用存储在原始块中的原始代码替换原始占位符
      *
      * @param  string  $result
      * @return string
@@ -352,6 +374,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Get a placeholder to temporary mark the position of raw blocks.
+	 * 获取一个占位符来临时标记原始块的位置
      *
      * @param  int|string  $replace
      * @return string
@@ -363,6 +386,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Add the stored footers onto the given content.
+	 * 将存储的页脚添加到给定的内容中
      *
      * @param  string  $result
      * @return string
@@ -375,6 +399,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Parse the tokens from the template.
+	 * 解析模板中的令牌
      *
      * @param  array  $token
      * @return string
@@ -394,6 +419,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Execute the user defined extensions.
+	 * 执行用户定义的扩展
      *
      * @param  string  $value
      * @return string
@@ -409,6 +435,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Compile Blade statements that start with "@".
+	 * 编译以"@"开头的Blade语句
      *
      * @param  string  $value
      * @return string
@@ -424,6 +451,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Compile a single Blade @ statement.
+	 * 编译一条Blade @语句
      *
      * @param  array  $match
      * @return string
@@ -443,6 +471,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Call the given directive with the given value.
+	 * 用给定的值调用给定的指令
      *
      * @param  string  $name
      * @param  string|null  $value
@@ -459,6 +488,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Strip the parentheses from the given expression.
+	 * 从给定表达式中去掉括号
      *
      * @param  string  $expression
      * @return string
@@ -474,6 +504,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register a custom Blade compiler.
+	 * 注册一个自定义的Blade编译器
      *
      * @param  callable  $compiler
      * @return void
@@ -485,6 +516,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Get the extensions used by the compiler.
+	 * 获取编译器使用的扩展名
      *
      * @return array
      */
@@ -495,6 +527,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register an "if" statement directive.
+	 * 注册一个"if"语句指令
      *
      * @param  string  $name
      * @param  callable  $callback
@@ -529,6 +562,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Check the result of a condition.
+	 * 检查条件的结果
      *
      * @param  string  $name
      * @param  array  $parameters
@@ -541,6 +575,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register a class-based component alias directive.
+	 * 注册一个基于类的组件别名指令
      *
      * @param  string  $class
      * @param  string|null  $alias
@@ -570,6 +605,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register an array of class-based components.
+	 * 注册一个基于类的组件数组
      *
      * @param  array  $components
      * @param  string  $prefix
@@ -588,6 +624,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Get the registered class component aliases.
+	 * 获取已注册的类组件别名
      *
      * @return array
      */
@@ -598,6 +635,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register a component alias directive.
+	 * 注册一个组件别名指令
      *
      * @param  string  $path
      * @param  string|null  $alias
@@ -633,6 +671,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register an include alias directive.
+	 * 注册一个包含别名指令
      *
      * @param  string  $path
      * @param  string|null  $alias
@@ -651,6 +690,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register a handler for custom directives.
+	 * 为自定义指令注册一个处理程序
      *
      * @param  string  $name
      * @param  callable  $handler
@@ -669,6 +709,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Get the list of custom directives.
+	 * 获取自定义指令列表
      *
      * @return array
      */
@@ -679,6 +720,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Register a new precompiler.
+	 * 注册一个新的预编译器
      *
      * @param  callable  $precompiler
      * @return void
@@ -690,6 +732,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Set the echo format to be used by the compiler.
+	 * 设置编译器要使用的echo格式
      *
      * @param  string  $format
      * @return void
@@ -701,6 +744,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Set the "echo" format to double encode entities.
+	 * 将"echo"格式设置为对实体进行双编码
      *
      * @return void
      */
@@ -711,6 +755,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
     /**
      * Set the "echo" format to not double encode entities.
+	 * 设置"echo"格式,而不是双编码实体
      *
      * @return void
      */

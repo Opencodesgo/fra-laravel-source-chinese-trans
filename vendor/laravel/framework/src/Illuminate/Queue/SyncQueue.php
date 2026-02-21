@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，Sync队列
+ * Illuminate，队列，Sync 队列
  */
 
 namespace Illuminate\Queue;
@@ -29,6 +29,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue.
+	 * 将新作业推送至队列中
      *
      * @param  string  $job
      * @param  mixed  $data
@@ -56,6 +57,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Resolve a Sync job instance.
+	 * 解析同步作业实例
      *
      * @param  string  $payload
      * @param  string  $queue
@@ -68,6 +70,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the before queue job event.
+	 * 引发before队列作业事件
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return void
@@ -81,6 +84,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the after queue job event.
+	 * 引发队列后作业事件
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @return void
@@ -94,6 +98,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Raise the exception occurred queue job event.
+	 * 引发异常发生的队列作业事件
      *
      * @param  \Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
@@ -108,6 +113,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Handle an exception that occurred while processing a job.
+	 * 处理在处理作业时发生的异常
      *
      * @param  \Illuminate\Queue\Jobs\Job  $queueJob
      * @param  \Throwable  $e
@@ -126,6 +132,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Push a raw payload onto the queue.
+	 * 将原始有效负载推入队列
      *
      * @param  string  $payload
      * @param  string|null  $queue
@@ -139,6 +146,7 @@ class SyncQueue extends Queue implements QueueContract
 
     /**
      * Push a new job onto the queue after a delay.
+	 * 在延迟后将新作业推入队列
      *
      * @param  \DateTimeInterface|\DateInterval|int  $delay
      * @param  string  $job

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，进程，执行程序查找程序
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\Process;
 
 /**
  * Generic executable finder.
+ * 通用可执行查找器
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Johannes M. Schmitt <schmittjoh@gmail.com>

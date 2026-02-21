@@ -42,6 +42,7 @@ class RouteBinding
             // If the binding has an @ sign, we will assume it's being used to delimit
             // the class name from the bind method name. This allows for bindings
             // to run multiple bind methods in a single class for convenience.
+			// 如果绑定有@符号，我们将假定它用于分隔来自绑定方法名的类名。
             [$class, $method] = Str::parseCallback($binding, 'bind');
 
             $callable = [$container->make($class), $method];
@@ -81,6 +82,7 @@ class RouteBinding
             // If a callback was supplied to the method we will call that to determine
             // what we should do when the model is not found. This just gives these
             // developer a little greater flexibility to decide what will happen.
+			// 如果给方法提供了回调，我们将调用它来确定。
             if ($callback instanceof Closure) {
                 return $callback($value);
             }

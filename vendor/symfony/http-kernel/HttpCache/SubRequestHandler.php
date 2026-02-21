@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，HTTP缓存，子请求处理程序
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -47,6 +50,7 @@ class SubRequestHandler
         }
 
         // compute trusted values, taking any trusted proxies into account
+		// 计算可信值，并考虑任何可信代理。
         $trustedIps = [];
         $trustedValues = [];
         foreach (array_reverse($request->getClientIps()) as $ip) {

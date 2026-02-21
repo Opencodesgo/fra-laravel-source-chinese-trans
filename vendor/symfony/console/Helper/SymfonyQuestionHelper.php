@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，帮助，Symfony 问题助手
+ *
 
 /*
  * This file is part of the Symfony package.

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，通知，数据库通知服务
+ * Illuminate，通知，数据库通知
  */
 
 namespace Illuminate\Notifications;

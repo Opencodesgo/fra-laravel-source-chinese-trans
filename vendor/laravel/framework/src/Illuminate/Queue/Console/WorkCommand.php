@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，控制台，工作进程命令
+ * Illuminate，队列，控制台，queue:work 工作进程命令
  */
 
 namespace Illuminate\Queue\Console;

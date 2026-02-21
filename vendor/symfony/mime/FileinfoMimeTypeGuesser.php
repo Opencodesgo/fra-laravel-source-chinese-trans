@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime，Mime类型
+ */
+
 /*
  * This file is part of the Symfony package.
  *
@@ -16,6 +20,7 @@ use Symfony\Component\Mime\Exception\LogicException;
 
 /**
  * Guesses the MIME type using the PECL extension FileInfo.
+ * 使用PECL扩展名FileInfo猜测MIME类型
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

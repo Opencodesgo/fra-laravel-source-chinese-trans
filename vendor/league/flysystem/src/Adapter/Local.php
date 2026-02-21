@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，适配器，本地
+ */
 
 namespace League\Flysystem\Adapter;
 
@@ -63,6 +66,7 @@ class Local extends AbstractAdapter
 
     /**
      * Constructor.
+	 * 构造函数
      *
      * @param string $root
      * @param int    $writeFlags
@@ -88,6 +92,7 @@ class Local extends AbstractAdapter
 
     /**
      * Ensure the root directory exists.
+	 * 确保根目录存在
      *
      * @param string $root root directory path
      *
@@ -439,6 +444,7 @@ class Local extends AbstractAdapter
 
     /**
      * Normalize the file info.
+	 * 规范文件信息
      *
      * @param SplFileInfo $file
      *
@@ -459,6 +465,7 @@ class Local extends AbstractAdapter
 
     /**
      * Get the normalized path from a SplFileInfo object.
+	 * 从 SplFileInfo 对象获取规范化路径
      *
      * @param SplFileInfo $file
      *

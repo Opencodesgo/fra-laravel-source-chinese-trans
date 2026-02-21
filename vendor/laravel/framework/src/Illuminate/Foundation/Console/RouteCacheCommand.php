@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，route:cache命令
+ * Illuminate，基础，控制台，route:cache 路由缓存命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -79,6 +79,7 @@ class RouteCacheCommand extends Command
 
     /**
      * Boot a fresh copy of the application and get the routes.
+	 * 启动应用程序的新副本并获取路由
      *
      * @return \Illuminate\Routing\RouteCollection
      */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，语法
+ * Illuminate，数据库，语法抽象类
  */
 
 namespace Illuminate\Database;
@@ -65,6 +65,7 @@ abstract class Grammar
         // If the value being wrapped has a column alias we will need to separate out
         // the pieces so we can wrap each of the segments of the expression on its
         // own, and then join these both back together using the "as" connector.
+		// 如果被包装的值有一个列别名，我们将需要分离出来。
         if (stripos($value, ' as ') !== false) {
             return $this->wrapAliasedValue($value, $prefixAlias);
         }
@@ -87,6 +88,7 @@ abstract class Grammar
         // If we are wrapping a table we need to prefix the alias with the table prefix
         // as well in order to generate proper syntax. If this is a column of course
         // no prefix is necessary. The condition will be true when from wrapTable.
+		// 如果我们包装一个表，我们需要给别名加上表前缀。
         if ($prefixAlias) {
             $segments[1] = $this->tablePrefix.$segments[1];
         }

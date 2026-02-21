@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，存储，模拟文件会话存储
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -122,6 +125,7 @@ class MockFileSessionStorage extends MockArraySessionStorage
     /**
      * Deletes a session from persistent storage.
      * Deliberately leaves session data in memory intact.
+	 * 从持久存储中删除会话
      */
     private function destroy(): void
     {
@@ -143,6 +147,7 @@ class MockFileSessionStorage extends MockArraySessionStorage
 
     /**
      * Reads session from storage and loads session.
+	 * 从存储器中读取会话并加载会话
      */
     private function read(): void
     {

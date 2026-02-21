@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，调试，可跟踪事件调度程序
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -16,6 +19,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
  * Collects some data about event listeners.
+ * 收集有关事件侦听器的一些数据
  *
  * This event dispatcher delegates the dispatching to another one.
  *
@@ -50,6 +54,7 @@ class TraceableEventDispatcher extends BaseTraceableEventDispatcher
                 // In this case, `$token` contains the [B] debug token, but the  open `stopwatch` section ID
                 // is equal to the [A] debug token. Trying to reopen section with the [B] token throws an exception
                 // which must be caught.
+				// 当使用内置AppCache类作为内核包装器时，有一个非常特殊的情况。
                 try {
                     $this->stopwatch->openSection($sectionId);
                 } catch (\LogicException $e) {

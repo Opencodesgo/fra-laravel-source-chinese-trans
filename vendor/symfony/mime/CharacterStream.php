@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Symfony，Component，Mime，字符流
+ */
+
 /*
  * This file is part of the Symfony package.
  *

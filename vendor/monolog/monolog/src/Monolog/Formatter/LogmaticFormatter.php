@@ -1,5 +1,9 @@
 <?php declare(strict_types=1);
 
+/**
+ * Monolog，格式化，Logmatic 格式化器
+ */
+
 /*
  * This file is part of the Monolog package.
  *
@@ -13,6 +17,7 @@ namespace Monolog\Formatter;
 
 /**
  * Encodes message information into JSON in a format compatible with Logmatic.
+ * 以与Logmatic兼容的格式将消息信息编码为JSON
  *
  * @author Julien Breux <julien.breux@gmail.com>
  */

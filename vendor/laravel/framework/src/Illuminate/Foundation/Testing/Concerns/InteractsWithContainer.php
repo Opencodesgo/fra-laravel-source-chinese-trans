@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，测试，关注，与容器相互作用
+ */
 
 namespace Illuminate\Foundation\Testing\Concerns;
 
@@ -10,6 +13,7 @@ trait InteractsWithContainer
 {
     /**
      * The original Laravel Mix handler.
+	 * 原始的Laravel混合处理程序
      *
      * @var \Illuminate\Foundation\Mix|null
      */
@@ -17,6 +21,7 @@ trait InteractsWithContainer
 
     /**
      * Register an instance of an object in the container.
+	 * 在容器中注册一个对象的实例
      *
      * @param  string  $abstract
      * @param  object  $instance
@@ -29,6 +34,7 @@ trait InteractsWithContainer
 
     /**
      * Register an instance of an object in the container.
+	 * 在容器中注册一个对象的实例
      *
      * @param  string  $abstract
      * @param  object  $instance
@@ -43,6 +49,7 @@ trait InteractsWithContainer
 
     /**
      * Mock an instance of an object in the container.
+	 * 在容器中模拟一个对象的实例
      *
      * @param  string  $abstract
      * @param  \Closure|null  $mock
@@ -55,6 +62,7 @@ trait InteractsWithContainer
 
     /**
      * Mock a partial instance of an object in the container.
+	 * 在容器中模拟一个对象的部分实例
      *
      * @param  string  $abstract
      * @param  \Closure|null  $mock
@@ -67,6 +75,7 @@ trait InteractsWithContainer
 
     /**
      * Spy an instance of an object in the container.
+	 * 在容器中监视一个对象的实例
      *
      * @param  string  $abstract
      * @param  \Closure|null  $mock
@@ -79,6 +88,7 @@ trait InteractsWithContainer
 
     /**
      * Register an empty handler for Laravel Mix in the container.
+	 * 在容器中注册一个空处理器
      *
      * @return $this
      */
@@ -97,6 +107,7 @@ trait InteractsWithContainer
 
     /**
      * Register an empty handler for Laravel Mix in the container.
+	 * 在容器中注册一个空处理器
      *
      * @return $this
      */

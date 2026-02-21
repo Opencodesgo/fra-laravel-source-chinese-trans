@@ -2,6 +2,7 @@
 /**
  * Illuminate，文件系统，文件系统管理器
  * 服务容器绑定filesystem
+ * S3Client 需要另行安装 composer require aws/aws-sdk-php
  */
 
 namespace Illuminate\Filesystem;
@@ -103,6 +104,7 @@ class FilesystemManager implements FactoryContract
 
     /**
      * Attempt to get the disk from the local cache.
+	 * 尝试从本地缓存中获取磁盘
      *
      * @param  string  $name
      * @return \Illuminate\Contracts\Filesystem\Filesystem
@@ -184,6 +186,7 @@ class FilesystemManager implements FactoryContract
 
     /**
      * Create an instance of the ftp driver.
+	 * 创建ftp驱动程序的实例
      *
      * @param  array  $config
      * @return \Illuminate\Contracts\Filesystem\Filesystem
@@ -294,6 +297,7 @@ class FilesystemManager implements FactoryContract
 
     /**
      * Adapt the filesystem implementation.
+	 * 调整文件系统实现
      *
      * @param  \League\Flysystem\FilesystemInterface  $filesystem
      * @return \Illuminate\Contracts\Filesystem\Filesystem

@@ -111,6 +111,7 @@ class MailMessage extends SimpleMessage implements Renderable
 
     /**
      * Set the view for the mail message.
+	 * 设置邮件消息的视图
      *
      * @param  array|string  $view
      * @param  array  $data
@@ -128,6 +129,7 @@ class MailMessage extends SimpleMessage implements Renderable
 
     /**
      * Set the Markdown template for the notification.
+	 * 设置通知的Markdown模板
      *
      * @param  string  $view
      * @param  array  $data
@@ -159,6 +161,7 @@ class MailMessage extends SimpleMessage implements Renderable
 
     /**
      * Set the theme to use with the Markdown template.
+	 * 设置要与Markdown模板一起使用的主题
      *
      * @param  string  $theme
      * @return $this
@@ -259,6 +262,7 @@ class MailMessage extends SimpleMessage implements Renderable
 
     /**
      * Attach in-memory data as an attachment.
+	 * 将内存中的数据作为附件附加
      *
      * @param  string  $data
      * @param  string  $name
@@ -274,6 +278,7 @@ class MailMessage extends SimpleMessage implements Renderable
 
     /**
      * Set the priority of this message.
+	 * 设置此消息的优先级
      *
      * The value is an integer where 1 is the highest priority and 5 is the lowest.
      *

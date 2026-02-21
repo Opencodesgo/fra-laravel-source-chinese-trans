@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，CommonMark，Markdown 转换器
+ */
 
 declare(strict_types=1);
 

@@ -139,6 +139,7 @@ class ResourceRegistrar
         // We need to extract the base resource from the resource name. Nested resources
         // are supported in the framework, but we need to know what name to use for a
         // place-holder on the route parameters, which should be the base resources.
+		// 我们需要从资源名中提取基本资源。
         $callback = function ($me) use ($name, $controller, $options) {
             $me->resource($name, $controller, $options);
         };
@@ -311,6 +312,7 @@ class ResourceRegistrar
 
     /**
      * Add the destroy method for a resourceful route.
+	 * 为资源路由添加destroy方法
      *
      * @param  string  $name
      * @param  string  $base
@@ -331,6 +333,7 @@ class ResourceRegistrar
 
     /**
      * Get the name for a given resource with shallowness applied when applicable.
+	 * 获取给定资源的名称，并在适用时应用浅度。
      *
      * @param  string  $name
      * @param  array  $options
@@ -345,6 +348,7 @@ class ResourceRegistrar
 
     /**
      * Set the route's binding fields if the resource is scoped.
+	 * 如果资源有作用域，则设置路由的绑定字段。
      *
      * @param  \Illuminate\Routing\Route  $route
      * @param  array  $bindingFields
@@ -398,6 +402,7 @@ class ResourceRegistrar
         // We will spin through the segments and create a place-holder for each of the
         // resource segments, as well as the resource itself. Then we should get an
         // entire string for the resource URI that contains all nested resources.
+		// 我们将旋转这些片段，并为每个资源段，以及资源本身。
         return implode('/', array_map(function ($s) {
             return $s.'/{'.$this->getResourceWildcard($s).'}';
         }, $segments));
@@ -470,6 +475,7 @@ class ResourceRegistrar
         // If the names array has been provided to us we will check for an entry in the
         // array first. We will also check for the specific method within this array
         // so the names may be specified on a more "granular" level using methods.
+		// 如果names数组已经提供给我们，我们将检查数组中的条目。
         if (isset($options['names'])) {
             if (is_string($options['names'])) {
                 $name = $options['names'];
@@ -481,6 +487,7 @@ class ResourceRegistrar
         // If a global prefix has been assigned to all names for this resource, we will
         // grab that so we can prepend it onto the name when we create this name for
         // the resource action. Otherwise we'll just use an empty string for here.
+		// 如果已为该资源的所有名称分配了全局前缀，我们将抓住它，我们可以把它加到名字前面。
         $prefix = isset($options['as']) ? $options['as'].'.' : '';
 
         return trim(sprintf('%s%s.%s', $prefix, $name, $method), '.');

@@ -27,7 +27,7 @@ class Command extends SymfonyCommand
 
     /**
      * The name and signature of the console command.
-	 * console命令的名称和签名
+	 * 控制台命令的名称和签名
      *
      * @var string
      */
@@ -76,6 +76,7 @@ class Command extends SymfonyCommand
         // We will go ahead and set the name, description, and parameters on console
         // commands just to make things a little easier on the developer. This is
         // so they don't have to all be manually specified in the constructors.
+		// 我们将继续在控制台上设置名称、描述和参数，只是为了让开发人员更容易一些。
         if (isset($this->signature)) {
             $this->configureUsingFluentDefinition();
         } else {
@@ -85,6 +86,7 @@ class Command extends SymfonyCommand
         // Once we have constructed the command, we'll set the description and other
         // related properties of the command. If a signature wasn't used to build
         // the command we'll set the arguments and the options on this command.
+		// 一旦我们构造了命令，我们将设置描述和其他命令的相关属性。
         $this->setDescription((string) $this->description);
 
         $this->setHelp((string) $this->help);
@@ -111,13 +113,14 @@ class Command extends SymfonyCommand
         // After parsing the signature we will spin through the arguments and options
         // and set them on this command. These will already be changed into proper
         // instances of these "InputArgument" and "InputOption" Symfony classes.
+		// 解析完签名后，我们将浏览参数和选项并用这个命令设置它们。
         $this->getDefinition()->addArguments($arguments);
         $this->getDefinition()->addOptions($options);
     }
 
     /**
      * Run the console command.
-	 * 执行console命令
+	 * 执行控制台命令
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -136,7 +139,7 @@ class Command extends SymfonyCommand
 
     /**
      * Execute the console command.
-	 * 执行console命令
+	 * 执行控制台命令
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output

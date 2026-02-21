@@ -127,7 +127,7 @@ abstract class Broadcaster implements BroadcasterContract
             return $this->extractParametersFromClass($callback);
         }
 
-        throw new Exception('Given channel handler is an unknown type.');
+        throw new Exception('Given channel handler is an unknown type.');		#给定的通道处理程序是未知类型
     }
 
     /**

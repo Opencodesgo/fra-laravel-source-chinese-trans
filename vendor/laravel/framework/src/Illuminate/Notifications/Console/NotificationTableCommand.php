@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，通知，控制台，通知表命令
+ * Illuminate，通知，控制台，notifications:table 通知表命令
  */
 
 namespace Illuminate\Notifications\Console;

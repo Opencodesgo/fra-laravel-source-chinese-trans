@@ -1,4 +1,7 @@
 <?php
+/**
+ * League，Flysystem，安装管理器
+ */
 
 namespace League\Flysystem;
 
@@ -8,6 +11,7 @@ use League\Flysystem\Plugin\PluginNotFoundException;
 
 /**
  * Class MountManager.
+ * MountManager 类
  *
  * Proxies methods to Filesystem (@see __call):
  *

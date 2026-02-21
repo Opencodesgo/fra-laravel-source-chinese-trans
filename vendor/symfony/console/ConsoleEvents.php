@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，控制台事件
+ */
 
 /*
  * This file is part of the Symfony package.

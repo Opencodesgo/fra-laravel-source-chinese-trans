@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，数组
+ * Illuminate，支持，多元
  */
 
 namespace Illuminate\Support;
@@ -14,6 +14,7 @@ class Pluralizer
 {
     /**
      * Uncountable word forms.
+	 * 不可数的单词形式
      *
      * @var array
      */
@@ -65,6 +66,7 @@ class Pluralizer
 
     /**
      * Get the plural form of an English word.
+	 * 了解英语单词的复数形式
      *
      * @param  string  $value
      * @param  int  $count
@@ -83,6 +85,7 @@ class Pluralizer
 
     /**
      * Get the singular form of an English word.
+	 * 获取英语单词的单数形式
      *
      * @param  string  $value
      * @return string
@@ -96,6 +99,7 @@ class Pluralizer
 
     /**
      * Determine if the given value is uncountable.
+	 * 确定给定的值是否不可数
      *
      * @param  string  $value
      * @return bool
@@ -107,6 +111,7 @@ class Pluralizer
 
     /**
      * Attempt to match the case on two strings.
+	 * 尝试用两个字符串匹配这个例子
      *
      * @param  string  $value
      * @param  string  $comparison
@@ -127,6 +132,7 @@ class Pluralizer
 
     /**
      * Get the inflector instance.
+	 * 获取影响因子实例
      *
      * @return \Doctrine\Inflector\Inflector
      */

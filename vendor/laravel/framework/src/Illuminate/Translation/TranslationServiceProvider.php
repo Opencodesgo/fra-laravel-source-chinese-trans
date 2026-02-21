@@ -26,6 +26,7 @@ class TranslationServiceProvider extends ServiceProvider implements DeferrablePr
             // When registering the translator component, we'll need to set the default
             // locale as well as the fallback locale. So, we'll grab the application
             // configuration so we can easily get both of these values from there.
+			// 在注册转换器组件时，我们需要设置默认值。
             $locale = $app['config']['app.locale'];
 
             $trans = new Translator($loader, $locale);
@@ -38,6 +39,7 @@ class TranslationServiceProvider extends ServiceProvider implements DeferrablePr
 
     /**
      * Register the translation line loader.
+	 * 注册翻译行加载程序
      *
      * @return void
      */

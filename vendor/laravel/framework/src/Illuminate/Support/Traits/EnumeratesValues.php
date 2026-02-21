@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，特征，大规模
+ * Illuminate，支持，特征，枚举值
  */
 
 namespace Illuminate\Support\Traits;
@@ -46,6 +46,7 @@ trait EnumeratesValues
 {
     /**
      * The methods that can be proxied.
+	 * 可以被代理的方法
      *
      * @var array
      */
@@ -79,6 +80,7 @@ trait EnumeratesValues
 
     /**
      * Create a new collection instance if the value isn't one already.
+	 * 如果该值还没有，则创建一个新的集合实例。
      *
      * @param  mixed  $items
      * @return static
@@ -90,6 +92,7 @@ trait EnumeratesValues
 
     /**
      * Wrap the given value in a collection if applicable.
+	 * 如果适用，将给定值包装在集合中。
      *
      * @param  mixed  $value
      * @return static
@@ -103,6 +106,7 @@ trait EnumeratesValues
 
     /**
      * Get the underlying items from the given collection if applicable.
+	 * 从给定集合中获取基础项（如果适用）
      *
      * @param  array|static  $value
      * @return array
@@ -114,6 +118,7 @@ trait EnumeratesValues
 
     /**
      * Alias for the "avg" method.
+	 * "avg"方法的别名
      *
      * @param  callable|string|null  $callback
      * @return mixed
@@ -125,6 +130,7 @@ trait EnumeratesValues
 
     /**
      * Alias for the "contains" method.
+	 * contains方法的别名
      *
      * @param  mixed  $key
      * @param  mixed  $operator
@@ -138,6 +144,7 @@ trait EnumeratesValues
 
     /**
      * Determine if an item exists, using strict comparison.
+	 * 使用严格比较确定项是否存在
      *
      * @param  mixed  $key
      * @param  mixed  $value
@@ -166,6 +173,7 @@ trait EnumeratesValues
 
     /**
      * Dump the items and end the script.
+	 * 转储条目并结束脚本
      *
      * @param  mixed  ...$args
      * @return void
@@ -179,6 +187,7 @@ trait EnumeratesValues
 
     /**
      * Dump the items.
+	 * 扔掉这些东西
      *
      * @return $this
      */
@@ -195,6 +204,7 @@ trait EnumeratesValues
 
     /**
      * Execute a callback over each item.
+	 * 对每个项目执行回调
      *
      * @param  callable  $callback
      * @return $this
@@ -212,6 +222,7 @@ trait EnumeratesValues
 
     /**
      * Execute a callback over each nested chunk of items.
+	 * 对每个嵌套的项块执行回调
      *
      * @param  callable  $callback
      * @return static
@@ -227,6 +238,7 @@ trait EnumeratesValues
 
     /**
      * Determine if all items pass the given truth test.
+	 * 确定是否所有项目都通过给定的真值测试
      *
      * @param  string|callable  $key
      * @param  mixed  $operator
@@ -252,6 +264,7 @@ trait EnumeratesValues
 
     /**
      * Get the first item by the given key value pair.
+	 * 根据给定的键值对获取第一项
      *
      * @param  string  $key
      * @param  mixed  $operator
@@ -265,6 +278,7 @@ trait EnumeratesValues
 
     /**
      * Determine if the collection is not empty.
+	 * 确定集合是否为空
      *
      * @return bool
      */
@@ -275,6 +289,7 @@ trait EnumeratesValues
 
     /**
      * Run a map over each nested chunk of items.
+	 * 在每个嵌套的项目块上运行一个映射
      *
      * @param  callable  $callback
      * @return static
@@ -290,6 +305,7 @@ trait EnumeratesValues
 
     /**
      * Run a grouping map over the items.
+	 * 在项目上运行分组映射
      *
      * The callback should return an associative array with a single key/value pair.
      *
@@ -305,6 +321,7 @@ trait EnumeratesValues
 
     /**
      * Map a collection and flatten the result by a single level.
+	 * 映射一个集合并将结果平铺一个级别
      *
      * @param  callable  $callback
      * @return static
@@ -316,6 +333,7 @@ trait EnumeratesValues
 
     /**
      * Map the values into a new class.
+	 * 将值映射到一个新类
      *
      * @param  string  $class
      * @return static
@@ -329,6 +347,7 @@ trait EnumeratesValues
 
     /**
      * Get the min value of a given key.
+	 * 获取给定键的最小值
      *
      * @param  callable|string|null  $callback
      * @return mixed
@@ -348,6 +367,7 @@ trait EnumeratesValues
 
     /**
      * Get the max value of a given key.
+	 * 获取给定键的最大值
      *
      * @param  callable|string|null  $callback
      * @return mixed
@@ -367,6 +387,7 @@ trait EnumeratesValues
 
     /**
      * "Paginate" the collection by slicing it into a smaller collection.
+	 * 通过将集合切片为更小的集合来"分页"集合
      *
      * @param  int  $page
      * @param  int  $perPage
@@ -381,6 +402,7 @@ trait EnumeratesValues
 
     /**
      * Partition the collection into two arrays using the given callback or key.
+	 * 使用给定的回调或键将集合划分为两个数组
      *
      * @param  callable|string  $key
      * @param  mixed  $operator
@@ -409,6 +431,7 @@ trait EnumeratesValues
 
     /**
      * Get the sum of the given values.
+	 * 得到给定值的和
      *
      * @param  callable|string|null  $callback
      * @return mixed
@@ -426,6 +449,7 @@ trait EnumeratesValues
 
     /**
      * Apply the callback if the value is truthy.
+	 * 如果值为真，则应用回调。
      *
      * @param  bool|mixed  $value
      * @param  callable|null  $callback
@@ -449,6 +473,7 @@ trait EnumeratesValues
 
     /**
      * Apply the callback if the collection is empty.
+	 * 如果集合为空，则应用回调。
      *
      * @param  callable  $callback
      * @param  callable|null  $default
@@ -461,6 +486,7 @@ trait EnumeratesValues
 
     /**
      * Apply the callback if the collection is not empty.
+	 * 如果集合不为空，则应用回调。
      *
      * @param  callable  $callback
      * @param  callable|null  $default
@@ -473,6 +499,7 @@ trait EnumeratesValues
 
     /**
      * Apply the callback if the value is falsy.
+	 * 如果值为false，则应用回调。
      *
      * @param  bool  $value
      * @param  callable  $callback
@@ -486,6 +513,7 @@ trait EnumeratesValues
 
     /**
      * Apply the callback unless the collection is empty.
+	 * 除非集合为空，否则应用回调。
      *
      * @param  callable  $callback
      * @param  callable|null  $default
@@ -498,6 +526,7 @@ trait EnumeratesValues
 
     /**
      * Apply the callback unless the collection is not empty.
+	 * 除非集合不为空，否则应用回调。
      *
      * @param  callable  $callback
      * @param  callable|null  $default
@@ -510,6 +539,7 @@ trait EnumeratesValues
 
     /**
      * Filter items by the given key value pair.
+	 * 根据给定的键值对筛选项
      *
      * @param  string  $key
      * @param  mixed  $operator
@@ -523,6 +553,7 @@ trait EnumeratesValues
 
     /**
      * Filter items where the given key is not null.
+	 * 过滤给定键不为空的项
      *
      * @param  string|null  $key
      * @return static
@@ -534,6 +565,7 @@ trait EnumeratesValues
 
     /**
      * Filter items where the given key is null.
+	 * 过滤给定键为空的项
      *
      * @param  string|null  $key
      * @return static
@@ -545,6 +577,7 @@ trait EnumeratesValues
 
     /**
      * Filter items by the given key value pair using strict comparison.
+	 * 使用严格比较按给定的键值对筛选项
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -557,6 +590,7 @@ trait EnumeratesValues
 
     /**
      * Filter items by the given key value pair.
+	 * 根据给定的键值对筛选项
      *
      * @param  string  $key
      * @param  mixed  $values
@@ -574,6 +608,7 @@ trait EnumeratesValues
 
     /**
      * Filter items by the given key value pair using strict comparison.
+	 * 使用严格比较按给定的键值对筛选项
      *
      * @param  string  $key
      * @param  mixed  $values
@@ -586,6 +621,7 @@ trait EnumeratesValues
 
     /**
      * Filter items such that the value of the given key is between the given values.
+	 * 筛选项，使给定键的值在给定值之间。
      *
      * @param  string  $key
      * @param  array  $values
@@ -598,6 +634,7 @@ trait EnumeratesValues
 
     /**
      * Filter items such that the value of the given key is not between the given values.
+	 * 筛选项，使给定键的值不在给定值之间。
      *
      * @param  string  $key
      * @param  array  $values
@@ -612,6 +649,7 @@ trait EnumeratesValues
 
     /**
      * Filter items by the given key value pair.
+	 * 根据给定的键值对筛选项
      *
      * @param  string  $key
      * @param  mixed  $values
@@ -629,6 +667,7 @@ trait EnumeratesValues
 
     /**
      * Filter items by the given key value pair using strict comparison.
+	 * 使用严格比较按给定的键值对筛选项
      *
      * @param  string  $key
      * @param  mixed  $values
@@ -641,6 +680,7 @@ trait EnumeratesValues
 
     /**
      * Filter the items, removing any items that don't match the given type.
+	 * 筛选项目，删除与给定类型不匹配的任何项目。
      *
      * @param  string  $type
      * @return static
@@ -654,6 +694,7 @@ trait EnumeratesValues
 
     /**
      * Pass the collection to the given callback and return the result.
+	 * 将集合传递给给定的回调函数并返回结果
      *
      * @param  callable  $callback
      * @return mixed
@@ -665,6 +706,7 @@ trait EnumeratesValues
 
     /**
      * Pass the collection to the given callback and then return it.
+	 * 将集合传递给给定的回调函数，然后返回它。
      *
      * @param  callable  $callback
      * @return $this
@@ -678,6 +720,7 @@ trait EnumeratesValues
 
     /**
      * Create a collection of all elements that do not pass a given truth test.
+	 * 创建一个未通过给定真值测试的所有元素的集合
      *
      * @param  callable|mixed  $callback
      * @return static
@@ -695,6 +738,7 @@ trait EnumeratesValues
 
     /**
      * Return only unique items from the collection array.
+	 * 从集合数组中返回唯一的惟一项
      *
      * @param  string|callable|null  $key
      * @param  bool  $strict
@@ -717,6 +761,7 @@ trait EnumeratesValues
 
     /**
      * Return only unique items from the collection array using strict comparison.
+	 * 使用严格比较只返回集合数组中的唯一项
      *
      * @param  string|callable|null  $key
      * @return static
@@ -728,8 +773,10 @@ trait EnumeratesValues
 
     /**
      * Take items in the collection until the given condition is met.
+	 * 获取集合中的项，直到满足给定条件。
      *
      * This is an alias to the "takeUntil" method.
+	 * 这是"takeUntil"方法的别名
      *
      * @param  mixed  $value
      * @return static
@@ -743,6 +790,7 @@ trait EnumeratesValues
 
     /**
      * Collect the values into a collection.
+	 * 将这些值收集到一个集合中
      *
      * @return \Illuminate\Support\Collection
      */
@@ -753,6 +801,7 @@ trait EnumeratesValues
 
     /**
      * Get the collection of items as a plain array.
+	 * 获取作为普通数组的项集合
      *
      * @return array
      */
@@ -765,6 +814,7 @@ trait EnumeratesValues
 
     /**
      * Convert the object into something JSON serializable.
+	 * 将对象转换为JSON可序列化的对象
      *
      * @return array
      */
@@ -785,6 +835,7 @@ trait EnumeratesValues
 
     /**
      * Get the collection of items as JSON.
+	 * 以JSON形式获取项目集合
      *
      * @param  int  $options
      * @return string
@@ -796,6 +847,7 @@ trait EnumeratesValues
 
     /**
      * Get a CachingIterator instance.
+	 * 获取一个CachingIterator实例
      *
      * @param  int  $flags
      * @return \CachingIterator
@@ -807,6 +859,7 @@ trait EnumeratesValues
 
     /**
      * Convert the collection to its string representation.
+	 * 将集合转换为其字符串表示形式
      *
      * @return string
      */
@@ -817,6 +870,7 @@ trait EnumeratesValues
 
     /**
      * Add a method to the list of proxied methods.
+	 * 向代理方法列表中添加一个方法
      *
      * @param  string  $method
      * @return void
@@ -828,6 +882,7 @@ trait EnumeratesValues
 
     /**
      * Dynamically access collection proxies.
+	 * 动态访问集合代理
      *
      * @param  string  $key
      * @return mixed
@@ -845,6 +900,7 @@ trait EnumeratesValues
 
     /**
      * Results array of items from Collection or Arrayable.
+	 * 来自Collection或Arrayable的项的结果数组
      *
      * @param  mixed  $items
      * @return array
@@ -870,6 +926,7 @@ trait EnumeratesValues
 
     /**
      * Get an operator checker callback.
+	 * 获取一个操作符检查器回调
      *
      * @param  string  $key
      * @param  string|null  $operator
@@ -919,6 +976,7 @@ trait EnumeratesValues
 
     /**
      * Determine if the given value is callable, but not a string.
+	 * 确定给定的值是否是可调用的，而不是字符串。
      *
      * @param  mixed  $value
      * @return bool
@@ -930,6 +988,7 @@ trait EnumeratesValues
 
     /**
      * Get a value retrieving callback.
+	 * 获取一个值检索回调
      *
      * @param  callable|string|null  $value
      * @return callable
@@ -947,6 +1006,7 @@ trait EnumeratesValues
 
     /**
      * Make a function to check an item's equality.
+	 * 做一个函数来检查一个项目的等式
      *
      * @param  mixed  $value
      * @return \Closure
@@ -960,6 +1020,7 @@ trait EnumeratesValues
 
     /**
      * Make a function using another function, by negating its result.
+	 * 通过否定另一个函数的结果来创建一个函数
      *
      * @param  \Closure  $callback
      * @return \Closure
@@ -973,6 +1034,7 @@ trait EnumeratesValues
 
     /**
      * Make a function that returns what's passed to it.
+	 * 创建一个函数，返回传递给它的内容。
      *
      * @return \Closure
      */

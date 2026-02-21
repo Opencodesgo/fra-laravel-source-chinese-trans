@@ -95,6 +95,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Increment the value of an item in the cache.
+	 * 增加缓存中项的值
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -130,6 +131,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Store an item in the cache indefinitely.
+	 * 将项无限期地存储在缓存中
      *
      * @param  string  $key
      * @param  mixed  $value
@@ -142,6 +144,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Remove an item from the cache.
+	 * 从缓存中删除项
      *
      * @param  string  $key
      * @return bool
@@ -159,6 +162,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Remove all items from the cache.
+	 * 从缓存中删除所有项
      *
      * @return bool
      */
@@ -194,6 +198,7 @@ class ArrayStore extends TaggableStore implements LockProvider
 
     /**
      * Get the UNIX timestamp for the given number of seconds.
+	 * 获取给定秒数的UNIX时间戳
      *
      * @param  int  $seconds
      * @return int

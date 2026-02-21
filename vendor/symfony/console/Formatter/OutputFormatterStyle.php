@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，格式化，输出格式化样式
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\Console\Color;
 
 /**
  * Formatter style class for defining styles.
+ * 格式化器样式类，用于定义样式。
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */

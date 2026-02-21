@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，数据库，控制台，播种机，播种机制作命令
+ * Illuminate，数据库，控制台，播种机，make:seeder 播种机制作命令
  */
 
 namespace Illuminate\Database\Console\Seeds;

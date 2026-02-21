@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpKernel，事件监听器，路由器侦听器
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -34,6 +37,7 @@ use Symfony\Component\Routing\RequestContextAwareInterface;
 
 /**
  * Initializes the context from the request and sets request attributes based on a matching route.
+ * 根据请求初始化上下文，并根据匹配的路由设置请求属性。
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Yonel Ceruto <yonelceruto@gmail.com>

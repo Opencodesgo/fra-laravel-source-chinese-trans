@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，Session会话，属性包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation\Session\Attribute;
 
 /**
  * This class relates to session attribute storage.
+ * 该类与会话属性存储相关
  *
  * @implements \IteratorAggregate<string, mixed>
  */

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Illuminate，基础，验证，验证请求
+ */
 
 namespace Illuminate\Foundation\Validation;
 
@@ -10,6 +13,7 @@ trait ValidatesRequests
 {
     /**
      * Run the validation routine against the given validator.
+	 * 针对给定的验证器运行验证例程
      *
      * @param  \Illuminate\Contracts\Validation\Validator|array  $validator
      * @param  \Illuminate\Http\Request|null  $request
@@ -30,6 +34,7 @@ trait ValidatesRequests
 
     /**
      * Validate the given request with the given rules.
+	 * 用给定的规则验证给定的请求
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  array  $rules
@@ -49,6 +54,7 @@ trait ValidatesRequests
 
     /**
      * Validate the given request with the given rules.
+	 * 用给定的规则验证给定的请求
      *
      * @param  string  $errorBag
      * @param  \Illuminate\Http\Request  $request
@@ -73,6 +79,7 @@ trait ValidatesRequests
 
     /**
      * Get a validation factory instance.
+	 * 获取验证工厂实例
      *
      * @return \Illuminate\Contracts\Validation\Factory
      */

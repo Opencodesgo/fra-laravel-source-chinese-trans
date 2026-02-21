@@ -203,6 +203,7 @@ class RouteUrlGenerator
 
     /**
      * Replace all of the wildcard parameters for a route path.
+	 * 替换路由路径的所有通配符参数
      *
      * @param  string  $path
      * @param  array  $parameters
@@ -260,6 +261,7 @@ class RouteUrlGenerator
         // If the URI has a fragment we will move it to the end of this URI since it will
         // need to come after any query string that may be added to the URL else it is
         // not going to be available. We will remove it then append it back on here.
+		// 如果URI有一个片段，我们将把它移动到这个URI的末尾，因为它会。
         if (! is_null($fragment = parse_url($uri, PHP_URL_FRAGMENT))) {
             $uri = preg_replace('/#.*/', '', $uri);
         }
@@ -281,6 +283,7 @@ class RouteUrlGenerator
         // First we will get all of the string parameters that are remaining after we
         // have replaced the route wildcards. We'll then build a query string from
         // these string parameters then use it as a starting point for the rest.
+		// 首先，我们将得到所有的字符串参数。
         if (count($parameters) === 0) {
             return '';
         }
@@ -292,6 +295,7 @@ class RouteUrlGenerator
         // Lastly, if there are still parameters remaining, we will fetch the numeric
         // parameters that are in the array and add them to the query string or we
         // will make the initial query string if it wasn't started with strings.
+		// 最后，如果仍然有参数，我们将获取数字参数，并将其添加到查询字符串中。
         if (count($keyed) < count($parameters)) {
             $query .= '&'.implode(
                 '&', $this->getNumericParameters($parameters)

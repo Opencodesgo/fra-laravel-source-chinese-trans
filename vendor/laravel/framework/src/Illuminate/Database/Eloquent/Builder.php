@@ -149,6 +149,7 @@ class Builder
 
     /**
      * Remove a registered global scope.
+	 * 删除已注册的全局作用域
      *
      * @param  \Illuminate\Database\Eloquent\Scope|string  $scope
      * @return $this
@@ -243,6 +244,7 @@ class Builder
 
     /**
      * Add a basic where clause to the query.
+	 * 向查询添加一个基本的where子句
      *
      * @param  \Closure|string|array|\Illuminate\Database\Query\Expression  $column
      * @param  mixed  $operator
@@ -265,6 +267,7 @@ class Builder
 
     /**
      * Add a basic where clause to the query, and return the first result.
+	 * 向查询添加一个基本的where子句，并返回第一个结果。
      *
      * @param  \Closure|string|array|\Illuminate\Database\Query\Expression  $column
      * @param  mixed  $operator
@@ -279,6 +282,7 @@ class Builder
 
     /**
      * Add an "or where" clause to the query.
+	 * 向查询添加"or where"子句
      *
      * @param  \Closure|array|string|\Illuminate\Database\Query\Expression  $column
      * @param  mixed  $operator
@@ -296,6 +300,7 @@ class Builder
 
     /**
      * Add an "order by" clause for a timestamp to the query.
+	 * 在查询中为时间戳添加"order by"子句
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @return $this
@@ -347,6 +352,7 @@ class Builder
 
     /**
      * Create a collection of models from a raw query.
+	 * 从原始查询创建模型集合
      *
      * @param  string  $query
      * @param  array  $bindings
@@ -378,6 +384,7 @@ class Builder
 
     /**
      * Find multiple models by their primary keys.
+	 * 通过主键查找多个模型
      *
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $ids
      * @param  array  $columns
@@ -425,6 +432,7 @@ class Builder
 
     /**
      * Find a model by its primary key or return fresh model instance.
+	 * 通过主键查找模型或返回新的模型实例
      *
      * @param  mixed  $id
      * @param  array  $columns
@@ -441,6 +449,7 @@ class Builder
 
     /**
      * Get the first record matching the attributes or instantiate it.
+	 * 获取匹配属性的第一个记录或实例化它
      *
      * @param  array  $attributes
      * @param  array  $values
@@ -532,6 +541,7 @@ class Builder
 
     /**
      * Get a single column's value from the first result of a query.
+	 * 从查询的第一个结果中获取单个列的值
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @return mixed
@@ -545,6 +555,7 @@ class Builder
 
     /**
      * Execute the query as a "select" statement.
+	 * 以"select"语句的形式执行查询
      *
      * @param  array|string  $columns
      * @return \Illuminate\Database\Eloquent\Collection|static[]
@@ -556,6 +567,7 @@ class Builder
         // If we actually found models we will also eager load any relationships that
         // have been specified as needing to be eager loaded, which will solve the
         // n+1 query issue for the developers to avoid running a lot of queries.
+		// 如果我们找到了模型我们也会加载任何是否被指定为需要急切关系。
         if (count($models = $builder->getModels($columns)) > 0) {
             $models = $builder->eagerLoadRelations($models);
         }
@@ -565,6 +577,7 @@ class Builder
 
     /**
      * Get the hydrated models without eager loading.
+	 * 得到水合模型，没有急切加载。
      *
      * @param  array|string  $columns
      * @return \Illuminate\Database\Eloquent\Model[]|static[]
@@ -589,6 +602,7 @@ class Builder
             // For nested eager loads we'll skip loading them here and they will be set as an
             // eager load on the query to retrieve the relation so that they will be eager
             // loaded on that query, because that is where they get hydrated as models.
+			// 对于嵌套的急切加载，我们在这里跳过加载，它们将被设置为对查询进行即时加载以检索关系。
             if (strpos($name, '.') === false) {
                 $models = $this->eagerLoadRelation($models, $name, $constraints);
             }
@@ -599,6 +613,7 @@ class Builder
 
     /**
      * Eagerly load the relationship on a set of models.
+	 * 在一组模型中急切地加载这种关系
      *
      * @param  array  $models
      * @param  string  $name
@@ -610,6 +625,7 @@ class Builder
         // First we will "back up" the existing where conditions on the query so we can
         // add our eager constraints. Then we will merge the wheres that were on the
         // query back to it in order that any where conditions might be specified.
+		// 首先，我们将“备份”查询上现有的where条件，以便我们可以添加急切约束。
         $relation = $this->getRelation($name);
 
         $relation->addEagerConstraints($models);
@@ -619,6 +635,7 @@ class Builder
         // Once we have the results, we just match those back up to their parent models
         // using the relationship instance. Then we just return the finished arrays
         // of models which have been eagerly hydrated and are readied for return.
+		// 一旦我们得到了结果，我们就把这些结果与它们的母模型使用关系实例进行匹配。
         return $relation->match(
             $relation->initRelation($models, $name),
             $relation->getEager(), $name
@@ -627,6 +644,7 @@ class Builder
 
     /**
      * Get the relation instance for the given relation name.
+	 * 获取给定关系名称的关系实例
      *
      * @param  string  $name
      * @return \Illuminate\Database\Eloquent\Relations\Relation
@@ -636,6 +654,7 @@ class Builder
         // We want to run a relationship query without any constrains so that we will
         // not have to remove these where clauses manually which gets really hacky
         // and error prone. We don't want constraints because we add eager ones.
+		// 我们希望运行一个没有任何约束的关系查询，这样我们就可以不需要手动删除这些where子句，那样会变得很粗糙。
         $relation = Relation::noConstraints(function () use ($name) {
             try {
                 return $this->getModel()->newInstance()->$name();
@@ -649,6 +668,7 @@ class Builder
         // If there are nested relationships set on the query, we will put those onto
         // the query instances so that they can be handled after this relationship
         // is loaded. In this way they will all trickle down as they are loaded.
+		// 如果查询上设置了嵌套关系，我们将把查询实例放在上面。
         if (count($nested) > 0) {
             $relation->getQuery()->with($nested);
         }
@@ -670,6 +690,7 @@ class Builder
         // We are basically looking for any relationships that are nested deeper than
         // the given top-level relationship. We will just check for any relations
         // that start with the given top relations and adds them to our arrays.
+		// 我们基本上是在寻找任何比给定的顶级关系嵌套更深的关系。
         foreach ($this->eagerLoad as $name => $constraints) {
             if ($this->isNestedUnder($relation, $name)) {
                 $nested[substr($name, strlen($relation.'.'))] = $constraints;
@@ -681,6 +702,7 @@ class Builder
 
     /**
      * Determine if the relationship is nested.
+	 * 确定关系是否嵌套
      *
      * @param  string  $relation
      * @param  string  $name
@@ -693,6 +715,7 @@ class Builder
 
     /**
      * Get a lazy collection for the given query.
+	 * 获取给定查询的惰性集合
      *
      * @return \Illuminate\Support\LazyCollection
      */
@@ -705,6 +728,7 @@ class Builder
 
     /**
      * Add a generic "order by" clause if the query doesn't already have one.
+	 * 如果查询还没有通用的"order by"子句，则添加一个。
      *
      * @return void
      */
@@ -717,6 +741,7 @@ class Builder
 
     /**
      * Get an array with the values of a given column.
+	 * 获取包含给定列值的数组
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @param  string|null  $key
@@ -729,6 +754,7 @@ class Builder
         // If the model has a mutator for the requested column, we will spin through
         // the results and mutate the values so that the mutated version of these
         // columns are returned as you would expect from these Eloquent models.
+		// 如果模型对所请求的列有一个mutator，我们将进行旋转结果并改变值。
         if (! $this->model->hasGetMutator($column) &&
             ! $this->model->hasCast($column) &&
             ! in_array($column, $this->model->getDates())) {
@@ -787,6 +813,7 @@ class Builder
         // Next we will set the limit and offset for this query so that when we get the
         // results we get the proper section of results. Then, we'll create the full
         // paginator instances for these results with the given page and per page.
+		// 接下来，我们将为该查询设置限制和偏移量，以便在获得我们得到了适当的部分结果。
         $this->skip(($page - 1) * $perPage)->take($perPage + 1);
 
         return $this->simplePaginator($this->get($columns), $perPage, $page, [
@@ -797,6 +824,7 @@ class Builder
 
     /**
      * Save a new model and return the instance.
+	 * 保存新模型并返回实例
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model|$this
@@ -810,6 +838,7 @@ class Builder
 
     /**
      * Save a new model and return the instance. Allow mass-assignment.
+	 * 保存新模型并返回实例。允许质量确定。
      *
      * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model|$this
@@ -867,6 +896,7 @@ class Builder
 
     /**
      * Add the "updated at" column to an array of values.
+	 * 将"updated at"列添加到值数组中
      *
      * @param  array  $values
      * @return array
@@ -926,6 +956,7 @@ class Builder
 
     /**
      * Register a replacement for the default delete function.
+	 * 注册一个默认删除函数的替代品
      *
      * @param  \Closure  $callback
      * @return void
@@ -937,6 +968,7 @@ class Builder
 
     /**
      * Determine if the given model has a scope.
+	 * 确定给定模型是否具有作用域
      *
      * @param  string  $scope
      * @return bool
@@ -961,6 +993,8 @@ class Builder
             // If the scope key is an integer, then the scope was passed as the value and
             // the parameter list is empty, so we will format the scope name and these
             // parameters here. Then, we'll be ready to call the scope on the model.
+			// 如果作用域键是整数，则将作用域作为值并传递参数列表为空，
+			// 因此，我们将格式化作用域名称和这些参数。
             if (is_int($scope)) {
                 [$scope, $parameters] = [$parameters, []];
             }
@@ -968,6 +1002,7 @@ class Builder
             // Next we'll pass the scope callback to the callScope method which will take
             // care of grouping the "wheres" properly so the logical order doesn't get
             // messed up when adding scopes. Then we'll return back out the builder.
+			// 接下来，我们将把范围回调传递给callScope方法，该方法将取注意正确地分组"where"。
             $builder = $builder->callNamedScope($scope, (array) $parameters);
         }
 
@@ -976,6 +1011,7 @@ class Builder
 
     /**
      * Apply the scopes to the Eloquent builder instance and return it.
+	 * 将作用域应用于Eloquent构建器实例并返回它
      *
      * @return static
      */
@@ -996,6 +1032,7 @@ class Builder
                 // If the scope is a Closure we will just go ahead and call the scope with the
                 // builder instance. The "callScope" method will properly group the clauses
                 // that are added to this query so "where" clauses maintain proper logic.
+				// 如果作用域是闭包，我们将继续使用构建器实例。
                 if ($scope instanceof Closure) {
                     $scope($builder);
                 }
@@ -1003,6 +1040,7 @@ class Builder
                 // If the scope is a scope object, we will call the apply method on this scope
                 // passing in the builder and the model instance. After we run all of these
                 // scopes we will return back the builder instance to the outside caller.
+				// 如果作用域是一个作用域对象，我们将在这个作用域上调用apply方法传入构建器和模型实例。
                 if ($scope instanceof Scope) {
                     $scope->apply($builder, $this->getModel());
                 }
@@ -1029,6 +1067,7 @@ class Builder
         // We will keep track of how many wheres are on the query before running the
         // scope so that we can properly group the added scope constraints in the
         // query as their own isolated nested where statement and avoid issues.
+		// 方法之前，我们将跟踪查询上有多少个位置。
         $originalWhereCount = is_null($query->wheres)
                     ? 0 : count($query->wheres);
 
@@ -1069,6 +1108,7 @@ class Builder
         // Here, we totally remove all of the where clauses since we are going to
         // rebuild them as nested queries by slicing the groups of wheres into
         // their own sections. This is to prevent any confusing logic order.
+		// 在这里，我们完全删除了所有where子句，因为我们要通过将where的组切片为，将它们重新构建为嵌套查询。
         $allWheres = $query->wheres;
 
         $query->wheres = [];
@@ -1084,6 +1124,7 @@ class Builder
 
     /**
      * Slice where conditions at the given offset and add them to the query as a nested condition.
+	 * 将给定偏移量处的where条件切片，并将它们作为嵌套条件添加到查询中。
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @param  array  $whereSlice
@@ -1096,6 +1137,7 @@ class Builder
         // Here we'll check if the given subset of where clauses contains any "or"
         // booleans and in this case create a nested where expression. That way
         // we don't add any unnecessary nesting thus keeping the query clean.
+		// 这里我们将检查where子句的给定子集是否包含任何"or"布尔值，在本例中创建一个嵌套的where表达式。
         if ($whereBooleans->contains('or')) {
             $query->wheres[] = $this->createNestedWhere(
                 $whereSlice, $whereBooleans->first()
@@ -1124,6 +1166,7 @@ class Builder
 
     /**
      * Set the relationships that should be eager loaded.
+	 * 设置应该急于加载的关系
      *
      * @param  mixed  $relations
      * @return $this
@@ -1139,6 +1182,7 @@ class Builder
 
     /**
      * Prevent the specified relations from being eager loaded.
+	 * 防止指定的关系被紧急加载
      *
      * @param  mixed  $relations
      * @return $this
@@ -1168,6 +1212,7 @@ class Builder
 
     /**
      * Parse a list of relations into individuals.
+	 * 将关系列表解析为个体
      *
      * @param  array  $relations
      * @return array
@@ -1180,6 +1225,7 @@ class Builder
             // If the "name" value is a numeric key, we can assume that no constraints
             // have been specified. We will just put an empty Closure there so that
             // we can treat these all the same while we are looping through them.
+			// 如果"name"值是一个数字键，我们可以假设已被指定没有约束。
             if (is_numeric($name)) {
                 $name = $constraints;
 
@@ -1193,6 +1239,7 @@ class Builder
             // We need to separate out any nested includes, which allows the developers
             // to load deep relationships using "dots" without stating each level of
             // the relationship with its own key in the array of eager-load names.
+			// 我们需要分离出任何嵌套的包含，这允许开发人员使用"点"来加载深层关系，而不用说明每个层次。
             $results = $this->addNestedWiths($name, $results);
 
             $results[$name] = $constraints;
@@ -1238,6 +1285,7 @@ class Builder
         // If the relation has already been set on the result array, we will not set it
         // again, since that would override any constraints that were already placed
         // on the relationships. We will only set the ones that are not specified.
+		// 如果已经在结果数组上设置了关系，则不再设置它，因为这将覆盖任何已经放置的关系约束。
         foreach (explode('.', $name) as $segment) {
             $progress[] = $segment;
 
@@ -1253,6 +1301,7 @@ class Builder
 
     /**
      * Apply query-time casts to the model instance.
+	 * 对模型实例应用查询时强制转换
      *
      * @param  array  $casts
      * @return $this
@@ -1266,6 +1315,7 @@ class Builder
 
     /**
      * Get the underlying query builder instance.
+	 * 获取底层查询生成器实例
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -1276,6 +1326,7 @@ class Builder
 
     /**
      * Set the underlying query builder instance.
+	 * 设置底层查询生成器实例
      *
      * @param  \Illuminate\Database\Query\Builder  $query
      * @return $this
@@ -1289,6 +1340,7 @@ class Builder
 
     /**
      * Get a base query builder instance.
+	 * 获取基本查询生成器实例
      *
      * @return \Illuminate\Database\Query\Builder
      */
@@ -1324,6 +1376,7 @@ class Builder
 
     /**
      * Get the default key name of the table.
+	 * 获取表的默认键名
      *
      * @return string
      */
@@ -1334,6 +1387,7 @@ class Builder
 
     /**
      * Get the model instance being queried.
+	 * 获取正在查询的模型实例
      *
      * @return \Illuminate\Database\Eloquent\Model|static
      */
@@ -1344,6 +1398,7 @@ class Builder
 
     /**
      * Set a model instance for the model being queried.
+	 * 为正在查询的模型设置一个模型实例
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return $this
@@ -1359,6 +1414,7 @@ class Builder
 
     /**
      * Qualify the given column name by the model's table.
+	 * 根据模型的表限定给定的列名
      *
      * @param  string|\Illuminate\Database\Query\Expression  $column
      * @return string
@@ -1370,6 +1426,7 @@ class Builder
 
     /**
      * Get the given macro by name.
+	 * 按名称获取给定的宏
      *
      * @param  string  $name
      * @return \Closure
@@ -1381,6 +1438,7 @@ class Builder
 
     /**
      * Checks if a macro is registered.
+	 * 检查是否注册了宏
      *
      * @param  string  $name
      * @return bool
@@ -1392,6 +1450,7 @@ class Builder
 
     /**
      * Get the given global macro by name.
+	 * 按名称获取给定的全局宏
      *
      * @param  string  $name
      * @return \Closure
@@ -1403,6 +1462,7 @@ class Builder
 
     /**
      * Checks if a global macro is registered.
+	 * 检查是否注册了全局宏
      *
      * @param  string  $name
      * @return bool
@@ -1432,6 +1492,7 @@ class Builder
 
     /**
      * Dynamically handle calls into the query instance.
+	 * 动态处理对查询实例的调用
      *
      * @param  string  $method
      * @param  array  $parameters
@@ -1476,6 +1537,7 @@ class Builder
 
     /**
      * Dynamically handle calls into the query instance.
+	 * 动态处理对查询实例的调用
      *
      * @param  string  $method
      * @param  array  $parameters

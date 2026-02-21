@@ -74,6 +74,7 @@ class BelongsTo extends Relation
         // In the underlying base relationship class, this variable is referred to as
         // the "parent" since most relationships are not inversed. But, since this
         // one is we will create a "child" variable for much better readability.
+		// 在基础基关系类中，该变量被称为"父亲"，因为大多数关系都没有转化。
         $this->child = $child;
 
         parent::__construct($query, $child);
@@ -106,6 +107,7 @@ class BelongsTo extends Relation
             // For belongs to relationships, which are essentially the inverse of has one
             // or has many relationships, we need to actually query on the primary key
             // of the related models matching on the foreign key that's on a parent.
+			// For属于关系，本质上是has的倒数或者有很多关系。
             $table = $this->related->getTable();
 
             $this->query->where($table.'.'.$this->ownerKey, '=', $this->child->{$this->foreignKey});
@@ -124,6 +126,7 @@ class BelongsTo extends Relation
         // We'll grab the primary key name of the related models since it could be set to
         // a non-standard name and not "id". We will then construct the constraint for
         // our eagerly loading query so it returns the proper models from execution.
+		// 我们将获取相关模型的主键名，因为它可以设置为非标准名称，而不是"id"。
         $key = $this->related->getTable().'.'.$this->ownerKey;
 
         $whereIn = $this->whereInMethod($this->related, $this->ownerKey);
@@ -145,6 +148,7 @@ class BelongsTo extends Relation
         // First we need to gather all of the keys from the parent models so we know what
         // to query for via the eager loading query. We will add them to an array then
         // execute a "where in" statement to gather up all of those related records.
+		// 首先，我们需要从父模型中收集所有键，以便我们知道通过即时加载查询查询。
         foreach ($models as $model) {
             if (! is_null($value = $model->{$this->foreignKey})) {
                 $keys[] = $value;
@@ -191,6 +195,7 @@ class BelongsTo extends Relation
         // First we will get to build a dictionary of the child models by their primary
         // key of the relationship, then we can easily match the children back onto
         // the parents using that dictionary and the primary key of the children.
+		// 首先，我们将根据子模型的主要元素构建子模型的字典。
         $dictionary = [];
 
         foreach ($results as $result) {
@@ -200,6 +205,7 @@ class BelongsTo extends Relation
         // Once we have the dictionary constructed, we can loop through all the parents
         // and match back onto their children using these keys of the dictionary and
         // the primary key of the children to map them onto the correct instances.
+		// 一旦构造了字典，就可以循环遍历所有父元素，然后用字典里的这些键来匹配他们的孩子。
         foreach ($models as $model) {
             if (isset($dictionary[$model->{$foreign}])) {
                 $model->setRelation($relation, $dictionary[$model->{$foreign}]);
@@ -211,6 +217,7 @@ class BelongsTo extends Relation
 
     /**
      * Associate the model instance to the given parent.
+	 * 将模型实例关联到给定的父实例
      *
      * @param  \Illuminate\Database\Eloquent\Model|int|string  $model
      * @return \Illuminate\Database\Eloquent\Model
@@ -310,6 +317,7 @@ class BelongsTo extends Relation
 
     /**
      * Make a new related instance for the given model.
+	 * 为给定模型创建一个新的相关实例
      *
      * @param  \Illuminate\Database\Eloquent\Model  $parent
      * @return \Illuminate\Database\Eloquent\Model

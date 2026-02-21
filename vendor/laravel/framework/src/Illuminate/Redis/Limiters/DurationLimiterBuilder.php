@@ -46,6 +46,7 @@ class DurationLimiterBuilder
 
     /**
      * The amount of time to block until a lock is available.
+	 * 在锁定可用之前阻塞的时间
      *
      * @var int
      */

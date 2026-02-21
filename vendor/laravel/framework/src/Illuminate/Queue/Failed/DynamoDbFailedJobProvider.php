@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，队列，失败，DynamoDb失败的任务提供者
+ * Illuminate，队列，失败，DynamoDb失败的作业提供者
  */
 
 namespace Illuminate\Queue\Failed;
@@ -89,7 +89,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Get a list of all of the failed jobs.
-	 * 获取所有失败任务的列表
+	 * 获取所有失败作业的列表
      *
      * @return array
      */
@@ -121,7 +121,7 @@ class DynamoDbFailedJobProvider implements FailedJobProviderInterface
 
     /**
      * Get a single failed job.
-	 * 得到一个失败的任务
+	 * 得到一个失败的作业
      *
      * @param  mixed  $id
      * @return object|null

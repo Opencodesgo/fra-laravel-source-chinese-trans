@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，流响应
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\HttpFoundation;
 
 /**
  * StreamedResponse represents a streamed HTTP response.
+ * StreamedResponse表示流的HTTP响应
  *
  * A StreamedResponse uses a callback for its content.
  *
@@ -43,6 +47,7 @@ class StreamedResponse extends Response
 
     /**
      * Factory method for chainability.
+	 * 可链性的工厂方法
      *
      * @param callable|null $callback A valid PHP callback or null to set it later
      *
@@ -59,6 +64,7 @@ class StreamedResponse extends Response
 
     /**
      * Sets the PHP callback associated with this Response.
+	 * 设置与此响应关联的PHP回调
      *
      * @return $this
      */

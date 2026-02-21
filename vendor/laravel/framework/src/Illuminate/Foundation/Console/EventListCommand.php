@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，控制台，事件列表命令
+ * Illuminate，基础，控制台，event:list 事件列表命令
  */
 
 namespace Illuminate\Foundation\Console;
@@ -13,6 +13,7 @@ class EventListCommand extends Command
 {
     /**
      * The name and signature of the console command.
+	 * 控制台命令的名称和签名
      *
      * @var string
      */
@@ -45,6 +46,7 @@ class EventListCommand extends Command
 
     /**
      * Get all of the events and listeners configured for the application.
+	 * 获取为应用程序配置的所有事件和侦听器
      *
      * @return array
      */
@@ -69,6 +71,7 @@ class EventListCommand extends Command
 
     /**
      * Filter the given events using the provided event name filter.
+	 * 使用提供的事件名称筛选器筛选给定的事件
      *
      * @param  array  $events
      * @return array
@@ -86,6 +89,7 @@ class EventListCommand extends Command
 
     /**
      * Determine whether the user is filtering by an event name.
+	 * 确定用户是否按事件名称进行过滤
      *
      * @return bool
      */

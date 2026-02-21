@@ -1,6 +1,6 @@
 <?php
 /**
- * 支持，服务提供者，为所有的服务提供者提供继承
+ * Illuminate，支持，服务提供者，为所有的服务提供者提供继承
  */
 
 namespace Illuminate\Support;

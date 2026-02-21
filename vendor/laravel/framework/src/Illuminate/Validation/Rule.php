@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，验证，闭包验证规则
+ * Illuminate，验证，规则
  */
 
 namespace Illuminate\Validation;
@@ -20,6 +20,7 @@ class Rule
 
     /**
      * Get a dimensions constraint builder instance.
+	 * 获取维度约束构建器实例
      *
      * @param  array  $constraints
      * @return \Illuminate\Validation\Rules\Dimensions
@@ -31,6 +32,7 @@ class Rule
 
     /**
      * Get an exists constraint builder instance.
+	 * 获取一个已存在的约束生成器实例
      *
      * @param  string  $table
      * @param  string  $column
@@ -43,6 +45,7 @@ class Rule
 
     /**
      * Get an in constraint builder instance.
+	 * 获取约束生成器实例
      *
      * @param  \Illuminate\Contracts\Support\Arrayable|array|string  $values
      * @return \Illuminate\Validation\Rules\In
@@ -58,6 +61,7 @@ class Rule
 
     /**
      * Get a not_in constraint builder instance.
+	 * 获取一个not_in约束生成器实例
      *
      * @param  \Illuminate\Contracts\Support\Arrayable|array|string  $values
      * @return \Illuminate\Validation\Rules\NotIn
@@ -73,6 +77,7 @@ class Rule
 
     /**
      * Get a required_if constraint builder instance.
+	 * 获取required_if约束构建器实例
      *
      * @param  callable|bool  $callback
      * @return \Illuminate\Validation\Rules\RequiredIf
@@ -84,6 +89,7 @@ class Rule
 
     /**
      * Get a unique constraint builder instance.
+	 * 获取唯一约束构建器实例
      *
      * @param  string  $table
      * @param  string  $column

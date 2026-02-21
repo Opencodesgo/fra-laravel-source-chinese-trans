@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，视图，关注点，管理事件
+ * Illuminate，视图，问题，管理事件
  */
 
 namespace Illuminate\View\Concerns;
@@ -105,6 +105,7 @@ trait ManagesEvents
         // When registering a class based view "composer", we will simply resolve the
         // classes from the application IoC container then call the compose method
         // on the instance. This allows for convenient, testable view composers.
+		// 当注册一个基于类的视图"composer"时，我们将简单地解析。
         $callback = $this->buildClassEventCallback(
             $class, $prefix
         );
@@ -116,6 +117,7 @@ trait ManagesEvents
 
     /**
      * Build a class based container callback Closure.
+	 * 构建一个基于类的容器回调闭包
      *
      * @param  string  $class
      * @param  string  $prefix
@@ -128,6 +130,7 @@ trait ManagesEvents
         // Once we have the class and method name, we can build the Closure to resolve
         // the instance out of the IoC container and call the method on it with the
         // given arguments that are passed to the Closure as the composer's data.
+		// 一旦有了类和方法名，就可以构建要解析的闭包。
         return function () use ($class, $method) {
             return $this->container->make($class)->{$method}(...func_get_args());
         };
@@ -135,6 +138,7 @@ trait ManagesEvents
 
     /**
      * Parse a class based composer name.
+	 * 解析基于编写器名称的类
      *
      * @param  string  $class
      * @param  string  $prefix
@@ -147,6 +151,7 @@ trait ManagesEvents
 
     /**
      * Determine the class event method based on the given prefix.
+	 * 根据给定的前缀确定类事件方法
      *
      * @param  string  $prefix
      * @return string
@@ -158,6 +163,7 @@ trait ManagesEvents
 
     /**
      * Add a listener to the event dispatcher.
+	 * 向事件调度程序添加侦听器
      *
      * @param  string  $name
      * @param  \Closure  $callback

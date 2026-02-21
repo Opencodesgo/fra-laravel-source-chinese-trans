@@ -156,6 +156,7 @@ class Factory implements FactoryContract
         // Next, we will create the view instance and call the view creator for the view
         // which can set any data, etc. Then we will return the view instance back to
         // the caller for rendering or performing other view manipulations on this.
+		// 接下来，我们将创建视图实例并为视图调用视图创建器。
         $data = array_merge($mergeData, $this->parseData($data));
 
         return tap($this->viewInstance($view, $path, $data), function ($view) {
@@ -165,6 +166,7 @@ class Factory implements FactoryContract
 
     /**
      * Get the first view that actually exists from the given list.
+	 * 从给定列表中获取实际存在的第一个视图
      *
      * @param  array  $views
      * @param  \Illuminate\Contracts\Support\Arrayable|array  $data
@@ -207,6 +209,7 @@ class Factory implements FactoryContract
 
     /**
      * Get the rendered contents of a partial from a loop.
+	 * 从循环中获取部分的渲染内容
      *
      * @param  string  $view
      * @param  array  $data
@@ -221,6 +224,7 @@ class Factory implements FactoryContract
         // If is actually data in the array, we will loop through the data and append
         // an instance of the partial view to the final result HTML passing in the
         // iterated value of this data array, allowing the views to access them.
+		// 如果实际上是数组中的数据，则循环遍历数据并追加。
         if (count($data) > 0) {
             foreach ($data as $key => $value) {
                 $result .= $this->make(
@@ -232,6 +236,7 @@ class Factory implements FactoryContract
         // If there is no data in the array, we will render the contents of the empty
         // view. Alternatively, the "empty view" could be a raw string that begins
         // with "raw|" for convenience and to let this know that it is a string.
+		// 如果数组中没有数据，我们将呈现空数组的内容。
         else {
             $result = Str::startsWith($empty, 'raw|')
                         ? substr($empty, 4)
@@ -243,6 +248,7 @@ class Factory implements FactoryContract
 
     /**
      * Normalize a view name.
+	 * 规范化视图名称
      *
      * @param  string  $name
      * @return string
@@ -254,6 +260,7 @@ class Factory implements FactoryContract
 
     /**
      * Parse the given data into a raw array.
+	 * 将给定的数据解析为原始数组
      *
      * @param  mixed  $data
      * @return array
@@ -333,6 +340,7 @@ class Factory implements FactoryContract
 
     /**
      * Add a piece of shared data to the environment.
+	 * 将共享数据添加到环境中
      *
      * @param  array|string  $key
      * @param  mixed|null  $value
@@ -362,6 +370,7 @@ class Factory implements FactoryContract
 
     /**
      * Decrement the rendering counter.
+	 * 递减呈现计数器
      *
      * @return void
      */
@@ -383,6 +392,7 @@ class Factory implements FactoryContract
 
     /**
      * Determine if the given once token has been rendered.
+	 * 确定给定的once标记是否已被呈现
      *
      * @param  string  $id
      * @return bool
@@ -394,6 +404,7 @@ class Factory implements FactoryContract
 
     /**
      * Mark the given once token as having been rendered.
+	 * 将给定的一次标记标记为已呈现。
      *
      * @param  string  $id
      * @return void
@@ -557,6 +568,7 @@ class Factory implements FactoryContract
 
     /**
      * Flush the cache of views located by the finder.
+	 * 刷新查找器定位的视图的缓存
      *
      * @return void
      */

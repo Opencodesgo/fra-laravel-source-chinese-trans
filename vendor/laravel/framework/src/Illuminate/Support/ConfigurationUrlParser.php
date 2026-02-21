@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，支持，可枚举接口
+ * Illuminate，支持，配置 Url解析器
  */
 
 namespace Illuminate\Support;
@@ -27,6 +27,7 @@ class ConfigurationUrlParser
 
     /**
      * Parse the database configuration, hydrating options using a database configuration URL if possible.
+	 * 如果可能的话,解析数据库配置,使用数据库配置URL
      *
      * @param  array|string  $config
      * @return array
@@ -58,6 +59,7 @@ class ConfigurationUrlParser
 
     /**
      * Get the primary database connection options.
+	 * 获取主数据库连接选项
      *
      * @param  array  $url
      * @return array
@@ -78,6 +80,7 @@ class ConfigurationUrlParser
 
     /**
      * Get the database driver from the URL.
+	 * 从URL获取数据库驱动程序
      *
      * @param  array  $url
      * @return string|null
@@ -95,6 +98,7 @@ class ConfigurationUrlParser
 
     /**
      * Get the database name from the URL.
+	 * 从URL获取数据库名称
      *
      * @param  array  $url
      * @return string|null
@@ -108,6 +112,7 @@ class ConfigurationUrlParser
 
     /**
      * Get all of the additional database options from the query string.
+	 * 从查询字符串中获取所有其他数据库选项
      *
      * @param  array  $url
      * @return array
@@ -129,6 +134,7 @@ class ConfigurationUrlParser
 
     /**
      * Parse the string URL to an array of components.
+	 * 将字符串URL解析为组件数组
      *
      * @param  string  $url
      * @return array
@@ -150,6 +156,7 @@ class ConfigurationUrlParser
 
     /**
      * Convert string casted values to their native types.
+	 * 将字符串强制转换值转换为其本机类型
      *
      * @param  mixed  $value
      * @return mixed
@@ -175,6 +182,7 @@ class ConfigurationUrlParser
 
     /**
      * Get all of the current drivers aliases.
+	 * 找出当前所有司机的化名
      *
      * @return array
      */
@@ -185,6 +193,7 @@ class ConfigurationUrlParser
 
     /**
      * Add the given driver alias to the driver aliases array.
+	 * 将给定的驱动别名添加到驱动别名数组中
      *
      * @param  string  $alias
      * @param  string  $driver

@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，参数包
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -15,6 +18,7 @@ use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 /**
  * ParameterBag is a container for key/value pairs.
+ * ParameterBag 是键/值对的容器
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -24,6 +28,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
 {
     /**
      * Parameter storage.
+	 * 参数存储器
      */
     protected $parameters;
 
@@ -34,6 +39,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
 
     /**
      * Returns the parameters.
+	 * 返回参数
      *
      * @param string|null $key The name of the parameter to return or null to get them all
      *

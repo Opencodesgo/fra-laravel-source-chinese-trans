@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，HttpFoundation，测试，约束，响应头相同
+ */
 
 /*
  * This file is part of the Symfony package.

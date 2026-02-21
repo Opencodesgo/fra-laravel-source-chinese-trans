@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，Console，样式，样式接口
+ */
 
 /*
  * This file is part of the Symfony package.
@@ -13,6 +16,7 @@ namespace Symfony\Component\Console\Style;
 
 /**
  * Output style helpers.
+ * 输出样式助手
  *
  * @author Kevin Bond <kevinbond@gmail.com>
  */

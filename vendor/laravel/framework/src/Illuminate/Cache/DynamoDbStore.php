@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，缓存，DynamoDb存储
+ * Illuminate，缓存，DynamoDb 存储
  */
 
 namespace Illuminate\Cache;

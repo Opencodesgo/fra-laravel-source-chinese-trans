@@ -1,6 +1,6 @@
 <?php
 /**
- * Illuminate，基础，异常，哎呀处理程序
+ * Illuminate，基础，异常，Whoops 处理程序
  */
 
 namespace Illuminate\Foundation\Exceptions;
@@ -13,6 +13,7 @@ class WhoopsHandler
 {
     /**
      * Create a new Whoops handler for debug mode.
+	 * 为调试模式创建一个新的Whoops处理程序
      *
      * @return \Whoops\Handler\PrettyPageHandler
      */
@@ -29,6 +30,7 @@ class WhoopsHandler
 
     /**
      * Register the application paths with the handler.
+	 * 与处理程序注册应用程序路径
      *
      * @param  \Whoops\Handler\PrettyPageHandler  $handler
      * @return $this
@@ -44,6 +46,7 @@ class WhoopsHandler
 
     /**
      * Get the application paths except for the "vendor" directory.
+	 * 获取应用程序路径,除了"供应商"目录
      *
      * @return array
      */
@@ -57,6 +60,7 @@ class WhoopsHandler
 
     /**
      * Register the blacklist with the handler.
+	 * 向处理程序注册黑名单
      *
      * @param  \Whoops\Handler\PrettyPageHandler  $handler
      * @return $this
@@ -74,6 +78,7 @@ class WhoopsHandler
 
     /**
      * Register the editor with the handler.
+	 * 用处理程序注册编辑器
      *
      * @param  \Whoops\Handler\PrettyPageHandler  $handler
      * @return $this
