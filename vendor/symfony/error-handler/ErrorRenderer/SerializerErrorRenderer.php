@@ -1,4 +1,7 @@
 <?php
+/**
+ * Symfony，Component，ErrorHandler，致命错误，Cli错误渲染器
+ */
 
 /*
  * This file is part of the Symfony package.
