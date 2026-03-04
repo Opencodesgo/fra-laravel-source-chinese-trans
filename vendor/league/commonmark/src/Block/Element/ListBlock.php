@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Block，要素，列表块
- */
 
 /*
  * This file is part of the league/commonmark package.
@@ -96,7 +93,6 @@ class ListBlock extends AbstractBlock
             }
 
             // check for non-final list item ending with blank line:
-			// 检查以空行结尾的非最终列表项
             if ($item->endsWithBlankLine() && $item !== $this->lastChild()) {
                 $this->tight = false;
                 break;

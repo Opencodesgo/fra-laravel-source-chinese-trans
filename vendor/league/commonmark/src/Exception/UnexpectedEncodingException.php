@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Exception，编码异常
- */
 
 /*
  * This file is part of the league/commonmark package.

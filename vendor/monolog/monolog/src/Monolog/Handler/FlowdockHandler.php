@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，Flowdock 处理程序
- */
-
 /*
  * This file is part of the Monolog package.
  *
@@ -22,7 +18,6 @@ use Monolog\Formatter\FormatterInterface;
 
 /**
  * Sends notifications through the Flowdock push API
- * 通过Flowdock推送API发送通知
  *
  * This must be configured with a FlowdockFormatter instance via setFormatter()
  *

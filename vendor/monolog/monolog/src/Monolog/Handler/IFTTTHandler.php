@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，IFTTT 处理程序
- */
-
 /*
  * This file is part of the Monolog package.
  *
@@ -20,7 +16,6 @@ use Monolog\Utils;
 
 /**
  * IFTTTHandler uses cURL to trigger IFTTT Maker actions
- * IFTTTHandler使用cURL来触发IFTTT Maker动作
  *
  * Register a secret key and trigger/event name at https://ifttt.com/maker
  *

@@ -1,6 +1,6 @@
 <?php
 /**
- * League，Flysystem，Adapter，Polyfill，流式写特性
+ * League，Flysystem，适配器，Polyfill，流式写特性
  */
 
 namespace League\Flysystem\Adapter\Polyfill;
@@ -12,7 +12,6 @@ trait StreamedWritingTrait
 {
     /**
      * Stream fallback delegator.
-	 * 流回退委托
      *
      * @param string   $path
      * @param resource $resource
@@ -32,7 +31,6 @@ trait StreamedWritingTrait
 
     /**
      * Write using a stream.
-	 * 使用流写入
      *
      * @param string   $path
      * @param resource $resource
@@ -47,7 +45,6 @@ trait StreamedWritingTrait
 
     /**
      * Update a file using a stream.
-	 * 使用流更新文件
      *
      * @param string   $path
      * @param resource $resource
@@ -61,7 +58,6 @@ trait StreamedWritingTrait
     }
 
     // Required abstract methods
-	// 包含抽象方法
     abstract public function write($pash, $contents, Config $config);
     abstract public function update($pash, $contents, Config $config);
 }

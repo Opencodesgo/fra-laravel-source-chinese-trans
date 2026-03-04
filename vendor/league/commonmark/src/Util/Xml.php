@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Util，Xml
- */
 
 /*
  * This file is part of the league/commonmark package.
@@ -19,7 +16,6 @@ namespace League\CommonMark\Util;
 
 /**
  * Utility class for handling/generating XML and HTML
- * 用于处理/生成XML和HTML的实用程序类
  */
 final class Xml
 {

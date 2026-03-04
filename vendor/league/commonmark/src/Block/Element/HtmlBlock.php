@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Block，要素，Html 块
- */
 
 /*
  * This file is part of the league/commonmark package.

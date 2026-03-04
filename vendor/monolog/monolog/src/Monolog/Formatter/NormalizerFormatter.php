@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /**
- * Monolog，Formatter，Normalizer 格式化器
+ * Monolog，格式化，Normalizer 格式化器
  */
 
 /*
@@ -86,7 +86,6 @@ class NormalizerFormatter implements FormatterInterface
 
     /**
      * The maximum number of normalization levels to go through
-	 * 标准化水平的最大数量
      */
     public function getMaxNormalizeDepth(): int
     {
@@ -256,7 +255,6 @@ class NormalizerFormatter implements FormatterInterface
 
     /**
      * Return the JSON representation of a value
-	 * 返回一个值的JSON表示
      *
      * @param  mixed             $data
      * @throws \RuntimeException if encoding fails and errors are not ignored

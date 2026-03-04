@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Input，Markdown 输入接口
- *
 
 /*
  * This file is part of the league/commonmark package.

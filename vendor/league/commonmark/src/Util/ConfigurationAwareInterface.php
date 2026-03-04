@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Util，配置感知接口
- */
 
 /*
  * This file is part of the league/commonmark package.
@@ -16,7 +13,6 @@ namespace League\CommonMark\Util;
 
 /**
  * Implement this class to inject the configuration where needed
- * 实现这个类以在需要的地方注入配置
  */
 interface ConfigurationAwareInterface
 {

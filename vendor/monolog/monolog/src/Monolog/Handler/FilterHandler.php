@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，Filter 处理程序
- */
-
 /*
  * This file is part of the Monolog package.
  *

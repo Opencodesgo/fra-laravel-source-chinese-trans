@@ -1,7 +1,4 @@
 <?php declare(strict_types=1);
-/**
- * Monolog，Handler，Chrome PHP 处理程序
- */
 
 /*
  * This file is part of the Monolog package.
@@ -21,7 +18,6 @@ use Monolog\Utils;
 
 /**
  * Handler sending logs to the ChromePHP extension (http://www.chromephp.com/)
- * 处理程序发送日志到ChromePHP扩展
  *
  * This also works out of the box with Firefox 43+
  *
@@ -35,7 +31,6 @@ class ChromePHPHandler extends AbstractProcessingHandler
 
     /**
      * Version of the extension
-	 * 扩展版本
      */
     protected const VERSION = '4.0';
 
@@ -54,10 +49,8 @@ class ChromePHPHandler extends AbstractProcessingHandler
 
     /**
      * Tracks whether we sent too much data
-	 * 追踪我们是否发送了太多数据
      *
      * Chrome limits the headers to 4KB, so when we sent 3KB we stop sending
-	 * Chrome限制头为4KB，所以当我们发送3KB时，我们停止发送。
      *
      * @var bool
      */
@@ -118,7 +111,6 @@ class ChromePHPHandler extends AbstractProcessingHandler
 
     /**
      * Creates & sends header for a record
-	 * 创建并发送记录的标头
      *
      * @see sendHeader()
      * @see send()
@@ -192,7 +184,6 @@ class ChromePHPHandler extends AbstractProcessingHandler
 
     /**
      * Verifies if the headers are accepted by the current user agent
-	 * 验证当前用户代理是否接受标头
      */
     protected function headersAccepted(): bool
     {

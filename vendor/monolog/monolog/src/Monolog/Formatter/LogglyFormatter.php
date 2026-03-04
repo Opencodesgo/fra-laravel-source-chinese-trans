@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /**
- * Monolog，Formatter，Loggly 格式化器
+ * Monolog，格式化，Loggly 格式化器
  */
 
 /*
@@ -34,7 +34,6 @@ class LogglyFormatter extends JsonFormatter
 
     /**
      * Appends the 'timestamp' parameter for indexing by Loggly.
-	 * 将'时间戳'参数附加为索引索引
      *
      * @see https://www.loggly.com/docs/automated-parsing/#json
      * @see \Monolog\Formatter\JsonFormatter::format()

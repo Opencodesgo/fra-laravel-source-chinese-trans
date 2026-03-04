@@ -63,7 +63,6 @@ class Util
 
     /**
      * Map result arrays.
-	 * 映射结果数组
      *
      * @param array $object
      * @param array $map
@@ -102,7 +101,6 @@ class Util
 
     /**
      * Normalize relative directories in a path.
-	 * 规范化路径中的相对目录
      *
      * @param string $path
      *
@@ -144,7 +142,6 @@ class Util
 
     /**
      * Rejects unprintable characters and invalid unicode characters.
-	 * 拒绝不可打印的字符和无效的unicode字符
      *
      * @param string $path
      *
@@ -205,7 +202,6 @@ class Util
 
     /**
      * Emulate directories.
-	 * 模仿目录
      *
      * @param array $listing
      *
@@ -231,7 +227,6 @@ class Util
 
     /**
      * Ensure a Config instance.
-	 * 确保一个Config实例
      *
      * @param null|array|Config $config
      *

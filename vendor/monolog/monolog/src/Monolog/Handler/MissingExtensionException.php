@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，扩展丢失异常
- */
-
 /*
  * This file is part of the Monolog package.
  *

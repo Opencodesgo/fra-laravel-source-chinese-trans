@@ -1,6 +1,6 @@
 <?php
 /**
- * League，CommonMark，转化器接口
+ * League，CommonMark，数据接口
  */
 
 /*

@@ -101,7 +101,6 @@ class HtmlElement
 
     /**
      * Sets the inner contents of the tag (must be pre-escaped if needed)
-	 * 设置标签的内部内容(必要时必须预先清除)
      *
      * @param HtmlElement|HtmlElement[]|string $contents
      *

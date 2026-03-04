@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，可格式化的处理程序Trait
- */
-
 /*
  * This file is part of the Monolog package.
  *
@@ -20,7 +16,6 @@ use Monolog\Formatter\LineFormatter;
 
 /**
  * Helper trait for implementing FormattableInterface
- * 实现FormattableInterface的辅助特性
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  */
@@ -55,7 +50,6 @@ trait FormattableHandlerTrait
 
     /**
      * Gets the default formatter.
-	 * 获取默认格式化程序
      *
      * Overwrite this if the LineFormatter is not a good default for your handler.
      */

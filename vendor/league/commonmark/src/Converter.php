@@ -24,7 +24,6 @@ class Converter implements ConverterInterface
 {
     /**
      * The document parser instance.
-	 * 文档解析器实例
      *
      * @var DocParserInterface
      */
@@ -32,7 +31,6 @@ class Converter implements ConverterInterface
 
     /**
      * The html renderer instance.
-	 * html渲染器实例
      *
      * @var ElementRendererInterface
      */
@@ -40,7 +38,6 @@ class Converter implements ConverterInterface
 
     /**
      * Create a new commonmark converter instance.
-	 * 创建一个新的commonmark转换器实例
      *
      * @param DocParserInterface       $docParser
      * @param ElementRendererInterface $htmlRenderer
@@ -75,7 +72,6 @@ class Converter implements ConverterInterface
 
     /**
      * Converts CommonMark to HTML.
-	 * 创建一个新的commonmark转换器实例
      *
      * @see Converter::convertToHtml
      *

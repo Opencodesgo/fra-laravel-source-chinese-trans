@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，指针交叉，渠道级激活策略
- */
-
 /*
  * This file is part of the Monolog package.
  *

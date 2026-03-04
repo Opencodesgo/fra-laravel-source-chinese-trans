@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Util，数组集合
- */
 
 /*
  * This file is part of the league/commonmark package.
@@ -36,7 +33,6 @@ class ArrayCollection implements \IteratorAggregate, \Countable, \ArrayAccess
 
     /**
      * Constructor
-	 * 构造方法
      *
      * @param array<int|string, mixed> $elements
      *
@@ -73,7 +69,6 @@ class ArrayCollection implements \IteratorAggregate, \Countable, \ArrayAccess
 
     /**
      * Retrieve an external iterator
-	 * 检索外部迭代器
      *
      * @return \ArrayIterator<int|string, mixed>
      */
@@ -234,7 +229,6 @@ class ArrayCollection implements \IteratorAggregate, \Countable, \ArrayAccess
 
     /**
      * Whether an offset exists
-	 * 是否存在偏移量
      *
      * @param int|string $offset An offset to check for.
      *

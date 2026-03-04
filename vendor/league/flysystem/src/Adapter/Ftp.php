@@ -1,6 +1,6 @@
 <?php
 /**
- * League，Flysystem，Adapter，Ftp
+ * League，Flysystem，适配器，Ftp
  */
 
 namespace League\Flysystem\Adapter;
@@ -214,7 +214,6 @@ class Ftp extends AbstractFtpAdapter
         // This is needed when creating directories and
         // initial root was a relative path, else the root
         // would be relative to the chdir'd path.
-		// 存储绝对路径以供进一步参考。
         $this->root = ftp_pwd($connection);
     }
 
@@ -246,7 +245,6 @@ class Ftp extends AbstractFtpAdapter
 
     /**
      * Disconnect from the FTP server.
-	 * 断开FTP服务器连接
      */
     public function disconnect()
     {

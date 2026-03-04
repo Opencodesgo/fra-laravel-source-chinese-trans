@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Block，要素，标题 
- */
 
 /*
  * This file is part of the league/commonmark package.
@@ -79,6 +76,5 @@ class Heading extends AbstractStringContainerBlock implements InlineContainerInt
     public function handleRemainingContents(ContextInterface $context, Cursor $cursor)
     {
         // nothing to do; contents were already added via the constructor.
-		// 无事可做，内容已经通过构造函数添加了。
     }
 }

@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，可处理处理程序接口
- */
-
 /*
  * This file is part of the Monolog package.
  *

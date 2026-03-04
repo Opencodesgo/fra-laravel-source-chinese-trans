@@ -115,7 +115,6 @@ final class InlineParserEngine
         $inlineContext->getContainer()->appendChild($node);
 
         // Add entry to stack to this opener
-		// 添加入口到这个开瓶器
         if ($canOpen || $canClose) {
             $delimiter = new Delimiter($character, $numDelims, $node, $canOpen, $canClose);
             $inlineContext->getDelimiterStack()->push($delimiter);

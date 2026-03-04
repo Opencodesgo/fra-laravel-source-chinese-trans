@@ -36,7 +36,6 @@ abstract class Handler
 
     /**
      * Check whether the entree is a directory.
-	 * 检查entree是否是一个目录
      *
      * @return bool
      */
@@ -47,7 +46,6 @@ abstract class Handler
 
     /**
      * Check whether the entree is a file.
-	 * 检查entree是否为文件
      *
      * @return bool
      */

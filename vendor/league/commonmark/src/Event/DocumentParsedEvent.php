@@ -1,7 +1,4 @@
 <?php
-/**
- * League，CommonMark，Event，文档解析事件
- */
 
 /*
  * This file is part of the league/commonmark package.
@@ -18,7 +15,6 @@ use League\CommonMark\Block\Element\Document;
 
 /**
  * Event dispatched when the document has been fully parsed
- * 文档完全解析后分派的事件
  */
 final class DocumentParsedEvent extends AbstractEvent
 {

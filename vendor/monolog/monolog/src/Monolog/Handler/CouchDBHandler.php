@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，CouchDB 处理程序
- */
-
 /*
  * This file is part of the Monolog package.
  *
@@ -21,7 +17,6 @@ use Monolog\Logger;
 
 /**
  * CouchDB handler
- * CouchDB 处理程序
  *
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
  */

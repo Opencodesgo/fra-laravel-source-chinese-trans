@@ -1,7 +1,4 @@
 <?php
-/**
- * Cron，月日字段
- */
 
 namespace Cron;
 
@@ -40,7 +37,6 @@ class DayOfMonthField extends AbstractField
 
     /**
      * Get the nearest day of the week for a given day in a month
-	 * 获取一个月中给定的某一天中最接近的一天
      *
      * @param int $currentYear  Current year
      * @param int $currentMonth Current month

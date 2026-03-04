@@ -1,7 +1,4 @@
 <?php
-/**
- * League，Flysystem，Plugin，抽象插件
- */
 
 namespace League\Flysystem\Plugin;
 
@@ -17,7 +14,6 @@ abstract class AbstractPlugin implements PluginInterface
 
     /**
      * Set the Filesystem object.
-	 * 设置文件系统对象
      *
      * @param FilesystemInterface $filesystem
      */

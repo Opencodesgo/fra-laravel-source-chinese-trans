@@ -1,9 +1,5 @@
 <?php declare(strict_types=1);
 
-/**
- * Monolog，Handler，Loggly 处理程序
- */
-
 /*
  * This file is part of the Monolog package.
  *
@@ -23,7 +19,6 @@ use CurlHandle;
 
 /**
  * Sends errors to Loggly.
- * 将错误发送给Loggly
  *
  * @author Przemek Sobstel <przemek@sobstel.org>
  * @author Adam Pancutt <adam@pancutt.com>
