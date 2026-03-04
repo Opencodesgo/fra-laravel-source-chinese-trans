@@ -38,7 +38,7 @@ class SqlServerConnection extends Connection
             // We'll simply execute the given callback within a try / catch block
             // and if we catch any exception we can rollback the transaction
             // so that none of the changes are persisted to the database.
-			// 我们将简单地在一个try / catch块中执行给定的回调
+			// 我们将简单地在一个try / catch块中执行给定的回调。
             try {
                 $result = $callback($this);
 

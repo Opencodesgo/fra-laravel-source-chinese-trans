@@ -22,6 +22,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Formats an exception using Serializer for rendering.
+ * 使用Serializer格式化异常以进行呈现
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */

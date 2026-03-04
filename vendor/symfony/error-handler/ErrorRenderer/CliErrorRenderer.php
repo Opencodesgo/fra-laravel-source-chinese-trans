@@ -1,6 +1,6 @@
 <?php
 /**
- * Symfony，Component，ErrorHandler，致命错误，Cli错误渲染器
+ * Symfony，Component，ErrorHandler，错误呈现，Cli错误渲染器
  */
 
 /*
