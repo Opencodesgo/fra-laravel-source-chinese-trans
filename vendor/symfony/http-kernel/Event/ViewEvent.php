@@ -31,7 +31,6 @@ final class ViewEvent extends RequestEvent
 {
     /**
      * The return value of the controller.
-	 * 控制器的返回值
      *
      * @var mixed
      */
@@ -46,7 +45,6 @@ final class ViewEvent extends RequestEvent
 
     /**
      * Returns the return value of the controller.
-	 * 返回控制器的返回值
      *
      * @return mixed
      */

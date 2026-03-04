@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Symfony，Component，Finder，Glob
+ * Symfony，Component，发现者，Glob
  */
 
 /*
@@ -16,7 +17,6 @@ namespace Symfony\Component\Finder;
 
 /**
  * Glob matches globbing patterns against text.
- * Glob根据文本匹配Glob模式
  *
  *     if match_glob("foo.*", "foo.bar") echo "matched\n";
  *

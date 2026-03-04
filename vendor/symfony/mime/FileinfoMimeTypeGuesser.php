@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Symfony，Component，Mime，Fileinfo Mime类型猜测器
+ * Symfony，Component，Mime，Mime类型
  */
 
 /*

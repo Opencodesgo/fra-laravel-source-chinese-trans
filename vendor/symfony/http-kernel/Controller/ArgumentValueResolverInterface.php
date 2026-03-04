@@ -19,7 +19,6 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 
 /**
  * Responsible for resolving the value of an argument based on its metadata.
- * 负责根据参数的元数据解析参数的值
  *
  * @author Iltar van der Berg <kjarli@gmail.com>
  */
@@ -27,7 +26,6 @@ interface ArgumentValueResolverInterface
 {
     /**
      * Whether this resolver can resolve the value for the given ArgumentMetadata.
-	 * 此解析器是否可以解析给定ArgumentMetadata的值
      *
      * @return bool
      */
@@ -35,7 +33,6 @@ interface ArgumentValueResolverInterface
 
     /**
      * Returns the possible value(s).
-	 * 返回可能的值
      *
      * @return iterable
      */

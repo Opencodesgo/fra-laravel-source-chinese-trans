@@ -34,7 +34,6 @@ class HeaderUtils
 
     /**
      * Splits an HTTP header by one or more separators.
-	 * 通过一个或多个分隔符拆分HTTP标头
      *
      * Example:
      *

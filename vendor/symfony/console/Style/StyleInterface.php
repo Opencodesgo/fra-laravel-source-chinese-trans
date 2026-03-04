@@ -24,7 +24,6 @@ interface StyleInterface
 {
     /**
      * Formats a command title.
-	 * 格式化命令标题
      */
     public function title(string $message);
 

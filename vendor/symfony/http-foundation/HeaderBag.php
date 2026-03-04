@@ -1,6 +1,6 @@
 <?php
 /**
- * Symfony，Component，HttpFoundation，Header 包
+ * Symfony，Component，HttpFoundation，Header包
  */
 
 /*
@@ -67,7 +67,6 @@ class HeaderBag implements \IteratorAggregate, \Countable
 
     /**
      * Returns the headers.
-	 * 返回标头
      *
      * @param string|null $key The name of the headers to return or null to get them all
      *
@@ -84,7 +83,6 @@ class HeaderBag implements \IteratorAggregate, \Countable
 
     /**
      * Returns the parameter keys.
-	 * 返回参数键
      *
      * @return string[]
      */

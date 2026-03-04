@@ -11,7 +11,6 @@ class Processor
 {
     /**
      * Split a string into separate properties
-	 * 将字符串拆分为单独的属性
      *
      * @param string $propertiesString
      *

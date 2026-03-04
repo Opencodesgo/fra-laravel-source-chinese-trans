@@ -33,7 +33,6 @@ interface KernelInterface extends HttpKernelInterface
 {
     /**
      * Returns an array of bundles to register.
-	 * 返回要注册的bundle数组
      *
      * @return iterable<mixed, BundleInterface>
      */
@@ -41,19 +40,16 @@ interface KernelInterface extends HttpKernelInterface
 
     /**
      * Loads the container configuration.
-	 * 加载容器配置
      */
     public function registerContainerConfiguration(LoaderInterface $loader);
 
     /**
      * Boots the current kernel.
-	 * 引导当前内核
      */
     public function boot();
 
     /**
      * Shutdowns the kernel.
-	 * 关闭内核
      *
      * This method is mainly useful when doing functional testing.
      */
@@ -61,7 +57,6 @@ interface KernelInterface extends HttpKernelInterface
 
     /**
      * Gets the registered bundle instances.
-	 * 获取已注册的包实例
      *
      * @return array<string, BundleInterface>
      */
@@ -150,7 +145,6 @@ interface KernelInterface extends HttpKernelInterface
 
     /**
      * Gets the charset of the application.
-	 * 获取应用程序的字符集
      *
      * @return string
      */

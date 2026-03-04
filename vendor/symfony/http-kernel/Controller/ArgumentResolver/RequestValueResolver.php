@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，HttpKernel，控制器，参数解析器，请求值解析器
- */
 
 /*
  * This file is part of the Symfony package.
@@ -20,7 +17,6 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 
 /**
  * Yields the same instance as the request object passed along.
- * 产生与传递的请求对象相同的实例
  *
  * @author Iltar van der Berg <kjarli@gmail.com>
  */

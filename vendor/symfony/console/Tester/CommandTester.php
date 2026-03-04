@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Console，测试员，命令测试
- */
 
 /*
  * This file is part of the Symfony package.
@@ -19,7 +16,6 @@ use Symfony\Component\Console\Input\ArrayInput;
 
 /**
  * Eases the testing of console commands.
- * 简化控制台命令的测试
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Robin Chalas <robin.chalas@gmail.com>
@@ -37,7 +33,6 @@ class CommandTester
 
     /**
      * Executes the command.
-	 * 执行命令
      *
      * Available execution options:
      *

@@ -39,7 +39,6 @@ abstract class Extension extends BaseExtension
 
     /**
      * Adds annotated classes to the class cache.
-	 * 将带注释的类添加到类缓存中
      *
      * @param array $annotatedClasses An array of class patterns
      */

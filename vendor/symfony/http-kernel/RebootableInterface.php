@@ -16,7 +16,6 @@ namespace Symfony\Component\HttpKernel;
 
 /**
  * Allows the Kernel to be rebooted using a temporary cache directory.
- * 允许使用临时缓存目录重新引导内核
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */
@@ -24,7 +23,6 @@ interface RebootableInterface
 {
     /**
      * Reboots a kernel.
-	 * 重启内核
      *
      * The getBuildDir() method of a rebootable kernel should not be called
      * while building the container. Use the %kernel.build_dir% parameter instead.

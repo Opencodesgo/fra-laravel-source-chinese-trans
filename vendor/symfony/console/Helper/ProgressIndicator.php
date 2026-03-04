@@ -79,7 +79,6 @@ class ProgressIndicator
 
     /**
      * Sets the current indicator message.
-	 * 设置当前指示器消息
      */
     public function setMessage(?string $message)
     {

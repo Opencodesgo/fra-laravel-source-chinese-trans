@@ -66,7 +66,6 @@ class ProfilerListener implements EventSubscriberInterface
 
     /**
      * Handles the onKernelException event.
-	 * 处理onKernelException事件
      */
     public function onKernelException(ExceptionEvent $event)
     {
@@ -79,7 +78,6 @@ class ProfilerListener implements EventSubscriberInterface
 
     /**
      * Handles the onKernelResponse event.
-	 * 处理onKernelResponse事件
      */
     public function onKernelResponse(ResponseEvent $event)
     {

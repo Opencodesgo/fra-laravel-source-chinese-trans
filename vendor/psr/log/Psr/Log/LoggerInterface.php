@@ -1,6 +1,6 @@
 <?php
 /**
- * Psr，Log，日志接口
+ * Psr，日志，Log，日志接口
  */
 
 namespace Psr\Log;
@@ -111,7 +111,6 @@ interface LoggerInterface
 
     /**
      * Detailed debug information.
-	 * 详细的调试信息
      *
      * @param string  $message
      * @param mixed[] $context

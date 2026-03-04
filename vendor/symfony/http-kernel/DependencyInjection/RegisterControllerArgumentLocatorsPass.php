@@ -105,7 +105,6 @@ class RegisterControllerArgumentLocatorsPass implements CompilerPassInterface
             }
 
             // validate and collect explicit per-actions and per-arguments service references
-			// 验证并收集显式的按操作和按参数的服务引用
             foreach ($tags as $attributes) {
                 if (!isset($attributes['action']) && !isset($attributes['argument']) && !isset($attributes['id'])) {
                     $autowire = true;

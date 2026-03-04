@@ -1,15 +1,10 @@
 <?php
-/**
- * Psr，EventDispatcher，事件调度接口
- */
-
 declare(strict_types=1);
 
 namespace Psr\EventDispatcher;
 
 /**
  * Defines a dispatcher for events.
- * 定义事件调度程序
  */
 interface EventDispatcherInterface
 {

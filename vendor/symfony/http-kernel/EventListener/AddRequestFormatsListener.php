@@ -37,7 +37,6 @@ class AddRequestFormatsListener implements EventSubscriberInterface
 
     /**
      * Adds request formats.
-	 * 添加请求格式
      */
     public function onKernelRequest(RequestEvent $event)
     {

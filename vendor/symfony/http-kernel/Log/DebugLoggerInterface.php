@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * DebugLoggerInterface.
- * 调试日志接口
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -38,7 +37,6 @@ interface DebugLoggerInterface
 
     /**
      * Returns the number of errors.
-	 * 返回错误的数目
      *
      * @return int
      */
@@ -46,7 +44,6 @@ interface DebugLoggerInterface
 
     /**
      * Removes all log records.
-	 * 删除所有日志记录
      */
     public function clear();
 }

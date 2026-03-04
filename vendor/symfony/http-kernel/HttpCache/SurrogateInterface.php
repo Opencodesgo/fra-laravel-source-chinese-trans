@@ -37,7 +37,6 @@ interface SurrogateInterface
 
     /**
      * Checks that at least one surrogate has Surrogate capability.
-	 * 检查是否至少有一个代理具有代理能力
      *
      * @return bool
      */
@@ -45,13 +44,11 @@ interface SurrogateInterface
 
     /**
      * Adds Surrogate-capability to the given Request.
-	 * 向给定请求添加代理功能
      */
     public function addSurrogateCapability(Request $request);
 
     /**
      * Adds HTTP headers to specify that the Response needs to be parsed for Surrogate.
-	 * 添加HTTP标头，以指定需要为代理解析响应。
      *
      * This method only adds an Surrogate HTTP header if the Response has some Surrogate tags.
      */
@@ -59,7 +56,6 @@ interface SurrogateInterface
 
     /**
      * Checks that the Response needs to be parsed for Surrogate tags.
-	 * 检查是否需要为代理标记解析响应
      *
      * @return bool
      */
@@ -67,7 +63,6 @@ interface SurrogateInterface
 
     /**
      * Renders a Surrogate tag.
-	 * 呈现代理标记
      *
      * @param string|null $alt     An alternate URI
      * @param string      $comment A comment to add as an esi:include tag
@@ -78,7 +73,6 @@ interface SurrogateInterface
 
     /**
      * Replaces a Response Surrogate tags with the included resource content.
-	 * 用包含的资源内容替换响应代理标记
      *
      * @return Response
      */
@@ -86,7 +80,6 @@ interface SurrogateInterface
 
     /**
      * Handles a Surrogate from the cache.
-	 * 处理缓存中的代理
      *
      * @param string $alt An alternative URI
      *

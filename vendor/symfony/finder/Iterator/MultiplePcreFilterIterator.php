@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Finder，迭代器，多重过滤器迭代器
- */
 
 /*
  * This file is part of the Symfony package.
@@ -16,7 +13,6 @@ namespace Symfony\Component\Finder\Iterator;
 
 /**
  * MultiplePcreFilterIterator filters files using patterns (regexps, globs or strings).
- * MultiplePcreFilterIterator使用模式（regexp， globs或字符串）过滤文件
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *

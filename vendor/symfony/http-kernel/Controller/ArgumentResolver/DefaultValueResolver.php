@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，HttpKernel，控制器，参数解析器，默认值解析器
- */
 
 /*
  * This file is part of the Symfony package.
@@ -20,7 +17,6 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 
 /**
  * Yields the default value defined in the action signature when no value has been given.
- * 当未给出任何值时，产生动作签名中定义的默认值。
  *
  * @author Iltar van der Berg <kjarli@gmail.com>
  */

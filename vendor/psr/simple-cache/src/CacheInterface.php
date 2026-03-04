@@ -1,7 +1,4 @@
 <?php
-/**
- * Psr，SimpleCache，缓存接口
- */
 
 namespace Psr\SimpleCache;
 
@@ -9,7 +6,6 @@ interface CacheInterface
 {
     /**
      * Fetches a value from the cache.
-	 * 从缓存中获取一个值
      *
      * @param string $key     The unique key of this item in the cache.
      * @param mixed  $default Default value to return if the key does not exist.

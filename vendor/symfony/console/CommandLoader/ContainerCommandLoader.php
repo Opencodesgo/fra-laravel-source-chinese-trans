@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Console，命令加载，容器命令加载器
- */
 
 /*
  * This file is part of the Symfony package.
@@ -19,7 +16,6 @@ use Symfony\Component\Console\Exception\CommandNotFoundException;
 
 /**
  * Loads commands from a PSR-11 container.
- * 从PSR-11容器加载命令
  *
  * @author Robin Chalas <robin.chalas@gmail.com>
  */

@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，ErrorHandler，错误，未定义方法错误
- */
 
 /*
  * This file is part of the Symfony package.

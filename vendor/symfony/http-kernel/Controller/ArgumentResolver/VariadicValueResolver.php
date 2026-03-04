@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，HttpKernel，控制器，参数解析器，可变值解析器
- */
 
 /*
  * This file is part of the Symfony package.
@@ -20,7 +17,6 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 
 /**
  * Yields a variadic argument's values from the request attributes.
- * 从请求属性中产生可变参数的值
  *
  * @author Iltar van der Berg <kjarli@gmail.com>
  */

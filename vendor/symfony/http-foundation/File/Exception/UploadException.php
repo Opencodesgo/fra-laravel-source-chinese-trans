@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，HttpFoundation，文件，异常，上传异常
- */
 
 /*
  * This file is part of the Symfony package.
@@ -16,7 +13,6 @@ namespace Symfony\Component\HttpFoundation\File\Exception;
 
 /**
  * Thrown when an error occurred during file upload.
- * 当文件上传过程中发生错误时抛出
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */

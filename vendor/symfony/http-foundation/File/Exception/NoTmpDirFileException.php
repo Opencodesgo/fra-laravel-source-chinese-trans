@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，HttpFoundation，文件，异常，无TmpDir文件异常
- */
 
 /*
  * This file is part of the Symfony package.

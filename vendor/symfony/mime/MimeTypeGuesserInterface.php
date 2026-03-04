@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Symfony，Component，Mime，Mime Type guess接口
  */

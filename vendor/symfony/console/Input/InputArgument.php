@@ -19,7 +19,6 @@ use Symfony\Component\Console\Exception\LogicException;
 
 /**
  * Represents a command line argument.
- * 表示命令行参数
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -59,7 +58,6 @@ class InputArgument
 
     /**
      * Returns the argument name.
-	 * 返回参数名称
      *
      * @return string
      */

@@ -12,7 +12,6 @@ class Processor
 {
     /**
      * Splits a string into separate rules
-	 * 将字符串拆分为单独的规则
      *
      * @param string $rulesString
      *

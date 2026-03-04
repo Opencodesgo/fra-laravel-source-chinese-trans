@@ -1,6 +1,6 @@
 <?php
 /**
- * Symfony，Component，EventDispatcher，事件订阅者接口
+ * Symfony，Component，事件调度器，事件订阅者接口
  */
 
 /*
@@ -29,7 +29,6 @@ interface EventSubscriberInterface
 {
     /**
      * Returns an array of event names this subscriber wants to listen to.
-	 * 返回此订阅者想要收听的事件名称数组
      *
      * The array keys are event names and the value can be:
      *

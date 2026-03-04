@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Console，帮助，进程状态助手
- *
 
 /*
  * This file is part of the Symfony package.
@@ -21,7 +18,6 @@ use Symfony\Component\Process\Process;
 
 /**
  * The ProcessHelper class provides helpers to run external processes.
- * ProcessHelper类提供了运行外部进程的帮助程序
  *
  * @author Fabien Potencier <fabien@symfony.com>
  *
@@ -31,7 +27,6 @@ class ProcessHelper extends Helper
 {
     /**
      * Runs an external process.
-	 * 运行外部进程
      *
      * @param array|Process $cmd      An instance of Process or an array of the command and arguments
      * @param callable|null $callback A PHP callback to run whenever there is some

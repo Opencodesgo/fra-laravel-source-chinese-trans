@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Translation，数据采集器翻译
- */
 
 /*
  * This file is part of the Symfony package.
@@ -114,7 +111,6 @@ class Translator implements TranslatorInterface, TranslatorBagInterface, LocaleA
 
     /**
      * Adds a Loader.
-	 * 添加加载
      *
      * @param string $format The name of the loader (@see addResource())
      */

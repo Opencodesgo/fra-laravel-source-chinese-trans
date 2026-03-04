@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Routing，编译后的路由
- */
 
 /*
  * This file is part of the Symfony package.

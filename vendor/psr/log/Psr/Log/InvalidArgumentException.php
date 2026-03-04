@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Psr，Log，无效参数异常
+ * Psr，日志，Log，无效参数异常
  */
 
 namespace Psr\Log;

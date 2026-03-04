@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，String，String
- */
 
 /*
  * This file is part of the Symfony package.
@@ -20,7 +17,6 @@ use Symfony\Component\String\Exception\RuntimeException;
 
 /**
  * Represents a string of abstract Unicode characters.
- * 表示抽象Unicode字符的字符串
  *
  * Unicode defines 3 types of "characters" (bytes, code points and grapheme clusters).
  * This class is the abstract type to use as a type-hint when the logic you want to

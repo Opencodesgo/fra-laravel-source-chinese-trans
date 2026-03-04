@@ -1,6 +1,7 @@
 <?php
+
 /**
- * Symfony，Component，Finder，Gitignore
+ * Symfony，Component，发现者，配置
  */
 
 /*

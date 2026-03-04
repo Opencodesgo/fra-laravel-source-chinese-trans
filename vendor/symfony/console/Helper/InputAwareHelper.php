@@ -19,7 +19,6 @@ use Symfony\Component\Console\Input\InputInterface;
 
 /**
  * An implementation of InputAwareInterface for Helpers.
- * InputAwareInterface for Helpers的实现
  *
  * @author Wouter J <waldio.webdesign@gmail.com>
  */

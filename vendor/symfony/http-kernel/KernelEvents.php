@@ -25,7 +25,6 @@ use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 /**
  * Contains all events thrown in the HttpKernel component.
- * 包含HttpKernel组件中抛出的所有事件
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
@@ -116,7 +115,6 @@ final class KernelEvents
 
     /**
      * Event aliases.
-	 * 事件别名
      *
      * These aliases can be consumed by RegisterListenersPass.
      */

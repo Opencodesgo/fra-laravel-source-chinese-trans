@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Finder，迭代器，路径过滤迭代器
- */
 
 /*
  * This file is part of the Symfony package.

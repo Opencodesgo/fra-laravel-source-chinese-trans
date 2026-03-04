@@ -54,7 +54,6 @@ class TableStyle
 
     /**
      * Sets padding character, used for cell padding.
-	 * 设置填充字符，用于单元格填充。
      *
      * @return $this
      */
@@ -71,7 +70,6 @@ class TableStyle
 
     /**
      * Gets padding character, used for cell padding.
-	 * 获取填充字符，用于单元格填充。
      *
      * @return string
      */

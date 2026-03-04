@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，EventDispatcher，依赖注入组件，添加事件别名Pass
- */
 
 /*
  * This file is part of the Symfony package.

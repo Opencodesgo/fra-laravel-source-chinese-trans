@@ -18,7 +18,6 @@ use Symfony\Component\HttpKernel\Attribute\ArgumentInterface;
 
 /**
  * Responsible for storing metadata of an argument.
- * 负责存储参数的元数据
  *
  * @author Iltar van der Berg <kjarli@gmail.com>
  */
@@ -56,7 +55,6 @@ class ArgumentMetadata
 
     /**
      * Returns the name as given in PHP, $foo would yield "foo".
-	 * 返回PHP中给定的名称，$foo将产生"foo"。
      *
      * @return string
      */
@@ -67,10 +65,8 @@ class ArgumentMetadata
 
     /**
      * Returns the type of the argument.
-	 * 返回参数的类型
      *
      * The type is the PHP class in 5.5+ and additionally the basic type in PHP 7.0+.
-	 * 该类型是5.5+中的PHP类，也是PHP 7.0+中的基本类型。
      *
      * @return string|null
      */
@@ -91,7 +87,6 @@ class ArgumentMetadata
 
     /**
      * Returns whether the argument has a default value.
-	 * 返回参数是否有默认值
      *
      * Implies whether an argument is optional.
      *
@@ -104,7 +99,6 @@ class ArgumentMetadata
 
     /**
      * Returns whether the argument accepts null values.
-	 * 返回参数是否接受空值
      *
      * @return bool
      */
@@ -131,7 +125,6 @@ class ArgumentMetadata
 
     /**
      * Returns the attribute (if any) that was set on the argument.
-	 * 返回在参数上设置的属性（如果有的话）
      */
     public function getAttribute(): ?ArgumentInterface
     {

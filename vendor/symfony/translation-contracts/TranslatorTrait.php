@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Contracts，翻译，翻译特征
- */
 
 /*
  * This file is part of the Symfony package.
@@ -18,7 +15,6 @@ use Symfony\Component\Translation\Exception\InvalidArgumentException;
 
 /**
  * A trait to help implement TranslatorInterface and LocaleAwareInterface.
- * 帮助实现TranslatorInterface和LocaleAwareInterface的trait
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -137,7 +133,6 @@ EOF;
 
     /**
      * Returns the plural position to use for the given locale and number.
-	 * 返回要用于给定区域设置和数字的复数位置
      *
      * The plural rules are derived from code of the Zend Framework (2010-09-25),
      * which is subject to the new BSD license (http://framework.zend.com/license/new-bsd).

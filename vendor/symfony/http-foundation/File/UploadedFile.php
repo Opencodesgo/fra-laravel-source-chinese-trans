@@ -27,7 +27,6 @@ use Symfony\Component\Mime\MimeTypes;
 
 /**
  * A file uploaded through a form.
- * 通过表单上传的文件
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  * @author Florian Eckerstorfer <florian@eckerstorfer.org>

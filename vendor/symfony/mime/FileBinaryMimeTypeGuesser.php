@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Symfony，Component，Mime，文件二进制Mime类型猜测器
  */

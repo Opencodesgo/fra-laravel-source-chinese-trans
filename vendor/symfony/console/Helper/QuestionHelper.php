@@ -32,7 +32,6 @@ use function Symfony\Component\String\s;
 
 /**
  * The QuestionHelper class provides helpers to interact with the user.
- * QuestionHelper类提供了与用户交互的助手
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -48,7 +47,6 @@ class QuestionHelper extends Helper
 
     /**
      * Asks a question to the user.
-	 * 向用户询问一个问题
      *
      * @return mixed The user answer
      *

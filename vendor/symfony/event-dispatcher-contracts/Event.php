@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，EventDispatcher，事件
- */
 
 /*
  * This file is part of the Symfony package.

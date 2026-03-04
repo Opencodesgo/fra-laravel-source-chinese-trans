@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Translation，日志翻译
- */
 
 /*
  * This file is part of the Symfony package.
@@ -105,7 +102,6 @@ class LoggingTranslator implements TranslatorInterface, TranslatorBagInterface, 
 
     /**
      * Passes through all unknown calls onto the translator object.
-	 * 将所有未知调用传递给translator对象
      */
     public function __call(string $method, array $args)
     {

@@ -128,7 +128,6 @@ class Command
 
     /**
      * Ignores validation errors.
-	 * 忽略验证错误
      *
      * This is mainly useful for the help command.
      */
@@ -701,7 +700,6 @@ class Command
 
     /**
      * Validates a command name.
-	 * 验证命令名
      *
      * It must be non-empty and parts can optionally be separated by ":".
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Symfony，Component，Mime，消息转换器
  */

@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Polyfill，编码，Iconv
- */
 
 /*
  * This file is part of the Symfony package.

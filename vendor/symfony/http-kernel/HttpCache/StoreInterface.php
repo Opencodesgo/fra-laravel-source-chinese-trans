@@ -53,7 +53,6 @@ interface StoreInterface
 
     /**
      * Locks the cache for a given Request.
-	 * 锁定给定请求的缓存
      *
      * @return bool|string true if the lock is acquired, the path to the current lock otherwise
      */
@@ -61,7 +60,6 @@ interface StoreInterface
 
     /**
      * Releases the lock for the given Request.
-	 * 释放给定请求的锁
      *
      * @return bool False if the lock file does not exist or cannot be unlocked, true otherwise
      */
@@ -69,7 +67,6 @@ interface StoreInterface
 
     /**
      * Returns whether or not a lock exists.
-	 * 返回锁是否存在
      *
      * @return bool true if lock exists, false otherwise
      */
@@ -77,7 +74,6 @@ interface StoreInterface
 
     /**
      * Purges data for the given URL.
-	 * 清除给定URL的数据
      *
      * @return bool true if the URL exists and has been purged, false otherwise
      */
@@ -85,7 +81,6 @@ interface StoreInterface
 
     /**
      * Cleanups storage.
-	 * 清理存储
      */
     public function cleanup();
 }

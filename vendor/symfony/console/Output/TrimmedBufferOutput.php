@@ -19,7 +19,6 @@ use Symfony\Component\Console\Formatter\OutputFormatterInterface;
 
 /**
  * A BufferedOutput that keeps only the last N chars.
- * 只保留最后N个字符的BufferedOutput
  *
  * @author Jérémy Derussé <jeremy@derusse.com>
  */
@@ -40,7 +39,6 @@ class TrimmedBufferOutput extends Output
 
     /**
      * Empties buffer and returns its content.
-	 * 清空缓冲区并返回其内容
      *
      * @return string
      */

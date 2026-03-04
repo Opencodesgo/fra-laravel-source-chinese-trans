@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Finder，迭代器，文件内容过滤迭代器
- */
 
 /*
  * This file is part of the Symfony package.
@@ -16,7 +13,6 @@ namespace Symfony\Component\Finder\Iterator;
 
 /**
  * FilecontentFilterIterator filters files by their contents using patterns (regexps or strings).
- * filcontentfilteriterator使用模式（regexp或字符串）根据文件的内容过滤文件
  *
  * @author Fabien Potencier  <fabien@symfony.com>
  * @author Włodzimierz Gajda <gajdaw@gajdaw.pl>

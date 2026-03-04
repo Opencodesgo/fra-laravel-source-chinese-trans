@@ -1,7 +1,4 @@
 <?php
-/**
- * Symfony，Component，Finder，比较器，日期比较器
- */
 
 /*
  * This file is part of the Symfony package.
